@@ -1,0 +1,6 @@
+# KBKx robots.txt
+# PLACEHOLDER domain — update the Sitemap URL to your production host before launch.
+User-agent: *
+Allow: /
+
+Sitemap: https://www.kbkx.example.com/sitemap.xml

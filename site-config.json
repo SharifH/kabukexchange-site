@@ -1,0 +1,102 @@
+{
+  "_comment": "KabuK Exchange site configuration. Non-engineers can safely edit the values below. Placeholder values are marked with PLACEHOLDER — replace before going live.",
+  "adminConsoleUrl": "https://console.kbkx.example.com/login",
+  "leadRouting": {
+    "partnerEmail": "partnerships@kbkx.example.com",
+    "hotelEmail": "supply@kbkx.example.com",
+    "generalEmail": "hello@kbkx.example.com"
+  },
+  "formMode": "mailto",
+  "_footerCompanyStyleHelp": "How the KabuK Style Inc. footer column renders: 'text' (default) or 'icons' (A/B candidate — shows the service icons below).",
+  "footerCompanyStyle": "text",
+  "apiEndpoint": "https://api.kbkx.example.com/v1/leads",
+  "footerLinks": [
+    {
+      "label": "Supply Partners",
+      "href": "/hotels/"
+    },
+    {
+      "label": "Demand Partners",
+      "href": "/partners/#demand-partners"
+    },
+    {
+      "label": "Connectivity Partners",
+      "href": "/partners/#connectivity-partners"
+    },
+    {
+      "label": "How KBKx Works",
+      "href": "/#how-it-works"
+    },
+    {
+      "label": "About KabuK Exchange",
+      "href": "/about/"
+    },
+    {
+      "label": "Become a Partner",
+      "href": "/become-a-partner/"
+    },
+    {
+      "label": "Privacy Policy",
+      "href": "/privacy/"
+    },
+    {
+      "label": "Terms of Use",
+      "href": "/terms/"
+    }
+  ],
+  "companyLinks": [
+    {
+      "label": "KabuK Style Inc.",
+      "href": "https://www.kabuk.co.jp",
+      "icon": "building",
+      "note": "PLACEHOLDER URL"
+    },
+    {
+      "label": "HafH",
+      "href": "https://www.hafh.com",
+      "icon": "bed",
+      "note": "PLACEHOLDER URL"
+    },
+    {
+      "label": "KabuK Style News",
+      "href": "https://www.kabuk.co.jp/news",
+      "icon": "newspaper",
+      "note": "PLACEHOLDER URL"
+    },
+    {
+      "label": "Contact",
+      "href": "mailto:hello@kbkx.example.com",
+      "icon": "mail",
+      "note": "PLACEHOLDER EMAIL"
+    },
+    {
+      "label": "Careers",
+      "href": "https://herp.careers/v1/kabukstyle",
+      "icon": "briefcase",
+      "note": "PLACEHOLDER URL"
+    }
+  ],
+  "features": {
+    "partnerLogos": false,
+    "featuredProperties": false,
+    "successStories": false,
+    "networkMetrics": false,
+    "hotelPhotography": false,
+    "publicApiDocs": false,
+    "knowledgeCenter": false,
+    "events": false,
+    "statusPage": false,
+    "certifications": false,
+    "kaos": true
+  },
+  "statusPageUrl": "#",
+  "developerLinks": {
+    "developerDocsUrl": "/developers/guides/",
+    "apiReferenceUrl": "/developers/api/",
+    "sandboxUrl": "/become-a-partner/?interest=sandbox",
+    "changelogUrl": "/resources/#release-notes",
+    "integrationSupportUrl": "/become-a-partner/?interest=technical-integration"
+  },
+  "kabukPlatformUrl": "https://platform.kabuk.example.com/",
+  "_kabukPlatformUrlNote": "PLACEHOLDER — replace with the public KabuK Platform website URL when finalized. While this value is empty, '#', or an example.com address, every KabuK Platform link renders as a non-clickable 'Learn more soon' treatment."
+}

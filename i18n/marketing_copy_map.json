@@ -1,0 +1,558 @@
+{
+  "cta.explorePlatform": {
+    "original_en": "Explore the Platform",
+    "corrected_en": "Explore the Platform"
+  },
+  "home.hero.badge2": {
+    "original_en": "Enterprise infrastructure",
+    "corrected_en": "Enterprise-grade infrastructure"
+  },
+  "home.ecosystem.eyebrow": {
+    "original_en": "The travel ecosystem",
+    "corrected_en": "The travel ecosystem"
+  },
+  "home.why.eyebrow": {
+    "original_en": "Business outcomes",
+    "corrected_en": "Business outcomes"
+  },
+  "home.platform.eyebrow": {
+    "original_en": "Platform",
+    "corrected_en": "Platform"
+  },
+  "home.network.eyebrow": {
+    "original_en": "Trusted infrastructure",
+    "corrected_en": "Trusted Infrastructure"
+  },
+  "home.ecosystemDirectory.eyebrow": {
+    "original_en": "Partner ecosystem",
+    "corrected_en": "Partner Ecosystem"
+  },
+  "serve.subtitle": {
+    "original_en": "Whether you contribute hotel supply, connect property systems, or distribute inventory to travelers, KBKx provides a clear path for your organization.",
+    "corrected_en": "Whether you provide hotel supply, connect property systems, or distribute inventory to travelers, KBKx offers a clear path for your organization."
+  },
+  "why.subtitle": {
+    "original_en": "Commercial growth and operational confidence, supported by the infrastructure required to deliver both.",
+    "corrected_en": "Commercial growth and operational confidence, supported by the infrastructure needed to deliver both."
+  },
+  "capabilities.subtitle": {
+    "original_en": "One operating foundation for connectivity, hotel inventory, pricing, reservations, partner operations, financial workflows, and insight.",
+    "corrected_en": "A single operating foundation for connectivity, hotel inventory, pricing, reservations, partner operations, financial workflows, and insights."
+  },
+  "network.title": {
+    "original_en": "Great travel experiences begin with trusted partnerships",
+    "corrected_en": "Great travel experiences start with trusted partnerships"
+  },
+  "ecosystem.subtitle": {
+    "original_en": "See how hotel supply, connectivity providers, and distribution partners come together through KBKx.",
+    "corrected_en": "See how hotel supply, connectivity providers, and distribution partners work together through KBKx."
+  },
+  "leadcta.subtitle": {
+    "original_en": "Whether you represent a hotel, technology provider, or distribution business, we would like to understand your objectives and explore the right partnership model.",
+    "corrected_en": "Whether you represent a hotel, technology provider, or distribution business, we’d like to understand your goals and explore the right partnership model."
+  },
+  "hotels.hero.title": {
+    "original_en": "Expand hotel distribution without expanding operational complexity",
+    "corrected_en": "Expand hotel distribution without increasing operational complexity"
+  },
+  "hotels.why.eyebrow": {
+    "original_en": "Your commercial objectives",
+    "corrected_en": "Your commercial objectives"
+  },
+  "hotels.why.title": {
+    "original_en": "Expand distribution. Maintain control. Reduce manual work.",
+    "corrected_en": "Expand distribution. Maintain control. Reduce manual work."
+  },
+  "hotels.why.subtitle": {
+    "original_en": "Regional sales, revenue, distribution, and property teams need growth without another layer of operational complexity.",
+    "corrected_en": "Regional sales, revenue, distribution, and property teams need growth without another layer of operational complexity."
+  },
+  "hotels.why.card1.t": {
+    "original_en": "Reach relevant demand",
+    "corrected_en": "Reach relevant demand"
+  },
+  "hotels.why.card1.d": {
+    "original_en": "Expand access to regional and international distribution partners aligned with your commercial strategy.",
+    "corrected_en": "Expand access to regional and international distribution partners aligned with your commercial strategy."
+  },
+  "hotels.why.card2.t": {
+    "original_en": "Bring opportunities live faster",
+    "corrected_en": "Bring opportunities live faster"
+  },
+  "hotels.why.card2.d": {
+    "original_en": "Use structured onboarding, mapping, content, and readiness workflows to reduce coordination across teams.",
+    "corrected_en": "Use structured onboarding, mapping, content, and readiness workflows to reduce coordination across teams."
+  },
+  "hotels.why.card3.t": {
+    "original_en": "Keep commercial control",
+    "corrected_en": "Keep commercial control"
+  },
+  "hotels.why.card3.d": {
+    "original_en": "Maintain control over inventory, pricing, channel eligibility, policies, and partner relationships.",
+    "corrected_en": "Maintain control over inventory, pricing, channel eligibility, policies, and partner relationships."
+  },
+  "hotels.benefit1": {
+    "original_en": "Broader distribution — reach demand partners across regions, traveler segments, and business models.",
+    "corrected_en": "Broader distribution — reach demand partners across regions, traveler segments, and business models."
+  },
+  "hotels.benefit2": {
+    "original_en": "Operational simplicity — reduce spreadsheets, email threads, repeated mapping, and manual coordination.",
+    "corrected_en": "Operational simplicity — reduce spreadsheets, email threads, repeated mapping, and manual coordination."
+  },
+  "hotels.benefit3": {
+    "original_en": "Commercial control — manage eligible channels, pricing approaches, and property participation.",
+    "corrected_en": "Commercial control — manage eligible channels, pricing approaches, and property participation."
+  },
+  "hotels.benefit4": {
+    "original_en": "Partner support — coordinate onboarding, readiness, and ongoing operational issues through one relationship.",
+    "corrected_en": "Partner support — coordinate onboarding, readiness, and ongoing operational issues through one relationship."
+  },
+  "hotels.benefit5": {
+    "original_en": "Financial transparency — support invoicing, reconciliation, and settlement across distribution relationships.",
+    "corrected_en": "Financial transparency — support invoicing, reconciliation, and settlement across distribution relationships."
+  },
+  "hotels.benefit6": {
+    "original_en": "KabuK reach — access KabuK Style channels such as HafH where commercially appropriate.",
+    "corrected_en": "KabuK reach — access KabuK Style channels such as HafH where commercially appropriate."
+  },
+  "hotels.roadmap.t": {
+    "original_en": "Property-system connectivity",
+    "corrected_en": "Property-system connectivity"
+  },
+  "hotels.roadmap.d": {
+    "original_en": "Planned PMS and channel-manager integrations are intended to reduce manual work for eligible properties while preserving existing operational systems.",
+    "corrected_en": "Planned PMS and channel-manager integrations are intended to reduce manual work for eligible properties while preserving existing operational systems."
+  },
+  "hotels.roadmap.note": {
+    "original_en": "Roadmap capability — availability depends on integration and partner readiness.",
+    "corrected_en": "Roadmap capability — availability depends on integration and partner readiness."
+  },
+  "hotels.step1.t": {
+    "original_en": "Share your objectives",
+    "corrected_en": "Share your objectives"
+  },
+  "hotels.step1.d": {
+    "original_en": "Tell us about your property portfolio, target markets, current systems, and distribution priorities.",
+    "corrected_en": "Tell us about your property portfolio, target markets, current systems, and distribution priorities."
+  },
+  "hotels.step2.t": {
+    "original_en": "Align the commercial model",
+    "corrected_en": "Align the commercial model"
+  },
+  "hotels.step2.d": {
+    "original_en": "Confirm eligible properties, channels, rates, policies, responsibilities, and settlement requirements.",
+    "corrected_en": "Confirm eligible properties, channels, rates, policies, responsibilities, and settlement requirements."
+  },
+  "hotels.step3.t": {
+    "original_en": "Complete onboarding and readiness",
+    "corrected_en": "Complete onboarding and readiness"
+  },
+  "hotels.step3.d": {
+    "original_en": "Prepare content, room and rate mapping, inventory, pricing, testing, and operational ownership.",
+    "corrected_en": "Prepare content, room and rate mapping, inventory, pricing, testing, and operational ownership."
+  },
+  "hotels.step4.t": {
+    "original_en": "Launch, measure, and improve",
+    "corrected_en": "Launch, measure, and improve"
+  },
+  "hotels.step4.d": {
+    "original_en": "Go live with eligible partners, monitor performance, resolve exceptions, and expand based on results.",
+    "corrected_en": "Go live with eligible partners, monitor performance, resolve exceptions, and expand based on results."
+  },
+  "hotels.use1.t": {
+    "original_en": "Regional sales teams",
+    "corrected_en": "Regional sales teams"
+  },
+  "hotels.use1.d": {
+    "original_en": "Open new demand relationships for specific hotels or regional portfolios without requiring a company-wide technology replacement.",
+    "corrected_en": "Open new demand relationships for specific hotels or regional portfolios without requiring a company-wide technology replacement."
+  },
+  "hotels.use2.t": {
+    "original_en": "Revenue and distribution teams",
+    "corrected_en": "Revenue and distribution teams"
+  },
+  "hotels.use2.d": {
+    "original_en": "Manage channel participation, pricing approaches, and distribution performance with clearer operational visibility.",
+    "corrected_en": "Manage channel participation, pricing approaches, and distribution performance with clearer operational visibility."
+  },
+  "hotels.use3.t": {
+    "original_en": "Independent and growing properties",
+    "corrected_en": "Independent and growing properties"
+  },
+  "hotels.use3.d": {
+    "original_en": "Access structured distribution and partner support without maintaining multiple direct relationships alone.",
+    "corrected_en": "Access structured distribution and partner support without having to manage multiple direct relationships on your own."
+  },
+  "hotels.cta.title": {
+    "original_en": "Discuss the right distribution opportunity for your hotel",
+    "corrected_en": "Discuss the right distribution opportunity for your hotel"
+  },
+  "hotels.cta.subtitle": {
+    "original_en": "Tell us which property or portfolio you represent, the markets you want to reach, and how you manage distribution today. We will evaluate the right path together.",
+    "corrected_en": "Tell us which property or portfolio you represent, the markets you want to reach, and how you manage distribution today. We will evaluate the right path together."
+  },
+  "partners.why.eyebrow": {
+    "original_en": "Shared success",
+    "corrected_en": "Shared success"
+  },
+  "partners.why.title": {
+    "original_en": "Grow your network without rebuilding every workflow",
+    "corrected_en": "Grow your network without rebuilding every workflow"
+  },
+  "partners.why.subtitle": {
+    "original_en": "KBKx helps partners add hotel relationships while coordinating the connectivity, mapping, operational, and financial work required to keep them successful.",
+    "corrected_en": "KBKx helps partners add hotel relationships while coordinating the connectivity, mapping, operational, and financial work required to keep them successful."
+  },
+  "partners.why1.t": {
+    "original_en": "Reliable supply and connectivity",
+    "corrected_en": "Reliable supply and connectivity"
+  },
+  "partners.why1.d": {
+    "original_en": "Access structured inventory and integration patterns designed for consistent partner operations.",
+    "corrected_en": "Access structured inventory and integration patterns designed for consistent partner operations."
+  },
+  "partners.why2.t": {
+    "original_en": "Faster partner onboarding",
+    "corrected_en": "Faster partner onboarding"
+  },
+  "partners.why2.d": {
+    "original_en": "Coordinate commercial, technical, mapping, testing, and readiness work through a structured implementation path.",
+    "corrected_en": "Coordinate commercial, technical, mapping, testing, and readiness work through a structured implementation path."
+  },
+  "partners.why3.t": {
+    "original_en": "Flexible commercial relationships",
+    "corrected_en": "Flexible commercial relationships"
+  },
+  "partners.why3.d": {
+    "original_en": "Support different partner types, distribution models, volumes, eligibility rules, and operating responsibilities.",
+    "corrected_en": "Support different partner types, distribution models, volumes, eligibility rules, and operating responsibilities."
+  },
+  "partners.why4.t": {
+    "original_en": "Responsible redistribution",
+    "corrected_en": "Responsible redistribution"
+  },
+  "partners.why4.d": {
+    "original_en": "Enable approved downstream distribution with clear commercial controls and traceable supply relationships.",
+    "corrected_en": "Enable approved downstream distribution with clear commercial controls and traceable supply relationships."
+  },
+  "partners.why5.t": {
+    "original_en": "Transparent financial operations",
+    "corrected_en": "Transparent financial operations"
+  },
+  "partners.why5.d": {
+    "original_en": "Coordinate billing, invoicing, reconciliation, credit, and settlement across multiple parties.",
+    "corrected_en": "Coordinate billing, invoicing, reconciliation, credit, and settlement across multiple parties."
+  },
+  "partners.why6.t": {
+    "original_en": "Ongoing operational partnership",
+    "corrected_en": "Ongoing operational partnership"
+  },
+  "partners.why6.d": {
+    "original_en": "Maintain visibility, issue ownership, support workflows, and continuous improvement after launch.",
+    "corrected_en": "Maintain visibility, issue ownership, support workflows, and continuous improvement after launch."
+  },
+  "partners.demand.subtitle": {
+    "original_en": "Grow your supply portfolio through infrastructure designed for operational consistency and long-term partnership.",
+    "corrected_en": "Grow your supply portfolio through infrastructure designed for operational consistency and long-term partnership."
+  },
+  "partners.demand1.t": {
+    "original_en": "OTAs & marketplaces",
+    "corrected_en": "OTAs & marketplaces"
+  },
+  "partners.demand1.d": {
+    "original_en": "Add structured supply while maintaining a consistent customer and booking experience.",
+    "corrected_en": "Add structured supply while maintaining a consistent customer and booking experience."
+  },
+  "partners.demand2.t": {
+    "original_en": "Travel agencies, DMCs & TMCs",
+    "corrected_en": "Travel agencies, DMCs & TMCs"
+  },
+  "partners.demand2.d": {
+    "original_en": "Serve domestic, inbound, corporate, and specialist travel needs with reliable inventory and support.",
+    "corrected_en": "Serve domestic, inbound, corporate, and specialist travel needs with reliable inventory and support."
+  },
+  "partners.demand3.t": {
+    "original_en": "Bedbanks & wholesalers",
+    "corrected_en": "Bedbanks & wholesalers"
+  },
+  "partners.demand3.d": {
+    "original_en": "Expand approved supply relationships for downstream distribution through clear commercial and operational controls.",
+    "corrected_en": "Expand approved supply relationships for downstream distribution through clear commercial and operational controls."
+  },
+  "partners.connectivity.subtitle": {
+    "original_en": "Help customers participate in new distribution relationships without rebuilding every connection independently.",
+    "corrected_en": "Help customers participate in new distribution relationships without rebuilding every connection independently."
+  },
+  "partners.conn1.t": {
+    "original_en": "PMS providers",
+    "corrected_en": "PMS providers"
+  },
+  "partners.conn1.d": {
+    "original_en": "Connect property operations with distribution workflows while preserving the systems hotels already use.",
+    "corrected_en": "Connect property operations with distribution workflows while preserving the systems hotels already use."
+  },
+  "partners.conn2.t": {
+    "original_en": "Channel managers",
+    "corrected_en": "Channel managers"
+  },
+  "partners.conn2.d": {
+    "original_en": "Extend hotel connectivity into additional commercial relationships through standardized infrastructure.",
+    "corrected_en": "Extend hotel connectivity into additional commercial relationships through standardized infrastructure."
+  },
+  "partners.conn3.t": {
+    "original_en": "CRS, switches & integration platforms",
+    "corrected_en": "CRS, switches & integration platforms"
+  },
+  "partners.conn3.d": {
+    "original_en": "Route content, availability, pricing, and reservation events across connected systems.",
+    "corrected_en": "Route content, availability, pricing, and reservation events across connected systems."
+  },
+  "partners.conn4.t": {
+    "original_en": "Technology partners",
+    "corrected_en": "Technology partners"
+  },
+  "partners.conn4.d": {
+    "original_en": "Complement KBKx with specialized payments, analytics, identity, automation, and travel technology capabilities.",
+    "corrected_en": "Complement KBKx with specialized payments, analytics, identity, automation, and travel technology capabilities."
+  },
+  "partners.supply.subtitle": {
+    "original_en": "Contribute trusted inventory through clearly defined sourcing, distribution, and operating relationships.",
+    "corrected_en": "Contribute trusted inventory through clearly defined sourcing, distribution, and operating relationships."
+  },
+  "partners.supply1.t": {
+    "original_en": "Hotel groups",
+    "corrected_en": "Hotel groups"
+  },
+  "partners.supply1.d": {
+    "original_en": "Coordinate distribution across eligible properties while maintaining portfolio and property-level control.",
+    "corrected_en": "Coordinate distribution across eligible properties while maintaining portfolio and property-level control."
+  },
+  "partners.supply2.t": {
+    "original_en": "Wholesalers",
+    "corrected_en": "Wholesalers"
+  },
+  "partners.supply2.d": {
+    "original_en": "Contribute approved inventory with clear source, pricing, redistribution, and settlement rules.",
+    "corrected_en": "Contribute approved inventory with clear source, pricing, redistribution, and settlement rules."
+  },
+  "partners.supply3.t": {
+    "original_en": "Regional suppliers",
+    "corrected_en": "Regional suppliers"
+  },
+  "partners.supply3.d": {
+    "original_en": "Bring local market knowledge and inventory relationships to regional and international demand.",
+    "corrected_en": "Bring local market knowledge and inventory relationships to regional and international demand."
+  },
+  "partners.supply4.t": {
+    "original_en": "Inventory partners",
+    "corrected_en": "Inventory partners"
+  },
+  "partners.supply4.d": {
+    "original_en": "Aggregate and distribute supply through transparent commercial and operational agreements.",
+    "corrected_en": "Aggregate and distribute supply through transparent commercial and operational agreements."
+  },
+  "partners.roadmap.t": {
+    "original_en": "AI-assisted partner operations",
+    "corrected_en": "AI-assisted partner operations"
+  },
+  "partners.roadmap.d": {
+    "original_en": "Planned KAOS capabilities are intended to assist onboarding, mapping, support, pricing, and partner follow-up while keeping decisions transparent and accountable.",
+    "corrected_en": "Planned KAOS capabilities are intended to assist onboarding, mapping, support, pricing, and partner follow-up while keeping decisions transparent and accountable."
+  },
+  "partners.roadmap.note": {
+    "original_en": "Roadmap capability — scope and timing remain subject to validation.",
+    "corrected_en": "Roadmap capability — scope and timing remain subject to validation."
+  },
+  "partners.step1.t": {
+    "original_en": "Define the opportunity",
+    "corrected_en": "Define the opportunity"
+  },
+  "partners.step1.d": {
+    "original_en": "Align on business objectives, partner type, target markets, operating model, and expected value for both sides.",
+    "corrected_en": "Align on business objectives, partner type, target markets, operating model, and the expected value for both sides."
+  },
+  "partners.step2.t": {
+    "original_en": "Agree commercial and operational responsibilities",
+    "corrected_en": "Agree on commercial and operational responsibilities"
+  },
+  "partners.step2.d": {
+    "original_en": "Confirm scope, terms, inventory or demand requirements, support ownership, and financial workflows.",
+    "corrected_en": "Confirm scope, terms, inventory or demand requirements, support ownership, and financial workflows."
+  },
+  "partners.step3.t": {
+    "original_en": "Integrate and validate",
+    "corrected_en": "Integrate and validate"
+  },
+  "partners.step3.d": {
+    "original_en": "Complete technical integration, mapping, testing, certification, and operational readiness with clear ownership.",
+    "corrected_en": "Complete technical integration, mapping, testing, certification, and operational readiness with clear ownership."
+  },
+  "partners.step4.t": {
+    "original_en": "Launch and grow together",
+    "corrected_en": "Launch and grow together"
+  },
+  "partners.step4.d": {
+    "original_en": "Move into production, monitor results, resolve issues, and expand the partnership based on shared performance.",
+    "corrected_en": "Move into production, monitor results, resolve issues, and expand the partnership based on shared performance."
+  },
+  "partners.cta.title": {
+    "original_en": "Discuss a partnership with KBKx",
+    "corrected_en": "Discuss a partnership with KBKx"
+  },
+  "partners.cta.subtitle": {
+    "original_en": "Tell us where your organization fits in the ecosystem and the business outcomes you want to achieve.",
+    "corrected_en": "Tell us where your organization fits within the ecosystem and the business outcomes you want to achieve."
+  },
+  "about.intro": {
+    "original_en": "KabuK Exchange (KBKx) is modern travel distribution infrastructure created by KabuK Style. We launch with hotel distribution, connecting supply, technology, and demand through trusted infrastructure designed to reduce operational complexity and strengthen long-term partnerships.",
+    "corrected_en": "KabuK Exchange (KBKx) is modern travel distribution infrastructure created by KabuK Style. We launch with hotel distribution, connecting supply, technology, and demand through trusted infrastructure designed to reduce operational complexity and strengthen long-term partnerships."
+  },
+  "about.mission.copy": {
+    "original_en": "Travel has evolved through decades of innovation, but every new relationship can still introduce additional integration, mapping, support, and financial work. KBKx applies proven practices from modern enterprise software, cloud infrastructure, fintech, and platform engineering to the specific realities of travel distribution.",
+    "corrected_en": "Travel has evolved through decades of innovation, but every new relationship can still introduce additional integration, mapping, support, and financial work. KBKx applies proven practices from modern enterprise software, cloud infrastructure, fintech, and platform engineering to the specific realities of travel distribution."
+  },
+  "about.shared.title": {
+    "original_en": "Built for shared success",
+    "corrected_en": "Built for shared success"
+  },
+  "about.shared.copy": {
+    "original_en": "KBKx is a true B2B2B infrastructure business. We consider the hotels and suppliers contributing inventory, the partners bringing that inventory to market, the technology companies connecting them, and the travelers who ultimately depend on the entire chain working reliably.",
+    "corrected_en": "KBKx is a true B2B2B infrastructure business. We consider the hotels and suppliers contributing inventory, the partners bringing that inventory to market, the technology companies connecting them, and the travelers who ultimately depend on the entire chain working reliably."
+  },
+  "about.scale.eyebrow": {
+    "original_en": "Our approach",
+    "corrected_en": "Our approach"
+  },
+  "about.scale.title": {
+    "original_en": "Modern infrastructure. Respect for the existing ecosystem.",
+    "corrected_en": "Modern infrastructure. Respect for the existing ecosystem."
+  },
+  "about.scale.subtitle": {
+    "original_en": "We do not aim to replace the companies that make travel work. We build infrastructure that helps them collaborate with greater trust, clarity, and operational confidence.",
+    "corrected_en": "We do not aim to replace the companies that make travel work. We build infrastructure that helps them collaborate with greater trust, clarity, and operational confidence."
+  },
+  "about.scale1.t": {
+    "original_en": "Connect through shared infrastructure",
+    "corrected_en": "Connect through shared infrastructure"
+  },
+  "about.scale1.d": {
+    "original_en": "Reduce repeated point-to-point work while preserving the systems and relationships partners already depend on.",
+    "corrected_en": "Reduce repeated point-to-point work while preserving the systems and relationships partners already depend on."
+  },
+  "about.scale2.t": {
+    "original_en": "Create value across the pipeline",
+    "corrected_en": "Create value across the pipeline"
+  },
+  "about.scale2.d": {
+    "original_en": "Design commercial and operational workflows with the success of both supply and distribution in mind.",
+    "corrected_en": "Design commercial and operational workflows with the success of both supply and distribution in mind."
+  },
+  "about.scale3.t": {
+    "original_en": "Adapt with the industry",
+    "corrected_en": "Adapt with the industry"
+  },
+  "about.scale3.d": {
+    "original_en": "Use a focused, modern operating model to respond to partner feedback and changing market needs.",
+    "corrected_en": "Use a focused, modern operating model to respond to partner feedback and changing market needs."
+  },
+  "about.value1.t": {
+    "original_en": "Trust",
+    "corrected_en": "Trust"
+  },
+  "about.value1.d": {
+    "original_en": "Earn confidence through fair relationships, clear ownership, and responsible handling of critical business operations.",
+    "corrected_en": "Earn confidence through fair relationships, clear ownership, and responsible handling of critical business operations."
+  },
+  "about.value2.t": {
+    "original_en": "Transparency",
+    "corrected_en": "Transparency"
+  },
+  "about.value2.d": {
+    "original_en": "Make sources, decisions, statuses, changes, and financial activity understandable to the appropriate partners.",
+    "corrected_en": "Make sources, decisions, statuses, changes, and financial activity understandable to the appropriate partners."
+  },
+  "about.value3.t": {
+    "original_en": "Reliability",
+    "corrected_en": "Reliability"
+  },
+  "about.value3.d": {
+    "original_en": "Design predictable technology and operating processes that partners can build their businesses around.",
+    "corrected_en": "Design predictable technology and operating processes that partners can build their businesses around."
+  },
+  "about.value4.t": {
+    "original_en": "Partnership",
+    "corrected_en": "Partnership"
+  },
+  "about.value4.d": {
+    "original_en": "Treat shared success as the measure of a sustainable B2B2B network.",
+    "corrected_en": "Treat shared success as the measure of a sustainable B2B2B network."
+  },
+  "about.value5.t": {
+    "original_en": "Operational simplicity",
+    "corrected_en": "Operational simplicity"
+  },
+  "about.value5.d": {
+    "original_en": "Reduce unnecessary complexity instead of shifting it from one participant to another.",
+    "corrected_en": "Reduce unnecessary complexity instead of shifting it from one participant to another."
+  },
+  "about.value6.t": {
+    "original_en": "Continuous improvement",
+    "corrected_en": "Continuous improvement"
+  },
+  "about.value6.d": {
+    "original_en": "Learn across industries, listen to partners, and improve the infrastructure as the ecosystem evolves.",
+    "corrected_en": "Learn across industries, listen to partners, and improve the infrastructure as the ecosystem evolves."
+  },
+  "about.roadmap.eyebrow": {
+    "original_en": "Transparency by default",
+    "corrected_en": "Transparency by default"
+  },
+  "about.roadmap.title": {
+    "original_en": "Clear about what is available and what is planned",
+    "corrected_en": "Clear about what is available and what is planned"
+  },
+  "about.roadmap.copy": {
+    "original_en": "KBKx is evolving toward a broader operating and intelligence layer for travel distribution. Roadmap capabilities—including additional property-system connectivity and KAOS-assisted workflows—are identified as planned until validated and released.",
+    "corrected_en": "KBKx is evolving toward a broader operating and intelligence layer for travel distribution. Roadmap capabilities—including additional property-system connectivity and KAOS-assisted workflows—are identified as planned until validated and released."
+  },
+  "form.becomeSubtitle": {
+    "original_en": "Tell us about your organization, the hotel distribution outcomes you want to achieve, and where you participate in the ecosystem.",
+    "corrected_en": "Tell us about your organization, the hotel distribution outcomes you want to achieve, and where you fit in the ecosystem."
+  },
+  "form.submit": {
+    "original_en": "Send Enquiry",
+    "corrected_en": "Send enquiry"
+  },
+  "form.partner.helper": {
+    "original_en": "Our team will route your enquiry to the appropriate commercial, product, or integration contact.",
+    "corrected_en": "Our team will route your enquiry to the appropriate commercial, product, or integration contact."
+  },
+  "form.hotel.helper": {
+    "original_en": "You can enquire for one property, a regional portfolio, or a larger hotel group.",
+    "corrected_en": "You can enquire about one property, a regional portfolio, or a larger hotel group."
+  },
+  "form.note": {
+    "original_en": "This internal review build opens the configured email client by default. Replace placeholder routing before public launch.",
+    "corrected_en": "This internal review build opens the configured email client by default. Replace placeholder routing before public launch."
+  },
+  "sol.hotels.d": {
+    "original_en": "For hotels, ryokan, resorts, and property groups growing distribution with greater operational control.",
+    "corrected_en": "For hotels, ryokan, resorts, and property groups seeking greater distribution with stronger operational control."
+  },
+  "plat.pricing.d": {
+    "original_en": "Configure pricing, sourcing, margin, inventory, eligibility, and channel rules.",
+    "corrected_en": "Configure pricing, sourcing, margins, inventory, eligibility, and channel rules."
+  },
+  "platform.intro.eyebrow": {
+    "original_en": "Platform solutions",
+    "corrected_en": "Platform solutions"
+  },
+  "platform.cta.title": {
+    "original_en": "Explore how the platform fits your operating model",
+    "corrected_en": "Explore how the platform aligns with your operating model"
+  },
+  "platform.cta.subtitle": {
+    "original_en": "Discuss the partner relationships, workflows, and business outcomes you want KBKx infrastructure to support.",
+    "corrected_en": "Discuss the partner relationships, workflows, and business outcomes you want KBKx infrastructure to support."
+  }
+}

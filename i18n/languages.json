@@ -1,0 +1,27 @@
+[
+  {
+    "code": "en",
+    "label": "English",
+    "dir": "ltr"
+  },
+  {
+    "code": "ja",
+    "label": "日本語",
+    "dir": "ltr"
+  },
+  {
+    "code": "ko",
+    "label": "한국어",
+    "dir": "ltr"
+  },
+  {
+    "code": "zh-TW",
+    "label": "繁體中文",
+    "dir": "ltr"
+  },
+  {
+    "code": "ar",
+    "label": "العربية",
+    "dir": "rtl"
+  }
+]

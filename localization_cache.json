@@ -1,0 +1,2120 @@
+{
+  "version": 1,
+  "english": {},
+  "translations": {},
+  "marketing": {
+    "english": {
+      "883ba934ad4e370b9815a65291a5ee3fca87b5dff968f3c94579b91a4893cb37": {
+        "corrected_english": "English"
+      },
+      "d396ea2dc33839dcf02396ebc0595dde93ab0cc89acdabd322e7558f55538266": {
+        "corrected_english": "Home"
+      },
+      "697b093e0a03fd8fe545721d355584b6dac211ccf933477826772b6e75e9c270": {
+        "corrected_english": "Supply Partners"
+      },
+      "339d13c03318d0cd5c8aff6dcd31965b195c901fa5e8ab8ec43f0fbff78f68c3": {
+        "corrected_english": "Partner Solutions"
+      },
+      "bb142ea7012b59bb1a342050598d2bc48bae3ed9b8d287eda7406affc46fb69d": {
+        "corrected_english": "About"
+      },
+      "2ad96a18bd7a4fb1a60bd6979c6eedc8b2b87e1ca1367ab0b7588130aaf6af85": {
+        "corrected_english": "Menu"
+      },
+      "789cac19b01735a5cf25e148127165caee0c7a7419873da5a7ea9fbb9c3d1302": {
+        "corrected_english": "Partner Solutions"
+      },
+      "9537698a7407cf7188983ae9852a29b6cb026ed133329baceac83314720976cc": {
+        "corrected_english": "Platform"
+      },
+      "e8add011f60067ab32f81aad963101b44c670ab6ea1999575ce89eb0f1e448ac": {
+        "corrected_english": "Ecosystem"
+      },
+      "b69870dbb3a9750f944e993b35c80e3d0abdf5eb4e5654baa1c201a3b9f61123": {
+        "corrected_english": "Partner Login"
+      },
+      "5d6ac91e702bcd15e45d05b25045479457eee533b707265d2b355e9f1d550aab": {
+        "corrected_english": "Become a Partner"
+      },
+      "eb913adb4991ec0ea104d57977d162b862ec3302bf6925fa90f08768ba921939": {
+        "corrected_english": "Connect Your Property"
+      },
+      "6d5debb176759f3a1b9be6ea98b7ccf86ea0c9b75ffdc1310a0c39f9ad2723be": {
+        "corrected_english": "Talk to Sales"
+      },
+      "188c0858998a0ee0168540e696584cd33a335c895a453bbf933152b48d959037": {
+        "corrected_english": "Explore Partner Solutions"
+      },
+      "2d8c0adf68dfd64f96663018a07c196e4c5a8b4cf82548accdab248a9a6ed955": {
+        "corrected_english": "Explore Supply Solutions"
+      },
+      "30db505beea1f14d8dba98aac32da92c336ca53cb3c6bbd227914766259e1577": {
+        "corrected_english": "Explore the Platform"
+      },
+      "2ce7131144bef9ef42f5b46469026cffbaf6007ba15951e88490e1d25f28e096": {
+        "corrected_english": "KabuK Exchange by KabuK Style"
+      },
+      "729a219c179cc5641f9b5e04bd6cd12cb869cecf18ca794abfda29e619028ae0": {
+        "corrected_english": "Powering Trusted Travel Partnerships."
+      },
+      "f37826f650c6e925140e42691c2efd8bda136d60a7f876a5b71c96277c555452": {
+        "corrected_english": "KabuK Exchange (KBKx) provides modern travel distribution infrastructure that connects hotels, technology providers, and distribution partners through reliable systems, transparent operations, and long-term collaboration."
+      },
+      "224692928630ed50b9a9d83e7581fa07ae129e798ded4c4da4f032b8d9325d3e": {
+        "corrected_english": "The hotel distribution ecosystem"
+      },
+      "2cea8f77f27712acb5cb293485562c5a937d32a25a50cf7afec26ee442f32c13": {
+        "corrected_english": "Planned"
+      },
+      "811e4f1c0d9606711a7eb395f8579efa0342ac7118c921b4637aed110485c9d6": {
+        "corrected_english": "Roadmap"
+      },
+      "0f4c7b14b24e64a39cbecd49a95b3386cd6c84c58b06da3d6951236c45549215": {
+        "corrected_english": "Planned connectivity"
+      },
+      "18faeaec4b1b72c65c6276fd6a17ccb58b5c296c51f3e2cae72d7ce3702e4f97": {
+        "corrected_english": "Built for trusted partnerships"
+      },
+      "1e8cffda92d349adaf9551419bf247a7499c0ecf6e2390f0c970cd423ce5d19a": {
+        "corrected_english": "Enterprise-grade infrastructure"
+      },
+      "1ed407336770b54358668b1cab55c45009a119498e140ed52d5a768936387a85": {
+        "corrected_english": "Designed for global distribution"
+      },
+      "f194032459bfea568e551662fc068460db1714022a9b94fa607bd8ffb1b95b63": {
+        "corrected_english": "Hotels, ryokan, resorts, and property groups seeking broader distribution without additional operational burden."
+      },
+      "b8173b992580d2245d6fccc1759c98f53209316953508a6bbd686a1d263739bc": {
+        "corrected_english": "OTAs, marketplaces, bedbanks, and travel platforms expanding reliable access to hotel supply."
+      },
+      "589161ffd9ed17e756440e98e1d983de284782ba9f5cad4390e9c826758180d9": {
+        "corrected_english": "Travel agencies, DMCs, TMCs, and membership platforms serving domestic and international travelers."
+      },
+      "73c2a5ca189df95f323099c463ec64af93da1f6b24bdeaf5c0d392e02d6b8da9": {
+        "corrected_english": "Regional suppliers, aggregators, and wholesalers contributing structured inventory to trusted distribution relationships."
+      },
+      "d9c2de790d282c3d92f5906cad71172df0be60ef2c24af04c86065642aaf5e68": {
+        "corrected_english": "PMS, CRS, channel managers, switches, and integration platforms connecting property systems with distribution."
+      },
+      "c654e82ac835765ab3aa9e7d66c77e0abd80457c6fa9642b31db8e00b253903c": {
+        "corrected_english": "KabuK travel channels"
+      },
+      "8c388dcb9b219dceb2045f78d7474b14c4ccbb8e4d242ad75b38fc02a76954bd": {
+        "corrected_english": "KabuK Style services, including HafH, extending distribution into membership and community-driven demand."
+      },
+      "d589dc0a7a859f6015044b60818dc44ebc4cbb6bc551b8afa4b09329707b6961": {
+        "corrected_english": "Expand trusted distribution"
+      },
+      "3c9eac13f013f1153d63746fa6c7b8b149ae39e26a1ea3ec7b0d7b738104f689": {
+        "corrected_english": "Reach new regional and international demand while maintaining control over inventory, pricing, and partner eligibility."
+      },
+      "bfd40003eb5d48be7978ef4e57a33b6de5b13a9106d6dd67d2c8b0c8e732e2b5": {
+        "corrected_english": "Reduce operational complexity"
+      },
+      "3f4cd6e680f9a589c906d901ac82e9a8f7f722661591c36d6f30a09ebec31789": {
+        "corrected_english": "Standardize onboarding, mapping, support, and partner workflows instead of rebuilding them for every relationship."
+      },
+      "4a203d0eef41d4ba2c147860754ef527d0797e1cf6221c2fc8ee58a7d3e91f46": {
+        "corrected_english": "Bring partners live faster"
+      },
+      "db6ba7c42719e78a5f0f528c82b6513c36c56321b47104fefa454d3664473961": {
+        "corrected_english": "Use modern integration patterns and structured implementation workflows to shorten the path from alignment to production."
+      },
+      "a3466debcf91267a2a3ec1947ae9db953cf062fa874da1e343983ac933b9704b": {
+        "corrected_english": "Operate with greater visibility"
+      },
+      "c3d9d4b9f9ce7d919b41702f77cca4586429f613bbcb08b44754797ef8e35473": {
+        "corrected_english": "Understand activity, exceptions, and partner performance through transparent operational workflows."
+      },
+      "4cb4bb8b6e218810a833fe8278949415c8a90239d26548870881b7fb898c6eb0": {
+        "corrected_english": "Distribute with confidence"
+      },
+      "e153ebe4e45e712275739b4d119fc9b1e3603d2ed802b0ef8a54758f04426de8": {
+        "corrected_english": "Apply pricing, source selection, margin, and channel rules with clear commercial controls."
+      },
+      "f79c1894f7bdd3884d92263816a06c5b8876f380a2c4b1a83a6044219fec6495": {
+        "corrected_english": "Strengthen financial trust"
+      },
+      "0d26dd4b58f0bee6b45f37af787bf23f0f0cd2922238a3d425b57a98e7ec3113": {
+        "corrected_english": "Support invoicing, reconciliation, settlement, and auditability across multi-party travel commerce."
+      },
+      "365f67fb3b2dfdce8aea4060256e8f5914da5ef93d512b8b82b09678c1f05229": {
+        "corrected_english": "Distribution Management"
+      },
+      "72d49ff61dcdb7917ee1f9251b0aec917eb6612a8285015b9c7ec9d4aa44189b": {
+        "corrected_english": "Connect supply with eligible regional and global distribution partners through configurable commercial relationships."
+      },
+      "1dcc1dacd72c7f6600432571018a5cda67b49ede38259f373b5441e4c333f790": {
+        "corrected_english": "Connectivity Infrastructure"
+      },
+      "586e135bd1834a4736b654840785548c09e41346ba7a49d475d5b432eb3b2d8d": {
+        "corrected_english": "Standardized APIs and integration workflows for search, content, pricing, availability, booking, and operations."
+      },
+      "bd535404b6f6b7928313b19734935d601d426850b98b7ed1e8c94e76d4c74b5a": {
+        "corrected_english": "Pricing & Commercial Management"
+      },
+      "d053694638ce43cd29129c6191479b469d856b184ae36db4d818a636533533fd": {
+        "corrected_english": "Manage pricing, sourcing, margins, eligibility, and channel-specific business rules."
+      },
+      "6a2f9a577d2cf8ebbd38170f43725b39ee661083af57ecdc784b4b51a0a4ff36": {
+        "corrected_english": "Reservation Operations"
+      },
+      "c8f3a1424a3ec57ff40a4dfd7fd7c0090ef0833edc08ba37dbfea2f1ceec23f1": {
+        "corrected_english": "Support booking creation, confirmation, modification, cancellation, and lifecycle visibility."
+      },
+      "e68c8cd46ed1ca492bd015705be429e536349d276a68f71f69a886631d920868": {
+        "corrected_english": "Financial Operations"
+      },
+      "542a338c6fbde82904fafb5b2a5e54899648a012a65794a5ad38da5464172e04": {
+        "corrected_english": "Coordinate invoices, reconciliation, credit, settlement, and partner financial workflows."
+      },
+      "bbb8796dc26f5c88ebd268c32c29c2c1505244db61ac84ee5b6830ace9dc7c49": {
+        "corrected_english": "Partner Operations"
+      },
+      "f49b79402facd5aaaf84966dac329dcfec10b02000f0289275eae8df5a5715cb": {
+        "corrected_english": "Simplify onboarding, mapping, readiness, support, and ongoing partner management."
+      },
+      "79b42223462a1faff50939d1ca3d157bec9c816efb8d1abcc1cc2547cee93e21": {
+        "corrected_english": "Analytics & Reporting"
+      },
+      "89baa39a231f960365829517b97e8bbb4ce06458c42e236662f81fc6af20a345": {
+        "corrected_english": "Turn operational and commercial activity into actionable performance insight."
+      },
+      "ff232a01e6868a775f2bcfc08dba101d4a113117f2c92a721c7e44fac5579087": {
+        "corrected_english": "AI & Automation"
+      },
+      "fd7d2c1a2a99416519dd2d3aaea8e65cd77c228dd1260888e1671215ec9557e7": {
+        "corrected_english": "Planned KAOS capabilities will assist onboarding, mapping, support, pricing, and partner operations."
+      },
+      "567d9cefe4732faefbba4226b084af152b5b137fc7f955ecb3a6be542d942e8b": {
+        "corrected_english": "One connection. A wider ecosystem."
+      },
+      "0e62a15fca6745cced0cf794862c2acac012c74167601deb5fd65e5a1169023d": {
+        "corrected_english": "Instead of rebuilding point-to-point processes for every partnership, participants connect through shared infrastructure. Supply and content move outward; reservations, operational events, and financial information move across the network with greater consistency and transparency."
+      },
+      "e5d73bbf452059882a6f696331ce99d257d1702d6e9827464bd31bd14b6abaea": {
+        "corrected_english": "Supply partners contribute inventory, pricing, and content"
+      },
+      "9ec27a9c9038c95f61414fb65a2b35cddc38916ffd27b86a506df423ab88fb0b": {
+        "corrected_english": "Distribution partners connect travelers with relevant products"
+      },
+      "2549c339273e67a54cfba2422e851ee518c3a4c98801eea202ac8f6311aeb165": {
+        "corrected_english": "Connectivity partners link property and reservation systems"
+      },
+      "a18c7e2a913ba4434ee3770cb6821e57a69946310522f2adbcc196ada386a0cc": {
+        "corrected_english": "KabuK channels extend access to membership-driven demand"
+      },
+      "ef5b9535d47b6c2b57ab40d0edb74d793a8093b7d1290657acbf24a5a4f1e3ea": {
+        "corrected_english": "The travel ecosystem"
+      },
+      "4e583a5a44c56fcb2c34efb1aff40b828e7c760afa16771314f6cdbeefb3fb7e": {
+        "corrected_english": "Business outcomes"
+      },
+      "a0182b49f8311a90ba3cfa3dc11114ed10334d02a883ab397d77cd597db153ca": {
+        "corrected_english": "Platform"
+      },
+      "3be88b48ddc15f8c924810ec2ab27ba05b6ef5fdfe72db78f2398441b711666b": {
+        "corrected_english": "Trusted Infrastructure"
+      },
+      "b05dc3b5323b93927ac56a84e54fced8d830961d06cdb2a1083a09c6aaaa0728": {
+        "corrected_english": "Partner Ecosystem"
+      },
+      "d31c2a6d9f1372fd4671a2cd813c8208acb6a79c2a8f076d5cf76e0d46aa03b7": {
+        "corrected_english": "Built around your role in hotel distribution"
+      },
+      "4518b03545ce176b5772708dbb6f9472cbb89cbc247f73af572a3a1239d71ece": {
+        "corrected_english": "Whether you provide hotel supply, connect property systems, or distribute inventory to travelers, KBKx offers a clear path for your organization."
+      },
+      "0363b66936264e90f9a3723fba53f9670e9e654e2d5651c3c1a7024dc338dca7": {
+        "corrected_english": "Supply Partners"
+      },
+      "b45d483bf094a1ac999546e252ff7d715baa6054324025a593bdae0d8b82d2cb": {
+        "corrected_english": "Distribution Partners"
+      },
+      "0af1fcf57b8994b86105685cbdc406d04b5f2d0168920f1ae495ed1ce32bbfb1": {
+        "corrected_english": "Travel Companies & Agencies"
+      },
+      "363d6d14603661ea117be1ae9306e25789535039a115376e3846eb49f2fe5bd5": {
+        "corrected_english": "Inventory & Supply Networks"
+      },
+      "3a1ad09e7449014df48246ed57c207ba932dfdb78b38c47d72de037225a78729": {
+        "corrected_english": "Connectivity Partners"
+      },
+      "a2a171d6ac4c22cb77a1c3c0dc40591ba6b8ae1b439e4b1a0d2d8d98c6610aea": {
+        "corrected_english": "What better hotel distribution makes possible"
+      },
+      "7fb4d6944556f3c6d1a911a76ae606e5a1b43db7142fa497aa351be0bcaf5a90": {
+        "corrected_english": "Commercial growth and operational confidence, supported by the infrastructure needed to deliver both."
+      },
+      "1187b7b4da506ed577182377f5e63c5c276d673927697e1ab9ba51241c229780": {
+        "corrected_english": "Infrastructure for the full hotel distribution lifecycle"
+      },
+      "6b81f9f902e9fb6a05ed5eedc4e4fb4e7aadfe48cc5c479cb2e0a58e6d27d2b0": {
+        "corrected_english": "A single operating foundation for connectivity, hotel inventory, pricing, reservations, partner operations, financial workflows, and insights."
+      },
+      "27907a3649f9785b8892e0def1593cbd9e6d76efdba76496902b2508c5749fdb": {
+        "corrected_english": "Great travel experiences start with trusted partnerships"
+      },
+      "b000e8f2827887dd4ab7894fde31a9c5104832121f60b81120af43a0a61a0b56": {
+        "corrected_english": "KBKx helps hotels, technology providers, and distribution partners work together with greater clarity, consistency, and operational confidence."
+      },
+      "d0490bebf513bdb7fbd07d52aa8cce115e377934c5dc3985dab96fbaf59dfd3f": {
+        "corrected_english": "The hotel distribution ecosystem"
+      },
+      "a831288ae17d22051209c3cc5d96ca196e489e8dffa13cfdb589328fb777bc07": {
+        "corrected_english": "See how hotel supply, connectivity providers, and distribution partners work together through KBKx."
+      },
+      "056a5a0dbd8d1aec4a1cd3ffd4d1d3eaa64e4b9c2108c1e4da6a6b4f11d571bd": {
+        "corrected_english": "Filter by category"
+      },
+      "de58faf4b8633a1e13b3d7cf3034c5716a7136e3590c23837ee056eee5589553": {
+        "corrected_english": "Let’s strengthen hotel distribution together"
+      },
+      "c286891fd5276e41839ee304d2979e6db671b5a792d41daa833d4b317f0a6ee8": {
+        "corrected_english": "Whether you represent a hotel, technology provider, or distribution business, we’d like to understand your goals and explore the right partnership model."
+      },
+      "272e9d7d73e55142f7b94af894e0750cabe728e7fb67b3880a4ad196b95e5f44": {
+        "corrected_english": "For supply partners"
+      },
+      "4a49dcfbbf2d42be2e6c67d981e24f2ec8cba3d72b0204116a157274157795a8": {
+        "corrected_english": "Expand hotel distribution without increasing operational complexity"
+      },
+      "88b700b7f0e351213c1c23a5f2f99fb03716cf1a998ee3ca5f935a791c9a0275": {
+        "corrected_english": "Reach relevant regional and international demand while retaining control over inventory, pricing, channel eligibility, and commercial relationships."
+      },
+      "2d589888789126b810a7656b35b56dd61e8563259b488ed25c47654f802bdcc7": {
+        "corrected_english": "Built for the outcomes hotel teams own"
+      },
+      "a15cdf7ef38b2704618158f6b1de99c99cd4e2d47351902c6e4cc0869c4060ca": {
+        "corrected_english": "A structured path to distribution"
+      },
+      "3ec58762f8df6af5c8b755584e3021e198606797e30f4a3788c470c484eb4791": {
+        "corrected_english": "Designed for properties, portfolios, and regional teams"
+      },
+      "65d1e210f3b6927f5c3a5644d6cf71cea510bc56db18d93e97b834c63de37906": {
+        "corrected_english": "Your commercial objectives"
+      },
+      "c6935a7dd517630a334add5cdff93b442edc54d7ac052fe016e6a403a60100c4": {
+        "corrected_english": "Expand distribution. Maintain control. Reduce manual work."
+      },
+      "a1e2531034c5909bac4db6cc7f5364b38cf43d6e3179f6b1dfc98572724d1dea": {
+        "corrected_english": "Regional sales, revenue, distribution, and property teams need growth without another layer of operational complexity."
+      },
+      "97faa9a9797f7570643065911a56425ee06a75a0745cd842e6224cd4485c8198": {
+        "corrected_english": "Reach relevant demand"
+      },
+      "f65db39898961a5e99a95e2bf5318d9615bf6f56f4584017f6947862222d26e1": {
+        "corrected_english": "Expand access to regional and international distribution partners aligned with your commercial strategy."
+      },
+      "11ff1b7d6986145ed48ba46dd5fa77c1481606d023cb2b0aa522dda1f0be24f0": {
+        "corrected_english": "Bring opportunities live faster"
+      },
+      "e3cb2bdcd2e6af9a033ff30e0600ccd3de5ecb9d829b28fe82f3c2225721183a": {
+        "corrected_english": "Use structured onboarding, mapping, content, and readiness workflows to reduce coordination across teams."
+      },
+      "c8a5d7a41aa2cd4a7fa657a8024e6c1071bb04d094bf2f21011e209c87f6fd40": {
+        "corrected_english": "Keep commercial control"
+      },
+      "7e36794da8a7eda65761114303b8543163791eee1cd819696de2d715254ee6a9": {
+        "corrected_english": "Maintain control over inventory, pricing, channel eligibility, policies, and partner relationships."
+      },
+      "51f4b6a5923ca92ab04e71fdae142c47c887d0ff20994e7a2dc9621632b2dac6": {
+        "corrected_english": "Broader distribution — reach demand partners across regions, traveler segments, and business models."
+      },
+      "7ccd83d5c106f927cd147c20947708c866e45718c10fc55483deaf445d596ccb": {
+        "corrected_english": "Operational simplicity — reduce spreadsheets, email threads, repeated mapping, and manual coordination."
+      },
+      "2e06cffe141b738273774b2f6ce30d689190cc9307bba1db5753a867fcf166d0": {
+        "corrected_english": "Commercial control — manage eligible channels, pricing approaches, and property participation."
+      },
+      "67a8f78defa89097d4822eb7f22ed365f37e00a4b41bc93342d8fbb5fe6be9fb": {
+        "corrected_english": "Partner support — coordinate onboarding, readiness, and ongoing operational issues through one relationship."
+      },
+      "8d652309c8c248fbca022b21bd10284771d3cdc67e001a05dccbc0418085c807": {
+        "corrected_english": "Financial transparency — support invoicing, reconciliation, and settlement across distribution relationships."
+      },
+      "eb41161a62e6bf4b9021b3a16432e3cc7f3ad90d8911314e375ed560fc446a40": {
+        "corrected_english": "KabuK reach — access KabuK Style channels such as HafH where commercially appropriate."
+      },
+      "2a625e89d6d174f679a6c28703262f047db6f7a665780811e979bb2bc6f51521": {
+        "corrected_english": "Property-system connectivity"
+      },
+      "d9df504d6b6669fb01d75ff8e40247cdfedc930fc459b74d163a0f7f6606f582": {
+        "corrected_english": "Planned PMS and channel-manager integrations are intended to reduce manual work for eligible properties while preserving existing operational systems."
+      },
+      "53a67204771c9acc003e957ecbc088d48553e3dcc6aab097ab3116df9e242fcf": {
+        "corrected_english": "Roadmap capability — availability depends on integration and partner readiness."
+      },
+      "488c9f436909ed86346758ec39e16ac6697727fabd2c71f2ea581f835df67b1b": {
+        "corrected_english": "Share your objectives"
+      },
+      "3f7f1e73a1b39c7619c540012c825869029bef27632f2ba715c17b8db642d8b3": {
+        "corrected_english": "Tell us about your property portfolio, target markets, current systems, and distribution priorities."
+      },
+      "2a9bf2e144f067f4de28b7ae4bf7e14fb0d558a8ee421db684034dc64a6f645e": {
+        "corrected_english": "Align the commercial model"
+      },
+      "ef9660a354c8bbfc74eb110cc8c63f61c346f1eec279af88a99a04ead5f36ee7": {
+        "corrected_english": "Confirm eligible properties, channels, rates, policies, responsibilities, and settlement requirements."
+      },
+      "fa702eed6d37e0475d34f8534eb3eb42bf1bb97bebc2335ba17b09774abf1668": {
+        "corrected_english": "Complete onboarding and readiness"
+      },
+      "9d080eddccb60b1b70708748340368402a4e160d57e09214e7a6fbf0482b47ea": {
+        "corrected_english": "Prepare content, room and rate mapping, inventory, pricing, testing, and operational ownership."
+      },
+      "231c4598c7caa9419d53a570d57e9b83f21a6e3475c5444e722e1c3fbf032ab5": {
+        "corrected_english": "Launch, measure, and improve"
+      },
+      "fe5a9b8f24b6bc9943e90f7f4fb18b5b10dffc84f5fd184068e985b4d12821d6": {
+        "corrected_english": "Go live with eligible partners, monitor performance, resolve exceptions, and expand based on results."
+      },
+      "aefa150e1d8f17ce8f07c7cc5ec1b14913487323368e5f98150f7a4762bbca44": {
+        "corrected_english": "Regional sales teams"
+      },
+      "c3ba93162fb894959b60a97873336bfdb25016c4cce93c9b5abe6b4e20a707fc": {
+        "corrected_english": "Open new demand relationships for specific hotels or regional portfolios without requiring a company-wide technology replacement."
+      },
+      "5bf5b7cee08ea7da756e98d6e5fd76d9a3b91072616e9fb9d10e794424ee1fd0": {
+        "corrected_english": "Revenue and distribution teams"
+      },
+      "4a9a0fb439d81f40ba33744fb22df38cde742dc75d1e9add5cb3b04f33c12cd5": {
+        "corrected_english": "Manage channel participation, pricing approaches, and distribution performance with clearer operational visibility."
+      },
+      "328c7910f0b4b823cd3799c42a694509a897e024d66bcb1d3f8046d9a0300a5d": {
+        "corrected_english": "Independent and growing properties"
+      },
+      "6da67b89ad64bf592e870272e17794734005b101680f4c8426b0673451f44043": {
+        "corrected_english": "Access structured distribution and partner support without having to manage multiple direct relationships on your own."
+      },
+      "8e2a8e82ed757a9157bfdc92f1cb6f659d532b3845721f5b62f1edf9dd212b29": {
+        "corrected_english": "Discuss the right distribution opportunity for your hotel"
+      },
+      "c9260942f666d4941d85922d1329df74e54f316ac300d38573e130066044937b": {
+        "corrected_english": "Tell us which property or portfolio you represent, the markets you want to reach, and how you manage distribution today. We will evaluate the right path together."
+      },
+      "05562da4cc8deea784325ddcdd0395fbbe0113bd1eaed05f78b55533c3cf2eee": {
+        "corrected_english": "For partner organizations"
+      },
+      "d12dc7203ed6192240c11bd6941d58542a3342040964c35211991a396e790994": {
+        "corrected_english": "Expand hotel supply relationships with greater operational confidence"
+      },
+      "21b7a9127463a9f9921321d84a3d3ad0272aa5daf800e41c41efa50942c94419": {
+        "corrected_english": "For OTAs, bedbanks, agencies, connectivity providers, and technology companies seeking reliable hotel supply, structured implementation, and transparent operations."
+      },
+      "8d521a446a463ba2c8742ce383a43e234a6164316295b6a4ff9009007f9d1845": {
+        "corrected_english": "Partner solutions"
+      },
+      "9945bd6cd11f1465e7e0d11a353f661c97e271c6dd6dbe028e5afdf0a558a527": {
+        "corrected_english": "Infrastructure that supports the full relationship"
+      },
+      "3485bc7c492ebf16b2ac374949b666fadce685e9e90f562875ad5e78f3a8ff89": {
+        "corrected_english": "From alignment to live operations"
+      },
+      "537d8ce0ce592625b2447671350ec6012abbabba6a0e72482e7d6aae895d6326": {
+        "corrected_english": "Shared success"
+      },
+      "5b76d2631d8bf96e6e628616582a94031b63bebe5c8a13fddc7f26ade2594416": {
+        "corrected_english": "Grow your network without rebuilding every workflow"
+      },
+      "ddc2376e02f32132fc959804562fd466dfc2726cdf8dc36fb55f32652c4b6206": {
+        "corrected_english": "KBKx helps partners add hotel relationships while coordinating the connectivity, mapping, operational, and financial work required to keep them successful."
+      },
+      "97bf8335bd51ebaea40eecfb8169c9935459e47c010e92502141fc428576553d": {
+        "corrected_english": "Reliable supply and connectivity"
+      },
+      "8b6e2b9c152d6ba1febbe63ee5153a105ec972b4cdfdc906bdda89f56210a0b5": {
+        "corrected_english": "Access structured inventory and integration patterns designed for consistent partner operations."
+      },
+      "eec2bc0f39dbc21c8dd2e7673a486f8fe980ae04e936c2e36e480214071e0e72": {
+        "corrected_english": "Faster partner onboarding"
+      },
+      "80731b92cef4c0e680f818483e075bd681e1df2268a23cdf0b8eb926f3d8ce2b": {
+        "corrected_english": "Coordinate commercial, technical, mapping, testing, and readiness work through a structured implementation path."
+      },
+      "befd8f18b80123cbef692e12fd1e1545389cd003fb8c2c1710519ad358d26b86": {
+        "corrected_english": "Flexible commercial relationships"
+      },
+      "5f5d992937dfadfd44ce6b14e625802535275fb4925c9ddf23670d890b4237df": {
+        "corrected_english": "Support different partner types, distribution models, volumes, eligibility rules, and operating responsibilities."
+      },
+      "bed4132f747fa13f62187a35e5af33404f8dd74b87dc12bbc4b4e65dcca4d539": {
+        "corrected_english": "Responsible redistribution"
+      },
+      "f74471bea6a6a1be376fd9e55e59a70d02ee80a38efa0516c5198e1d05e2167e": {
+        "corrected_english": "Enable approved downstream distribution with clear commercial controls and traceable supply relationships."
+      },
+      "248784b7e25b1da084a8792c498979faefc1e3a175a0b0d958396555bd3fa578": {
+        "corrected_english": "Transparent financial operations"
+      },
+      "a49f8d1dfdad6e28bc5d44b06a48c83b790cbd8c1650af130afc56b6d842a5b4": {
+        "corrected_english": "Coordinate billing, invoicing, reconciliation, credit, and settlement across multiple parties."
+      },
+      "ec7437cfbacf64147fbdfc38783ecbd81760582049e6ad707d9aa635ec51a0b5": {
+        "corrected_english": "Ongoing operational partnership"
+      },
+      "b3e3dc5073ec13b456604f7c76baaf5dfbdb6b1bd13f95343d76cae2d7988cd9": {
+        "corrected_english": "Maintain visibility, issue ownership, support workflows, and continuous improvement after launch."
+      },
+      "c6c07e8c852b2becfd05e08ad233ea8adf668429098877bfa960db4dd66ee623": {
+        "corrected_english": "Grow your supply portfolio through infrastructure designed for operational consistency and long-term partnership."
+      },
+      "7bc192729b6d40da7ac418599007f89f73f86d4a94e430742076623a02bb5ada": {
+        "corrected_english": "OTAs & marketplaces"
+      },
+      "e17d80732618bc30b8a6ddb66c1b7c54ae2a2078bb7ff6d8cda8964b5f46b574": {
+        "corrected_english": "Add structured supply while maintaining a consistent customer and booking experience."
+      },
+      "c0e84bb79df16fdb0c9f3c978a5740c91ecef4d3bb6d2aca3e4e34a052d94adb": {
+        "corrected_english": "Travel agencies, DMCs & TMCs"
+      },
+      "0cfb2afbd12b818dd1e191028034debdaeafa818571525791345968f1fc9ca1b": {
+        "corrected_english": "Serve domestic, inbound, corporate, and specialist travel needs with reliable inventory and support."
+      },
+      "7d0db12f6f79c0e461cd3de21b59d83ae584a6a78d6b9ec3402c64f1ae08ed19": {
+        "corrected_english": "Bedbanks & wholesalers"
+      },
+      "999d3e536162806fb8cc6e6d4bcf9547c727e91f94eb53e082a0bd8bdc469168": {
+        "corrected_english": "Expand approved supply relationships for downstream distribution through clear commercial and operational controls."
+      },
+      "ef3ad138f38f1cd5a364e4999ccc115b5baf924bfe61d2779e1c552f835e5b27": {
+        "corrected_english": "Help customers participate in new distribution relationships without rebuilding every connection independently."
+      },
+      "71e43c7b28b7fbc17b7170f37807a433309241dc329e50cd2cc186d6863dcdba": {
+        "corrected_english": "PMS providers"
+      },
+      "da69b849a1b745f95b9e110d73012c75953671e3c1e3b1cc9d3b03d7a2d9c1c4": {
+        "corrected_english": "Connect property operations with distribution workflows while preserving the systems hotels already use."
+      },
+      "d0af6c6abcdc346ea5ab8f8d7275d6daa94741b439deeb30604e2c71501a789e": {
+        "corrected_english": "Channel managers"
+      },
+      "3c6157d1fd0f4f9f9cadb3f7645560125921288ea6f8f80157692997867ed905": {
+        "corrected_english": "Extend hotel connectivity into additional commercial relationships through standardized infrastructure."
+      },
+      "a3c11afe7d1938ed34dcaf75a00789f7d2063d42a1512751cce19af5f1adeeed": {
+        "corrected_english": "CRS, switches & integration platforms"
+      },
+      "43baca6dca3a870a0dbfc4ebe1b6183884acff0343e8464362c642b5dd5a1231": {
+        "corrected_english": "Route content, availability, pricing, and reservation events across connected systems."
+      },
+      "62c5d0f2097a54a5c6cabac780e579df54079050612d31070b0bc96767634c09": {
+        "corrected_english": "Technology partners"
+      },
+      "8e25ac5f497a047f169751407d96074ec8ddfcc73df6093c77ad929c1b6b2bc8": {
+        "corrected_english": "Complement KBKx with specialized payments, analytics, identity, automation, and travel technology capabilities."
+      },
+      "31572bac243cafe406e1b10a03bbe17d9b6e4e78251e4dd7a7ee1c3675058c96": {
+        "corrected_english": "Contribute trusted inventory through clearly defined sourcing, distribution, and operating relationships."
+      },
+      "c64c8e5b6b03e76e5fb6708221992a40bfdb18cbef3d1609575effdeca7c562e": {
+        "corrected_english": "Hotel groups"
+      },
+      "f3746cf41679764a1d7f9e6b50768e961fe754fb7a045bf5b2e8a5c768a97ca4": {
+        "corrected_english": "Coordinate distribution across eligible properties while maintaining portfolio and property-level control."
+      },
+      "31176ba24a566adfe6cfdbb75d3b1284780277a8f49272aa8c15efb65f2d7ca5": {
+        "corrected_english": "Wholesalers"
+      },
+      "29f06f4f54aa1e92b8b594ae913a5d4b2eff5be287ffd820c80bf14e981c3f7e": {
+        "corrected_english": "Contribute approved inventory with clear source, pricing, redistribution, and settlement rules."
+      },
+      "57de4f1e830660dd9a0f95474a296c91bd5f4489012964f446fcef285c83dfd2": {
+        "corrected_english": "Regional suppliers"
+      },
+      "3f48a1c0879b52a62b426dc19e41384c6d06fb27572568720d98be95a751e8f3": {
+        "corrected_english": "Bring local market knowledge and inventory relationships to regional and international demand."
+      },
+      "d167eb7b354fe7e8ca8d9d143a380842aa1ba07b390098731f86ebf52b92b704": {
+        "corrected_english": "Inventory partners"
+      },
+      "99da65481fc960cc59cfadc14c7af6d23ae67b6c82264129595d71179aeaaa04": {
+        "corrected_english": "Aggregate and distribute supply through transparent commercial and operational agreements."
+      },
+      "a2bb06ecd5295cd5bfb32af0109322108516e3c105a101324c7ec38b04833693": {
+        "corrected_english": "AI-assisted partner operations"
+      },
+      "cad7c226c97ee1057a79a32e288db78a237d3550d45edc786642e1f0f837a0a4": {
+        "corrected_english": "Planned KAOS capabilities are intended to assist onboarding, mapping, support, pricing, and partner follow-up while keeping decisions transparent and accountable."
+      },
+      "d4a4d5a26e6e7ee14b7e9732c9b3d2ce0a445ba2322184c04f06e19347427753": {
+        "corrected_english": "Roadmap capability — scope and timing remain subject to validation."
+      },
+      "c5fe56b742a02437471308069f87c9d836970e00e42cfb1d25bb7705b168ef9c": {
+        "corrected_english": "Define the opportunity"
+      },
+      "2cba140f391cba9fdc3df8322df25636087ab25e978a277d282f5dd7110fe9f1": {
+        "corrected_english": "Align on business objectives, partner type, target markets, operating model, and the expected value for both sides."
+      },
+      "174e4d930e11a4ee0f55c5f4ec653b0d2537560946f791c6b0ac93a71dff5d26": {
+        "corrected_english": "Agree on commercial and operational responsibilities"
+      },
+      "497219b712207109a3b7212ccdc94aadc2df45808afa82d48e5207d9df68290f": {
+        "corrected_english": "Confirm scope, terms, inventory or demand requirements, support ownership, and financial workflows."
+      },
+      "035f28117ef6705cea8604d1016dd2ee9dd0dd938e91318fbce19acc640f8afc": {
+        "corrected_english": "Integrate and validate"
+      },
+      "eeb8dbc01e7fdee61a6611882126f332b0661729ee8ff4cf86859341a7fdb88c": {
+        "corrected_english": "Complete technical integration, mapping, testing, certification, and operational readiness with clear ownership."
+      },
+      "e655a22875f7c6bd1e31106ac583f14cb84fe2ccf086864b58d86896edfaa821": {
+        "corrected_english": "Launch and grow together"
+      },
+      "bf1922c78d0c53a352c657f15fcfb021c0d67a5accc519cf924b97e57a2aa581": {
+        "corrected_english": "Move into production, monitor results, resolve issues, and expand the partnership based on shared performance."
+      },
+      "a1c79fa1e9c5f4714b498c0ec6d83a9d6e389c10c74aa183bd4475b290ed0fa4": {
+        "corrected_english": "Discuss a partnership with KBKx"
+      },
+      "7bef8f397256d0575804ddec141484c91e38598e86480b197448d7cdfa7580aa": {
+        "corrected_english": "Tell us where your organization fits within the ecosystem and the business outcomes you want to achieve."
+      },
+      "5eabd4e3f37e39d3251ef73f975fa39ae811e97243422ddefa1b6b41625a00a8": {
+        "corrected_english": "About KabuK Exchange"
+      },
+      "0c5fdf7ca8ba35a8c53381c5c37bbeac20e43e547a8d86858f13360a3ec8b88f": {
+        "corrected_english": "Built to make hotel distribution work better together"
+      },
+      "6471d51d34bbc5126e89485aeb10180e8a91793deac2bc279b30eeea2eba9627": {
+        "corrected_english": "Why KBKx exists"
+      },
+      "f303272f1fcead7c89bd376e36a524300f98cfcf1d0ef2cf27aaacfbcdcff806": {
+        "corrected_english": "Who we support"
+      },
+      "4eb41341c84bd9f61847f0db02356783451e740d839da42b777353008611c068": {
+        "corrected_english": "What partners should experience"
+      },
+      "37cd0c3d86fd61497c18e45bc583615441aad73745ffdfe7e374093327c04c60": {
+        "corrected_english": "KabuK Exchange (KBKx) is modern travel distribution infrastructure created by KabuK Style. We launch with hotel distribution, connecting supply, technology, and demand through trusted infrastructure designed to reduce operational complexity and strengthen long-term partnerships."
+      },
+      "22357298c9979fbc840c48b5f4fb06130b2b96ff44d9dbab958ec690ca498022": {
+        "corrected_english": "Travel has evolved through decades of innovation, but every new relationship can still introduce additional integration, mapping, support, and financial work. KBKx applies proven practices from modern enterprise software, cloud infrastructure, fintech, and platform engineering to the specific realities of travel distribution."
+      },
+      "05dfe02e9496248b317934a10e765b00ba4ed54c2c352a35286186bd70bf0de5": {
+        "corrected_english": "Built for shared success"
+      },
+      "f55ba127fb981e4b3787bbd9bb2244672e08df63585feefa273a388af14625c5": {
+        "corrected_english": "KBKx is a true B2B2B infrastructure business. We consider the hotels and suppliers contributing inventory, the partners bringing that inventory to market, the technology companies connecting them, and the travelers who ultimately depend on the entire chain working reliably."
+      },
+      "2597591f8aad5ae6099e8023dd74fa6da221e4994b2755dfb81cac889dac5af4": {
+        "corrected_english": "Our approach"
+      },
+      "749fe2c91c0a9abe352b17526c068ac757e0dfeaa4303309f63a04a20ecfb2cb": {
+        "corrected_english": "Modern infrastructure. Respect for the existing ecosystem."
+      },
+      "10c34138e6c6b2db2f2191b073c60ed07ba5af6f800beba4485ae4edc47e1096": {
+        "corrected_english": "We do not aim to replace the companies that make travel work. We build infrastructure that helps them collaborate with greater trust, clarity, and operational confidence."
+      },
+      "2d1532d1b2c47a239751c2e40ddae06646490e47afc9756a0bd0d437ac2dd719": {
+        "corrected_english": "Connect through shared infrastructure"
+      },
+      "7b65849d18857f2f6019cc7d5889cd971750b81be295ccc1c4848bf0cd57f705": {
+        "corrected_english": "Reduce repeated point-to-point work while preserving the systems and relationships partners already depend on."
+      },
+      "6f51058dc346d8117485cc44f78b0a1c0559d229dc862d32b99e516b06a02f97": {
+        "corrected_english": "Create value across the pipeline"
+      },
+      "96bce7e7e34d9d68cef652813c51310846e6778e5c8a05b2854f028ee62c069e": {
+        "corrected_english": "Design commercial and operational workflows with the success of both supply and distribution in mind."
+      },
+      "af89147b94243c4030554e88a71eb21ab1fd6ca303f55ff36786c8130f2968df": {
+        "corrected_english": "Adapt with the industry"
+      },
+      "85bf4fd24b034413deb37cb728d8e63e25729772116bae2ef562b823d0b23d31": {
+        "corrected_english": "Use a focused, modern operating model to respond to partner feedback and changing market needs."
+      },
+      "8c543ea5097f17eeea092b2c0744e7daa6e0fe2b0e3b52a276a8fe36331ee8c9": {
+        "corrected_english": "Trust"
+      },
+      "86ac609cdf71c075aab1af645c85316b6f3d1b14e820877bfb55a5f502d7048e": {
+        "corrected_english": "Earn confidence through fair relationships, clear ownership, and responsible handling of critical business operations."
+      },
+      "fb678e5c8bc7a5acb6fd10d3cda476a5f60a40e9ed7004ac47bcca41462bd8d2": {
+        "corrected_english": "Transparency"
+      },
+      "44a8eeb507ae3ff25bf033205e3410d980c4faf34c6bdbe89453fcea71c0f137": {
+        "corrected_english": "Make sources, decisions, statuses, changes, and financial activity understandable to the appropriate partners."
+      },
+      "5bcc50e56a371467a32f1cb0bcb5ebaf1eec8f075b5faaa08a4a71be1559d1d8": {
+        "corrected_english": "Reliability"
+      },
+      "3581ecdd2fdf2743619701d8eaf681ea149f35dddab3b39371d83de796647e6f": {
+        "corrected_english": "Design predictable technology and operating processes that partners can build their businesses around."
+      },
+      "fcab9ebaf70b53b2560a98febcaf35e1e0effba32d4aba745a054d09f7aee209": {
+        "corrected_english": "Partnership"
+      },
+      "e0c81e0dd891132c1ae0b9c5e765b576b64604665c6ba296e4ddb7ca35b9bbb7": {
+        "corrected_english": "Treat shared success as the measure of a sustainable B2B2B network."
+      },
+      "84d8b046c625b0c62200c0649ac87e5122d8759f55250c62274dbbf3688a6560": {
+        "corrected_english": "Operational simplicity"
+      },
+      "d4508ce6cc2695420601cdff03bdd2f1d15bccfda9d5163e15c7efab74561f73": {
+        "corrected_english": "Reduce unnecessary complexity instead of shifting it from one participant to another."
+      },
+      "3df5e461ebf9a8e90d88336bdf6475e6e0576dd5007f1f6283bfb7d910f0d1a5": {
+        "corrected_english": "Continuous improvement"
+      },
+      "a849f8249fb6869e25a812549fc1a1803d777808af8d8ccc8066c7dde34e3444": {
+        "corrected_english": "Learn across industries, listen to partners, and improve the infrastructure as the ecosystem evolves."
+      },
+      "e63d196481f8bf9fd362bd5c02565f18ef9a7280c2bee2ccf92b0cf7ac4729e8": {
+        "corrected_english": "Transparency by default"
+      },
+      "192ae72037f8ac4fc6867a8c79e5ebd68e14c52766c6ad0d89828122b062f42f": {
+        "corrected_english": "Clear about what is available and what is planned"
+      },
+      "cad5e571d0fe8a35b9a7c8a093dc5ec2633faa58933631cfeab999683bfa81b2": {
+        "corrected_english": "KBKx is evolving toward a broader operating and intelligence layer for travel distribution. Roadmap capabilities—including additional property-system connectivity and KAOS-assisted workflows—are identified as planned until validated and released."
+      },
+      "4040d3b6267474c8d2cd53c44c1becaca9595257ad4561d69975290ba954e95e": {
+        "corrected_english": "Start a conversation with KabuK Exchange"
+      },
+      "a510aa6bafce02b6eda71c90001c0835091287ebbd06008baaa4fd68ebc136d4": {
+        "corrected_english": "Tell us about your organization, the hotel distribution outcomes you want to achieve, and where you fit in the ecosystem."
+      },
+      "974c87bd959728459e3e3c968ea8529c856c0395b621fe716cb1013eeb8bebb9": {
+        "corrected_english": "Connect your hotel or portfolio"
+      },
+      "7f93e966bd4d70dc37c6c9b88d21999ec759e8e88faae5154d698a96253b8c97": {
+        "corrected_english": "Tell us which hotel, ryokan, or property portfolio you represent and the distribution outcomes you want to achieve."
+      },
+      "6df42310e24a8eb460afa57032d48190dd7184baea56fac8d940fa555c99562c": {
+        "corrected_english": "Company name"
+      },
+      "cb970af2561344b8cd74bee5b2f436ab2c95865a0363c9616aece853e99ed8f0": {
+        "corrected_english": "Hotel or hotel group name"
+      },
+      "254f20392a351d6a1fe414fd754295b1e95a5a2a100545c2cecb417325182c16": {
+        "corrected_english": "Contact name"
+      },
+      "48e67f6a60126c321842c88aa10a3672e7853048093293e8083eac08438acfef": {
+        "corrected_english": "Email"
+      },
+      "7db51f8f0320e4a3e81efcaefd3ba5fead3fc98729786b535644a4d2154325a1": {
+        "corrected_english": "Phone"
+      },
+      "80cd55d1ad3f4cd6901549d3d5049dbf1a708610fe35ae20692c484cda069cce": {
+        "corrected_english": "Company type"
+      },
+      "206ff86770b25f3325a697170a1d527cf3fb660758920e50f8feb23bcbd5fd09": {
+        "corrected_english": "Region"
+      },
+      "a85be2331eeefba6bd79ec635f44c847832a995c50f430f7772a1d434bd572e7": {
+        "corrected_english": "Estimated monthly booking volume"
+      },
+      "73cde7cedada8d1a92bf995822df96e6854bff6a4c4d9f56ffebbd77cdb0b84e": {
+        "corrected_english": "Integration interest"
+      },
+      "7821f18ae364284bdd099c2037855980dced4bdc71fec6ede9ef98cf548e5c5c": {
+        "corrected_english": "Property location"
+      },
+      "40d253705f70bd1d5711ed1eb3fa6790bfd6e5a84750b94b21ff7f32a016098d": {
+        "corrected_english": "Number of properties"
+      },
+      "f132ee720674fae77e185eeffdca768756c6e0196c0ce0343193ae18b3f6df1f": {
+        "corrected_english": "Current PMS / channel manager"
+      },
+      "608eae2ff3d10af90870888533bbca6e8b70537732e4a3a45e77060c8aca6e4f": {
+        "corrected_english": "Interested distribution channels"
+      },
+      "a1604c309c07382019e54670913486d0434864a89d244ed7c160d11e27dd7f81": {
+        "corrected_english": "Message"
+      },
+      "bfd7219caf99a4990abf06789af3e362428303541ddc0feea5277ee89f355dfa": {
+        "corrected_english": "Send enquiry"
+      },
+      "ba86af365a5bdfd134c1f0875eccfddac76031c4cb74b87fdf1e7d4b52cd6bec": {
+        "corrected_english": "Required"
+      },
+      "fe5998e479b40c085c6fe69dced1ff753d3cbfbd076112f94371a7745099d63f": {
+        "corrected_english": "Optional"
+      },
+      "db28d016e6d9a4ebc318213cbed6dba841ae498b5ee8d286804c8766e43fff6a": {
+        "corrected_english": "Please select"
+      },
+      "b117b3f88c8f17d98967f38d257f509a7b291588d1cd15c2b823c0690186163c": {
+        "corrected_english": "I agree to be contacted about this enquiry, in line with the"
+      },
+      "7ffd8b1036daffa4905b645912ba86732f3b869672d3260a0fc2d3db620c92e5": {
+        "corrected_english": "Privacy Policy"
+      },
+      "15de49c28358316a28b147e84b5f113a7aae2a0cd6323afc89737d670018a871": {
+        "corrected_english": "Our team will route your enquiry to the appropriate commercial, product, or integration contact."
+      },
+      "bee4e645d674c9ac384a727b0563b3f7d4be73c615db7470c0dc83dfeee9c7aa": {
+        "corrected_english": "You can enquire about one property, a regional portfolio, or a larger hotel group."
+      },
+      "1b0901ae787c8a701fd2956ca4ac3c5bdbb4322076a6a7c430b00afc817530df": {
+        "corrected_english": "This internal review build opens the configured email client by default. Replace placeholder routing before public launch."
+      },
+      "f5c6545c80a1871993dbfd26f49517ddf9258f4649f30ced6bc2381f8bc4de70": {
+        "corrected_english": "We use optional analytics cookies to understand how visitors use this site. You can accept or decline them."
+      },
+      "bd21ea77bd0dee1c6e3b8645ee4714aef76ebed57b003b98311794ec9a3d62f7": {
+        "corrected_english": "Accept"
+      },
+      "edc3d94e21315cb3cba0e4ccb493b3525fd0e4c16aff5f5c72483ebe2d205ad0": {
+        "corrected_english": "Decline"
+      },
+      "2b1f3610f07ff001f4a94997d57c320cf3b6fed0556e084e4f331b89b4700fec": {
+        "corrected_english": "KabuK Exchange is modern travel distribution infrastructure by KabuK Style, connecting hotels, technology providers, and distribution partners through trusted operations."
+      },
+      "ec79d91e96ce989c407c17bd263950e37070a3f4d6885e318689fc33324a69cb": {
+        "corrected_english": "KabuK Exchange"
+      },
+      "c428ff700ba84dfe558648843e938340b160d683e21f3b1ae32833d70991b20e": {
+        "corrected_english": "KabuK Style Inc."
+      },
+      "2d315b4ef864b827ad7ca0da5671b6b294487a695c84d125f2f046dd17f54972": {
+        "corrected_english": "All rights reserved."
+      },
+      "5c2f6f8d7da2df6e2dfa73090110dda54f3814f51424be243774897c610e9edf": {
+        "corrected_english": "Internal review build. Placeholder URLs, email addresses, partner data, and roadmap capabilities must be replaced or confirmed before public launch."
+      },
+      "4bcd79f3544a55de36818426affe3bf4817e55a38183badacdd131c5e0e4b1c1": {
+        "corrected_english": "by KabuK Style"
+      },
+      "3663c88b265c45d7c31739d544928980c034d25a6644614e810cdd2bb4f147a5": {
+        "corrected_english": "Supply Partners"
+      },
+      "33648f6a2ad609815d6d5bf9fb21631d51a3ac97610eadf8ee7490caa897fd89": {
+        "corrected_english": "For hotels, ryokan, resorts, and property groups seeking greater distribution with stronger operational control."
+      },
+      "8fe096b6eef6fac00ec10a73e6cf6f393daf9da361cba178df1a3fe8c07dc576": {
+        "corrected_english": "Distribution Partners"
+      },
+      "12c70917a25774139ccedd2b104f3ff7438dafc00f5559d56bf4562b6701e9af": {
+        "corrected_english": "For OTAs, bedbanks, DMCs, TMCs, agencies, marketplaces, and membership travel platforms."
+      },
+      "265adf237ab9fd71f9c61c1421e34bb362cf573fcfcf21c291d385547ce27dc5": {
+        "corrected_english": "Connectivity Partners"
+      },
+      "b4929f2fb482cd3a6dd32cfd9303d2634b2be84abc0a24424100234f05371296": {
+        "corrected_english": "For PMS, CRS, channel managers, switches, and integration platforms."
+      },
+      "56e1a76717c3db5c2ac05b4f6f780c116162886c14893dc9bf58411670b7d9e0": {
+        "corrected_english": "Inventory & Supply Partners"
+      },
+      "c1a35372dcf0cd111833aa4c0232d0bc921e02484e9fa77aafec8681e16dcf03": {
+        "corrected_english": "For hotel groups, wholesalers, regional suppliers, and other inventory providers."
+      },
+      "63e45248dbe7b96fb147752831fc49bca8d8d743323b23b058c15586f58352f4": {
+        "corrected_english": "Distribution Management"
+      },
+      "af3d43e823f130601648facb9a9bb5b86a48180b1dca9924ec0a979f1c1ced78": {
+        "corrected_english": "Build and manage trusted supply and demand relationships across regional and global channels."
+      },
+      "7e0a1a1f9a5036ffbc9e400b559b6fd80d73c15afdbb93ad5c06ca3642cbd7c0": {
+        "corrected_english": "Connectivity Infrastructure"
+      },
+      "79e28eb96a7db75b13dc621065e3c14a4583bd5d30ca070667baea210713381b": {
+        "corrected_english": "Standardized interfaces for search, content, pricing, availability, reservations, and operations."
+      },
+      "c08b6448ea45c362147705cc2c053b6aac7603bf068d78020d02b0afcb0a60f4": {
+        "corrected_english": "Pricing & Commercial Management"
+      },
+      "5943c23cd68abf37e1980522cfcd0acb62021fbafbb62c313eda6652be2bc688": {
+        "corrected_english": "Configure pricing, sourcing, margins, inventory, eligibility, and channel rules."
+      },
+      "e58db8797fd3d9fe075e4a27465241138b580d52634ce30f94c782ea7165a393": {
+        "corrected_english": "Reservation Operations"
+      },
+      "2675a14c0adf1f264cb92b4c72d38c43cfacb31cbf0112846fd24ea95a540c0a": {
+        "corrected_english": "Manage booking confirmation, modification, cancellation, status, and lifecycle events."
+      },
+      "bf8d04ee77de67c793e475dc56e2583d093f419f60ef91419c2ef20db6b2ac31": {
+        "corrected_english": "Financial Operations"
+      },
+      "5cd22936944c1c96cf8313a3c797dd11e00771c70cbed8741ce73c89637333ab": {
+        "corrected_english": "Support invoicing, settlement, reconciliation, credit, ledger, and partner billing workflows."
+      },
+      "838e570d7f71ac46fbbc5c86149a958d5f6c459082dd1aed000c40cae235c4f7": {
+        "corrected_english": "Partner Operations"
+      },
+      "fd993c59692185c7e16861fd5e68bba82edf682f93661d5f83aecc65d8e68a70": {
+        "corrected_english": "Coordinate onboarding, mapping, readiness, support, visibility, and partner management."
+      },
+      "a0159887d4aff95d5358dbfaad2b7b714d96175080211784639abc346ec60972": {
+        "corrected_english": "The KBKx Platform"
+      },
+      "b4e2128331aed9f98add7a7fda21b84a419a0ad06405ca09526d710d19c036ac": {
+        "corrected_english": "One foundation for connected travel distribution"
+      },
+      "a61aa3a27528e93d13b6f053a0f24dca9c9f3fac36c984f0f15791aebd7d24b6": {
+        "corrected_english": "The KBKx Platform combines connectivity, distribution, commercial controls, reservation operations, financial workflows, and partner operations within trusted enterprise infrastructure."
+      },
+      "9b5c7d62391d0ddee2bfea7ac7a6a138abb69c26138aa6e7f66ce5d0a2ba9a64": {
+        "corrected_english": "Platform solutions"
+      },
+      "e10adfcc66f4b94ffe15cb0662179989c9dd6fcee745d0fab72bc6deca0407e3": {
+        "corrected_english": "Explore how the platform aligns with your operating model"
+      },
+      "2953b0eea2cc0b500d1ad8ccd0f2d988e22837be01f2bc091bc4441f2c0b7174": {
+        "corrected_english": "Discuss the partner relationships, workflows, and business outcomes you want KBKx infrastructure to support."
+      }
+    },
+    "translations": {
+      "ja": {
+        "4353ad87c089be59331b93864a00a0dd60b80417fc2d703c3f75533de3f09225": {
+          "translation": "プラットフォームを見る"
+        },
+        "b35bc8adf1c2fb2e179b7bd2a921eb7e40614cf4c1ebcd7519afcbeaa76787e4": {
+          "translation": "エンタープライズグレードのインフラ"
+        },
+        "89a4823f43200fcb83bca9a89bf3d819829452c92e8cb922347c361dcc970289": {
+          "translation": "旅行業界のエコシステム"
+        },
+        "5e9b54c565ebe2195a6011a4381446b6b9c2c0bfc2d23cfdbd3c3492e6c82ba0": {
+          "translation": "ビジネス成果"
+        },
+        "67915d58ae5e37d30724b486525f771fc7dd593c648dc1faf173b5edca9b4aab": {
+          "translation": "プラットフォーム"
+        },
+        "a6312a679f81abffd4f09bb0a757c18d0a207051b0b360ef6a52b9193757eea4": {
+          "translation": "信頼性の高いインフラ"
+        },
+        "7f416cfbd27c577051a7fa6497a90f8e0c44bee3f5df870dc7e0846f094ed8dc": {
+          "translation": "パートナーエコシステム"
+        },
+        "0821ec9b8be2fe2b3b9ba56a42387951cd81226693ea64347124d19873f2b015": {
+          "translation": "ホテル供給を提供する場合も、施設システムを接続する場合も、旅行者に在庫を配信する場合も、KBKxは貴社に明確な道筋を提供します。"
+        },
+        "63078e9344c504d0555049db060772c14bbf0ff86525a0be180414debe91755c": {
+          "translation": "商業的成長と運用上の安心感。その両方を実現するために必要なインフラで支えます。"
+        },
+        "4bfc13a5eee42867b89de3883cf7ac74a4e2890d118c3ad44152c7aca2964a6d": {
+          "translation": "接続性、ホテル在庫、料金設定、予約、パートナー運用、財務ワークフロー、インサイトを支える単一の運用基盤。"
+        },
+        "56f0912be305ecac5034cfb3f40b4376e21daa28e502dcae604b92c8c2a1f36d": {
+          "translation": "信頼できるパートナーシップから、素晴らしい旅の体験は始まります"
+        },
+        "c9210b4f3eac544964ac403dfd2e3723751cb0fb817791478a4e2a47583e8dfa": {
+          "translation": "ホテル供給、接続性プロバイダー、配信パートナーがKBKxを通じてどのように連携するかをご覧ください。"
+        },
+        "1f80291190cc2e31c4a83c396325b865de17dcd0539ab53c6e405741d28a95e9": {
+          "translation": "ホテル、テクノロジープロバイダー、または配信事業者のいずれであっても、お客さまの目標を理解し、最適なパートナーシップ形態を一緒に検討したいと考えています。"
+        },
+        "c823b232a5f3caae470758400a64483959195a80ffce400a927166595f881d20": {
+          "translation": "運用上の複雑さを増やさずに、ホテル配信を拡大する"
+        },
+        "c66c73ec518efc9e63c4de2cb9af6c4a6664ce256da2ca49e4d894c9ecc9b55f": {
+          "translation": "お客様の事業目標"
+        },
+        "8c3f2db72b2ee7983741174284f0db586d2fb750cad699d71eb1bb156d6e036e": {
+          "translation": "配信を拡大する。コントロールを維持する。手作業を削減する。"
+        },
+        "25dc87915a10e3bc3a9ebe2af9e0a0edab920ce9ad402a4cd57ca02a05fc5011": {
+          "translation": "リージョナル営業、レベニュー、配信、施設チームには、さらなる運用負荷を伴わない成長が求められています。"
+        },
+        "2cc1230b8354bb7ab0a7341c4271b36e476bf8218b2f2333e11dadbe59fbd5d7": {
+          "translation": "関連性の高い需要にリーチする"
+        },
+        "0e125d159fc37ddd9af43db34f17ead31b21bbb0f4360fa2bf88768d4f153de2": {
+          "translation": "事業戦略に合致するリージョナルおよびインターナショナルな配信パートナーへのアクセスを拡大します。"
+        },
+        "35f8f4ebafa01b1b11f46c6d843f2c5793705ac8f940f4db87da1b781cd616df": {
+          "translation": "商機をより早く公開する"
+        },
+        "22fb72dffa3868b374e1c138ae61c8ea4e80a3e3de924412cdc76ec3583f7964": {
+          "translation": "構造化されたオンボーディング、マッピング、コンテンツ、準備完了のワークフローにより、部門間の調整を削減します。"
+        },
+        "fcd894bb95291e88d72a148e6af5100e47378884ad900c3fd7f6612010f6982b": {
+          "translation": "商業面のコントロールを維持する"
+        },
+        "ba3a57fae7804b11faa72acae179cc02771607e2afcb1bce6aa6f70541032dea": {
+          "translation": "在庫、料金、配信チャネルの適格性、ポリシー、パートナー関係を管理し、コントロールを維持します。"
+        },
+        "aed602221e80b89cf7e8d437e166b55b9a35ea0e70b017bf4d36a910fabade44": {
+          "translation": "より広範な配信 — 地域、旅行者セグメント、ビジネスモデルをまたいで需要パートナーへリーチ。"
+        },
+        "5058d037d4b4878db930a23782e3912383a3bdcda286de932c79a314d00ad3ea": {
+          "translation": "運用をシンプルに — スプレッドシート、メールのやり取り、繰り返しのマッピング、手作業の調整を削減。"
+        },
+        "47257d9803e5ebb68f2b87f0e12e05c183ae2725aafffd2e835699c746c4e415": {
+          "translation": "商業面のコントロール — 適格なチャネル、料金アプローチ、施設参加を管理。"
+        },
+        "e2cabde3d090090b6ef76158cfba342c76a931d3bfc014f4e8e04437dc18c6f8": {
+          "translation": "パートナー支援 — オンボーディング、準備完了、継続的な運用課題を一つの関係性の中で調整。"
+        },
+        "bafd24e0e60a8d6c6c3b89a834d03bab9cbebbf5f31d0c5ab01c3657efb26666": {
+          "translation": "財務の透明性 — 配信関係全体で請求、照合、精算を支援。"
+        },
+        "e7e50099d73e32057a905abf2b1c7eb1689d66f04d042512360874402228636c": {
+          "translation": "KabuKへのリーチ — 商業的に適切な場合、HafH などの KabuK Style チャネルへアクセス。"
+        },
+        "08bb4af449cbada5d88678a672dbf86578ec488f2eff5cca9c445409ecd7d303": {
+          "translation": "施設システム接続"
+        },
+        "eb75faa074861b6f1fb7437dcac82706aef10c82db9bbb274143dd1b0759bcc6": {
+          "translation": "将来的な PMS およびチャネルマネージャー連携により、既存の運用システムを維持しながら、対象施設の手作業を削減することを目指しています。"
+        },
+        "87677d94186ea91eef04ce399fd4de8cc2d472ceb2ad9099b5ef1734d088e507": {
+          "translation": "ロードマップ上の機能 — 提供可否は連携状況とパートナー側の準備状況により異なります。"
+        },
+        "4f07c39eafbb2ce39ff0314c53470e7427115596bd5ff42a348991c2a58f990b": {
+          "translation": "目的を共有する"
+        },
+        "0443def428a2b1132da9839529b604249360d1b998959017386543a894a402a2": {
+          "translation": "施設ポートフォリオ、対象市場、現在のシステム、配信の優先事項についてお知らせください。"
+        },
+        "4839cfe4810bc899ab7218a17ffbc725a0f5df40666a316365dfe79b48cdc699": {
+          "translation": "商業モデルをすり合わせる"
+        },
+        "32afa260715970b6ef60bed6496816105e01035c7d1aeb6a51cb2e0edc10e38d": {
+          "translation": "対象となる施設、チャネル、料金、ポリシー、責任分担、精算要件を確認します。"
+        },
+        "3dd70ceb5701c2c4c0824599add06a75b9bb36117606e18a37d0d62c55ef8eb4": {
+          "translation": "オンボーディングと準備を完了する"
+        },
+        "a7e92cf6da099bca76960c373107ad2e3ab9d909728d6acf2f1602f00b7fe47d": {
+          "translation": "コンテンツ、客室と料金のマッピング、在庫、価格設定、テスト、運用責任の準備を行います。"
+        },
+        "f485d62a2b8fa28c691968feeb3016618b6687969663ff22a95c89af5ac88e0c": {
+          "translation": "公開し、測定し、改善する"
+        },
+        "1ef9387f37fd822293d8b91ec87aa2fb1e0980c8d30e7dad285034eefdc4dbd1": {
+          "translation": "対象パートナーと公開し、パフォーマンスをモニタリングし、例外対応を解決しながら、結果に応じて拡大します。"
+        },
+        "a11742f17a94cbfaaeca0c7583a95b9bb86f97d68782af758e67288709f96baf": {
+          "translation": "リージョナル営業チーム"
+        },
+        "8d41aff5f1d1c74b672c25b2b885218f582fc3c45d68f6cfee0003ab8c8cd2d9": {
+          "translation": "全社的なテクノロジー刷新を行わずに、特定のホテルや地域ポートフォリオ向けに新たな需要関係を構築できます。"
+        },
+        "b306b58effc67f04a4b7f4ae9e767fa126ad5deda1a667f8af61de65a15b2a4d": {
+          "translation": "レベニューおよび配信チーム"
+        },
+        "5975d489fca5b9732e010debe7bbb6b444fdff5c9e243a970edfdfac20a4a062": {
+          "translation": "チャネル参加、料金アプローチ、配信パフォーマンスを、より明確な運用可視性のもとで管理できます。"
+        },
+        "e45d7054474078065a48a106fbc68551935168d03de757dd36db92a7f66b55c9": {
+          "translation": "独立系および成長中の施設"
+        },
+        "9883156bcfa61bbec01a7c4b8972e6ebb72e02442a6233a9e6b23d9ca9a20cca": {
+          "translation": "複数の直接取引先を自社だけで管理することなく、構造化された配信とパートナー支援を活用できます。"
+        },
+        "461b0d9833e501319592d82ff1e7b62afac3b1412e5b5a68123af1e7574209e5": {
+          "translation": "貴ホテルに最適な配信機会についてご相談ください"
+        },
+        "e03f0e2b470add36cc84adf04c7fe85026c157490b20e4fcfac5ea18cf89829f": {
+          "translation": "ご担当の施設またはポートフォリオ、リーチしたい市場、現在の配信方法をお聞かせください。最適な進め方を一緒に検討します。"
+        },
+        "3a54c25a50f7cf460b359c66d5a2d2fdd0f2a46c016c32ce63c0dff7770ec887": {
+          "translation": "共に成功するために"
+        },
+        "121f53fe7ce572a4bd3da1f7e38815ec125041a3cc9effefb895ed813c8461fa": {
+          "translation": "すべてのワークフローを作り直すことなく、ネットワークを拡大"
+        },
+        "54cdb1651905840b8d85948ef0e6756ca36a951029ed4b313f17c2017f068cd9": {
+          "translation": "KBKxは、パートナーがホテルとの関係を拡大する際に、成功を維持するために必要な接続性、マッピング、運用、財務の各業務を連携しながら支援します。"
+        },
+        "22b7dcde63d5d6602ea83d4d60551faa4de44cf09dc1a415ae1eef6a233d0783": {
+          "translation": "信頼性の高い供給と接続性"
+        },
+        "60f43067d41e7f3a9b00f97181049257a3398afd9bdc1cca80d7f5ce8b0ec717": {
+          "translation": "一貫したパートナー運用を実現するよう設計された、構造化された在庫と統合パターンにアクセスできます。"
+        },
+        "9c7d68df574cc771d96398e66551b27102b4e6c6c8d85d189cbe7bd90898c263": {
+          "translation": "迅速なパートナーオンボーディング"
+        },
+        "c0656c7ea011f17318a5ea633a631db84a7f30bfac0e2577385d5a124c2a3916": {
+          "translation": "体系化された導入プロセスを通じて、商務、技術、マッピング、テスト、準備完了までの作業を連携できます。"
+        },
+        "3776ba67edb8afeb85b371fec424c567ca273495d5db9db53827bea25b8a1c40": {
+          "translation": "柔軟な商業関係"
+        },
+        "45fa620befd6079ba86475b9fe0d86d3c3d58f24cbe8ce518282e9ac5ce96392": {
+          "translation": "さまざまなパートナータイプ、配信モデル、取扱量、適格条件、運用責任に対応します。"
+        },
+        "6ecb7c2ea0c28757b7beb1adc80b34b1542650b71b24e2504970a3660f46cf70": {
+          "translation": "責任ある再配信"
+        },
+        "89b459611b8776a7187c975eab8f717621176f12286f8e2a92abee70840ff616": {
+          "translation": "明確な商業的管理と追跡可能な供給関係のもと、承認済みの下流配信を実現します。"
+        },
+        "7dfaab416022b9fe75259aa6452317669f78eb7897db804f52f8d3277ba1cdca": {
+          "translation": "透明性の高い財務オペレーション"
+        },
+        "ab691af48b297603c5c3a3f926e83f5686ee1ccb4b72cf402cee9af8181c6f69": {
+          "translation": "複数の関係者間で、請求、請求書発行、照合、与信、決済を連携します。"
+        },
+        "d6d9c4d572122fd870c54a69ad32d4cdb342f68ac2c19161ae95aa36cd62982a": {
+          "translation": "継続的な運用パートナーシップ"
+        },
+        "cb760d07ef910ddd471f68fef4387e1840f078cf107e39c684c6df6a4c8dfbf1": {
+          "translation": "ローンチ後も、可視性、課題のオーナーシップ、サポートワークフロー、継続的な改善を維持します。"
+        },
+        "d8cca3d900adf441132add3fc4887240aa77719ea3564c7926212fd4c58506b4": {
+          "translation": "運用品質の一貫性と長期的なパートナーシップを前提に設計されたインフラで、供給ポートフォリオを拡大します。"
+        },
+        "04b83f92fe566529c7eeefb07b771ccbda384d19ecdcecd27eb3b3a941dfdf57": {
+          "translation": "OTA・マーケットプレイス"
+        },
+        "40a30495cd05f72f26e0a202c5902da3ebd83ce8d9e7180fa34f097bfee8208d": {
+          "translation": "顧客体験と予約体験の一貫性を保ちながら、構造化された供給を追加できます。"
+        },
+        "c5930d1acef840ed5848191007e3e067c3e67c8a6fb8dee1924d3e343d6edc08": {
+          "translation": "旅行会社、DMC、TMC"
+        },
+        "7632d724858844411d9edb8ae15af89fae84bcad05982a60b10e2f585808adff": {
+          "translation": "信頼できる在庫とサポートにより、国内、インバウンド、法人、専門旅行のニーズに対応します。"
+        },
+        "f30078a88dbf8962d0287668eb6a3f4cd7d870cb6a82fbc2086b81478cd6f734": {
+          "translation": "ベッドバンク・卸売業者"
+        },
+        "fc6b8ef969379a61f025bebb9223b3b34f226782ff3fca804c64c94741000980": {
+          "translation": "明確な商業面・運用面の管理のもと、下流配信向けの承認済み供給関係を拡大します。"
+        },
+        "2465e188df854874686e1e22b67d9b557bb4b282f6b4d08dbfae3b7fa8b6fe58": {
+          "translation": "すべての接続を個別に作り直すことなく、新たな配信関係への参画を支援します。"
+        },
+        "1218497c9b7e3728fb3751e25429a5b8f0e77aa7daee798107d400bd0298d3c2": {
+          "translation": "PMSベンダー"
+        },
+        "22a68679d7fd904601e12eca60c614b9804674d24b440de8e2d6935fa2397ea6": {
+          "translation": "ホテルが既に利用しているシステムを活かしながら、施設運営と配信ワークフローを接続します。"
+        },
+        "8e32c6df73108c35b69175ceac56595cefc2b772ae1a294adf3998c6faa961a1": {
+          "translation": "チャネルマネージャー"
+        },
+        "5981bc50a6f36a7d6d5f764111c5b5221f280917f22839a41fdfadd9be49cf36": {
+          "translation": "標準化されたインフラを通じて、ホテルの接続性をさらに商業関係へ拡張します。"
+        },
+        "c8b356c27d68cb7c889a6e09b8dea207250430877425954be297da2846364c71": {
+          "translation": "CRS、スイッチ、統合プラットフォーム"
+        },
+        "ead12714bdd1b623f3257735b4ccfb85397619b8afd207b84e865524e764797e": {
+          "translation": "接続されたシステム間で、コンテンツ、空室状況、価格、予約イベントをルーティングします。"
+        },
+        "8dcfcfb9fdfe4a7a30fecc50073d02d0038c0388d21f56daa2bc509852e54716": {
+          "translation": "テクノロジーパートナー"
+        },
+        "6a8b224935c46e6cb537b8fab348b263cda50ce7d9c12aec85728bdbcc23fb02": {
+          "translation": "決済、分析、ID、自動化、旅行テクノロジーの専門機能でKBKxを補完します。"
+        },
+        "12b5c40de0cd917d58f7bc930380786432c113931fd11f2a53b57dea6420d436": {
+          "translation": "明確に定義されたソーシング、配信、運用関係を通じて、信頼できる在庫を提供します。"
+        },
+        "addec09f4dae7b0ad7f52a94d30bacf3da8a143a00048ac984afcb99ac94c0e3": {
+          "translation": "ホテルグループ"
+        },
+        "f3bab315694ea4d0a45a5bddb83f524b702020ff7754d0364fb945e782231ba5": {
+          "translation": "対象施設全体での配信を調整しながら、ポートフォリオおよび施設単位のコントロールを維持します。"
+        },
+        "77a629dd7d2ffd25309b209b41cd327843f9fc817c3e22544778f566446dcd2c": {
+          "translation": "卸売業者"
+        },
+        "2bac8e20bf9c02b1e4a3bd447daaa5b2875691bda1f7efd47f2904d8017303a9": {
+          "translation": "供給元、価格、再配信、決済のルールを明確に定めたうえで、承認済み在庫を提供します。"
+        },
+        "8c403ad584aa538c0e2887bc3a08e9d1712cb299d7e3db59845b5f1ccfd785d9": {
+          "translation": "地域サプライヤー"
+        },
+        "570b1ea6eb52f02c765da66c60db180ff011de82f64268bceb6a67858a5645ac": {
+          "translation": "ローカル市場の知見と在庫ネットワークを、地域および国際的な需要へつなげます。"
+        },
+        "c19505f040ad68153f1c17523efd76352f24f8f711741cb25fc2c9a0c9fc2609": {
+          "translation": "在庫パートナー"
+        },
+        "afa2343866a4e2cce01d996cf13f23f2fc40826bc787f6a4a702a7a7ac3bd0bb": {
+          "translation": "透明性の高い商業契約と運用契約を通じて、供給を集約し配信します。"
+        },
+        "47925a22c55d5dc4972a4d31801d0e44b754f78f541fb2ac9ef092c7dae5f092": {
+          "translation": "AI支援によるパートナー運用"
+        },
+        "971d2427513f1470cea99ab1c91e3b114503def287135c0256c1ff3bb5aaeed1": {
+          "translation": "計画中のKAOS機能は、透明性と説明責任を維持しながら、オンボーディング、マッピング、サポート、価格設定、パートナー対応の支援を目的としています。"
+        },
+        "bace2de12c133857cddcef9c3e046f6fd4f34e3eabddbdcfdcce07f2d899c085": {
+          "translation": "ロードマップ機能 — 範囲と時期は検証結果により変更される場合があります。"
+        },
+        "638b879717fb7b279ddec0105db49b2e103bf48ab99fd915f5352772c54a6b2f": {
+          "translation": "機会を定義する"
+        },
+        "a7b2cabdf23bc074ccf753ee72fbd5fb0170600d9cd2707da49bb0f7155e3f62": {
+          "translation": "事業目標、パートナータイプ、対象市場、運用モデル、双方にとっての期待価値を揃えます。"
+        },
+        "6e8304cfbb807aac9a383f147ebfcb381ca82bafd2726faad547e4017c930cb1": {
+          "translation": "商業面と運用面の責任を合意する"
+        },
+        "812745844d96b28239db4c43faaa03971de48a4e85c985245ac87ff1734582d1": {
+          "translation": "範囲、条件、在庫または需要要件、サポートの責任分担、財務ワークフローを確認します。"
+        },
+        "191f13b7dec8079c0f80b9752b2ffa987dc2f498dafb0044fad18633905d61ca": {
+          "translation": "統合し、検証する"
+        },
+        "592c5a0ec7dd20b9001d25565c238151a5ecc128357e6f9eb39337060c1425cc": {
+          "translation": "明確な責任分担のもと、技術統合、マッピング、テスト、認証、運用準備を完了します。"
+        },
+        "25ee0dc81483290a8ebb8f50629d640830ce74d7b4f958b5502d95bce82aa28a": {
+          "translation": "共に立ち上げ、成長する"
+        },
+        "ec455fe30a45697de3d7031ff9c99ce7b816ff296ac146f46a7b0d3c0511c9a6": {
+          "translation": "本番環境へ移行し、結果をモニタリングし、課題を解消しながら、共通の成果に基づいてパートナーシップを拡大していきます。"
+        },
+        "abc7510bd6f2e27ba97e0e428ceec551234aff6394b7851a85b1d833a0a7db33": {
+          "translation": "KBKxとのパートナーシップについてご相談ください"
+        },
+        "203c175f23a4cbcbf43088d357d1e70b79c2456aa70800738c6263a6da513896": {
+          "translation": "貴社がエコシステムの中でどのような位置づけにあるのか、そして達成したいビジネス成果をお聞かせください。"
+        },
+        "936853c278d622ded30a453d78c16cdadbce9938f8d0de622fe12c1beaf7b4e0": {
+          "translation": "KabuK Exchange（KBKx）は、KabuK Styleが創出した最新の旅行配信インフラです。ホテル配信から開始し、信頼できるインフラを通じて供給、テクノロジー、需要をつなぎ、運用の複雑性を軽減するとともに、長期的なパートナーシップの強化を支援します。"
+        },
+        "7d3e45a87f36d67cc4883bbeab0755335e02c69b256836fd3b61097be28679b4": {
+          "translation": "旅行業界は数十年にわたるイノベーションによって進化してきましたが、新たな連携が生まれるたびに、統合、マッピング、サポート、財務処理といった業務が追加される可能性があります。KBKxは、最新のエンタープライズソフトウェア、クラウドインフラ、フィンテック、プラットフォームエンジニアリングで実証された手法を、旅行配信という特有の現実に適用します。"
+        },
+        "b56f3c74f81bba40b146e9930a738942e00575f0b9b49dac10e0d1a7179c0933": {
+          "translation": "共通の成功のために設計"
+        },
+        "03f0d32361361c7a4b04dfc3cfeadffed0a064bcb8661de89fe3c56fb14138fb": {
+          "translation": "KBKxは、真のB2B2Bインフラビジネスです。私たちは、在庫を提供するホテルやサプライヤー、その在庫を市場へ届けるパートナー、彼らをつなぐテクノロジー企業、そして最終的にこの一連の流れが安定して機能することに依存する旅行者を、すべて重要な存在として捉えています。"
+        },
+        "d3b0555548ed9cc058092fe89618249c6b6fcf13270d9a5bafdb8dc524cc984c": {
+          "translation": "私たちのアプローチ"
+        },
+        "3d811237114882fd690909c2e79a285f1472e7f09cf64cb3d643b8588a652070": {
+          "translation": "最新のインフラ。既存エコシステムへの敬意。"
+        },
+        "c96841e1faca9549b22fd9c4d8174b848562a31c3b6a550661a29ea766a94355": {
+          "translation": "私たちは、旅行業界を支える企業を置き換えることを目指していません。私たちは、より高い信頼性、明確さ、そして運用面での安心感をもって協業できるよう支援するインフラを構築します。"
+        },
+        "b4450ec1b1b4d089543223f6e9f48194a6cc5b3eed5dda6edf9ea8070d387cef": {
+          "translation": "共通インフラで接続する"
+        },
+        "79647f35b91223f3f6ed9053fc9cec156de0348f918a13e3fb0101649939fe81": {
+          "translation": "パートナーがすでに依存しているシステムや関係性を維持しながら、個別の点対点連携の繰り返しを削減します。"
+        },
+        "92c0c8cb6d9bd3f497ca21de0b707d7ec852b6bf13345896aef704b6bcb778e0": {
+          "translation": "パイプライン全体で価値を創出する"
+        },
+        "734e8e4bff786d4ad888b15ea4938ba1dfd6d48fa5d66fec9832167d26a11b62": {
+          "translation": "供給と配信の双方の成功を見据え、商流と運用のワークフローを設計します。"
+        },
+        "eab1916a4a27dbcb48e7c22da148c7545d04f8b3c606a9f41a09c5993fd1796d": {
+          "translation": "業界とともに進化する"
+        },
+        "55e7e904031726d1c02f0d8a50a56381069a462d4228198c442927eee2908f3e": {
+          "translation": "パートナーからのフィードバックと変化する市場ニーズに応えるため、焦点を絞った最新の運用モデルを活用します。"
+        },
+        "cb5c0d91621b38e450a13f6e93929463618051f59f61975af43fed2d0d7630ef": {
+          "translation": "信頼"
+        },
+        "7dbadf4c9d606fee9d7dd6d6c36a2f0e39f5e06831e4c14864148200cfbe46f5": {
+          "translation": "公正な関係、明確な責任分担、重要な業務の責任ある取り扱いを通じて、確かな信頼を築きます。"
+        },
+        "aa142d984c386b2a3b5bd7607585ec32133be5c5d0df9d45c10c366ff2910c1c": {
+          "translation": "透明性"
+        },
+        "8a38f9b814c36ffe9d36bf39bc406af168e60f594783a03ff965aef32f1b8c35": {
+          "translation": "ソース、判断、ステータス、変更、そして財務活動を、適切なパートナーが理解できる形で可視化します。"
+        },
+        "86555427242f2e527c441741fba8a362b3c694b0c6cfb0d129baa7c87849fe2f": {
+          "translation": "信頼性"
+        },
+        "b8afd2e79117065bc52798afd1e376587137fa24e05bf12e62615d7c495bd4f8": {
+          "translation": "パートナーが自社ビジネスの基盤として活用できる、予測可能なテクノロジーと運用プロセスを設計します。"
+        },
+        "bf4adadf83cde19fe202c05dca8aaa5f48134b2b13822af2fcfce7a328a522a6": {
+          "translation": "パートナーシップ"
+        },
+        "e72eb2011de28a6995e7fa0a89ce7f169b3b314c03be0a7f93d37bdff858907f": {
+          "translation": "共有された成功を、持続可能なB2B2Bネットワークの指標と捉えます。"
+        },
+        "75c4be29ece4f59baacf0f5fc96d275ee9e9b17acad1811f568d4495d7fb6429": {
+          "translation": "運用のシンプルさ"
+        },
+        "ed70071c71ac454bb29fcf1b5f19e35d3285789f0bd38c3173a9d8c559f8564b": {
+          "translation": "複雑さをある参加者から別の参加者へ移すのではなく、不要な複雑性そのものを削減します。"
+        },
+        "d86cfb5184abd07318635ff5411729e65af246cfd2f426f39d2caf8b72564088": {
+          "translation": "継続的な改善"
+        },
+        "bd4aa24a5a4555a79f677721f3630934b09b06a0b8d46dc5d5f25d430d880670": {
+          "translation": "他業界から学び、パートナーの声に耳を傾け、エコシステムの進化に合わせてインフラを改善します。"
+        },
+        "574facaec20cddf0f0e65a47c74be2d3c15207f3b62073bc7d533a6a54b6da39": {
+          "translation": "デフォルトで透明性を確保"
+        },
+        "0e2a48ca82ce9a35652d83887f72b48e7f0998e618c60f20c07ce2e7c9711b8d": {
+          "translation": "利用可能なものと計画中のものを明確に示す"
+        },
+        "6fb67749018cf11e5c14ab3360460e19ee053ef99e8d5013f1f398d994e21722": {
+          "translation": "KBKxは、旅行配信におけるより広範なオペレーティングレイヤーおよびインテリジェンスレイヤーへと進化しています。追加の施設システム接続やKAOS支援ワークフローを含むロードマップ上の機能は、検証およびリリースが完了するまでは計画中として扱われます。"
+        },
+        "68e20c44c517cfae1e96bff8edf9e36aa5c7dfee9cba776e2c595cbe4769cf22": {
+          "translation": "組織の概要、実現したいホテル配信の成果、そしてエコシステム内での立ち位置をお知らせください。"
+        },
+        "1ccb413af6db1a6af48d04cb90443e0f71805e133e3f97aa56300b5af64684e6": {
+          "translation": "問い合わせを送信"
+        },
+        "ac13ab0fa82bbccc774604da0337072362b40f9784dd70890811a64f148b2627": {
+          "translation": "お問い合わせは、商務、製品、または連携の担当者へ適切に振り分けます。"
+        },
+        "4759e0ec377be9cd5c34f997fedff1aa8e43e99db0dc54117276e2c44f229d74": {
+          "translation": "1つの施設、地域ポートフォリオ、またはより大きなホテルグループについてお問い合わせいただけます。"
+        },
+        "1abbe06ac8e2772cabc2bf201fac6acd56471eb95c48e9c1d77973c3b5fb5485": {
+          "translation": "この内部レビュー用ビルドでは、既定で設定済みのメールクライアントが開きます。公開前にプレースホルダーのルーティングを置き換えてください。"
+        },
+        "80dba4a933d9552e2accba86adf8e9b0772adc448126ba809f802ca70d94c881": {
+          "translation": "ホテル、旅館、リゾート、施設グループ向け。より広い配信と、より強い運用管理を実現します。"
+        },
+        "981ef666b77d92cb6257be2cd2c59a040ccc813794bf61f6299d9d1424573213": {
+          "translation": "料金、ソーシング、マージン、在庫、利用条件、チャネルルールを設定します。"
+        },
+        "15fcbe933471435911655df1edeff908423c39967cf58a6a8d2c71d17b2b972f": {
+          "translation": "プラットフォームソリューション"
+        },
+        "7f429db94a65353ca075b352149a3ffa6d260ba058b4e4e8c7b878e5f7af526e": {
+          "translation": "貴社の運営モデルにプラットフォームがどのように適合するかをご確認ください"
+        },
+        "ccd4e5d4ce076e4e7ac65ac889b9b3ecf74f904852586bea9b79f03b4d85418c": {
+          "translation": "KBKxのインフラでサポートしたいパートナー関係、業務フロー、そして実現したいビジネス成果についてご相談ください。"
+        }
+      },
+      "tw": {
+        "710f55eb14925885334da6b6cc59506eb8a7941d62a709b0c8a0b9c5d5aed5ef": {
+          "translation": "探索平台"
+        },
+        "418d136b259e7b302033ea5453d63f63c52915b367ae7a8992f2d60dfa90b5ae": {
+          "translation": "企業級基礎架構"
+        },
+        "6b5ccc547264c4766bb460dfa8e17b0834fb1cb540edf367574d70d96eb6db9b": {
+          "translation": "旅遊生態系"
+        },
+        "7c697f48c9d225e6cc8dad52b70f654c299088b1b1675b529f78c79949b0d92f": {
+          "translation": "商業成果"
+        },
+        "d7093377922be8d0b060efb183dd594c5f0779eae449c1f25cfd41f4c7f90378": {
+          "translation": "平台"
+        },
+        "7b2eb75e88aee7ecdca71d646828bafbe596743041b0b46ecc47a6ef0fe04d5a": {
+          "translation": "值得信賴的基礎架構"
+        },
+        "5478cd71869cc820c837f2e1f5c002d62e3bf5f588a7006e163908aa1b471fb0": {
+          "translation": "合作夥伴生態系"
+        },
+        "d8476b3f12c14f948e86aec7cfdf307d35313691d62ee6ed81597fd612b024fc": {
+          "translation": "無論您是提供飯店供應、串接住宿設施系統，或將庫存分銷給旅客，KBKx 都能為您的組織提供清晰的前進路徑。"
+        },
+        "24ae9afe5f6fc6f13b8eec9cd2f3c9e5e03d67248164492cbc1e1fbc77960a0e": {
+          "translation": "商業成長與營運信心，皆有所需基礎架構支撐，確保兩者都能順利實現。"
+        },
+        "7ef673ae48ad44dde5c8195c9443dcee8ccc8f15fb146fa499e4cecbd8afa452": {
+          "translation": "一個整合的營運基礎，涵蓋串接能力、飯店庫存、定價、預訂、合作夥伴營運、財務流程與洞察。"
+        },
+        "e765b5310fb9698a23522dadef05a22a078d17478b4522775e612afb76eb62b3": {
+          "translation": "絕佳的旅遊體驗，始於值得信賴的合作夥伴關係"
+        },
+        "5dba726f154eb79be0dcf21f0be5fdcf0331e6e992163e053c4f2f430f87cc9e": {
+          "translation": "了解飯店供應商、串接供應商與配銷合作夥伴如何透過 KBKx 協作。"
+        },
+        "dc0b99ccb11672ec3ea7b7221e7b6bcf30d091061ca2e141ead3bc5fe52e8799": {
+          "translation": "無論您是代表飯店、技術供應商或配銷業務，我們都希望了解您的目標，並探索最合適的合作模式。"
+        },
+        "0539e5c43fec6ca242041c5c3b2bb06e7461612fed6ae562238cf60b99847ba1": {
+          "translation": "在不增加營運複雜度的前提下，擴大飯店配銷"
+        },
+        "5dcd8d1eb693b8a12a692df23d26e47a7047ef86152bad9ce7eefcdc5d966e32": {
+          "translation": "您的商業目標"
+        },
+        "76edacc69d97dcff83bd3c6b4b64193483c31e147e0a82cf1f40d60ab2cf5fb5": {
+          "translation": "擴大配銷。維持掌控。減少人工作業。"
+        },
+        "a1c449dad31eb7f27dc6397c9341b3f0abeda05ebc7e45d9f68b897aea797858": {
+          "translation": "區域業務、營收、配銷與住宿設施團隊都需要成長，但不希望再增加一層營運複雜度。"
+        },
+        "bdbe6f953c365a95c4e34d516068b594a5a3a0d144dbdfab41c60f9bff0306c5": {
+          "translation": "觸及相關需求"
+        },
+        "b9ad8152a92d86ff0d7a5b8a8cf438e3ce9e8c1c67e80120a1687d4d16d33678": {
+          "translation": "擴大與符合您商業策略的區域與國際配銷合作夥伴的連結。"
+        },
+        "ef6a5bd1ec45500c2b21564b854a2dfbf5c8b7b783524c16e2f87e71ba7247fc": {
+          "translation": "更快讓機會上線"
+        },
+        "5b69fa173bc8951db6aebe6bfcbf34a5fd82295afc2a4ace60695bfad21f60b8": {
+          "translation": "透過結構化的導入、對應、內容與就緒流程，減少跨團隊協調成本。"
+        },
+        "cb7472f4dc9e7e093d3d33269269daa19aae663a44ed810513a215968d36d2d5": {
+          "translation": "維持商業掌控"
+        },
+        "3fd5ee78a2fac9ad7ccf5adfffc3d9f688f48b9c31e8f83e85a020684fbdfab0": {
+          "translation": "持續掌握庫存、定價、通路資格、政策與夥伴關係。"
+        },
+        "7b0afb237646b7c53ff489b773b01e04d3f21f71cdb2bb517913cc22abb69f5e": {
+          "translation": "更廣的配銷觸及——連結跨區域、旅客族群與不同商業模式的需求夥伴。"
+        },
+        "5ed52c350ed10b71de1b7e32e0ee184560c659c9374273e63b903ebcea1f349d": {
+          "translation": "簡化營運——減少試算表、電子郵件往返、重複對應與人工協調。"
+        },
+        "ab33bf588d139934b42e7ec28d48605b167d154261db34523f20a22622c17829": {
+          "translation": "商業掌控——管理可適用的通路、定價方式與住宿設施參與範圍。"
+        },
+        "7675b0690f1eadd0c98bfff0212bf430e8d684a9954a94328588c8b15e83c5f3": {
+          "translation": "夥伴支援——透過單一關係窗口協調導入、就緒與持續性的營運問題。"
+        },
+        "96b2757ae93bfaa01a6f402c3db653b8a63be4856a4ba0763768797368f8617f": {
+          "translation": "財務透明——支援跨配銷關係的請款、對帳與結算。"
+        },
+        "1056df96e3ea89ab7677d10da6c786aeb7dc51e9f39153378fe06a61c41117c4": {
+          "translation": "KabuK 觸及——在商業上適當的情況下，使用 HafH 等 KabuK Style 通路。"
+        },
+        "a8c349d1e0875f22c31aea1e6190a0a7e46c0e082b0eeec0daf42671baf8a566": {
+          "translation": "住宿設施系統串接"
+        },
+        "651ab61ed6e45b85244005a9be366402828f5d718064314d1fa9e7649ee944ed": {
+          "translation": "規劃中的 PMS 與通路管理系統整合，旨在為符合資格的住宿設施減少人工作業，同時保留既有營運系統。"
+        },
+        "37c694c3af121455cc002952798f4757ae3d244e68dfc142678f6eb9ee45dddb": {
+          "translation": "路線圖功能——實際提供情況取決於整合與夥伴就緒狀況。"
+        },
+        "46ed057b8bf0f0d32726c088456497e93e3a3d15418cad2f3015a81798a688c1": {
+          "translation": "分享您的目標"
+        },
+        "0f091fb23f6ae5effc29475345886829f87a6ac8424c057e26b1ccfe9df0df53": {
+          "translation": "告訴我們您的住宿設施組合、目標市場、現有系統與配銷優先順序。"
+        },
+        "9ec461848d0111c02f10760fe02bb5fe8beaa26298c0808bc8b90249460857be": {
+          "translation": "對齊商業模式"
+        },
+        "375cebc7ebb9716e2e8f73161d6357d91f7acc6cb473ff04d8c022f2ffe5bb32": {
+          "translation": "確認符合資格的住宿設施、通路、房價、政策、責任分工與結算需求。"
+        },
+        "9a563444533ada40f75a5edaf0d42c0756bf98db847e4b992bcbd79c75e3ddb8": {
+          "translation": "完成導入與就緒"
+        },
+        "07babc2c66cf9921f3e38e983add6bee41a26a765432d8ce47c2dd5f98cccfdb": {
+          "translation": "準備內容、客房與房價方案對應、庫存、定價、測試與營運權責。"
+        },
+        "b60f495617cf7471cd0fc62eda892e2693667144e5ca4c8d261a501b6c804cb9": {
+          "translation": "上線、衡量、持續優化"
+        },
+        "92d0055cfad228b6d6398a65bc0177fdf403e0f05065c4c554fa576b2450aac3": {
+          "translation": "與符合資格的夥伴正式上線，監控成效、處理例外狀況，並根據成果持續擴大。"
+        },
+        "79a95bd05d3c53a3801713531aa73da17b64f13e30631c91d85cab19ce11dc08": {
+          "translation": "區域業務團隊"
+        },
+        "5c4f97c27ae192ecbac8ae8ad09756691a91a25baab07ad7e06630b3a0940c20": {
+          "translation": "為特定飯店或區域型投資組合開拓新的需求關係，而無需全面更換公司技術架構。"
+        },
+        "33cf42bf74bee88f85e547994ef0e6b5c5da8467bb397ab655269b458c13d641": {
+          "translation": "營收與配銷團隊"
+        },
+        "049b005cd7da654b35288f2b08c3fb1ea0f5f00a41202999ee7f9162fdcf1eef": {
+          "translation": "透過更清楚的營運可視性，管理通路參與、定價方式與配銷成效。"
+        },
+        "825d4c33f11164ebf9d62b6541ea3c73d86f4e1c5c8f6406a1b1a987d9ac5bdd": {
+          "translation": "獨立且持續成長的住宿設施"
+        },
+        "beebee2b5e763219bf353cb275980fecd352f88b85e39b838b766a184ea147b7": {
+          "translation": "在不必自行管理多個直接合作關係的情況下，取得結構化配銷與夥伴支援。"
+        },
+        "5a7534a1999a1f92f847df987c40c0fbf53e748ddf3be097bf2511fef1c53acd": {
+          "translation": "討論適合您飯店的配銷機會"
+        },
+        "6c0078c9893846b2238c620353bfb1299c3e3ce81459cec9387527f9a1eb7664": {
+          "translation": "請告訴我們您代表的是哪一間住宿設施或投資組合、希望觸及哪些市場，以及目前如何管理配銷。我們將一起評估最合適的路徑。"
+        },
+        "d5a48f53e47ea9539bc7e134e999fbf2857394d803ed6e1372ae2f847f360b6c": {
+          "translation": "共享成功"
+        },
+        "4ebebdee7205a8e42233d313cc5a623f1c14d0d4811b27b9d1556a99f747bf3c": {
+          "translation": "在不重建每個流程的前提下，擴展您的合作網絡"
+        },
+        "a209ccc33c6acf1dbd6bfbb5b2d00711913525237a25d1b214e86c849f64cd35": {
+          "translation": "KBKx 協助合作夥伴新增飯店合作關係，同時協調串接能力、對應、營運與財務作業，確保合作長期成功。"
+        },
+        "1e3e4407cfff985930057fa101cab4a866c7ccf1f900de7b54795634fa7011e0": {
+          "translation": "穩定的供應與串接能力"
+        },
+        "c46aecafbcfadc265aa538de61c8343f363f7aa8049274b71696409d7d21c12f": {
+          "translation": "取得結構化的庫存與整合模式，專為維持一致的合作夥伴營運而設計。"
+        },
+        "cecffa118c33f86c82676dfbc04d4b722359b768244bc630b5d666fbdb6c7d9f": {
+          "translation": "更快速的合作夥伴導入"
+        },
+        "57965f63a6b1b3a05262c8b517cd0543197bc1d88469021a472a2fc4b3a4cec2": {
+          "translation": "透過結構化的導入路徑，協調商務、技術、對應、測試與就緒作業。"
+        },
+        "33607b9e8455fe97419ba8a41a72dc00467da357d7ebcf8d8ca167863592f538": {
+          "translation": "彈性的商業合作關係"
+        },
+        "472aee90fb7d9edf21895708fe2f07f500eb9a697169c63c48df88d2a90619c4": {
+          "translation": "支援不同的合作夥伴類型、配銷模式、量體、資格規則與營運責任。"
+        },
+        "7f730979aaac62ad62372415f178dcac63556a9e176f39be6f96a03897354962": {
+          "translation": "負責任的再配銷"
+        },
+        "b47383a1d759796489efd5dcfbcaa7ac31f2accfbc4cbce503cb47e8072049d0": {
+          "translation": "在明確的商業控管與可追蹤的供應關係下，啟用經核准的下游配銷。"
+        },
+        "aaf69294e9bafefbbbf3d12ffebe73013701c57ee3ebe1c46d65fa4e260132a4": {
+          "translation": "透明的財務作業"
+        },
+        "c4972287e1921f0aeb215b817926af3ffbfa4a9c0cd30f2826443eacfdfec5d6": {
+          "translation": "在多方之間協調請款、發票、對帳、授信與結算。"
+        },
+        "7ddbff2a62b611c86f95fed0bc7749a1f07cd1294c8f774ee5fc8593082461d2": {
+          "translation": "持續的營運夥伴關係"
+        },
+        "0448470f65fcf8b448cf052723f1fcbb443ca3600d369c069ebc626f78fea8bc": {
+          "translation": "上線後持續維持可視性、問題歸屬、支援流程與持續優化。"
+        },
+        "69564f4986df73b908067c4a3caeed1c2276807cf3a7d9c34829acb85891cf04": {
+          "translation": "透過專為營運一致性與長期合作打造的基礎架構，擴展您的供應組合。"
+        },
+        "1c8c65b39652958c67b27d4602aee2da8c34cdd9baea0fe2184a4f3af65f68e2": {
+          "translation": "OTA 與市場平台"
+        },
+        "283165f0a479f084cc0591dca4936a9fe247a940322d47f4036e28a85b3b7ecc": {
+          "translation": "新增結構化供應，同時維持一致的顧客與預訂體驗。"
+        },
+        "7f389d44fdb5022d5d613797159f3f310955b22803e401d17a99f0a1a1ba234b": {
+          "translation": "旅行社、DMC 與 TMC"
+        },
+        "11d9adfddffdd5b0a394ad4564a7aab7cf4f0caac49ae57e9a011d4aed42ce84": {
+          "translation": "以可靠的庫存與支援，滿足國內、入境、企業與專業旅遊需求。"
+        },
+        "37269628cac9780ea3074f5c91d5184e26b2ea6957068616342e44356c0a5144": {
+          "translation": "Bedbank 與批發商"
+        },
+        "92e7c25a8f09473c0177951721fe39930907eafc98d858449b4f17c2040b079e": {
+          "translation": "透過清楚的商業與營運控管，擴展經核准的供應關係，以進行下游配銷。"
+        },
+        "3709771877ad2419bdc3b980ec9cf5156fc650a93294d6bcfcbd527aa28a5080": {
+          "translation": "協助客戶參與新的配銷合作關係，而無需自行重建每一條連線。"
+        },
+        "52ce68db72f125dcbc3c295a78863cdd8206a50ced30ebb146b1bfd02735a6f9": {
+          "translation": "PMS 供應商"
+        },
+        "549d44e3935a11fcb0768436e25d01a8176be1ff6534f93b5eadeeed756e8739": {
+          "translation": "將住宿設施營運與配銷流程串接，同時保留飯店既有使用的系統。"
+        },
+        "cf92b41ece739e3296813ccb48c9b66ee77f9fb7181df90e2fbec21c2d9bbe90": {
+          "translation": "通路管理系統"
+        },
+        "f684957373a922c7092a364dcb7f19d8839c94c02d090459d1aa63286fead851": {
+          "translation": "透過標準化基礎架構，將飯店串接延伸至更多商業合作關係。"
+        },
+        "10b52e58f6b7657a7758e8a46cf0f90b37695ff8087f616ddd11dc0725bd6a0a": {
+          "translation": "CRS、switch 與整合平台"
+        },
+        "c500ef9581d69f62831c80a8934ba12c64868d16c8b51916b23f70ebcc5426c5": {
+          "translation": "在已串接的系統之間路由內容、可售狀況、價格與預訂事件。"
+        },
+        "546e5bd3c41c0e7618d680997a71c08844f1b6ce3f231da44dcc1521afa2a670": {
+          "translation": "技術合作夥伴"
+        },
+        "a39134af2f21e6eb49f78a5a32feb1fd9e12e5caea271a21598bb52921faea79": {
+          "translation": "以專業的支付、分析、身分識別、自動化與旅遊技術能力補強 KBKx。"
+        },
+        "4e13591c149bf57cf9b5e63a3ee24c166a005536f8c6ff2c067e93a5c6b75b66": {
+          "translation": "透過定義清楚的來源、配銷與營運關係，提供值得信賴的庫存。"
+        },
+        "195a9638ed58c985878957a3fc34b90aabfe2838fc27fa9d91bd3321b95236fa": {
+          "translation": "飯店集團"
+        },
+        "f32decde1160d73a40f8faa8775c51f3828e0f14470a0534382de7dc6ba034f2": {
+          "translation": "在維持集團與個別住宿設施層級控管的同時，協調符合資格的住宿設施配銷。"
+        },
+        "af6b92d035722f8b8058c9c2cb2dfc124a4ab3af0fdb416be3ee25c06385db74": {
+          "translation": "批發商"
+        },
+        "ac552af55e8d45a160408c6327d5161ae89775bd17a30db22f54164d58b3a808": {
+          "translation": "提供經核准的庫存，並具備清楚的來源、價格、再配銷與結算規則。"
+        },
+        "078243388fa32d5516bf5a4ec87635d97c150dda2a36c510c437a3f5b2723fca": {
+          "translation": "區域供應商"
+        },
+        "af3d5cda0b7a756c8e3076e78bc319f1dfefc59daf5711e4161c18519214fa3f": {
+          "translation": "將在地市場知識與庫存關係，帶進區域與國際需求。"
+        },
+        "01a4d490aa6d0e94a2eefff31b6c2396a3139db62e5c4fe96dc6e5685ad2141f": {
+          "translation": "庫存合作夥伴"
+        },
+        "c7e02a75162a6eae6df7f7fc4f25ca90d7130f3365120a36ef1806df750f810b": {
+          "translation": "透過透明的商業與營運協議，整合並配銷供應。"
+        },
+        "40101fdb0399ae0c04d8aae770dd8d9a0e77afef961dcacee746e384ec2d2b75": {
+          "translation": "AI 輔助的合作夥伴營運"
+        },
+        "c827b32710f5393e8c015c4d53c47ae2681e285d41392ddf353d9dc86afd4db5": {
+          "translation": "規劃中的 KAOS 功能旨在協助導入、對應、支援、定價與合作夥伴後續追蹤，同時保持決策透明且可究責。"
+        },
+        "4551382a7557d5b9ecc58f2c3fb952dcaef8ff8da6f617c411e43d7bc2b4b3f8": {
+          "translation": "路線圖功能 — 範圍與時程仍須經驗證。"
+        },
+        "e26e19ab251bd993771cf4a4d231da8a5bb2bba1c0603597ccd4d8f819d1bf44": {
+          "translation": "定義合作機會"
+        },
+        "97e4f4d690b1606fbde6c8bf3260a82ae02acb80ad5e2d97ec977c18f21f6489": {
+          "translation": "就商業目標、合作夥伴類型、目標市場、營運模式，以及雙方預期價值達成一致。"
+        },
+        "bf46a5b90e2dbb6115645524e44419e2ad0d8da8e23ce2c89ec164b16df7a501": {
+          "translation": "確認商業與營運責任"
+        },
+        "250801fc1ff3c5e1815dc7d6f9b19ed3d640fcd39b5c2c88a5348b8ce7189309": {
+          "translation": "確認範圍、條款、庫存或需求條件、支援歸屬與財務流程。"
+        },
+        "b15175b5e22421e68e69118b3676998633bb8bfc9ba80dba4d32270f507177ea": {
+          "translation": "完成串接並驗證"
+        },
+        "95e56aeeb4f82d1a27a17f44c73e5bac2f2feeb33343045b63204d545f4a829f": {
+          "translation": "在明確的責任分工下，完成技術串接、對應、測試、認證與營運就緒作業。"
+        },
+        "c9e603fdca9bc78a6dc2631df97409431043edfc18e6c493a4a7b8f40237f2c0": {
+          "translation": "攜手上線並共同成長"
+        },
+        "5c1ec855e745b93fe3fd5ec0f794c93abc37eb5c45847140ac5312c00ddf0f2c": {
+          "translation": "進入正式上線，持續監測成效、排解問題，並依據雙方共同的績效表現擴大合作關係。"
+        },
+        "eefb875a9f6d0f61e6d0798062cab6877e8217467e62122a273a4514bc560495": {
+          "translation": "與 KBKx 談合作夥伴關係"
+        },
+        "ed27a6f7355f6530cd4ec3cd669c16ea1f5b2642a9c348b83602bbbb7f7a621b": {
+          "translation": "請告訴我們貴組織在整體生態系中的定位，以及您希望達成的商業成果。"
+        },
+        "36f948bacee9cd36c6fbd8536809bf9ce1f4a2dc31a8c31ebe3af08f0090ac3d": {
+          "translation": "KabuK Exchange（KBKx）是由 KabuK Style 打造的現代旅遊配銷基礎設施。我們以飯店配銷為起點，透過值得信賴的基礎架構串連供給、技術與需求，致力降低營運複雜度並強化長期夥伴關係。"
+        },
+        "13b0d26244a6db1369fbcaf79f0c20217c58533f19f6b449894b5e67269ae893": {
+          "translation": "旅遊產業歷經數十年的創新而持續演進，但每一段新的合作關係，仍可能帶來額外的串接、對應、支援與財務作業。KBKx 將現代企業軟體、雲端基礎架構、金融科技與平台工程的成熟實務，應用於旅遊配銷的特定現實情境中。"
+        },
+        "1e5092522b28084965f30af6c08924bb9b59918e811723e83683857f452fa444": {
+          "translation": "為共同成功而打造"
+        },
+        "fb2123781185c6553a9c67df960626593f85bc72590f6f12098d08abbea15231": {
+          "translation": "KBKx 是真正的 B2B2B 基礎架構業務。我們同時考量提供庫存的飯店與供應商、將該庫存推向市場的夥伴、串聯彼此的技術公司，以及最終仰賴整體鏈條穩定運作的旅客。"
+        },
+        "ce8d0f53ab6a55d54618e4b90226fefd84ed890c070499354235e950c3777120": {
+          "translation": "我們的做法"
+        },
+        "cfda480ab1990f27fae9dc626fe830afda91a4b1c3780c4c11e341f0e8ee2b27": {
+          "translation": "現代基礎架構，尊重既有生態系。"
+        },
+        "fe7a9cce24fbda859ce7badffb6adba740a651230e3890be73c545044ac42527": {
+          "translation": "我們的目標不是取代讓旅遊運作起來的各家公司，而是打造能幫助彼此以更高信任、更清晰分工與更穩健營運信心協作的基礎架構。"
+        },
+        "e158bbd62feb1479919b4f20d1c8e9c8596ccd9c16f79277d9c1361f1a602027": {
+          "translation": "透過共享基礎架構串聯"
+        },
+        "275e721d8c5006dbea8193c498d8e40713e3874ac8e3287955398ee2adfb815d": {
+          "translation": "減少重複的點對點作業，同時保留夥伴既有依賴的系統與關係。"
+        },
+        "cfcf5949689c457882203b0f6ba6c3b85ca3005890be26f2bcd84d5864d8296a": {
+          "translation": "在整體流程中創造價值"
+        },
+        "4b3d2beb0b704ad71761a8face1437a41918250e161e236e2ae470ca33f9de38": {
+          "translation": "在設計商務與營運流程時，同時納入供給與配銷雙方的成功考量。"
+        },
+        "667c8b878d0bdbd869bbf98ac4d7e398c1a011dd0d5c85a14e8f32f048ceeed2": {
+          "translation": "隨產業一起演進"
+        },
+        "36bcbd418511896d0e37730a81761e8286328e274dbac1a88c8692c6519a6690": {
+          "translation": "透過聚焦且現代的營運模式，回應夥伴回饋與不斷變化的市場需求。"
+        },
+        "a543853527f8fb013a72d1c5a8b9d532cacd1ef44affff623dce3cc976855035": {
+          "translation": "信任"
+        },
+        "dd689ea85b844646f508f2a18870839fe6c38ac730ef0cbbc3384520e5161bf4": {
+          "translation": "透過公平的合作關係、清楚的責任歸屬，以及對關鍵營運作業的負責任處理，贏得信心。"
+        },
+        "0f77d88803fad68a5f4877421ee4102446b28c6e4a005b06dcdea262aaf599b0": {
+          "translation": "透明"
+        },
+        "220923b00feb51497aab0ee15c8a502eca56102efc0cd2efefb369aa8d788244": {
+          "translation": "讓適當的夥伴都能理解各項來源、決策、狀態、變更與財務活動。"
+        },
+        "00ac4c1a1d71abae9a09ab11d8cdbd57711c61dde507d15dc8842706c1a1010a": {
+          "translation": "可靠"
+        },
+        "fdfa4c2a319985e726eadc669571cadbb08a0aca22499f3881f9482a7c01d43b": {
+          "translation": "打造可預期的技術與營運流程，讓夥伴能以此作為業務發展基礎。"
+        },
+        "1dced6a5e019ca3e65fb97314cc53410adb952d7ebc3ec5bb82d4dc6ddf41a88": {
+          "translation": "夥伴關係"
+        },
+        "7609c6cd377791370093a97ecb622aae343c4d81d5bbaff7a2d4645a09c0e9e9": {
+          "translation": "將共同成功視為可持續 B2B2B 網路的衡量標準。"
+        },
+        "5991709f0bafecaff585ed6d93b924903e7a40c477573c09738db62666a5ac8d": {
+          "translation": "營運簡化"
+        },
+        "3f11267130a93734b6199df1c9e96334a57e64a102f7a34ed77d7ce113c7ac28": {
+          "translation": "降低不必要的複雜度，而不是把複雜度從一方轉移到另一方。"
+        },
+        "957e6229afcf98380458e7a4c125894ff4836aed4661f13bdbc445fb30fc7093": {
+          "translation": "持續優化"
+        },
+        "451693bd3143c37a666e587895ebd645f2a1cbeb992faa0d8da01a39a2b4f68b": {
+          "translation": "跨產業學習、傾聽夥伴回饋，並隨生態系演進持續優化基礎架構。"
+        },
+        "f0d0a0d9e4fbf619c4cee21dc5159c031df976b75cba79899e81f9a5c94a29b4": {
+          "translation": "預設即透明"
+        },
+        "be42503632b7634620f47b9c8d53993e8f277ec520f35f7b76422837cd36445b": {
+          "translation": "清楚說明哪些已可用，哪些正在規劃中"
+        },
+        "16e3f1a86c044a50d4f4f151d2df9c9e1aab67755520f0bf7f77e9b47a26adb4": {
+          "translation": "KBKx 正朝向更 व्यापक的旅遊配銷營運與智慧層持續演進。Roadmap 中的功能——包括更多住宿設施系統串接與 KAOS 協助式工作流程——在經過驗證並正式推出前，皆標示為規劃中。"
+        },
+        "6c842af8fe2b3871bcad11dc4426fddc0457b682e1b4b2fe907474771e6b61c3": {
+          "translation": "請告訴我們您的組織、您希望達成的飯店配銷成果，以及您在生態系中的定位。"
+        },
+        "5f11a55f55217d255a93776186bf71cd31e1318addf167a575616647ed4cc94e": {
+          "translation": "發送詢問"
+        },
+        "fc45a39db60a057c51c51c13e6c1163e830604a79d3dbc7e4605cd896dba4225": {
+          "translation": "我們的團隊會將您的詢問轉交給適當的商務、產品或串接聯絡窗口。"
+        },
+        "14899f51159b43febf6c13ed4bc1f10617943de4017cf618e261d6a5b89301b3": {
+          "translation": "您可以詢問單一住宿設施、區域性投資組合，或更大型的飯店集團。"
+        },
+        "34820ad3daec1badbff1aa4e30257bbbc95849d808781dc830452e710f877c12": {
+          "translation": "此內部審核版本預設會開啟已設定的電子郵件用戶端。請在正式上線前替換預留的轉送設定。"
+        },
+        "5f6791a1ca1794141f20ce95116476dc783b0ce2fdef952b47058662d5a1aed5": {
+          "translation": "適用於飯店、旅館、度假村及住宿設施集團，追求更廣泛的配銷與更強的營運掌控。"
+        },
+        "7b89b7a573bf932e8d122088cfb4d731fb41b012f48062a507eb2d05e4e877ff": {
+          "translation": "設定定價、來源、利潤、庫存、資格條件與通路規則。"
+        },
+        "bc6d4022e2a3380d2d518f7955bab01a0f315ce78cff00f772b0176ec56cf380": {
+          "translation": "平台解決方案"
+        },
+        "f3121ad9f297d0d01716b49157d17e538a0ab72d90389263fba1cc217f7ed168": {
+          "translation": "了解平台如何契合您的營運模式"
+        },
+        "a6fb54895240ba6e66807f180b7c43af4adc4300a6017070c5e77f2833fb0489": {
+          "translation": "與我們討論您希望 KBKx 基礎架構支援的合作夥伴關係、工作流程與商業成果。"
+        }
+      },
+      "kr": {
+        "a59769bd8cddeb88c3be86ef40405b9efc3af5b4bb1449756b99c3c3e382f709": {
+          "translation": "플랫폼 살펴보기"
+        },
+        "86f4ebd8dff3b3f7e1be8841ba4df08f0e1ac6ec8f45c3f16299d1906fc43a61": {
+          "translation": "엔터프라이즈급 인프라"
+        },
+        "7938e63719f16bdfd85a1ba485fe0bc45b90b8cbcefc5990f02546ce5d2c2036": {
+          "translation": "여행 생태계"
+        },
+        "dd40a78a79030944df9172c8c79e33566b2b9e38d4403368b7d949e317f40494": {
+          "translation": "비즈니스 성과"
+        },
+        "dff5e8e98e58ec00486bcec3fa29a32a941bed54bc5845cc54765a84b38b88c4": {
+          "translation": "플랫폼"
+        },
+        "f03bd97e4ba34170d9e608cf5d426ad07c2cd30d71a244c80b2d65a9c97eb5aa": {
+          "translation": "신뢰할 수 있는 인프라"
+        },
+        "817dcb63fb5920a000ea6b0d0f6ae3c1870aed54687a9361edf2d2a26ec340ad": {
+          "translation": "파트너 생태계"
+        },
+        "fb4cee0c516c1c2c9cf5e4eb7e762eef4a26a23ac90ab2c3eba876aac4bd1476": {
+          "translation": "호텔 공급을 제공하든, 숙박 시설 시스템을 연결하든, 여행객에게 재고를 유통하든, KBKx는 귀사에 명확한 방향을 제시합니다."
+        },
+        "065cdbbe080263e242783250e7f85f14dc7b2791e156fddeceb5037f9816f1ef": {
+          "translation": "상업적 성장과 운영 자신감을, 이를 뒷받침하는 인프라와 함께 제공합니다."
+        },
+        "c17e967d2261129bb32bcc5bb28dabf8e59c948f9f7c066fbbc0ea1392bd0ba3": {
+          "translation": "연결성, 호텔 재고, 가격, 예약, 파트너 운영, 재무 워크플로우, 인사이트를 위한 단일 운영 기반입니다."
+        },
+        "82d6f9890b950435e7e5d3ebc46b25669f8516f48aab65b175920937a4877a48": {
+          "translation": "훌륭한 여행 경험은 신뢰할 수 있는 파트너십에서 시작됩니다"
+        },
+        "c44d64ed09394dcdd3d43c0713dea371e85c4d60a599ddce93cb6cdad94165ce": {
+          "translation": "호텔 공급, 연결성 제공업체, 유통 파트너가 KBKx를 통해 어떻게 함께 작동하는지 확인해 보세요."
+        },
+        "81e1ddc1701e672c20faae1d6c209f9b576765ff79540af839c19a18ab9c2d17": {
+          "translation": "호텔, 기술 제공업체 또는 유통 비즈니스를 대표하신다면, 귀사의 목표를 이해하고 적합한 파트너십 모델을 함께 모색하고 싶습니다."
+        },
+        "f15bef9dc6cb0754127a4de8d09c6fc9d972358aad45c1f51ee3a932f1234499": {
+          "translation": "운영 복잡성을 높이지 않고 호텔 유통을 확장하세요"
+        },
+        "d91d0ffa570d374405683abc6e76d3e69cc01742351c1835020d3621ee492ea9": {
+          "translation": "귀사의 상업적 목표"
+        },
+        "23d1cb6c7b49614f8ef9a8bc121cbff4766dea042e376caeea24078886a66448": {
+          "translation": "유통은 확장하고. 통제는 유지하고. 수작업은 줄이세요."
+        },
+        "22650ff46e1485d45ead19a820f1849c2b522d20c650de430fc19f6e1f7472ac": {
+          "translation": "지역 영업, 수익, 유통, 숙박 시설 팀은 또 하나의 운영 복잡성 없이 성장이 필요합니다."
+        },
+        "56f3b74c65081a16ca661cb1686d5b2b82e46c3e01356aeb174423391f00bc6d": {
+          "translation": "관련 수요에 도달"
+        },
+        "ed2cec4061dd0cc7a90360e55097579f30d7ab4c95f5127e0840b238465c57cf": {
+          "translation": "귀사의 상업 전략에 맞는 지역 및 글로벌 유통 파트너 접근 범위를 넓히세요."
+        },
+        "ea8d6ee456faff5472f5bb7a4599ccb31bc4cbf8af60ed1707006e39428a3c41": {
+          "translation": "기회를 더 빠르게 활성화"
+        },
+        "3d58b64f6d9657f9aa309645c9474ef77b6a0e44ff928d9a01c2ab5cdf2caf54": {
+          "translation": "구조화된 온보딩, 매핑, 콘텐츠, 준비 워크플로를 활용해 팀 간 조율을 줄이세요."
+        },
+        "df4683fc60ce8d8749d4eb3ec72e9cd5c8383698ac188701f35bfd0bce814b18": {
+          "translation": "상업적 통제 유지"
+        },
+        "c3b0b7baa826667ba68560a1bcbee8684fa6a84addc1524e37e66825644070f0": {
+          "translation": "재고, 가격, 채널 적격성, 정책, 파트너 관계에 대한 통제력을 유지하세요."
+        },
+        "e1a2bf177615ad001efe7e0b5e4315e6a249b0e2454ef41626b562e92d4093bd": {
+          "translation": "더 넓은 유통 — 지역, 여행자 세그먼트, 비즈니스 모델 전반의 수요 파트너에 도달하세요."
+        },
+        "53f4962a34836d85048333f7251f8dd1c94d56403579f1e4339c7928d4f8ddba": {
+          "translation": "운영의 단순화 — 스프레드시트, 이메일 스레드, 반복적인 매핑, 수작업 조율을 줄이세요."
+        },
+        "e9ab4913e35a58f2b95e0d62061f2061f7c7da97a68e74ea3acac8c7f9c272c2": {
+          "translation": "상업적 통제 — 적격 채널, 가격 접근 방식, 숙박 시설 참여 범위를 관리하세요."
+        },
+        "140abe723741562425a6ff6d2a75fa47c855ed0a578b2c883359084f6da1b8f5": {
+          "translation": "파트너 지원 — 하나의 관계를 통해 온보딩, 준비, 지속적인 운영 이슈를 조율하세요."
+        },
+        "73f731e977a0fa958913481a4e165aba17a0e3b2b5ad07c86763f5996cf097cf": {
+          "translation": "재무 투명성 — 유통 관계 전반의 청구, 대사, 정산을 지원하세요."
+        },
+        "60f3b6e590159f516d519c10580478ee3f766fc59d67a8d528f277adaf61b051": {
+          "translation": "KabuK 도달 범위 — 상업적으로 적절한 경우 HafH와 같은 KabuK Style 채널에 접근하세요."
+        },
+        "030b7c8413c156994405934fadf0fa1bd2b762839f8999ccefd15cf27c4258bb": {
+          "translation": "숙박 시설 시스템 연결성"
+        },
+        "c6b0509a496e6eb6080520758e079ab8a3f53663948a23c22c9ebc825e4a239a": {
+          "translation": "예정된 PMS 및 채널 매니저 통합은 기존 운영 시스템을 유지하면서, 적격 숙박 시설의 수작업을 줄이는 데 목적이 있습니다."
+        },
+        "21b8193763c7741307d3a9e36cdfe2eba6f4417026de535359592b58ff667d99": {
+          "translation": "로드맵 기능 — 연동 및 파트너 준비도에 따라 제공 여부가 달라집니다."
+        },
+        "3b96238f33a47274597d08e43170fbfb682c0211013a5705b6b3c40c372524be": {
+          "translation": "귀사의 목표를 공유하세요"
+        },
+        "3cc548ad4c440a8bff1b3f6061dba432c4d19dd0a45e5ff585d8ddc391d1c756": {
+          "translation": "보유한 숙박 시설 포트폴리오, 타깃 시장, 현재 시스템, 유통 우선순위를 알려주세요."
+        },
+        "909a0486e136d86d7751fa7db7055292ee99f9f1722036ee9fdf762ec54353be": {
+          "translation": "상업 모델을 정렬하세요"
+        },
+        "ee82db04f2f3eb79c8a74220eec34241c5ffb0719a8d5554ad4abeaea9d7cb54": {
+          "translation": "적격 숙박 시설, 채널, 요금, 정책, 책임, 정산 요건을 확정하세요."
+        },
+        "2fe7af2b4626ef8f06812aba6a3c668db8759761c084753b427bf25adc15e288": {
+          "translation": "온보딩과 준비를 완료하세요"
+        },
+        "0c7ec9286d1dcb0562e7dc61903d3fdf30301f778ea64339f29e155a52b5a9c0": {
+          "translation": "콘텐츠, 객실 및 요금 매핑, 재고, 가격, 테스트, 운영 책임을 준비하세요."
+        },
+        "0e4f26f1e19c61acef543227a49732d8b1e545bb1ba6cf65615c1ae601e962d8": {
+          "translation": "출시하고, 측정하고, 개선하세요"
+        },
+        "ca345eb5901cdbe4c5f3b493b838f1b4e6480ea6accb7eddca66de956505068f": {
+          "translation": "적격 파트너와 함께 오픈하여 성과를 모니터링하고, 예외를 해결하며, 결과에 따라 확장하세요."
+        },
+        "1fa113fd5763bf19b47ca1c41bb15fba2f9c68831c6c2b197b1f341d7fffaca3": {
+          "translation": "지역 영업팀"
+        },
+        "22efc3c01d257d26f4e738393ff3dc323f56d74190759c6021f6706656b20c55": {
+          "translation": "전사적 기술 교체 없이 특정 호텔 또는 지역 포트폴리오에 대한 새로운 수요 관계를 열 수 있습니다."
+        },
+        "1bd0187381cec390dcdf823b9c983d706ab81eabde9885b04cbc992da9dad9ce": {
+          "translation": "수익 및 유통 팀"
+        },
+        "c79cb77facd9267985484cc1fea0be8902bed11f284529c89eb5186ebfbeb0a5": {
+          "translation": "더 명확한 운영 가시성으로 채널 참여, 가격 접근 방식, 유통 성과를 관리하세요."
+        },
+        "1923c5b345fa64a08e3f865601ccf2328e41a9bfacbeae14d85959b641da8ddf": {
+          "translation": "독립 및 성장 중인 숙박 시설"
+        },
+        "397c95936fb6b98cc2c802386012e14bd09b9bb76d54b058e628eec152714f06": {
+          "translation": "여러 직접 관계를 혼자 관리하지 않고도 구조화된 유통과 파트너 지원을 활용하세요."
+        },
+        "820d3702d251810fc5676e3f9ba908eba378a460f1b871b1e46332b78752ce6c": {
+          "translation": "귀사 호텔에 적합한 유통 기회를 논의해 보세요"
+        },
+        "8bcee8ad587833bc631f8e72caed1743fca321c31b821f4b4bff34a6df6d5c38": {
+          "translation": "대표하시는 숙박 시설 또는 포트폴리오, 도달하고 싶은 시장, 현재 유통 관리 방식을 알려주세요. 함께 적합한 경로를 검토하겠습니다."
+        },
+        "0d2b2eff1e34cb12d4518af2612b11be2b5c418ece20b1589eb3161f3c605f4c": {
+          "translation": "공동의 성공"
+        },
+        "0e65600df485dbd362ed069d605128fe105ffced781bade6bdabb4164ee6e912": {
+          "translation": "모든 워크플로를 다시 구축하지 않고도 네트워크를 확장하세요"
+        },
+        "3ad6bf8a60dafc125e4d4f4f9e89055a05199a19ff6013f245f8dc0ad7100289": {
+          "translation": "KBKx는 파트너가 호텔 관계를 추가하는 동시에, 이를 성공적으로 운영하는 데 필요한 연결성, 매핑, 운영, 재무 업무를 조율할 수 있도록 지원합니다."
+        },
+        "61ca603b64485c594bbdf4abde7261d5eb434168a1644f2c87500ea6a11f460e": {
+          "translation": "안정적인 공급과 연결성"
+        },
+        "848a39a65b46522e42464faf820dbb81aa127ffc18be44b85553473d8a818b6f": {
+          "translation": "일관된 파트너 운영을 위해 설계된 구조화된 재고와 통합 패턴에 접근할 수 있습니다."
+        },
+        "3a85cef6b168de345cd2723261924cbecb0fd215115e0681317e0e11dc5e6bcc": {
+          "translation": "더 빠른 파트너 온보딩"
+        },
+        "c506dffc070f90b599fc1efc8a8dcec221e6a60626b99d150ddfbe059660379e": {
+          "translation": "체계적인 구현 경로를 통해 상업, 기술, 매핑, 테스트, 준비 태세 관련 업무를 조율할 수 있습니다."
+        },
+        "ddfa27a0c377cf5298435d0932ebc733c175ed200f068bdcbaeb24221caa85ca": {
+          "translation": "유연한 상업적 관계"
+        },
+        "5fb3829140c257ed724f991dbe3723273cc54e339de0f9344c9dd39bfefc2e78": {
+          "translation": "다양한 파트너 유형, 유통 모델, 물량, 자격 규칙, 운영 책임을 지원합니다."
+        },
+        "dfc2c99751275b39cc5062a5f657641ab4ae971e9c065e25fd6ae321b9014fda": {
+          "translation": "책임 있는 재유통"
+        },
+        "10c8de15dfffbd7b0c285d657c73218b188bb69df046409ee9b60efd63aba32f": {
+          "translation": "명확한 상업적 통제와 추적 가능한 공급 관계를 바탕으로 승인된 하위 유통을 지원합니다."
+        },
+        "391889ca02d1a2dc7ba66f1f7166905c8ed21a75105da30325a1797b1c86c274": {
+          "translation": "투명한 재무 운영"
+        },
+        "d1e677b8fa7e5f19b765fb941a5e7d1e8e0bf34103117d9402d7f20ca32f7b97": {
+          "translation": "여러 당사자 간의 청구, 송장 발행, 조정, 신용, 정산을 조율합니다."
+        },
+        "fc44122e9d2a9b43634bb47ac28a3c86330618f4b102b60601382af1bbfa5070": {
+          "translation": "지속적인 운영 파트너십"
+        },
+        "d510efd633cd61e51c626406929a924d86678e100caa6c60be3d9ccd60e5cdd6": {
+          "translation": "출시 이후에도 가시성, 이슈 오너십, 지원 워크플로, 지속적인 개선을 유지합니다."
+        },
+        "3a05551c2a8a2a2645a5057d87b0c8fc3a716f5feb81867ec87b4af10e345fe6": {
+          "translation": "운영 일관성과 장기적 파트너십을 위해 설계된 인프라로 공급 포트폴리오를 확장하세요."
+        },
+        "741c403b830d021d307e56496c8039b727d44d10dcc8bba9350fed87cb1f0fe7": {
+          "translation": "OTA 및 마켓플레이스"
+        },
+        "00b8c7056483c232fc6316e9001918a99af5b9afbe6a687580849cda2ecacf1b": {
+          "translation": "일관된 고객 및 예약 경험을 유지하면서 구조화된 공급을 추가할 수 있습니다."
+        },
+        "b93d0a5d567aeb686649820b1b674d866f1091962f883b3b5fcb4fcbce28df99": {
+          "translation": "여행사, DMC 및 TMC"
+        },
+        "405f9b094d3e3c8c7f660d8bcd5cfbd84443ada61b9967c34dc627b954b503ca": {
+          "translation": "신뢰할 수 있는 재고와 지원을 바탕으로 국내, 인바운드, 기업 및 전문 여행 수요에 대응할 수 있습니다."
+        },
+        "cd83f6005888aa5ac811a109bc7fe3665df8222ca7f08335551a5aacf225411f": {
+          "translation": "베드뱅크 및 도매업체"
+        },
+        "ff8cf6f13003e3d4b35791466679d8cea267293141013794304b6d8958f9660b": {
+          "translation": "명확한 상업적 및 운영 통제를 통해 하위 유통을 위한 승인된 공급 관계를 확장할 수 있습니다."
+        },
+        "62eca0f1f4a66c5cf81b454fb7955eefb823fdd81ef7d2bba4672b277d462654": {
+          "translation": "고객이 모든 연결을 개별적으로 다시 구축하지 않고도 새로운 유통 관계에 참여할 수 있도록 지원합니다."
+        },
+        "1845da39711d4c2c8d7fc9056e7dbb62c9fd933622835f1d547f502ed1050a3d": {
+          "translation": "PMS 제공사"
+        },
+        "2fcf8674e2b975453d52930d2f5a675d89cacdd7d2609d90bb171f1d9b80c483": {
+          "translation": "호텔이 이미 사용하는 시스템을 유지하면서 숙박 시설 운영을 유통 워크플로와 연결합니다."
+        },
+        "4902fad25328892f297d99fc1e13810346fdb700c8322838fafc832a178833f7": {
+          "translation": "채널 매니저"
+        },
+        "ab59f527a4bf5027547ecc94ddb614fc9756afec31578a8024bb1b13996783d7": {
+          "translation": "표준화된 인프라를 통해 호텔 연결성을 추가 상업 관계로 확장합니다."
+        },
+        "104bd16c8a12a565131d8db4db8b1ce668d38ecee49c05536f23c4cf7568a1c8": {
+          "translation": "CRS, 스위치 및 통합 플랫폼"
+        },
+        "f48f937ee8893007758650f73c9a281bad3810ea70f38a6a27609351a57ac0ec": {
+          "translation": "연결된 시스템 전반에서 콘텐츠, 판매 가능 여부, 가격, 예약 이벤트를 라우팅합니다."
+        },
+        "7cadde12b9a156d0d294de90aa108a2bb34a1129085966adbac342acd4f6f2b7": {
+          "translation": "기술 파트너"
+        },
+        "39ea75f82b3842713d5c60b553bd89a2c0a40ecb81ef77e9a4a1137be354caa2": {
+          "translation": "KBKx를 결제, 분석, 신원, 자동화, 여행 기술 분야의 특화 역량으로 보완합니다."
+        },
+        "0424301c54bc7ac9cddbd8c650ca6602bd9105c577c2e9b13da899e1edbbbd70": {
+          "translation": "명확하게 정의된 소싱, 유통, 운영 관계를 통해 신뢰할 수 있는 재고를 제공하세요."
+        },
+        "311d0aeec068764abf443ae8d84219dbb05acd07a664bef5dee0daaaa49036f6": {
+          "translation": "호텔 그룹"
+        },
+        "f3c458e9dbd4d5e22205c059684b8dda6da0256653204f2616e242ef2cb1437b": {
+          "translation": "포트폴리오 및 숙박 시설 수준의 통제를 유지하면서 적격 숙박 시설 전반의 유통을 조율합니다."
+        },
+        "2de7d1c45ba8dc3533b4fb49e274f4d2b5afdf4b6a71c9e2386af544fc659934": {
+          "translation": "도매업체"
+        },
+        "291c966431bc7b788053168cf563c901c2e64a75439e1fbb1013afedbdc56dcb": {
+          "translation": "명확한 소스, 가격, 재유통, 정산 규칙을 바탕으로 승인된 재고를 제공할 수 있습니다."
+        },
+        "3a94e4ba98c63d0ebcf4407a9aecf7cbf9f52765158ff1d7dc1e64639f712a66": {
+          "translation": "지역 공급사"
+        },
+        "f0bd25fe7cc4f094ae59c48fce1ed9e618a25dfae026ce6a7ef985938f73040f": {
+          "translation": "지역 및 글로벌 수요에 현지 시장 지식과 재고 관계를 제공합니다."
+        },
+        "413bbf3d6faab7fbe79726630d72e2d5f6d517dd7b4c7bf65a4ba0a860479d52": {
+          "translation": "재고 파트너"
+        },
+        "0c55e69dbce3fc00cedd164a0635fddc04a18e63e0ec7f23d508f09a7606d75c": {
+          "translation": "투명한 상업적 및 운영 협약을 통해 공급을 집계하고 유통합니다."
+        },
+        "eacfad4c6ba8be61593da480d0c2ac121627a440a0dc6b697e00afb3d3e7a799": {
+          "translation": "AI 지원 파트너 운영"
+        },
+        "5e8ee23f28e0a51c30b8f197cf8e970ac8f4a9ea3c6dbc2889633a9246c1dedf": {
+          "translation": "예정된 KAOS 기능은 의사결정의 투명성과 책임성을 유지하면서 온보딩, 매핑, 지원, 가격, 파트너 후속 관리를 지원하도록 설계되었습니다."
+        },
+        "1450e94a2d2217428d8e817f0062cd630bb60df78f5ce22572dcec21621a1d71": {
+          "translation": "로드맵 기능 — 범위와 일정은 검증 결과에 따라 달라질 수 있습니다."
+        },
+        "7d6ec8b9d5d8c0d86c671fff9fb9ae7876a7544a953cd772d532cb5263190975": {
+          "translation": "기회를 정의합니다"
+        },
+        "039d3247be573c844ba38515ef57a225e759a17bfc86775e5e30075dcc07140c": {
+          "translation": "비즈니스 목표, 파트너 유형, 목표 시장, 운영 모델, 그리고 양측에 기대되는 가치를 정렬합니다."
+        },
+        "9ae23835938e1a2b3685c2004c5668a5c9e995dbe939226ea3338922c45eb531": {
+          "translation": "상업적 및 운영 책임을 합의합니다"
+        },
+        "d232ead64ae7659d559db0797dccd65a47ac32ccbcec36e8b111b8c8b026a22c": {
+          "translation": "범위, 조건, 재고 또는 수요 요건, 지원 책임, 재무 워크플로를 확인합니다."
+        },
+        "47a6fa9694a3e393883f910fc756e9dd4f6679b5be44f939b4f1e91f18e0cc76": {
+          "translation": "통합하고 검증합니다"
+        },
+        "e22b26039754f4ffce40af1df92b0f1349e3ffb47e767a384d98e8544b462fd2": {
+          "translation": "명확한 책임 체계 하에 기술 통합, 매핑, 테스트, 인증, 운영 준비를 완료합니다."
+        },
+        "7830b05e082e8a6d8cc53338c0efbb31e87d74c5b12170240378d9bb9eb5b67a": {
+          "translation": "함께 출시하고 성장합니다"
+        },
+        "40b7e8c33262f1aecdae9d415d64a11f30b362739e917f7cf4336ad5b3919bd3": {
+          "translation": "운영 환경으로 전환한 뒤 결과를 모니터링하고, 이슈를 해결하며, 공동 성과를 기반으로 파트너십을 확장합니다."
+        },
+        "e87be424204724e5275116b938da7234f42eb4f19af3374ebb5ec4f30a2b28f6": {
+          "translation": "KBKx와의 파트너십을 논의하세요"
+        },
+        "8f37ce85d9eaf39efe7823089cbb78718e4c4cbbfd9d1a9c3439e4495a18b0cd": {
+          "translation": "귀사의 조직이 생태계에서 어떤 위치에 있는지, 그리고 달성하고자 하는 비즈니스 성과가 무엇인지 알려주세요."
+        },
+        "111d566bf4057b089ef84ac2063ee45d33d20980e075cb872936a53ae7f97fda": {
+          "translation": "KabuK Exchange(KBKx)는 KabuK Style이 만든 현대적인 여행 유통 인프라입니다. 우리는 호텔 유통을 시작점으로, 신뢰할 수 있는 인프라를 통해 공급, 기술, 수요를 연결하며 운영 복잡성을 줄이고 장기적인 파트너십을 강화하도록 설계되었습니다."
+        },
+        "6efddd4a1918dc7f4808364fc0ffa816a360d93d5906d9fc85e8097a0467b366": {
+          "translation": "여행 산업은 수십 년간 혁신을 거치며 발전해 왔지만, 새로운 관계가 생길 때마다 추가적인 통합, 매핑, 지원, 재무 업무가 발생할 수 있습니다. KBKx는 현대 엔터프라이즈 소프트웨어, 클라우드 인프라, 핀테크, 플랫폼 엔지니어링의 검증된 방식을 여행 유통의 구체적인 현실에 적용합니다."
+        },
+        "17810c138325967cc6ef192bd27d944774e9ff02c779267df4f00c57e1a8d2c6": {
+          "translation": "공유된 성공을 위해 설계"
+        },
+        "d2248c53970160acea19d2e4c0eaa7a8c88ab8b7f508b9cada49a831e090b0fc": {
+          "translation": "KBKx는 진정한 B2B2B 인프라 비즈니스입니다. 우리는 재고를 제공하는 호텔과 공급사, 그 재고를 시장에 연결하는 파트너, 이들을 연결하는 기술 기업, 그리고 결국 전체 체인이 안정적으로 작동하는 데 의존하는 여행객까지 모두를 고려합니다."
+        },
+        "543387961e3c78639ebe177ebc4c94c36b08173b0f64c5c7b0488502a23593c7": {
+          "translation": "우리의 접근 방식"
+        },
+        "398446c9bb3bd235a05826d5297d9eafe47db5ec7f01a49733e13eab0e1e6ad3": {
+          "translation": "현대적인 인프라. 기존 생태계에 대한 존중."
+        },
+        "a8dd7a50de28f195425e338ddd16e58c349139a5b871c808d506aed5037f2039": {
+          "translation": "우리는 여행 산업을 움직이는 기업을 대체하려는 것이 아닙니다. 더 큰 신뢰와 명확성, 운영적 자신감을 바탕으로 협업할 수 있도록 돕는 인프라를 구축합니다."
+        },
+        "a406d76401afe51a80fa59fdafe4510c5ed1cabba254ad2f0c32a335422e20be": {
+          "translation": "공유 인프라로 연결"
+        },
+        "02b6cb74c9aa2cedd40fdced95161d67f5e30652fd055e93ff8a11b98391933a": {
+          "translation": "파트너가 이미 의존하고 있는 시스템과 관계는 유지하면서, 반복적인 일대일 작업은 줄입니다."
+        },
+        "4f05a1f2008d104a82bd40c0a5523594f71173af9e8338d7da814b8d70a9ae7c": {
+          "translation": "파이프라인 전반에서 가치 창출"
+        },
+        "23de1f353bfbdf89ba94d685d851abb65c38d77a8b2ca27bce136d0624e554a8": {
+          "translation": "공급과 유통 양측의 성공을 모두 고려해 상업 및 운영 워크플로를 설계합니다."
+        },
+        "235a56d80a385fe35346df3fcb5ec5735cccbc32b6d1813b77fcb5266ae2d9b8": {
+          "translation": "산업과 함께 진화"
+        },
+        "09f615e31d6e46245f6e2683dd4ac1ebeb7f6e7e67f6809fb273e579fadf4796": {
+          "translation": "집중된 현대적 운영 모델로 파트너 피드백과 변화하는 시장 요구에 대응합니다."
+        },
+        "dcf89d79367b72246cfe924502c0dd2aca1484f139f6f036768992edd4125037": {
+          "translation": "신뢰"
+        },
+        "dde8ab1c65b6e8a0b67130b5b87888ce23595bff5fb4d49615c01997f55e803f": {
+          "translation": "공정한 관계, 명확한 책임 소재, 그리고 핵심 비즈니스 운영의 책임 있는 관리를 통해 신뢰를 쌓습니다."
+        },
+        "65d0738e5a9498fe5e22e10c6fc32a7c4cf0a1edf99ed797effd3bf494631166": {
+          "translation": "투명성"
+        },
+        "caa621d389a254d1cd95c82372e8584cf8e93e7db2d541fb1f7d1dc4e459b179": {
+          "translation": "소스, 의사결정, 상태, 변경 사항, 재무 활동을 적절한 파트너가 이해할 수 있도록 만듭니다."
+        },
+        "1aac1c7d007b6d2493c9b3fb30a2cedba88bf66e9a304b68659d6a92b275d61d": {
+          "translation": "신뢰성"
+        },
+        "a80f77ee92d27597fb20550bad3a3dda2c63f2b6c449e019f703f8e9f5b8bdfe": {
+          "translation": "파트너가 비즈니스를 그 위에 구축할 수 있는 예측 가능한 기술과 운영 프로세스를 설계합니다."
+        },
+        "fdbdfc171defff5ee3f923c3c5561eea4c90a7cfdf932db4f9022c022448b0a3": {
+          "translation": "파트너십"
+        },
+        "38850f5c8c4f402b924b2c4522e716d1a016ecf30aa3db0c574e079c54a1d1c1": {
+          "translation": "공유된 성공을 지속 가능한 B2B2B 네트워크의 기준으로 삼습니다."
+        },
+        "2bc8650bb9300e388ca2e17ce95f2723173ae528b890cf0254d26efbd2fd79f8": {
+          "translation": "운영 단순성"
+        },
+        "5a03c76b3dd7032c50f0869268cd6275c4a3b5180a170c6bd96834634fc79466": {
+          "translation": "복잡성을 한 참여자에게서 다른 참여자로 넘기기보다, 불필요한 복잡성 자체를 줄입니다."
+        },
+        "4c3b317f0b466e900e8f967dc8946ff5161e669771b71adb44bd88137706bddb": {
+          "translation": "지속적인 개선"
+        },
+        "fcf72d1ae894491d7e399f5ac0784c67cff7cf4bb6e278172f4e5c673517181e": {
+          "translation": "산업 전반에서 배우고, 파트너의 목소리에 귀 기울이며, 생태계가 진화함에 따라 인프라를 개선합니다."
+        },
+        "f06dc6d1becafebc946df775d9a8f695b5dff494ee04247bc1993ec1bea718be": {
+          "translation": "기본 원칙은 투명성"
+        },
+        "d116c9510682fec5e7ab2576eb3ad866d8588119c5b1b64987a59353ed2c20d5": {
+          "translation": "현재 제공 가능한 것과 향후 계획된 것을 명확히"
+        },
+        "813b03e20b1fe226880a13340996db38399781afeaf562e107e868d23dddb767": {
+          "translation": "KBKx는 여행 유통을 위한 더 넓은 운영 및 인텔리전스 레이어로 진화하고 있습니다. 추가 숙박 시설 시스템 연결성과 KAOS 지원 워크플로를 포함한 로드맵 기능은 검증되고 출시되기 전까지는 계획된 항목으로 표시됩니다."
+        },
+        "e3fe12531e0c3e339d32ab0a7b5d9e833e1a5d6302fe96b720af27a3fe6db153": {
+          "translation": "귀사의 조직, 달성하고자 하는 호텔 유통 성과, 그리고 생태계 내에서의 위치를 알려주세요."
+        },
+        "3c9c1013988645ae1f2ce489b11627b9f9ed3ab185f84ea534ae02d9afe45793": {
+          "translation": "문의 보내기"
+        },
+        "4323fc2fbdc11a83fd48e1850f28abc3a15517c88a9505c13668e376204e0259": {
+          "translation": "저희 팀이 문의를 적절한 영업, 제품, 또는 연동 담당자에게 전달합니다."
+        },
+        "881856b6744195b4d3ece5d864e39ba25165695dfedf6c010950e3af524e54dc": {
+          "translation": "단일 숙박 시설, 지역 포트폴리오, 또는 더 큰 호텔 그룹에 대해 문의하실 수 있습니다."
+        },
+        "6e4a70f88f86f383de7b6a26ecd733aa74da48267c17d52dd4e98af34263d419": {
+          "translation": "이 내부 검토 빌드는 기본적으로 설정된 이메일 클라이언트를 엽니다. 공개 출시 전 플레이스홀더 라우팅을 교체하세요."
+        },
+        "265d1d273ed54204e2afeb9e54cfc6687cf5ea62e94816e03d7c0a6f8a0babdc": {
+          "translation": "호텔, 료칸, 리조트, 그리고 숙박 시설 그룹을 위해 더 폭넓은 유통과 더 강력한 운영 통제를 지원합니다."
+        },
+        "79cfc7424c918879f097c8370924be96eb56f19227485f620286e0e48d10220f": {
+          "translation": "가격, 소싱, 마진, 재고, 자격, 채널 규칙을 구성하세요."
+        },
+        "4e121c0aeb707ae9709e070b9adab02b82906acf837bca3a66a40914998978fe": {
+          "translation": "플랫폼 솔루션"
+        },
+        "822c12a4c1d44d8e1a0601dd2d792a2e1082b1f9febc3cb9a456b324422524ce": {
+          "translation": "플랫폼이 귀사의 운영 모델과 어떻게 맞물리는지 살펴보세요"
+        },
+        "538836ec65166015328a447d7025df7e5e1553bb51af5545c9613e53e1d95075": {
+          "translation": "KBKx 인프라가 지원하길 원하는 파트너 관계, 워크플로, 그리고 비즈니스 성과에 대해 함께 논의해 보세요."
+        }
+      }
+    }
+  }
+}

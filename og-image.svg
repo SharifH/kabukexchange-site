@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="KabuK Exchange — global travel distribution infrastructure">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a1330"/>
+      <stop offset="1" stop-color="#0f1c44"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="82%" cy="30%" r="55%">
+      <stop offset="0" stop-color="#1b2e6e" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#0a1330" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="hub" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#3b82f6"/>
+      <stop offset="1" stop-color="#7c5cff"/>
+    </radialGradient>
+    <linearGradient id="mark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2e6cf6"/>
+      <stop offset="1" stop-color="#7c5cff"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <!-- Network motif on the right -->
+  <g transform="translate(910,315)" stroke="rgba(120,160,255,0.35)" stroke-width="2" fill="none">
+    <line x1="0" y1="0" x2="0" y2="-150"/>
+    <line x1="0" y1="0" x2="130" y2="-75"/>
+    <line x1="0" y1="0" x2="130" y2="75"/>
+    <line x1="0" y1="0" x2="0" y2="150"/>
+    <line x1="0" y1="0" x2="-130" y2="75"/>
+    <line x1="0" y1="0" x2="-130" y2="-75"/>
+  </g>
+  <g transform="translate(910,315)" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.35)" stroke-width="2">
+    <circle cx="0" cy="-150" r="34"/>
+    <circle cx="130" cy="-75" r="34"/>
+    <circle cx="130" cy="75" r="34"/>
+    <circle cx="0" cy="150" r="34"/>
+    <circle cx="-130" cy="75" r="34"/>
+    <circle cx="-130" cy="-75" r="34"/>
+  </g>
+  <g transform="translate(910,315)">
+    <circle cx="0" cy="0" r="52" fill="url(#hub)"/>
+    <text x="0" y="-2" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="800" fill="#ffffff">KabuK</text>
+    <text x="0" y="18" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="800" fill="#ffffff">Exchange</text>
+  </g>
+
+  <!-- Wordmark + copy on the left -->
+  <g transform="translate(90,150)">
+    <rect x="0" y="0" width="64" height="64" rx="14" fill="url(#mark)"/>
+    <text x="32" y="45" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="38" font-weight="800" fill="#ffffff">K</text>
+    <text x="86" y="46" font-family="Inter, Arial, sans-serif" font-size="46" font-weight="800" fill="#ffffff">KabuK <tspan fill="#23c4c9">Exchange</tspan></text>
+  </g>
+
+  <text x="90" y="330" font-family="Inter, Arial, sans-serif" font-size="60" font-weight="800" fill="#ffffff">Global travel</text>
+  <text x="90" y="400" font-family="Inter, Arial, sans-serif" font-size="60" font-weight="800" fill="#ffffff">distribution</text>
+  <text x="90" y="470" font-family="Inter, Arial, sans-serif" font-size="60" font-weight="800" fill="#ffffff">infrastructure</text>
+
+  <text x="92" y="530" font-family="Inter, Arial, sans-serif" font-size="26" fill="#b9c4e6">A B2B2B platform by KabuK Style Inc.</text>
+</svg>

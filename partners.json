@@ -1,0 +1,100 @@
+{
+  "_comment": "Ecosystem entries shown on the homepage. All entries are PLACEHOLDER sample data for internal review. Edit, add, or remove entries freely. 'category' must match one of the values in 'categories' so filtering works.",
+
+  "categories": [
+    { "id": "all", "label": "All" },
+    { "id": "hotel-group", "label": "Hotel Groups" },
+    { "id": "ota", "label": "OTAs & Marketplaces" },
+    { "id": "agency", "label": "Travel Agencies" },
+    { "id": "wholesaler", "label": "Wholesalers" },
+    { "id": "connectivity", "label": "Connectivity / PMS" },
+    { "id": "internal", "label": "KabuK Services" }
+  ],
+
+  "entries": [
+    {
+      "name": "Sample Ryokan Collection",
+      "category": "hotel-group",
+      "region": "Japan",
+      "description": "PLACEHOLDER — Independent ryokan and boutique group across Kyoto and Kanazawa.",
+      "tag": "Supply"
+    },
+    {
+      "name": "Sample City Hotels KK",
+      "category": "hotel-group",
+      "region": "Japan",
+      "description": "PLACEHOLDER — Mid-scale urban hotel group in Tokyo and Osaka.",
+      "tag": "Supply"
+    },
+    {
+      "name": "Global Marketplace Co.",
+      "category": "ota",
+      "region": "Global",
+      "description": "PLACEHOLDER — International OTA sourcing Japanese inventory.",
+      "tag": "Demand"
+    },
+    {
+      "name": "APAC Travel Marketplace",
+      "category": "ota",
+      "region": "APAC",
+      "description": "PLACEHOLDER — Regional marketplace focused on inbound Japan travel.",
+      "tag": "Demand"
+    },
+    {
+      "name": "Sample DMC & Agency",
+      "category": "agency",
+      "region": "EMEA",
+      "description": "PLACEHOLDER — Destination management company serving EMEA outbound travelers.",
+      "tag": "Demand"
+    },
+    {
+      "name": "Corporate Travel Partners",
+      "category": "agency",
+      "region": "Global",
+      "description": "PLACEHOLDER — Corporate travel agency network.",
+      "tag": "Demand"
+    },
+    {
+      "name": "Sample Bedbank Ltd.",
+      "category": "wholesaler",
+      "region": "Global",
+      "description": "PLACEHOLDER — Wholesaler redistributing supply to downstream agencies.",
+      "tag": "Supply & Demand"
+    },
+    {
+      "name": "Regional Supply Aggregator",
+      "category": "wholesaler",
+      "region": "APAC",
+      "description": "PLACEHOLDER — Aggregates and redistributes regional hotel supply.",
+      "tag": "Supply & Demand"
+    },
+    {
+      "name": "Sample PMS Cloud",
+      "category": "connectivity",
+      "region": "Global",
+      "description": "PLACEHOLDER — Property management system (planned connectivity).",
+      "tag": "Connectivity"
+    },
+    {
+      "name": "Sample Channel Manager",
+      "category": "connectivity",
+      "region": "Global",
+      "description": "PLACEHOLDER — Channel manager integration (roadmap).",
+      "tag": "Connectivity"
+    },
+    {
+      "name": "HafH",
+      "category": "internal",
+      "region": "Japan / Global",
+      "description": "PLACEHOLDER — KabuK Style subscription travel service.",
+      "tag": "KabuK"
+    },
+    {
+      "name": "KabuK Internal Distribution",
+      "category": "internal",
+      "region": "Japan / Global",
+      "description": "PLACEHOLDER — Internal KabuK Style demand channels.",
+      "tag": "KabuK"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "adapter": "marketing_json",
+  "source_file": "i18n/en.json",
+  "output_dir": "i18n",
+  "locales": {
+    "ja": "ja.json",
+    "tw": "zh-TW.json",
+    "kr": "ko.json"
+  },
+  "model": "gpt-5.4-mini",
+  "processing_mode": "standard",
+  "batch_size": 50,
+  "section_depth": 1,
+  "normalize_english_first": true,
+  "write_corrected_english": true,
+  "corrected_english_file": "en.corrected.json",
+  "review_existing_when_english_changes": true,
+  "preserve_existing_when_unchanged": true,
+  "translation_memory_file": "localization_cache.json",
+  "core_glossary_file": "kbkx_glossary.json",
+  "marketing_glossary_file": "marketing_glossary.json",
+  "seo_prefixes": [
+    "meta",
+    "seo",
+    "og",
+    "twitter"
+  ],
+  "marketing_prefixes": [
+    "hero",
+    "home",
+    "about",
+    "partners",
+    "hotels",
+    "solutions",
+    "cta",
+    "platform",
+    "resources"
+  ],
+  "technical_prefixes": [
+    "api",
+    "integration",
+    "developer",
+    "architecture",
+    "security",
+    "kaos"
+  ],
+  "qa_report_file": "marketing_localization_qa.json",
+  "site_copy_map_file": "marketing_copy_map.json",
+  "request_timeout_seconds": 180,
+  "max_retries": 3
+}

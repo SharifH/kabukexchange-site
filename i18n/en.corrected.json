@@ -1,0 +1,546 @@
+{
+  "meta": {
+    "langName": "English"
+  },
+  "nav": {
+    "home": "Home",
+    "hotels": "Supply Partners",
+    "partners": "Partner Solutions",
+    "about": "About",
+    "menu": "Menu",
+    "solutions": "Partner Solutions",
+    "platform": "Platform",
+    "ecosystem": "Ecosystem"
+  },
+  "cta": {
+    "login": "Partner Login",
+    "becomePartner": "Become a Partner",
+    "linkProperty": "Connect Your Property",
+    "talkToUs": "Talk to Sales",
+    "explorePartners": "Explore Partner Solutions",
+    "exploreHotels": "Explore Supply Solutions",
+    "explorePlatform": "Explore the Platform"
+  },
+  "hero": {
+    "eyebrow": "KabuK Exchange by KabuK Style",
+    "title": "Powering Trusted Travel Partnerships.",
+    "subtitle": "KabuK Exchange (KBKx) provides modern travel distribution infrastructure that connects hotels, technology providers, and distribution partners through reliable systems, transparent operations, and long-term collaboration.",
+    "networkTitle": "The hotel distribution ecosystem"
+  },
+  "home": {
+    "badge": {
+      "planned": "Planned",
+      "roadmap": "Roadmap",
+      "plannedConn": "Planned connectivity"
+    },
+    "hero": {
+      "badge1": "Built for trusted partnerships",
+      "badge2": "Enterprise-grade infrastructure",
+      "badge3": "Designed for global distribution"
+    },
+    "serve": {
+      "hotels": {
+        "d": "Hotels, ryokan, resorts, and property groups seeking broader distribution without additional operational burden."
+      },
+      "otas": {
+        "d": "OTAs, marketplaces, bedbanks, and travel platforms expanding reliable access to hotel supply."
+      },
+      "agencies": {
+        "d": "Travel agencies, DMCs, TMCs, and membership platforms serving domestic and international travelers."
+      },
+      "wholesalers": {
+        "d": "Regional suppliers, aggregators, and wholesalers contributing structured inventory to trusted distribution relationships."
+      },
+      "connectivity": {
+        "d": "PMS, CRS, channel managers, switches, and integration platforms connecting property systems with distribution."
+      },
+      "kabuk": {
+        "t": "KabuK travel channels",
+        "d": "KabuK Style services, including HafH, extending distribution into membership and community-driven demand."
+      }
+    },
+    "why": {
+      "japan": {
+        "t": "Expand trusted distribution",
+        "d": "Reach new regional and international demand while maintaining control over inventory, pricing, and partner eligibility."
+      },
+      "global": {
+        "t": "Reduce operational complexity",
+        "d": "Standardize onboarding, mapping, support, and partner workflows instead of rebuilding them for every relationship."
+      },
+      "api": {
+        "t": "Bring partners live faster",
+        "d": "Use modern integration patterns and structured implementation workflows to shorten the path from alignment to production."
+      },
+      "support": {
+        "t": "Operate with greater visibility",
+        "d": "Understand activity, exceptions, and partner performance through transparent operational workflows."
+      },
+      "pricing": {
+        "t": "Distribute with confidence",
+        "d": "Apply pricing, source selection, margin, and channel rules with clear commercial controls."
+      },
+      "settlement": {
+        "t": "Strengthen financial trust",
+        "d": "Support invoicing, reconciliation, settlement, and auditability across multi-party travel commerce."
+      },
+      "eyebrow": "Business outcomes"
+    },
+    "cap": {
+      "supply": {
+        "t": "Distribution Management",
+        "d": "Connect supply with eligible regional and global distribution partners through configurable commercial relationships."
+      },
+      "api": {
+        "t": "Connectivity Infrastructure",
+        "d": "Standardized APIs and integration workflows for search, content, pricing, availability, booking, and operations."
+      },
+      "pricing": {
+        "t": "Pricing & Commercial Management",
+        "d": "Manage pricing, sourcing, margins, eligibility, and channel-specific business rules."
+      },
+      "booking": {
+        "t": "Reservation Operations",
+        "d": "Support booking creation, confirmation, modification, cancellation, and lifecycle visibility."
+      },
+      "billing": {
+        "t": "Financial Operations",
+        "d": "Coordinate invoices, reconciliation, credit, settlement, and partner financial workflows."
+      },
+      "onboarding": {
+        "t": "Partner Operations",
+        "d": "Simplify onboarding, mapping, readiness, support, and ongoing partner management."
+      },
+      "visibility": {
+        "t": "Analytics & Reporting",
+        "d": "Turn operational and commercial activity into actionable performance insight."
+      },
+      "ai": {
+        "t": "AI & Automation",
+        "d": "Planned KAOS capabilities will assist onboarding, mapping, support, pricing, and partner operations."
+      }
+    },
+    "net": {
+      "h": "One connection. A wider ecosystem.",
+      "p": "Instead of rebuilding point-to-point processes for every partnership, participants connect through shared infrastructure. Supply and content move outward; reservations, operational events, and financial information move across the network with greater consistency and transparency.",
+      "li1": "Supply partners contribute inventory, pricing, and content",
+      "li2": "Distribution partners connect travelers with relevant products",
+      "li3": "Connectivity partners link property and reservation systems",
+      "li4": "KabuK channels extend access to membership-driven demand"
+    },
+    "ecosystem": {
+      "eyebrow": "The travel ecosystem"
+    },
+    "platform": {
+      "eyebrow": "Platform"
+    },
+    "network": {
+      "eyebrow": "Trusted Infrastructure"
+    },
+    "ecosystemDirectory": {
+      "eyebrow": "Partner Ecosystem"
+    }
+  },
+  "serve": {
+    "title": "Built around your role in hotel distribution",
+    "subtitle": "Whether you provide hotel supply, connect property systems, or distribute inventory to travelers, KBKx offers a clear path for your organization.",
+    "hotels": "Supply Partners",
+    "otas": "Distribution Partners",
+    "agencies": "Travel Companies & Agencies",
+    "wholesalers": "Inventory & Supply Networks",
+    "connectivity": "Connectivity Partners"
+  },
+  "why": {
+    "title": "What better hotel distribution makes possible",
+    "subtitle": "Commercial growth and operational confidence, supported by the infrastructure needed to deliver both."
+  },
+  "capabilities": {
+    "title": "Infrastructure for the full hotel distribution lifecycle",
+    "subtitle": "A single operating foundation for connectivity, hotel inventory, pricing, reservations, partner operations, financial workflows, and insights."
+  },
+  "network": {
+    "title": "Great travel experiences start with trusted partnerships",
+    "subtitle": "KBKx helps hotels, technology providers, and distribution partners work together with greater clarity, consistency, and operational confidence."
+  },
+  "ecosystem": {
+    "title": "The hotel distribution ecosystem",
+    "subtitle": "See how hotel supply, connectivity providers, and distribution partners work together through KBKx.",
+    "filter": "Filter by category"
+  },
+  "leadcta": {
+    "title": "Let’s strengthen hotel distribution together",
+    "subtitle": "Whether you represent a hotel, technology provider, or distribution business, we’d like to understand your goals and explore the right partnership model."
+  },
+  "hotels": {
+    "hero": {
+      "eyebrow": "For supply partners",
+      "title": "Expand hotel distribution without increasing operational complexity",
+      "subtitle": "Reach relevant regional and international demand while retaining control over inventory, pricing, channel eligibility, and commercial relationships."
+    },
+    "benefits": {
+      "title": "Built for the outcomes hotel teams own"
+    },
+    "how": {
+      "title": "A structured path to distribution"
+    },
+    "usecases": {
+      "title": "Designed for properties, portfolios, and regional teams"
+    },
+    "why": {
+      "eyebrow": "Your commercial objectives",
+      "title": "Expand distribution. Maintain control. Reduce manual work.",
+      "subtitle": "Regional sales, revenue, distribution, and property teams need growth without another layer of operational complexity.",
+      "card1": {
+        "t": "Reach relevant demand",
+        "d": "Expand access to regional and international distribution partners aligned with your commercial strategy."
+      },
+      "card2": {
+        "t": "Bring opportunities live faster",
+        "d": "Use structured onboarding, mapping, content, and readiness workflows to reduce coordination across teams."
+      },
+      "card3": {
+        "t": "Keep commercial control",
+        "d": "Maintain control over inventory, pricing, channel eligibility, policies, and partner relationships."
+      }
+    },
+    "benefit1": "Broader distribution — reach demand partners across regions, traveler segments, and business models.",
+    "benefit2": "Operational simplicity — reduce spreadsheets, email threads, repeated mapping, and manual coordination.",
+    "benefit3": "Commercial control — manage eligible channels, pricing approaches, and property participation.",
+    "benefit4": "Partner support — coordinate onboarding, readiness, and ongoing operational issues through one relationship.",
+    "benefit5": "Financial transparency — support invoicing, reconciliation, and settlement across distribution relationships.",
+    "benefit6": "KabuK reach — access KabuK Style channels such as HafH where commercially appropriate.",
+    "roadmap": {
+      "t": "Property-system connectivity",
+      "d": "Planned PMS and channel-manager integrations are intended to reduce manual work for eligible properties while preserving existing operational systems.",
+      "note": "Roadmap capability — availability depends on integration and partner readiness."
+    },
+    "step1": {
+      "t": "Share your objectives",
+      "d": "Tell us about your property portfolio, target markets, current systems, and distribution priorities."
+    },
+    "step2": {
+      "t": "Align the commercial model",
+      "d": "Confirm eligible properties, channels, rates, policies, responsibilities, and settlement requirements."
+    },
+    "step3": {
+      "t": "Complete onboarding and readiness",
+      "d": "Prepare content, room and rate mapping, inventory, pricing, testing, and operational ownership."
+    },
+    "step4": {
+      "t": "Launch, measure, and improve",
+      "d": "Go live with eligible partners, monitor performance, resolve exceptions, and expand based on results."
+    },
+    "use1": {
+      "t": "Regional sales teams",
+      "d": "Open new demand relationships for specific hotels or regional portfolios without requiring a company-wide technology replacement."
+    },
+    "use2": {
+      "t": "Revenue and distribution teams",
+      "d": "Manage channel participation, pricing approaches, and distribution performance with clearer operational visibility."
+    },
+    "use3": {
+      "t": "Independent and growing properties",
+      "d": "Access structured distribution and partner support without having to manage multiple direct relationships on your own."
+    },
+    "cta": {
+      "title": "Discuss the right distribution opportunity for your hotel",
+      "subtitle": "Tell us which property or portfolio you represent, the markets you want to reach, and how you manage distribution today. We will evaluate the right path together."
+    }
+  },
+  "partners": {
+    "hero": {
+      "eyebrow": "For partner organizations",
+      "title": "Expand hotel supply relationships with greater operational confidence",
+      "subtitle": "For OTAs, bedbanks, agencies, connectivity providers, and technology companies seeking reliable hotel supply, structured implementation, and transparent operations."
+    },
+    "types": {
+      "title": "Partner solutions"
+    },
+    "capabilities": {
+      "title": "Infrastructure that supports the full relationship"
+    },
+    "journey": {
+      "title": "From alignment to live operations"
+    },
+    "why": {
+      "eyebrow": "Shared success",
+      "title": "Grow your network without rebuilding every workflow",
+      "subtitle": "KBKx helps partners add hotel relationships while coordinating the connectivity, mapping, operational, and financial work required to keep them successful."
+    },
+    "why1": {
+      "t": "Reliable supply and connectivity",
+      "d": "Access structured inventory and integration patterns designed for consistent partner operations."
+    },
+    "why2": {
+      "t": "Faster partner onboarding",
+      "d": "Coordinate commercial, technical, mapping, testing, and readiness work through a structured implementation path."
+    },
+    "why3": {
+      "t": "Flexible commercial relationships",
+      "d": "Support different partner types, distribution models, volumes, eligibility rules, and operating responsibilities."
+    },
+    "why4": {
+      "t": "Responsible redistribution",
+      "d": "Enable approved downstream distribution with clear commercial controls and traceable supply relationships."
+    },
+    "why5": {
+      "t": "Transparent financial operations",
+      "d": "Coordinate billing, invoicing, reconciliation, credit, and settlement across multiple parties."
+    },
+    "why6": {
+      "t": "Ongoing operational partnership",
+      "d": "Maintain visibility, issue ownership, support workflows, and continuous improvement after launch."
+    },
+    "demand": {
+      "subtitle": "Grow your supply portfolio through infrastructure designed for operational consistency and long-term partnership."
+    },
+    "demand1": {
+      "t": "OTAs & marketplaces",
+      "d": "Add structured supply while maintaining a consistent customer and booking experience."
+    },
+    "demand2": {
+      "t": "Travel agencies, DMCs & TMCs",
+      "d": "Serve domestic, inbound, corporate, and specialist travel needs with reliable inventory and support."
+    },
+    "demand3": {
+      "t": "Bedbanks & wholesalers",
+      "d": "Expand approved supply relationships for downstream distribution through clear commercial and operational controls."
+    },
+    "connectivity": {
+      "subtitle": "Help customers participate in new distribution relationships without rebuilding every connection independently."
+    },
+    "conn1": {
+      "t": "PMS providers",
+      "d": "Connect property operations with distribution workflows while preserving the systems hotels already use."
+    },
+    "conn2": {
+      "t": "Channel managers",
+      "d": "Extend hotel connectivity into additional commercial relationships through standardized infrastructure."
+    },
+    "conn3": {
+      "t": "CRS, switches & integration platforms",
+      "d": "Route content, availability, pricing, and reservation events across connected systems."
+    },
+    "conn4": {
+      "t": "Technology partners",
+      "d": "Complement KBKx with specialized payments, analytics, identity, automation, and travel technology capabilities."
+    },
+    "supply": {
+      "subtitle": "Contribute trusted inventory through clearly defined sourcing, distribution, and operating relationships."
+    },
+    "supply1": {
+      "t": "Hotel groups",
+      "d": "Coordinate distribution across eligible properties while maintaining portfolio and property-level control."
+    },
+    "supply2": {
+      "t": "Wholesalers",
+      "d": "Contribute approved inventory with clear source, pricing, redistribution, and settlement rules."
+    },
+    "supply3": {
+      "t": "Regional suppliers",
+      "d": "Bring local market knowledge and inventory relationships to regional and international demand."
+    },
+    "supply4": {
+      "t": "Inventory partners",
+      "d": "Aggregate and distribute supply through transparent commercial and operational agreements."
+    },
+    "roadmap": {
+      "t": "AI-assisted partner operations",
+      "d": "Planned KAOS capabilities are intended to assist onboarding, mapping, support, pricing, and partner follow-up while keeping decisions transparent and accountable.",
+      "note": "Roadmap capability — scope and timing remain subject to validation."
+    },
+    "step1": {
+      "t": "Define the opportunity",
+      "d": "Align on business objectives, partner type, target markets, operating model, and the expected value for both sides."
+    },
+    "step2": {
+      "t": "Agree on commercial and operational responsibilities",
+      "d": "Confirm scope, terms, inventory or demand requirements, support ownership, and financial workflows."
+    },
+    "step3": {
+      "t": "Integrate and validate",
+      "d": "Complete technical integration, mapping, testing, certification, and operational readiness with clear ownership."
+    },
+    "step4": {
+      "t": "Launch and grow together",
+      "d": "Move into production, monitor results, resolve issues, and expand the partnership based on shared performance."
+    },
+    "cta": {
+      "title": "Discuss a partnership with KBKx",
+      "subtitle": "Tell us where your organization fits within the ecosystem and the business outcomes you want to achieve."
+    }
+  },
+  "about": {
+    "hero": {
+      "eyebrow": "About KabuK Exchange",
+      "title": "Built to make hotel distribution work better together"
+    },
+    "mission": {
+      "title": "Why KBKx exists",
+      "copy": "Travel has evolved through decades of innovation, but every new relationship can still introduce additional integration, mapping, support, and financial work. KBKx applies proven practices from modern enterprise software, cloud infrastructure, fintech, and platform engineering to the specific realities of travel distribution."
+    },
+    "who": {
+      "title": "Who we support"
+    },
+    "values": {
+      "title": "What partners should experience"
+    },
+    "intro": "KabuK Exchange (KBKx) is modern travel distribution infrastructure created by KabuK Style. We launch with hotel distribution, connecting supply, technology, and demand through trusted infrastructure designed to reduce operational complexity and strengthen long-term partnerships.",
+    "shared": {
+      "title": "Built for shared success",
+      "copy": "KBKx is a true B2B2B infrastructure business. We consider the hotels and suppliers contributing inventory, the partners bringing that inventory to market, the technology companies connecting them, and the travelers who ultimately depend on the entire chain working reliably."
+    },
+    "scale": {
+      "eyebrow": "Our approach",
+      "title": "Modern infrastructure. Respect for the existing ecosystem.",
+      "subtitle": "We do not aim to replace the companies that make travel work. We build infrastructure that helps them collaborate with greater trust, clarity, and operational confidence."
+    },
+    "scale1": {
+      "t": "Connect through shared infrastructure",
+      "d": "Reduce repeated point-to-point work while preserving the systems and relationships partners already depend on."
+    },
+    "scale2": {
+      "t": "Create value across the pipeline",
+      "d": "Design commercial and operational workflows with the success of both supply and distribution in mind."
+    },
+    "scale3": {
+      "t": "Adapt with the industry",
+      "d": "Use a focused, modern operating model to respond to partner feedback and changing market needs."
+    },
+    "value1": {
+      "t": "Trust",
+      "d": "Earn confidence through fair relationships, clear ownership, and responsible handling of critical business operations."
+    },
+    "value2": {
+      "t": "Transparency",
+      "d": "Make sources, decisions, statuses, changes, and financial activity understandable to the appropriate partners."
+    },
+    "value3": {
+      "t": "Reliability",
+      "d": "Design predictable technology and operating processes that partners can build their businesses around."
+    },
+    "value4": {
+      "t": "Partnership",
+      "d": "Treat shared success as the measure of a sustainable B2B2B network."
+    },
+    "value5": {
+      "t": "Operational simplicity",
+      "d": "Reduce unnecessary complexity instead of shifting it from one participant to another."
+    },
+    "value6": {
+      "t": "Continuous improvement",
+      "d": "Learn across industries, listen to partners, and improve the infrastructure as the ecosystem evolves."
+    },
+    "roadmap": {
+      "eyebrow": "Transparency by default",
+      "title": "Clear about what is available and what is planned",
+      "copy": "KBKx is evolving toward a broader operating and intelligence layer for travel distribution. Roadmap capabilities—including additional property-system connectivity and KAOS-assisted workflows—are identified as planned until validated and released."
+    }
+  },
+  "form": {
+    "becomeTitle": "Start a conversation with KabuK Exchange",
+    "becomeSubtitle": "Tell us about your organization, the hotel distribution outcomes you want to achieve, and where you fit in the ecosystem.",
+    "hotelTitle": "Connect your hotel or portfolio",
+    "hotelSubtitle": "Tell us which hotel, ryokan, or property portfolio you represent and the distribution outcomes you want to achieve.",
+    "companyName": "Company name",
+    "hotelName": "Hotel or hotel group name",
+    "contactName": "Contact name",
+    "email": "Email",
+    "phone": "Phone",
+    "companyType": "Company type",
+    "region": "Region",
+    "volume": "Estimated monthly booking volume",
+    "integration": "Integration interest",
+    "location": "Property location",
+    "propertyCount": "Number of properties",
+    "pms": "Current PMS / channel manager",
+    "channels": "Interested distribution channels",
+    "message": "Message",
+    "submit": "Send enquiry",
+    "required": "Required",
+    "optional": "Optional",
+    "select": "Please select",
+    "consent": "I agree to be contacted about this enquiry, in line with the",
+    "privacy": "Privacy Policy",
+    "partner": {
+      "helper": "Our team will route your enquiry to the appropriate commercial, product, or integration contact."
+    },
+    "hotel": {
+      "helper": "You can enquire about one property, a regional portfolio, or a larger hotel group."
+    },
+    "note": "This internal review build opens the configured email client by default. Replace placeholder routing before public launch."
+  },
+  "cookie": {
+    "text": "We use optional analytics cookies to understand how visitors use this site. You can accept or decline them.",
+    "accept": "Accept",
+    "decline": "Decline"
+  },
+  "footer": {
+    "about": "KabuK Exchange is modern travel distribution infrastructure by KabuK Style, connecting hotels, technology providers, and distribution partners through trusted operations.",
+    "site": "KabuK Exchange",
+    "company": "KabuK Style Inc.",
+    "rights": "All rights reserved.",
+    "disclaimer": "Internal review build. Placeholder URLs, email addresses, partner data, and roadmap capabilities must be replaced or confirmed before public launch."
+  },
+  "brand": {
+    "by": "by KabuK Style"
+  },
+  "sol": {
+    "hotels": {
+      "t": "Supply Partners",
+      "d": "For hotels, ryokan, resorts, and property groups seeking greater distribution with stronger operational control."
+    },
+    "demand": {
+      "t": "Distribution Partners",
+      "d": "For OTAs, bedbanks, DMCs, TMCs, agencies, marketplaces, and membership travel platforms."
+    },
+    "connectivity": {
+      "t": "Connectivity Partners",
+      "d": "For PMS, CRS, channel managers, switches, and integration platforms."
+    },
+    "supply": {
+      "t": "Inventory & Supply Partners",
+      "d": "For hotel groups, wholesalers, regional suppliers, and other inventory providers."
+    }
+  },
+  "plat": {
+    "distribution": {
+      "t": "Distribution Management",
+      "d": "Build and manage trusted supply and demand relationships across regional and global channels."
+    },
+    "api": {
+      "t": "Connectivity Infrastructure",
+      "d": "Standardized interfaces for search, content, pricing, availability, reservations, and operations."
+    },
+    "pricing": {
+      "t": "Pricing & Commercial Management",
+      "d": "Configure pricing, sourcing, margins, inventory, eligibility, and channel rules."
+    },
+    "booking": {
+      "t": "Reservation Operations",
+      "d": "Manage booking confirmation, modification, cancellation, status, and lifecycle events."
+    },
+    "billing": {
+      "t": "Financial Operations",
+      "d": "Support invoicing, settlement, reconciliation, credit, ledger, and partner billing workflows."
+    },
+    "operations": {
+      "t": "Partner Operations",
+      "d": "Coordinate onboarding, mapping, readiness, support, visibility, and partner management."
+    }
+  },
+  "platform": {
+    "hero": {
+      "eyebrow": "The KBKx Platform",
+      "title": "One foundation for connected travel distribution",
+      "subtitle": "The KBKx Platform combines connectivity, distribution, commercial controls, reservation operations, financial workflows, and partner operations within trusted enterprise infrastructure."
+    },
+    "intro": {
+      "eyebrow": "Platform solutions"
+    },
+    "cta": {
+      "title": "Explore how the platform aligns with your operating model",
+      "subtitle": "Discuss the partner relationships, workflows, and business outcomes you want KBKx infrastructure to support."
+    }
+  }
+}
