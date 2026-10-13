@@ -231,15 +231,21 @@ There is no analytics provider wired in yet — drop your snippet inside the
 `index.html` and `about.html` include JSON-LD (`Organization` + `WebSite`) for richer
 search results. Update the URLs there (and the PLACEHOLDER domain) before launch.
 
-## Signature ecosystem visual (Supply → KabuK Exchange → Distribution)
+## Network diagrams (one engine, page-specific stories)
 
-A reusable component used on the homepage (full size, `#network`), `/hotels/` (`data-focus="supply"`) and `/partners/` (`data-focus="demand"`, `eco--compact`).
+| Page | Partial | Story |
+|---|---|---|
+| Homepage `#network` | `partials/ecosystem.html` | Full network: Supply → KabuK Exchange → Distribution, connectivity rail, KabuK Platform foundation, OTAs on both sides |
+| `/hotels/` | `partials/eco-hotels.html` | Fan-out: *your property* → KBKx → the channels you approve (+ planned PMS/channel-manager rail) |
+| `/partners/` hero | `partials/eco-demand.html` | Fan-in: many supply sources → KBKx → *your platform* |
+| `/partners/#connectivity-partners` | `partials/eco-connectivity.html` | Two-way: PMS / channel managers / CRS ⇄ KBKx → channels (marked Planned) |
+| `/about/` | `partials/eco-stack.html` | Product family: KabuK Style Inc. → KabuK Exchange (+ HafH), KabuK Platform beneath |
+| `/platform/` | `partials/eco-platform.html` | Foundation-first: KabuK Exchange on KabuK Platform, with the network processes on the Platform slab |
 
-- **Markup:** `partials/ecosystem.html`, injected by `build.py` between `<!-- eco:start -->` / `<!-- eco:end -->` inside `<div class="eco" data-eco>`. Labels are real HTML lists with `data-i18n` keys (`eco.*`), so the diagram is readable, translatable and comprehensible with JS disabled (CSS chevrons connect the columns).
-- **Enhancement:** `setupEco()` in `script.js` measures the DOM and draws curved SVG connectors plus traveling pulses (SMIL) on screens ≥ 901px. It redraws on resize and language change, works in RTL (direction is computed from positions), pauses animation off-screen, and highlights a node's connector on hover.
-- **Mobile (≤ 900px):** stacked layout with chips and CSS pulse lines — no SVG.
-- **Reduced motion:** connectors drawn statically, no pulses, no entry animation.
-- **Semantics:** KabuK Platform is shown as a *foundation slab beneath* the hub, never as a peer node; connectivity partners are a dashed integration rail; OTAs appear on both sides with a red "can play both roles" marker.
+- **Placement:** put `<div class="eco [eco--compact] [variant]" data-eco>` with `<!-- eco:start NAME -->` / `<!-- eco:end -->` inside (no name = homepage partial) and run `python3 build.py`.
+- **Wiring is declarative** (`setupEco()` in `script.js`): each connected element sets `data-eco-node="in|out|both|none"` (flow direction relative to its target), optional `data-eco-style="rail|found|tree"`, and optional `data-eco-to="id"` (defaults to the `[data-eco-hub]` element). The engine measures the layout, picks horizontal or vertical connectors, fans wires along the hub edge, and adds traveling pulses. It redraws on resize and language change, works in RTL, and pauses off-screen.
+- **Breakpoint:** three-column diagrams draw SVG wires from 901px (`data-eco-min` overrides; the stack diagrams use `0`). Below that they stack with CSS pulse lines.
+- **Reduced motion:** static connectors, no pulses. **No JS:** plain HTML lists with CSS chevrons. All labels use `data-i18n` keys (`eco.*`, `ecoH.*`, `ecoD.*`, `ecoC.*`, `ecoS.*`, `ecoP.*`).
 
 ## Icons, forms, and social/SEO
 

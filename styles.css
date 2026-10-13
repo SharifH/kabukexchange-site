@@ -937,3 +937,80 @@ section[id], [id].anchor { scroll-margin-top: calc(var(--header-h) + 16px); }
 
 .eco-node__icon:empty, .card-icon:empty { display: none; }
 .dropdown-item[aria-current="page"] { background: var(--surface-alt); }
+
+/* ---------- 10b. Page-specific diagram compositions ----------
+   eco--fanout (hotels), eco--fanin (demand), eco--twoway (connectivity),
+   eco--stack (about / platform). Same engine and tokens as the homepage. */
+.eco-node__text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.eco-node__text strong { font-size: 1rem; font-weight: 750; color: #fff; }
+.eco-node__text small { font-size: .78rem; font-weight: 500; color: var(--on-navy-muted); line-height: 1.35; }
+.eco-node--you {
+  min-height: 76px; padding: 14px 16px; border-radius: 16px;
+  background: rgba(56,195,226,.14); border: 1.5px solid rgba(56,195,226,.65);
+  box-shadow: 0 0 0 5px rgba(56,195,226,.08), 0 14px 32px rgba(0,0,0,.25);
+}
+.eco--compact .eco-node--you { font-size: .9rem; padding: 12px 14px; min-height: 70px; }
+.eco-node--muted { background: rgba(255,255,255,.05); border-style: dashed; border-color: rgba(255,255,255,.3); box-shadow: none; }
+.eco-node--muted .eco-node__text strong { color: rgba(255,255,255,.9); }
+.eco__foundation--slim { padding: 10px 16px; margin-top: 30px; }
+.eco__caption--plain::before { content: none; }
+.eco__badge { margin: 0; }
+.eco__rail-label .badge { margin: 0 0 0 6px; font-size: .62rem; letter-spacing: .04em; padding: 2px 7px; }
+.eco__flows { list-style: none; margin: 20px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: .86rem; color: var(--on-navy-muted); }
+.eco__flows li { display: inline-flex; align-items: center; gap: 10px; }
+.flow-arrow { display: inline-grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: rgba(56,195,226,.16); color: var(--kabuk-blue); font-weight: 800; font-size: .8rem; }
+[dir="rtl"] .flow-arrow { transform: scaleX(-1); }
+.eco--twoway .eco__grid { grid-template-areas: "supply gl hub gr dist"; }
+.eco--twoway .eco-wire { stroke: rgba(56,195,226,.45); }
+
+.split--eco { grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); align-items: center; margin-bottom: clamp(32px, 4vw, 48px); }
+.split--eco .section-head { margin-bottom: 0; }
+
+/* Product stack (About / Platform) */
+.eco__stack {
+  position: relative; display: grid; align-items: center;
+  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  grid-template-areas: "parent parent" "hub sib" "found .";
+  gap: 40px 22px;
+}
+.eco__stack > .eco-node, .eco__stack > .eco__hub, .eco__stack > .eco__foundation { position: relative; z-index: 1; }
+.eco-stack__parent { grid-area: parent; flex-direction: column; justify-content: center; gap: 2px; text-align: center; justify-self: center; padding: 10px 28px; }
+.eco-stack__parent strong { font-size: 1.05rem; }
+.eco-stack__exchange { grid-area: hub; }
+.eco-stack__sibling { grid-area: sib; flex-direction: column; align-items: flex-start; gap: 2px; opacity: .85; }
+.eco-stack__sibling strong { font-size: 1rem; }
+.eco-stack__sibling small { font-size: .76rem; color: var(--on-navy-muted); font-weight: 500; line-height: 1.35; }
+.eco-stack__platform { grid-area: found; margin: 0; }
+.eco--compact .eco-stack__platform .eco__foundation-desc { display: block; font-size: .78rem; }
+.eco-wire--tree { stroke: rgba(255,255,255,.28); stroke-width: 1.5; }
+.eco[data-focus="platform"] .eco-stack__platform {
+  background: rgba(56,195,226,.2); border-color: var(--kabuk-blue);
+  box-shadow: 0 0 0 5px rgba(56,195,226,.1), 0 16px 40px rgba(0,0,0,.25);
+}
+.eco[data-focus="platform"] .eco-stack__platform .eco__foundation-name { font-size: 1.15rem; }
+@media (max-width: 900px) {
+  .eco--stack .eco__wires { display: block; }
+  .eco__stack { gap: 32px 12px; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); }
+  .eco-node--you { border-radius: 16px; padding: 12px 14px; }
+  .eco--compact .eco-node--you .eco-node__icon { display: none; }
+  .eco__flows { justify-content: center; }
+  .split--eco { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 480px) {
+  .eco__stack .eco__hub { padding: 14px 10px; }
+  .eco__stack .eco__caps li { font-size: .66rem; padding: 3px 7px; }
+  .eco-stack__sibling { padding: 10px; }
+}
+
+@media (min-width: 901px) { .eco--fanout.eco--compact .eco__grid { grid-template-columns: minmax(150px, 1fr) minmax(20px, .3fr) minmax(190px, 1.1fr) minmax(20px, .3fr) minmax(140px, .95fr); } }
+@media (min-width: 901px) { .eco--fanin.eco--compact .eco__grid { grid-template-columns: minmax(140px, .95fr) minmax(20px, .3fr) minmax(190px, 1.1fr) minmax(20px, .3fr) minmax(150px, 1fr); } }
+.eco--compact .eco-node--you .eco-node__text strong { font-size: .98rem; }
+@media (min-width: 901px) { .eco--twoway.eco--compact .eco__grid { grid-template-columns: minmax(120px, .8fr) minmax(20px, .3fr) minmax(180px, 1.1fr) minmax(20px, .3fr) minmax(150px, 1fr); } }
+
+/* Platform page: foundation-first variant of the stack */
+.eco--stack-platform .eco__stack { grid-template-columns: minmax(0, 1fr); grid-template-areas: "parent" "hub" "found"; gap: 36px; }
+.eco--stack-platform .eco-stack__exchange { justify-self: center; width: min(100%, 360px); }
+.eco--stack-platform .eco-stack__platform { padding: 20px 22px; background: rgba(56,195,226,.18); border-color: var(--kabuk-blue); box-shadow: 0 0 0 5px rgba(56,195,226,.1), 0 16px 40px rgba(0,0,0,.25); }
+.eco--stack-platform .eco-stack__platform .eco__foundation-name { font-size: 1.2rem; }
+.eco__caps--found { flex-basis: 100%; margin-top: 6px; }
+.eco__caps--found li { background: rgba(255,255,255,.1); color: #fff; }

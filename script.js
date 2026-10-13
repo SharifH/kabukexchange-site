@@ -776,25 +776,26 @@
   }
 
   function setupEco(root) {
-    var grid = $(".eco__grid", root);
+    var grid = $(".eco__grid, .eco__stack", root);
     var hub = $("[data-eco-hub]", root);
     if (!grid || !hub) return;
     var uid = "eco" + (++ecoCount);
-    var rail = $("[data-eco-rail]", root);
-    var found = $("[data-eco-foundation]", root);
-    var nodes = $all("[data-eco-node]", root);
+    // Every connected element declares its flow relative to its target (the hub
+    // unless data-eco-to names another element id):
+    //   data-eco-node="in"   element -> target     "out"  target -> element
+    //                 "both" two-way pulses        "none" static line, no pulse
+    //   data-eco-style="rail" (dashed) | "found" (foundation) | "tree" (ownership)
+    var links = $all("[data-eco-node]", root);
+    var nodes = links.filter(function (n) { return n.classList.contains("eco-node"); });
     var reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
-    var wide = window.matchMedia("(min-width: 901px)");
+    var wide = window.matchMedia("(min-width: " + (root.getAttribute("data-eco-min") || "901") + "px)");
     var visible = false, drawnOnce = false, pending = false;
 
     var svg = svgEl("svg", { "class": "eco__wires", "aria-hidden": "true", focusable: "false" });
     grid.insertBefore(svg, grid.firstChild);
 
     function defs() {
-      return '<defs>' +
-        '<radialGradient id="' + uid + '-glow"><stop offset="0" stop-color="#38C3E2" stop-opacity=".55"/><stop offset="1" stop-color="#38C3E2" stop-opacity="0"/></radialGradient>' +
-        '<linearGradient id="' + uid + '-fgrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#38C3E2" stop-opacity=".9"/><stop offset="1" stop-color="#38C3E2" stop-opacity=".25"/></linearGradient>' +
-        '</defs>';
+      return '<defs><radialGradient id="' + uid + '-glow"><stop offset="0" stop-color="#38C3E2" stop-opacity=".55"/><stop offset="1" stop-color="#38C3E2" stop-opacity="0"/></radialGradient></defs>';
     }
 
     function rel(el, gr) {
@@ -802,13 +803,10 @@
       return { l: r.left - gr.left, r: r.right - gr.left, t: r.top - gr.top, b: r.bottom - gr.top,
                cx: (r.left + r.right) / 2 - gr.left, cy: (r.top + r.bottom) / 2 - gr.top };
     }
-
-    function curve(x1, y1, x2, y2) {
-      var mx = (x1 + x2) / 2;
-      return "M" + x1.toFixed(1) + " " + y1.toFixed(1) +
-             " C" + mx.toFixed(1) + " " + y1.toFixed(1) + " " + mx.toFixed(1) + " " + y2.toFixed(1) +
-             " " + x2.toFixed(1) + " " + y2.toFixed(1);
-    }
+    function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
+    function f(n) { return n.toFixed(1); }
+    function hCurve(x1, y1, x2, y2) { var m = (x1 + x2) / 2; return "M" + f(x1) + " " + f(y1) + " C" + f(m) + " " + f(y1) + " " + f(m) + " " + f(y2) + " " + f(x2) + " " + f(y2); }
+    function vCurve(x1, y1, x2, y2) { var m = (y1 + y2) / 2; return "M" + f(x1) + " " + f(y1) + " C" + f(x1) + " " + f(m) + " " + f(x2) + " " + f(m) + " " + f(x2) + " " + f(y2); }
 
     function addPulse(group, pathId, opts) {
       var dur = opts.dur + "s";
@@ -840,60 +838,80 @@
       var gr = grid.getBoundingClientRect();
       if (!gr.width) return;
       svg.setAttribute("viewBox", "0 0 " + gr.width.toFixed(0) + " " + gr.height.toFixed(0));
-      var h = rel(hub, gr);
       var animateIn = visible && !drawnOnce && !reduce.matches;
       var wires = svgEl("g", {});
       var pulses = svgEl("g", { "class": "eco-pulses" });
       svg.appendChild(wires);
 
-      // Group nodes per side so their wires fan evenly into the hub edge.
-      var sides = { left: [], right: [] };
-      nodes.forEach(function (n) {
-        var r = rel(n, gr);
-        sides[r.cx < h.cx ? "left" : "right"].push({ el: n, r: r });
+      // 1) Measure every link and decide orientation + side relative to its target.
+      var items = links.map(function (el) {
+        var toId = el.getAttribute("data-eco-to");
+        var target = (toId && document.getElementById(toId)) || hub;
+        var r = rel(el, gr), t = rel(target, gr);
+        var horizontal = r.r <= t.l || r.l >= t.r;   // no horizontal overlap
+        var side = horizontal ? (r.cx < t.cx ? "left" : "right") : (r.cy < t.cy ? "top" : "bottom");
+        return { el: el, target: target, r: r, t: t, horizontal: horizontal, side: side,
+                 mode: el.getAttribute("data-eco-node") || "in", style: el.getAttribute("data-eco-style") || "" };
       });
-
-      var i = 0;
-      ["left", "right"].forEach(function (side) {
-        var list = sides[side];
-        list.forEach(function (item, k) {
-          var t = list.length > 1 ? k / (list.length - 1) : 0.5;
-          var hy = h.t + (h.b - h.t) * (0.22 + 0.56 * t);
-          var nx = side === "left" ? item.r.r : item.r.l;
-          var hx = side === "left" ? h.l : h.r;
-          var inbound = item.el.getAttribute("data-eco-node") === "supply";
-          // Path always runs in the direction of commercial flow:
-          // supply node -> hub, hub -> distribution node.
-          var d = inbound ? curve(nx, item.r.cy, hx, hy) : curve(hx, hy, nx, item.r.cy);
-          var id = uid + "-w" + i;
-          var path = svgEl("path", { id: id, d: d, "class": "eco-wire" + (animateIn ? " draw" : ""), pathLength: "1" });
-          if (animateIn) path.style.transitionDelay = (0.35 + i * 0.06).toFixed(2) + "s";
-          wires.appendChild(path);
-          item.el._ecoWire = path;
-          if (!reduce.matches) {
-            addPulse(pulses, id, { dur: 3.4 + (i % 3) * 0.35, begin: (animateIn ? 1.4 : 0.2) + (inbound ? 0 : 1.6) + (i % 5) * 0.55 });
-          }
-          i++;
+      // 2) Fan multiple wires evenly along the same edge of the same target.
+      var groups = {};
+      items.forEach(function (it) {
+        if (!it.horizontal) return;
+        var k = (it.target.id || "hub") + ":" + it.side;
+        (groups[k] = groups[k] || []).push(it);
+      });
+      Object.keys(groups).forEach(function (k) {
+        var g = groups[k];
+        g.sort(function (a, b) { return a.r.cy - b.r.cy; });
+        g.forEach(function (it, i) {
+          it.spread = g.length > 1 ? (i / (g.length - 1)) : null;
         });
       });
 
-      if (rail) {
-        var rr = rel(rail, gr);
-        var railPath = svgEl("path", { id: uid + "-rail", d: "M" + rr.cx + " " + rr.b + " L" + h.cx + " " + h.t, "class": "eco-wire eco-wire--rail" });
-        wires.appendChild(railPath);
-        if (!reduce.matches) addPulse(pulses, uid + "-rail", { dur: 4.8, begin: animateIn ? 2.2 : 0.4, r: 2.2, glow: 6, cls: "eco-pulse eco-pulse--rail", keyTimes: "0;.5;1", keyPoints: "0;1;0", keySplines: ".45 0 .4 1;.45 0 .4 1", fade: "0;1;1;1;0", fadeTimes: "0;.08;.5;.92;1" });
-      }
-      if (found) {
-        var fr = rel(found, gr);
-        var fPath = svgEl("path", { id: uid + "-found", d: "M" + h.cx + " " + fr.t + " L" + h.cx + " " + h.b, "class": "eco-wire eco-wire--found" + (animateIn ? " draw" : ""), pathLength: "1" });
-        wires.appendChild(fPath);
-        if (!reduce.matches) addPulse(pulses, uid + "-found", { dur: 2.8, begin: animateIn ? 1.8 : 0.6, r: 2.4, glow: 7 });
-      }
+      // 3) Draw.
+      items.forEach(function (it, i) {
+        var d, a, b;
+        if (it.horizontal) {
+          var nx = it.side === "left" ? it.r.r : it.r.l;
+          var tx = it.side === "left" ? it.t.l : it.t.r;
+          var ty = it.spread == null
+            ? clamp(it.r.cy, it.t.t + 18, it.t.b - 18)
+            : it.t.t + (it.t.b - it.t.t) * (0.22 + 0.56 * it.spread);
+          a = [nx, it.r.cy]; b = [tx, ty];
+          d = it.mode === "out" ? hCurve(b[0], b[1], a[0], a[1]) : hCurve(a[0], a[1], b[0], b[1]);
+        } else {
+          // Vertical link: drop straight down/up where the two boxes overlap.
+          var x = clamp(it.t.cx, it.r.l + 18, it.r.r - 18);
+          a = [x, it.side === "top" ? it.r.b : it.r.t];
+          b = [clamp(x, it.t.l + 18, it.t.r - 18), it.side === "top" ? it.t.t : it.t.b];
+          d = it.mode === "out" ? vCurve(b[0], b[1], a[0], a[1]) : vCurve(a[0], a[1], b[0], b[1]);
+        }
+        var id = uid + "-w" + i;
+        var cls = "eco-wire" + (it.style ? " eco-wire--" + it.style : "");
+        var drawable = it.style !== "rail";
+        var path = svgEl("path", { id: id, d: d, "class": cls + (animateIn && drawable ? " draw" : "") });
+        if (drawable) path.setAttribute("pathLength", "1");
+        if (animateIn && drawable) path.style.transitionDelay = (0.35 + i * 0.06).toFixed(2) + "s";
+        wires.appendChild(path);
+        it.el._ecoWire = path;
+        if (reduce.matches || it.mode === "none") return;
+        var base = animateIn ? 1.4 : 0.2;
+        if (it.mode === "both") {
+          addPulse(pulses, id, { dur: it.style === "rail" ? 4.8 : 4.2, begin: base + 0.8 + (i % 4) * 0.6,
+            r: it.style === "rail" ? 2.2 : 2.6, glow: it.style === "rail" ? 6 : 8,
+            cls: "eco-pulse" + (it.style === "rail" ? " eco-pulse--rail" : ""),
+            keyTimes: "0;.5;1", keyPoints: "0;1;0", keySplines: ".45 0 .4 1;.45 0 .4 1",
+            fade: "0;1;1;1;0", fadeTimes: "0;.08;.5;.92;1" });
+        } else if (it.style === "found") {
+          addPulse(pulses, id, { dur: 2.8, begin: base + 0.4, r: 2.4, glow: 7 });
+        } else {
+          addPulse(pulses, id, { dur: 3.4 + (i % 3) * 0.35, begin: base + (it.mode === "out" ? 1.6 : 0) + (i % 5) * 0.55 });
+        }
+      });
       svg.appendChild(pulses);
       root.classList.add("is-wired");
       if (animateIn) {
         drawnOnce = true;
-        // Force a style flush, then let the CSS transition draw the wires in.
         svg.getBoundingClientRect();
         requestAnimationFrame(function () { root.classList.add("is-drawn"); });
       }

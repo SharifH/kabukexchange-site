@@ -1,5 +1,19 @@
 # Changelog
 
+## 2026-10-13 (b) — Page-specific network diagrams
+- Diagram engine generalized: declarative `data-eco-node` direction (in/out/both/none),
+  `data-eco-style` (rail/found/tree), `data-eco-to` targets, automatic horizontal/vertical
+  connectors, per-diagram breakpoint (`data-eco-min`). `build.py` injects named partials
+  (`<!-- eco:start NAME -->`).
+- New compositions: Hotels fan-out (`eco-hotels`), Demand fan-in (`eco-demand`),
+  Connectivity two-way integration on `/partners/#connectivity-partners` (`eco-connectivity`,
+  labelled Planned), About product-family stack (`eco-stack`), Platform foundation-first stack
+  (`eco-platform`). Homepage keeps the full network.
+- About hero now pairs copy with the product-family diagram (redundant logo lockup removed).
+- 39 new strings translated into ja, ko, zh-TW, ar (draft).
+- Re-verified: 270 page loads (18 pages × 5 languages × 3 widths), 0 errors/overflow;
+  reduced motion = static wires, no pulses, on every diagram.
+
 ## 2026-10-13 — Visual refinement & product-separation pass
 
 ### Architecture (unchanged by design)

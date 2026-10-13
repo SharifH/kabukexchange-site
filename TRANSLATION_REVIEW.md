@@ -7,7 +7,7 @@ KabuK Style Inc., HafH) are intentionally untranslated.
 ## Priority 1 — new in this pass (all 4 languages)
 Key prefixes: `hdr.*`, `ftr.*`, `eco.*`, `hp.*`, `ht.*`, `pt.*`, `ab.*`, `fm.*`, `plat.notice`,
 `plat2.*`, `cta.linkYourProperty`, `cta.exploreNetwork`, `form.submitMailto`, `form.noteMailto`,
-`form.statusMailto`, `form.submit`, `form.noteApi`, `platform.cta.*`.
+`form.statusMailto`, `form.submit`, `form.noteApi`, `platform.cta.*`, and the page diagrams `ecoH.*`, `ecoD.*`, `ecoC.*`, `ecoS.*`, `ecoP.*`.
 Check especially: partner taxonomy consistency (Supply/Demand/Connectivity Partners),
 "OTAs as Suppliers", "Bedbanks", "Settlement", and the hero headline rhythm.
 

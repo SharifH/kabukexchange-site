@@ -101,8 +101,14 @@ def build_i18n_bundle():
 def main():
     header = read("partials/header.html").rstrip("\n")
     footer = read("partials/footer.html").rstrip("\n")
-    eco = read("partials/ecosystem.html").rstrip("\n")
-    eco_re = re.compile(r'(<!-- eco:start -->).*?(<!-- eco:end -->)', re.S)
+    # <!-- eco:start -->            -> partials/ecosystem.html (homepage network)
+    # <!-- eco:start hotels -->     -> partials/eco-hotels.html, etc.
+    eco_re = re.compile(r'(<!-- eco:start(?: ([a-z-]+))? -->).*?(<!-- eco:end -->)', re.S)
+
+    def eco_repl(m):
+        name = m.group(2)
+        markup = read("partials/" + ("eco-%s.html" % name if name else "ecosystem.html")).rstrip("\n")
+        return m.group(1) + "\n" + markup + "\n" + m.group(3)
 
     # Leading [ \t]* is consumed so the partial controls its own indentation
     # (otherwise the page's existing indent would stack on top of the partial's).
@@ -126,7 +132,7 @@ def main():
         if footer_re.search(updated):
             updated = footer_re.sub(lambda m: footer, updated, count=1)
         if eco_re.search(updated):
-            updated = eco_re.sub(lambda m: m.group(1) + "\n" + eco + "\n" + m.group(2), updated)
+            updated = eco_re.sub(eco_repl, updated)
 
         # Depth of this page below the site root → relative prefix.
         rel_dir = os.path.relpath(os.path.dirname(path), ROOT)
