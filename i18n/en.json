@@ -752,5 +752,12 @@
   "hp.eco.t6.t": "Travel Apps & Membership Platforms",
   "hp.eco.t6.d": "Consumer apps, loyalty and subscription programs offering stays.",
   "hp.eco.t7.t": "Channel Managers, PMS & CRS",
-  "hp.eco.t7.d": "Systems that connect properties’ rates and availability to the network."
+  "hp.eco.t7.d": "Systems that connect properties’ rates and availability to the network.",
+  "net.map.filter.label": "Show markets",
+  "net.map.filter.all": "All markets",
+  "net.map.grid.label": "Coverage map. Use the arrow keys to move between markets and Enter to see details.",
+  "net.map.detail.prompt": "Select a market on the map or in the lists below to see details.",
+  "net.map.detail.direct": "KabuK Exchange has at least one directly contracted property in this market.",
+  "net.map.detail.connected": "Bookable inventory in this market is available through connected suppliers. This does not indicate a direct commercial relationship with properties here.",
+  "net.map.detail.clear": "Clear selection"
 }

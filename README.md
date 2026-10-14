@@ -258,7 +258,7 @@ site until you turn each one on, independently, in `site-config.json`:
 | Flag (internal label) | What it publishes | Data it reads | Route / location |
 |---|---|---|---|
 | `networkStats` — *Enable Network Statistics* | Four metrics with count-up: Directly Contracted Properties, Direct Supply Countries, Available Properties (deduplicated), Countries Covered | `data/network-stats.json` → `metrics` | `/network/` (page appears when this **or** the map is on) |
-| `networkCoverageMap` — *Enable Coverage Map* | Asia-Pacific tile map + rest-of-world groups + accessible country lists, direct vs connected | `data/network-stats.json` → `coverage` | `/network/#coverage` |
+| `networkCoverageMap` — *Enable Coverage Map* | Interactive Asia-Pacific tile map + rest-of-world groups: filter (all / direct / connected), hover or focus tooltips, click/tap/Enter for market details, arrow-key navigation, country lists linked to the map | `data/network-stats.json` → `coverage` | `/network/#coverage` |
 | `connectivityDirectory` — *Publish Connectivity Directory* | Searchable directory: keyword search, category / status / connection / region filters, sort, URL state, “Request an Integration” | `data/integrations.json` | `/network/connectivity/` |
 | `partnerEcosystem` — *Publish Partner Ecosystem* | Partner directory with search, category chips, A–Z, logo cards | `data/partners-ecosystem.json` | `/partners/ecosystem/` (replaces the homepage `#ecosystem` link in the nav) |
 | `homepageFeaturedConnections` — *Show Featured Connections* | Homepage grid of verified, operational connections with status + method badges | `data/featured-connections.json` (+ `integrations.json`) | Homepage, before the ecosystem section |

@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-14 (b) — Interactive coverage map
+- `/network/#coverage` (still behind `networkCoverageMap`, off): approved markets are now buttons. Filter chips (All / Direct supply / Connected inventory) double as the legend; hover or focus shows a tooltip; click, tap, Enter or Space opens a details panel (market, direct vs connected explanation, verified date, Clear selection); country lists are buttons linked two-way with the tiles.
+- Keyboard: one tab stop for the whole map (roving tabindex), arrow keys move geographically (also in RTL), Home/End, Escape clears. Details announced via a polite live region; decorative tiles hidden from assistive tech; reduced motion respected.
+- No per-market figures are shown — only what the approved coverage data contains. 7 new strings in all five languages (draft).
+- `tests/launch_gates.js`: 28 new map checks (209 total).
+
 ## 2026-10-14 — Network, directory and partner features (built, launch-gated OFF)
 Editorial reference: KABUK_EXCHANGE_NETWORK_AND_LAUNCH_COPY.md. Base: the Asia-first build (c) below, applied on top of the uploaded repository (its history is kept).
 

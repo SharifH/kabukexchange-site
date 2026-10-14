@@ -113,18 +113,30 @@
       <p class="lead" data-i18n="net.map.copy">See where KabuK Exchange is developing direct accommodation supply and where connected suppliers extend available inventory. Coverage does not necessarily indicate a direct commercial relationship with properties in that market.</p>
     </div>
     <div class="cov">
-      <div class="cov__stage">
-        <ul class="cov__legend" aria-hidden="true">
-          <li><span class="legend-swatch legend-swatch--direct"></span><span data-i18n="net.map.legendDirect">Direct supply market</span></li>
-          <li><span class="legend-swatch legend-swatch--connected"></span><span data-i18n="net.map.legendConnected">Connected inventory market</span></li>
-        </ul>
-        <div class="cov__grid" data-cov-grid role="img" aria-labelledby="cov-summary"></div>
-        <div class="cov__world" data-cov-world aria-hidden="true"></div>
+      <div class="cov__stage" data-cov-stage>
+        <div class="cov-filter" role="group" data-i18n-aria-label="net.map.filter.label" aria-label="Show markets">
+          <button type="button" data-cov-filter="all" aria-pressed="true"><span data-i18n="net.map.filter.all">All markets</span></button>
+          <button type="button" data-cov-filter="direct" aria-pressed="false"><span class="legend-swatch legend-swatch--direct" aria-hidden="true"></span><span data-i18n="net.map.legendDirect">Direct supply market</span></button>
+          <button type="button" data-cov-filter="connected" aria-pressed="false"><span class="legend-swatch legend-swatch--connected" aria-hidden="true"></span><span data-i18n="net.map.legendConnected">Connected inventory market</span></button>
+        </div>
+        <div class="cov__grid" data-cov-grid role="group" data-i18n-aria-label="net.map.grid.label" aria-label="Coverage map. Use the arrow keys to move between markets and Enter to see details." aria-describedby="cov-summary"></div>
+        <div class="cov__world" data-cov-world></div>
+        <div class="cov-tip" data-cov-tip aria-hidden="true" hidden></div>
       </div>
       <div class="cov__lists">
         <p id="cov-summary" class="cov__summary" data-cov-summary></p>
-        <div class="cov__list"><h3><span class="legend-swatch legend-swatch--direct" aria-hidden="true"></span><span data-i18n="net.map.legendDirect">Direct supply market</span></h3><ul data-cov-list="direct"></ul></div>
-        <div class="cov__list"><h3><span class="legend-swatch legend-swatch--connected" aria-hidden="true"></span><span data-i18n="net.map.legendConnected">Connected inventory market</span></h3><ul data-cov-list="connected"></ul></div>
+        <div class="cov-detail" data-cov-detail aria-live="polite">
+          <p class="cov-detail__prompt" data-cov-prompt data-i18n="net.map.detail.prompt">Select a market on the map or in the lists below to see details.</p>
+          <div class="cov-detail__body" data-cov-body hidden>
+            <p class="cov-detail__kind" data-cov-kind></p>
+            <h3 class="cov-detail__name" data-cov-name></h3>
+            <p class="cov-detail__text" data-cov-text></p>
+            <p class="cov-detail__date" data-cov-date></p>
+            <button type="button" class="btn btn-secondary btn-sm" data-cov-clear><span data-i18n="net.map.detail.clear">Clear selection</span></button>
+          </div>
+        </div>
+        <div class="cov__list" data-cov-listwrap="direct"><h3><span class="legend-swatch legend-swatch--direct" aria-hidden="true"></span><span data-i18n="net.map.legendDirect">Direct supply market</span></h3><ul data-cov-list="direct"></ul></div>
+        <div class="cov__list" data-cov-listwrap="connected"><h3><span class="legend-swatch legend-swatch--connected" aria-hidden="true"></span><span data-i18n="net.map.legendConnected">Connected inventory market</span></h3><ul data-cov-list="connected"></ul></div>
         <p class="cov__asof" data-cov-asof hidden><span data-i18n="net.map.asof">Coverage verified {date}.</span></p>
       </div>
     </div>

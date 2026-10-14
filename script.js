@@ -1395,6 +1395,13 @@
     "central-asia": "KZ KG TJ TM UZ AF AZ AM GE"
   };
 
+  // Interactive coverage map. Only markets in the approved coverage data are
+  // interactive (buttons); every other tile is decorative. Geography stays
+  // left-to-right in RTL locales, and the arrow keys move geographically.
+  //   • Filter: all / direct / connected (also acts as the legend)
+  //   • Hover or focus a market → tooltip; click, tap, Enter or Space → details
+  //   • Arrow keys move between markets (roving tabindex); Home/End; Esc clears
+  //   • Map tiles and the country lists stay in sync both ways
   function renderCoverage(section, doc) {
     var cov = doc.coverage || {};
     var ok = cov.approvedForPublication === true && !!cov.verifiedAt;
@@ -1405,61 +1412,224 @@
     var kind = {};
     direct.forEach(function (c) { kind[c] = "direct"; });
     connected.forEach(function (c) { kind[c] = "connected"; });
-    var wrap = $(".cov", section), grid = $("[data-cov-grid]", section), world = $("[data-cov-world]", section);
 
-    function tile(cc, i) {
-      var n = el("span", "cov-tile", cc);
+    var wrap = $(".cov", section), stage = $("[data-cov-stage]", section);
+    var grid = $("[data-cov-grid]", section), world = $("[data-cov-world]", section), tip = $("[data-cov-tip]", section);
+    var state = { filter: "all", selected: null, focus: null };
+    var pos = {};          // cc -> [col,row] for geographic arrow-key movement
+    var REGION_ORDER = ["europe", "middle-east-africa", "americas", "central-asia", "other"];
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    function kindLabel(k) { return k === "direct" ? t("net.map.legendDirect", "Direct supply market") : t("net.map.legendConnected", "Connected inventory market"); }
+    function visible(cc) { return !!kind[cc] && (state.filter === "all" || state.filter === kind[cc]); }
+    function tiles() { return $all("button.cov-tile", stage); }
+    function tileFor(cc) { return $('button.cov-tile[data-cc="' + cc + '"]', stage); }
+
+    function makeTile(cc, i) {
+      var n;
+      if (kind[cc]) {
+        n = el("button", "cov-tile", cc);
+        n.type = "button";
+        n.setAttribute("data-cc", cc);
+        n.setAttribute("data-cov", kind[cc]);
+        n.setAttribute("aria-label", regionName(cc) + ", " + kindLabel(kind[cc]));
+        n.setAttribute("aria-pressed", "false");
+        n.tabIndex = -1;
+      } else {
+        n = el("span", "cov-tile", cc);
+        n.setAttribute("aria-hidden", "true");
+      }
       n.style.setProperty("--d", i);
-      if (kind[cc]) n.setAttribute("data-cov", kind[cc]);
-      n.title = regionName(cc);
       return n;
     }
+
     function draw() {
-      grid.innerHTML = ""; world.innerHTML = "";
+      grid.innerHTML = ""; world.innerHTML = ""; pos = {};
       Object.keys(APAC_TILES).forEach(function (cc, i) {
-        var n = tile(cc, i);
+        var n = makeTile(cc, i);
         n.style.gridColumn = String(APAC_TILES[cc][0] - 1 || 1);
         n.style.gridRow = String(APAC_TILES[cc][1]);
+        pos[cc] = [APAC_TILES[cc][0], APAC_TILES[cc][1]];
         grid.appendChild(n);
       });
-      var rest = Object.keys(kind).filter(function (c) { return !APAC_TILES[c]; });
       var groups = {};
-      rest.forEach(function (c) {
+      Object.keys(kind).filter(function (c) { return !APAC_TILES[c]; }).forEach(function (c) {
         var g = "other";
         Object.keys(WORLD_REGIONS).forEach(function (k) { if ((" " + WORLD_REGIONS[k] + " ").indexOf(" " + c + " ") >= 0) g = k; });
         (groups[g] = groups[g] || []).push(c);
       });
-      ["europe", "middle-east-africa", "americas", "central-asia", "other"].forEach(function (g) {
+      var row = 10;
+      REGION_ORDER.forEach(function (g) {
         if (!groups[g]) return;
-        var row = el("div", "cov-region");
-        row.appendChild(el("span", "cov-region__label", t("net.map.region." + g, g)));
-        groups[g].sort().forEach(function (c, i) { row.appendChild(tile(c, i)); });
-        world.appendChild(row);
+        var line = el("div", "cov-region");
+        line.setAttribute("role", "group");
+        line.setAttribute("aria-label", t("net.map.region." + g, g));
+        var lab = el("span", "cov-region__label", t("net.map.region." + g, g));
+        lab.setAttribute("aria-hidden", "true");
+        line.appendChild(lab);
+        groups[g].sort().forEach(function (c, i) { line.appendChild(makeTile(c, i)); pos[c] = [i + 1, row]; });
+        world.appendChild(line);
+        row++;
       });
+
       [["direct", direct], ["connected", connected]].forEach(function (pair) {
         var ul = $('[data-cov-list="' + pair[0] + '"]', section);
         ul.innerHTML = "";
-        pair[1].map(regionName).sort(function (a, b) { return a.localeCompare(b, currentLang || DEFAULT_LANG); })
-          .forEach(function (name) { ul.appendChild(el("li", null, name)); });
-        ul.parentNode.hidden = !pair[1].length;
+        pair[1].slice().sort(function (a, b) { return regionName(a).localeCompare(regionName(b), currentLang || DEFAULT_LANG); })
+          .forEach(function (cc) {
+            var li = el("li"), b = el("button", "cov-chip", regionName(cc));
+            b.type = "button"; b.setAttribute("data-cc", cc); b.setAttribute("aria-pressed", "false");
+            b.addEventListener("click", function () { select(state.selected === cc ? null : cc); });
+            b.addEventListener("mouseenter", function () { hot(cc, true); });
+            b.addEventListener("mouseleave", function () { hot(cc, false); });
+            li.appendChild(b); ul.appendChild(li);
+          });
       });
+
       fillTemplate($("[data-cov-summary]", section), "net.map.summary",
         "Direct supply in {direct} markets; connected inventory in {connected} further markets.",
         { direct: fmtNumber(direct.length), connected: fmtNumber(connected.length) });
       var asof = $("[data-cov-asof]", section);
       fillTemplate(asof.firstElementChild, "net.map.asof", "Coverage verified {date}.", { date: fmtDate(cov.verifiedAt) });
       asof.hidden = false;
+      bindTiles();
+      sync();
     }
+
+    // Visual link between a list chip and its tile while hovering either.
+    function hot(cc, on) {
+      var tl = tileFor(cc);
+      if (tl) tl.classList.toggle("is-hot", on && visible(cc));
+      $all('.cov-chip[data-cc="' + cc + '"]', section).forEach(function (c) { c.classList.toggle("is-hot", on); });
+    }
+
+    function showTip(btn) {
+      var cc = btn.getAttribute("data-cc");
+      tip.innerHTML = "";
+      tip.appendChild(el("strong", null, regionName(cc)));
+      var k = el("span", "cov-tip__kind", kindLabel(kind[cc]));
+      k.setAttribute("data-cov", kind[cc]);
+      tip.appendChild(k);
+      tip.hidden = false;
+      var s = stage.getBoundingClientRect(), b = btn.getBoundingClientRect();
+      var x = b.left - s.left + b.width / 2, y = b.top - s.top;
+      tip.style.left = "0px"; tip.style.top = "0px";
+      var w = tip.offsetWidth, h = tip.offsetHeight;
+      x = Math.max(8, Math.min(s.width - w - 8, x - w / 2));
+      var below = y - h - 10 < 0;
+      tip.style.left = x + "px";
+      tip.style.top = (below ? y + b.height + 10 : y - h - 10) + "px";
+      tip.classList.toggle("is-below", below);
+    }
+    function hideTip() { tip.hidden = true; }
+
+    function bindTiles() {
+      tiles().forEach(function (b) {
+        var cc = b.getAttribute("data-cc");
+        b.addEventListener("click", function () { select(state.selected === cc ? null : cc); state.focus = cc; rove(); });
+        b.addEventListener("pointerenter", function (e) { if (e.pointerType === "mouse" && !b.disabled) { showTip(b); hot(cc, true); } });
+        b.addEventListener("pointerleave", function () { hideTip(); hot(cc, false); });
+        b.addEventListener("focus", function () { state.focus = cc; rove(); showTip(b); hot(cc, true); });
+        b.addEventListener("blur", function () { hideTip(); hot(cc, false); });
+        b.addEventListener("keydown", onKey);
+      });
+    }
+
+    // One tabbable market at a time (roving tabindex).
+    function rove() {
+      var list = tiles().filter(function (b) { return !b.disabled; });
+      var cur = state.focus && visible(state.focus) ? state.focus : (state.selected && visible(state.selected) ? state.selected : null);
+      if (!cur && list.length) cur = order()[0];
+      list.forEach(function (b) { b.tabIndex = b.getAttribute("data-cc") === cur ? 0 : -1; });
+      tiles().filter(function (b) { return b.disabled; }).forEach(function (b) { b.tabIndex = -1; });
+    }
+    function order() {
+      return Object.keys(pos).filter(visible).sort(function (a, b) { return pos[a][1] - pos[b][1] || pos[a][0] - pos[b][0]; });
+    }
+    function move(from, dx, dy) {
+      var p = pos[from], best = null, bestScore = Infinity;
+      order().forEach(function (cc) {
+        if (cc === from) return;
+        var q = pos[cc], ax = q[0] - p[0], ay = q[1] - p[1];
+        var along = dx ? ax * dx : ay * dy, across = dx ? Math.abs(ay) : Math.abs(ax);
+        if (along <= 0) return;
+        var score = along + across * 2.5;
+        if (score < bestScore) { bestScore = score; best = cc; }
+      });
+      return best;
+    }
+    function onKey(e) {
+      var cc = e.currentTarget.getAttribute("data-cc"), next = null, o = order();
+      switch (e.key) {
+        case "ArrowRight": next = move(cc, 1, 0); break;
+        case "ArrowLeft": next = move(cc, -1, 0); break;
+        case "ArrowDown": next = move(cc, 0, 1); break;
+        case "ArrowUp": next = move(cc, 0, -1); break;
+        case "Home": next = o[0]; break;
+        case "End": next = o[o.length - 1]; break;
+        case "Escape": if (state.selected) { select(null); e.preventDefault(); } return;
+        default: return;
+      }
+      e.preventDefault();
+      if (next) { state.focus = next; rove(); tileFor(next).focus(); }
+    }
+
+    function select(cc) {
+      state.selected = cc && visible(cc) ? cc : null;
+      sync();
+      var body = $("[data-cov-body]", section), prompt = $("[data-cov-prompt]", section);
+      if (!state.selected) { body.hidden = true; prompt.hidden = false; return; }
+      var k = kind[state.selected];
+      var kindEl = $("[data-cov-kind]", section);
+      kindEl.innerHTML = "";
+      var sw = el("span", "legend-swatch legend-swatch--" + k); sw.setAttribute("aria-hidden", "true");
+      kindEl.appendChild(sw); kindEl.appendChild(el("span", null, kindLabel(k)));
+      $("[data-cov-name]", section).textContent = regionName(state.selected);
+      $("[data-cov-text]", section).textContent = k === "direct"
+        ? t("net.map.detail.direct", "KabuK Exchange has at least one directly contracted property in this market.")
+        : t("net.map.detail.connected", "Bookable inventory in this market is available through connected suppliers. This does not indicate a direct commercial relationship with properties here.");
+      fillTemplate($("[data-cov-date]", section), "net.map.asof", "Coverage verified {date}.", { date: fmtDate(cov.verifiedAt) });
+      prompt.hidden = true; body.hidden = false;
+    }
+
+    function sync() {
+      tiles().forEach(function (b) {
+        var cc = b.getAttribute("data-cc"), on = visible(cc);
+        b.disabled = !on;
+        b.classList.toggle("is-dimmed", !on);
+        b.setAttribute("aria-pressed", String(state.selected === cc));
+      });
+      $all(".cov-chip", section).forEach(function (c) { c.setAttribute("aria-pressed", String(state.selected === c.getAttribute("data-cc"))); });
+      $all("[data-cov-filter]", section).forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-cov-filter") === state.filter)); });
+      ["direct", "connected"].forEach(function (k) {
+        var w = $('[data-cov-listwrap="' + k + '"]', section);
+        w.hidden = !(k === "direct" ? direct : connected).length || (state.filter !== "all" && state.filter !== k);
+      });
+      wrap.setAttribute("data-filter", state.filter);
+      rove();
+    }
+
+    $all("[data-cov-filter]", section).forEach(function (b) {
+      b.addEventListener("click", function () {
+        state.filter = b.getAttribute("data-cov-filter");
+        if (state.selected && !visible(state.selected)) select(null); else sync();
+      });
+    });
+    $("[data-cov-clear]", section).addEventListener("click", function () {
+      var was = state.selected; select(null);
+      var tl = was && tileFor(was); if (tl) tl.focus();
+    });
+
     draw();
     section.hidden = false;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) wrap.classList.add("is-visible");
+    if (reduce || !("IntersectionObserver" in window)) wrap.classList.add("is-visible");
     else {
       var io = new IntersectionObserver(function (es) {
         if (es.some(function (e) { return e.isIntersecting; })) { wrap.classList.add("is-visible"); io.disconnect(); }
       }, { threshold: 0.15 });
       io.observe(wrap);
     }
-    return draw;
+    return function () { var sel = state.selected; draw(); select(sel); };
   }
 
   /* ---- URL state for directories (filters only — never feature access) */

@@ -752,5 +752,12 @@
   "hp.eco.t6.t": "여행 앱 및 멤버십 플랫폼",
   "hp.eco.t6.d": "숙박을 제공하는 소비자 앱, 로열티 및 구독 프로그램.",
   "hp.eco.t7.t": "채널 매니저, PMS 및 CRS",
-  "hp.eco.t7.d": "숙박시설의 요금과 객실 현황을 네트워크에 연결하는 시스템."
+  "hp.eco.t7.d": "숙박시설의 요금과 객실 현황을 네트워크에 연결하는 시스템.",
+  "net.map.filter.label": "표시할 시장",
+  "net.map.filter.all": "모든 시장",
+  "net.map.grid.label": "커버리지 지도. 화살표 키로 시장 간을 이동하고 Enter 키로 세부 정보를 확인하세요.",
+  "net.map.detail.prompt": "지도나 아래 목록에서 시장을 선택하면 세부 정보가 표시됩니다.",
+  "net.map.detail.direct": "이 시장에는 KabuK Exchange와 직접 계약한 숙박시설이 하나 이상 있습니다.",
+  "net.map.detail.connected": "이 시장의 예약 가능한 재고는 연결된 공급사를 통해 제공됩니다. 이 시장 숙박시설과의 직접 상업 관계를 의미하지는 않습니다.",
+  "net.map.detail.clear": "선택 해제"
 }

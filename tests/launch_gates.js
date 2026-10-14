@@ -144,6 +144,35 @@ const text = (pg, sel) => pg.$eval(sel, e => e.textContent.trim()).catch(() => n
     ok(/January 31, 2026/.test(cov.note), "preview metric note missing verified date");
     await pg.context().close();
   }
+  // Interactive coverage map: filter, hover/focus tooltip, select, lists in sync, keyboard.
+  for (const lang of ["en", "ar"]) {
+    const pg = await page(b, PREV + "/network/", { lang });
+    await pg.locator("#coverage").scrollIntoViewIfNeeded(); await pg.waitForTimeout(900);
+    const n = await pg.$$eval("button.cov-tile", e => e.length);
+    ok(n === 17, `${lang} map: ${n} interactive tiles (expected 17 approved markets)`);
+    ok(await pg.$$eval("span.cov-tile:not([aria-hidden=true])", e => e.length) === 0, `${lang} map: decorative tiles exposed to assistive tech`);
+    ok(await pg.$$eval('button.cov-tile[tabindex="0"]', e => e.length) === 1, `${lang} map: roving tabindex should expose exactly one tile`);
+    await pg.hover('button.cov-tile[data-cc="JP"]'); await pg.waitForTimeout(150);
+    ok(await pg.$eval("[data-cov-tip]", t => !t.hidden), `${lang} map: hover tooltip not shown`);
+    await pg.click('button.cov-tile[data-cc="TH"]'); await pg.waitForTimeout(150);
+    ok(await pg.$eval("[data-cov-body]", d => !d.hidden), `${lang} map: click did not open details`);
+    ok(await pg.$eval('.cov-chip[data-cc="TH"]', c => c.getAttribute("aria-pressed")) === "true", `${lang} map: list chip not synced with tile`);
+    await pg.focus('button.cov-tile[data-cc="TH"]'); await pg.keyboard.press("ArrowRight");
+    ok(await pg.evaluate(() => document.activeElement.dataset.cc) === "VN", `${lang} map: ArrowRight should move east (geographic, also in RTL)`);
+    await pg.keyboard.press("Enter");
+    ok(await pg.$eval('button.cov-tile[data-cc="VN"]', t => t.getAttribute("aria-pressed")) === "true", `${lang} map: Enter did not select`);
+    await pg.keyboard.press("Escape");
+    ok(await pg.$eval("[data-cov-body]", d => d.hidden), `${lang} map: Escape did not clear`);
+    await pg.click('[data-cov-filter="connected"]'); await pg.waitForTimeout(150);
+    ok(await pg.$$eval("button.cov-tile:not(:disabled)", e => e.length) === 12, `${lang} map: connected filter`);
+    ok(await pg.$eval('[data-cov-listwrap="direct"]', w => w.hidden), `${lang} map: direct list should hide under connected filter`);
+    await pg.click('.cov-chip[data-cc="SG"]');
+    ok(await pg.$eval('button.cov-tile[data-cc="SG"]', t => t.getAttribute("aria-pressed")) === "true", `${lang} map: chip did not select tile`);
+    await pg.click('[data-cov-filter="direct"]'); await pg.waitForTimeout(100);
+    ok(await pg.$eval("[data-cov-body]", d => d.hidden), `${lang} map: selection should clear when filtered out`);
+    ok(pg._errors.length === 0, `${lang} map errors ${pg._errors}`);
+    await pg.context().close();
+  }
   // Unknown metrics: nulls hide metrics, never "0" or a dash.
   {
     const pg = await page(b, PREV + "/network/", { setup: p => p.route("**/data/network-stats.json", async route => {

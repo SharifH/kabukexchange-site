@@ -752,5 +752,12 @@
   "hp.eco.t6.t": "旅遊應用程式與會員平台",
   "hp.eco.t6.d": "提供住宿的消費者應用程式、忠誠度與訂閱方案。",
   "hp.eco.t7.t": "通路管理系統、PMS 與 CRS",
-  "hp.eco.t7.d": "將住宿設施的房價與房態連接到網絡的系統。"
+  "hp.eco.t7.d": "將住宿設施的房價與房態連接到網絡的系統。",
+  "net.map.filter.label": "顯示市場",
+  "net.map.filter.all": "所有市場",
+  "net.map.grid.label": "涵蓋範圍地圖。使用方向鍵在市場間移動，按 Enter 查看詳細資訊。",
+  "net.map.detail.prompt": "在地圖或下方清單中選擇市場以查看詳細資訊。",
+  "net.map.detail.direct": "KabuK Exchange 在此市場至少有一家直接簽約的住宿設施。",
+  "net.map.detail.connected": "此市場的可預訂庫存透過連接的供應商提供，並不代表與此地住宿設施有直接商業關係。",
+  "net.map.detail.clear": "清除選擇"
 }

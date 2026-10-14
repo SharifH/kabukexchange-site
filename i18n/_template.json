@@ -752,5 +752,12 @@
   "hp.eco.t6.t": "",
   "hp.eco.t6.d": "",
   "hp.eco.t7.t": "",
-  "hp.eco.t7.d": ""
+  "hp.eco.t7.d": "",
+  "net.map.filter.label": "",
+  "net.map.filter.all": "",
+  "net.map.grid.label": "",
+  "net.map.detail.prompt": "",
+  "net.map.detail.direct": "",
+  "net.map.detail.connected": "",
+  "net.map.detail.clear": ""
 }
