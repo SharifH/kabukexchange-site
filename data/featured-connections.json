@@ -1,0 +1,5 @@
+{
+  "_comment": "Homepage 'Featured Connections' (featureFlags.homepageFeaturedConnections). Each item points at an id in data/integrations.json and inherits its publication rules. An item renders only when featured AND verifiedLive are true and the integration is publishable with an operational status (live, available-to-partners, pilot, beta). The section is removed entirely when fewer than minItems qualify.",
+  "minItems": 3,
+  "items": []
+}

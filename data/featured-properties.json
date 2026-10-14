@@ -1,0 +1,5 @@
+{
+  "_comment": "Homepage 'Featured Hotels & Hotel Groups' (featureFlags.homepageFeaturedHotels). An item renders only when featured, publicDisclosureApproved and relationshipVerified are true. Image/logo only with logoUseApproved. Location only with locationVerified. relationship: direct_contract | connected_supplier | other_verified — never label a connected property as directly contracted, and never feature a prospect. The section is removed when fewer than minItems qualify.",
+  "minItems": 3,
+  "items": []
+}

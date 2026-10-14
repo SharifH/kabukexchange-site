@@ -1,0 +1,31 @@
+{
+  "_comment": "Connection-method badge family. Independent of data/statuses.json: a method describes the technical ROUTE to a provider, never whether it is live. 'bakuun' renders as 'Via Bakuun' only when the record's connectionProviderDisclosureApproved is true; otherwise it falls back to 'via-technology-partner'.",
+  "version": 1,
+  "order": ["direct", "bakuun", "other_partner"],
+  "methods": {
+    "direct": {
+      "badge": "direct",
+      "icon": "plug",
+      "label": { "en": "Direct Integration", "ja": "直接連携", "ko": "직접 연동", "zh-TW": "直接整合", "ar": "تكامل مباشر" },
+      "definition": "KabuK Exchange connects to the provider's system without an intermediary.",
+      "use": "Only when the technical route is a KBKx-built integration.",
+      "avoid": "Never as a synonym for Live — pair it with a separately verified status."
+    },
+    "bakuun": {
+      "badge": "bakuun",
+      "icon": "route",
+      "label": { "en": "Via Bakuun", "ja": "Bakuun経由", "ko": "Bakuun 경유", "zh-TW": "透過 Bakuun", "ar": "عبر Bakuun" },
+      "definition": "The connection is routed through Bakuun.",
+      "use": "Only when use of the Bakuun name and the provider association are authorized in writing.",
+      "avoid": "Never to imply the provider is live through KBKx; without naming approval use Via Technology Partner."
+    },
+    "other_partner": {
+      "badge": "via-technology-partner",
+      "icon": "route",
+      "label": { "en": "Via Technology Partner", "ja": "テクノロジーパートナー経由", "ko": "기술 파트너 경유", "zh-TW": "透過技術夥伴", "ar": "عبر شريك تقني" },
+      "definition": "The connection is routed through an established connectivity partner that is not named publicly.",
+      "use": "Default for any partner-routed connection whose partner name is not approved for disclosure.",
+      "avoid": "Never to hide a direct integration or to imply production availability."
+    }
+  }
+}

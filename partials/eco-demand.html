@@ -1,21 +1,30 @@
 <div class="eco__bar">
   <h2 class="eco__title" data-i18n="ecoD.title">Many Supply Sources. One Distribution Relationship.</h2>
   <ul class="eco__legend" aria-hidden="true">
-    <li><span class="lg-flow"></span><span data-i18n="ecoD.legend.flow">Supply flowing to you</span></li>
+    <li><span class="lg-flow"></span><span data-i18n="eco2.legend.direct">Direct supply in Asia</span></li>
+    <li><span class="lg-connected"></span><span data-i18n="eco2.legend.connected">Connected global inventory</span></li>
     <li><span class="lg-dual"></span><span data-i18n="eco.legend.dual">Can play both roles</span></li>
   </ul>
 </div>
-<p class="visually-hidden" data-i18n="ecoD.summary">Diagram: hotels, hotel groups, wholesalers, OTAs acting as suppliers and other travel suppliers connect to KabuK Exchange, which brings that supply to your platform through one distribution relationship. KabuK Platform sits beneath KabuK Exchange as its technology foundation.</p>
+<p class="visually-hidden" data-i18n="ecoD2.summary">Diagram: direct accommodation supply in Asia (hotels, ryokan, hotel groups) and connected global inventory (wholesalers, bedbanks, supplier OTAs) reach your platform through one distribution relationship with KabuK Exchange. KabuK Platform sits beneath KabuK Exchange as its technology foundation.</p>
 <div class="eco__grid">
   <div class="eco__col eco__col--supply">
-    <div class="eco__col-head" style="--i:0"><span class="eco__col-label" data-i18n="ecoD.sources">Supply sources</span></div>
-    <ul class="eco__nodes">
-      <li class="eco-node" data-eco-node="in" style="--i:1"><span class="eco-node__icon" data-icon="hotel"></span><span data-i18n="eco.s.hotels">Hotels</span></li>
-      <li class="eco-node" data-eco-node="in" style="--i:2"><span class="eco-node__icon" data-icon="building"></span><span data-i18n="eco.s.groups">Hotel Groups</span></li>
-      <li class="eco-node" data-eco-node="in" style="--i:3"><span class="eco-node__icon" data-icon="box"></span><span data-i18n="eco.s.wholesalers">Wholesalers</span></li>
-      <li class="eco-node eco-node--dual" data-eco-node="in" style="--i:4"><span class="eco-node__icon" data-icon="globe"></span><span data-i18n="eco.s.otas">OTAs as Suppliers</span></li>
-      <li class="eco-node" data-eco-node="in" style="--i:5"><span class="eco-node__icon" data-icon="layers"></span><span data-i18n="eco.s.other">Other Travel Suppliers</span></li>
-    </ul>
+    <div class="eco__stream eco__stream--direct">
+      <div class="eco__col-head" style="--i:0"><span class="eco__col-label" data-i18n="eco2.streamA.short">Direct supply in Asia</span></div>
+      <ul class="eco__nodes">
+        <li class="eco-node" data-eco-node="in" style="--i:1"><span class="eco-node__icon" data-icon="hotel"></span><span data-i18n="eco.s.hotels">Hotels</span></li>
+        <li class="eco-node" data-eco-node="in" style="--i:2"><span class="eco-node__icon" data-icon="bed"></span><span data-i18n="eco2.s.ryokan">Ryokan</span></li>
+        <li class="eco-node" data-eco-node="in" style="--i:3"><span class="eco-node__icon" data-icon="building"></span><span data-i18n="eco.s.groups">Hotel Groups</span></li>
+      </ul>
+    </div>
+    <div class="eco__stream eco__stream--connected">
+      <div class="eco__col-head" style="--i:4"><span class="eco__col-label" data-i18n="eco2.streamB.short">Connected global inventory</span></div>
+      <ul class="eco__nodes">
+        <li class="eco-node eco-node--connected" data-eco-node="in" data-eco-style="connected" style="--i:5"><span class="eco-node__icon" data-icon="box"></span><span data-i18n="eco.s.wholesalers">Wholesalers</span></li>
+        <li class="eco-node eco-node--connected" data-eco-node="in" data-eco-style="connected" style="--i:6"><span class="eco-node__icon" data-icon="layers"></span><span data-i18n="eco.d.bedbanks">Bedbanks</span></li>
+        <li class="eco-node eco-node--connected eco-node--dual" data-eco-node="in" data-eco-style="connected" style="--i:7"><span class="eco-node__icon" data-icon="globe"></span><span data-i18n="eco2.s.supplierOtas">Supplier OTAs</span></li>
+      </ul>
+    </div>
   </div>
   <div class="eco__gap eco__gap--l" aria-hidden="true"><span></span></div>
   <div class="eco__hub" data-eco-hub style="--i:6">
@@ -32,7 +41,7 @@
   <div class="eco__col eco__col--dist">
     <div class="eco__col-head" style="--i:7"><span class="eco__col-label" data-i18n="ecoH.you">You</span></div>
     <ul class="eco__nodes">
-      <li class="eco-node eco-node--you" data-eco-node="out" style="--i:8"><span class="eco-node__icon" data-icon="globe"></span><span class="eco-node__text"><strong data-i18n="ecoD.node">Your platform</strong><small data-i18n="ecoD.node.sub">OTA · Agency · DMC · Bedbank · App</small></span></li>
+      <li class="eco-node eco-node--you" data-eco-node="out" style="--i:8"><span class="eco-node__icon" data-icon="globe"></span><span class="eco-node__text"><strong data-i18n="ecoD.node">Your platform</strong><small data-i18n="ecoD2.node.sub">OTA · Agency · Travel app · Membership platform</small></span></li>
     </ul>
   </div>
   <div class="eco__foundation eco__foundation--slim" data-eco-node="in" data-eco-style="found" style="--i:9">

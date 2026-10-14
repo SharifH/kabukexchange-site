@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Status Badge Reference — KabuK Exchange design system (internal)</title>
+<meta content="Internal design-system reference for KabuK Exchange status badges." name="description"/>
+<!-- Unlinked reference page: keep out of search results. This is NOT access control. -->
+<meta content="noindex, nofollow, noarchive" name="robots"/>
+<link href="../../favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="../../favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="../../favicon.ico" rel="icon" sizes="any"/>
+<meta content="#ffffff" name="theme-color"/>
+<script>document.documentElement.classList.add("js");</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="../../styles.css" rel="stylesheet"/>
+</head>
+<body class="gallery-page">
+<a class="skip-link" href="#main" data-i18n="hdr.skip">Skip to content</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <a aria-label="KabuK Exchange, by KabuK Style — home" class="brand" href="../../">
+      <img class="brand-logo" src="../../assets/brand/kabuk-exchange-logo-480.png" srcset="../../assets/brand/kabuk-exchange-logo-480.png 480w, ../../assets/brand/kabuk-exchange-logo-960.png 960w" sizes="176px" width="480" height="143" alt="KabuK Exchange — By KabuK Style Inc.">
+    </a>
+    <div class="header-menu" id="primary-menu">
+      <nav aria-label="Primary" class="main-nav"><ul>
+        <li class="has-dropdown"><button aria-controls="menu-solutions" aria-expanded="false" class="dropdown-toggle" type="button"><span data-i18n="hdr.solutions">Solutions</span></button>
+          <div class="dropdown dropdown-wide" id="menu-solutions"><div class="dd-grid">
+            <a class="dropdown-item" href="../../hotels/"><span class="di-title" data-i18n="hdr.supply.t">Supply Partners</span><span class="di-desc" data-i18n="hdr2.supply.d">Hotels, ryokan and hotel groups across Asia, plus connected suppliers.</span></a>
+            <a class="dropdown-item" href="../../partners/#demand-partners"><span class="di-title" data-i18n="hdr.demand.t">Demand Partners</span><span class="di-desc" data-i18n="hdr2.demand.d">OTAs, travel agencies, travel apps and membership platforms.</span></a>
+            <a class="dropdown-item" href="../../partners/#connectivity-partners"><span class="di-title" data-i18n="hdr.connectivity.t">Connectivity Partners</span><span class="di-desc" data-i18n="hdr2.connectivity.d">Channel managers, PMS, CRS and supplier integrations.</span></a>
+          </div>
+          <p class="dropdown-foot"><span data-i18n="hdr.hotelPrompt">Represent a hotel or hotel group?</span> <a href="../../link-your-property/" data-i18n="cta.linkYourProperty">Link Your Property</a></p></div>
+        </li>
+        <li class="has-dropdown"><button aria-controls="menu-network" aria-expanded="false" class="dropdown-toggle" type="button"><span data-i18n="hdr.network">Network</span></button>
+          <div class="dropdown" id="menu-network">
+            <a class="dropdown-item" href="../../#network"><span class="di-title" data-i18n="hdr.network.map.t">The KBKx Network</span><span class="di-desc" data-i18n="hdr.network.map.d">How supply, distribution and connectivity come together.</span></a>
+            <a class="dropdown-item" href="../../#how-it-works"><span class="di-title" data-i18n="hdr.network.how.t">How KBKx Works</span><span class="di-desc" data-i18n="hdr.network.how.d">From first conversation to ongoing distribution.</span></a>
+            <!-- gate:start networkStats|networkCoverageMap --><a class="dropdown-item" data-gate="networkStats|networkCoverageMap" href="../../network/"><span class="di-title" data-i18n="net.nav.t">Network Overview</span><span class="di-desc" data-i18n="net.nav.d">Direct supply and connected coverage at a glance.</span></a><!-- gate:end networkStats|networkCoverageMap -->
+            <!-- gate:start connectivityDirectory --><a class="dropdown-item" data-gate="connectivityDirectory" href="../../network/connectivity/"><span class="di-title" data-i18n="cx.nav.t">Connectivity &amp; Suppliers</span><span class="di-desc" data-i18n="cx.nav.d">Search supported systems and supply connections.</span></a><!-- gate:end connectivityDirectory -->
+            <!-- gate:start partnerEcosystem --><a class="dropdown-item" data-gate="partnerEcosystem" href="../../partners/ecosystem/"><span class="di-title" data-i18n="hdr.network.eco.t">Partner Ecosystem</span><span class="di-desc" data-i18n="pe.nav.d">Organizations that have approved public recognition.</span></a><!-- gate:end partnerEcosystem -->
+            <!-- gate:start !partnerEcosystem --><a class="dropdown-item" data-gate="!partnerEcosystem" href="../../#ecosystem"><span class="di-title" data-i18n="hdr.network.eco.t">Partner Ecosystem</span><span class="di-desc" data-i18n="hdr.network.eco.d">The types of travel businesses in the network.</span></a><!-- gate:end !partnerEcosystem -->
+            <a class="dropdown-item" href="../../developers/"><span class="di-title" data-i18n="hdr.network.dev.t">Integration</span><span class="di-desc" data-i18n="hdr.network.dev.d">Technical information for qualified partners.</span></a>
+            <a class="dropdown-item" href="../../whats-next/"><span class="di-title" data-i18n="hdr.network.next.t">What’s Next</span><span class="di-desc" data-i18n="hdr.network.next.d">Future directions beyond accommodation, with their current status.</span></a>
+          </div>
+        </li>
+        <li><a href="../../#why-kbkx" data-i18n="hdr.why">Why KBKx</a></li>
+        <li><a href="../../about/" data-i18n="hdr.about">About Us</a></li>
+      </ul></nav>
+      <div class="header-cta"><a class="header-login" data-i18n="cta.login" data-role="partner-login" href="#" rel="noopener">Partner Login</a><a class="btn btn-primary" data-i18n="cta.becomePartner" href="../../become-a-partner/">Become a Partner</a></div>
+    </div>
+    <div class="header-actions"><select aria-label="Select language" data-i18n-aria-label="hdr.language" class="lang-select" id="lang-select"><option value="en">English</option></select><button aria-controls="primary-menu" aria-expanded="false" aria-label="Open menu" data-i18n-aria-label="hdr.menu" class="nav-toggle" type="button">Menu</button></div>
+  </div>
+</header>
+<main id="main">
+<section class="hero hero--compact">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Design system · Internal reference</span>
+      <h1>Status Badge Reference</h1>
+      <p class="lead">A design-system reference for communicating product and integration maturity consistently.</p>
+    </div>
+    <div class="notice" role="note"><p><strong>Unlisted, not private.</strong> This page is unlinked but publicly accessible unless the hosting environment enforces authentication. Do not publish confidential information here. For truly private use, protect <code>/internal/</code> at the hosting layer.</p></div>
+  </div>
+</section>
+
+<section aria-labelledby="g-catalog">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Catalog</span>
+      <h2 id="g-catalog">All statuses</h2>
+      <p class="lead">Rendered live from <code>data/statuses.json</code>. Every badge carries a shape marker and visible text, so meaning never depends on colour alone.</p>
+    </div>
+    <div class="gallery-table-wrap">
+      <table class="gallery-table" id="g-table">
+        <thead><tr><th scope="col">Key</th><th scope="col">Light surface</th><th scope="col">Exchange navy surface</th><th scope="col">Meaning</th><th scope="col">Use when</th><th scope="col">Avoid</th><th scope="col">Text contrast (light / dark)</th></tr></thead>
+        <tbody><tr><td colspan="7">Loading the status catalog… (requires JavaScript and an HTTP server)</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="section-alt" aria-labelledby="g-choose">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Choosing a status</span>
+      <h2 id="g-choose">Similar statuses, different promises</h2>
+    </div>
+    <dl class="gallery-defs">
+      <div><dt><span class="status" data-status="exploring">Exploring</span></dt><dd>Under consideration, not committed. Safe default when approval is uncertain.</dd></div>
+      <div><dt><span class="status" data-status="planned">Planned</span></dt><dd>Approved direction, not actively being built. Use only after owner approval.</dd></div>
+      <div><dt><span class="status" data-status="in-development">In Development</span></dt><dd>Active implementation is underway.</dd></div>
+      <div><dt><span class="status" data-status="coming-soon">Coming Soon</span></dt><dd>Near-term availability substantiated by launch readiness. Never a synonym for Planned.</dd></div>
+      <div><dt><span class="status" data-status="pilot">Pilot</span> <span class="status" data-status="beta">Beta</span></dt><dd>Limited real availability with access qualifications.</dd></div>
+      <div><dt><span class="status" data-status="live">Live</span></dt><dd>Verified, generally available capability.</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section aria-labelledby="g-cards">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">In context</span>
+      <h2 id="g-cards">On product cards</h2>
+      <p class="lead">Badges sit above the card title, once per card. Illustrative content only.</p>
+    </div>
+    <div class="grid grid-3">
+      <article class="card future-card"><span class="status" data-status="planned">Planned</span><h3>Example capability</h3><p>Describe the intent in measured language: “We envision…”, “A planned…”. No dates.</p></article>
+      <article class="card future-card"><span class="status" data-status="exploring">Exploring</span><h3>Example capability</h3><p>“We are evaluating…”. Name exclusions explicitly when scope matters.</p></article>
+      <article class="card future-card"><span class="status" data-status="pilot">Pilot</span><h3>Example capability</h3><p>State who can participate: “Available to participating partners.”</p></article>
+    </div>
+    <div class="status-dark gallery-dark">
+      <div class="grid grid-3">
+        <article class="card future-card"><span class="status" data-status="in-development">In Development</span><h3>Example on navy</h3><p>Dark-surface variant uses the same keys.</p></article>
+        <article class="card future-card"><span class="status" data-status="coming-soon">Coming Soon</span><h3>Example on navy</h3><p>Requires substantiated launch readiness.</p></article>
+        <article class="card future-card"><span class="status" data-status="temporarily-unavailable">Temporarily Unavailable</span><h3>Example on navy</h3><p>Remove once service is restored.</p></article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-alt" aria-labelledby="g-methods">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Second badge family</span>
+      <h2 id="g-methods">Connection-method badges</h2>
+      <p class="lead">From <code>data/connection-methods.json</code>. A connection method describes the technical <em>route</em> to a provider — never whether it is live. Squared corners and a route glyph keep this family visually distinct from the pill-shaped status chips. Solid outline = direct; dashed outline = routed through a partner, matching the solid/dashed language of the network diagram.</p>
+    </div>
+    <div class="gallery-table-wrap">
+      <table class="gallery-table" id="g-method-table">
+        <thead><tr><th scope="col">Key</th><th scope="col">Light</th><th scope="col">Dark</th><th scope="col">Definition</th><th scope="col">Use when</th><th scope="col">Avoid</th><th scope="col">Contrast (light / dark)</th></tr></thead>
+        <tbody><tr><td colspan="7">Loading…</td></tr></tbody>
+      </table>
+    </div>
+    <!-- gate:start bakuunNameApproved --><div data-gate="bakuunNameApproved"><p class="gallery-gate">Naming rule: <code>bakuun</code> renders “Via Bakuun” only when the record has <code>connectionProviderDisclosureApproved: true</code> (written authorization to use the Bakuun name and the provider association). Otherwise the site, and the production build, fall back to “Via Technology Partner”.</p></div><!-- gate:end bakuunNameApproved -->
+  </div>
+</section>
+
+<section aria-labelledby="g-combos">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Combination rules</span>
+      <h2 id="g-combos">Status and method, side by side</h2>
+      <p class="lead">The two families are independent: status first, method second. Each pairing needs its own evidence. Illustrative only — not real providers.</p>
+    </div>
+    <div class="grid grid-3">
+      <!-- gate:start bakuunNameApproved --><div class="gallery-slot" data-gate="bakuunNameApproved"><article class="card future-card"><div class="badge-row"><span class="status" data-status="live">Live</span><span class="method" data-method="bakuun">Via Bakuun</span></div><h3>Valid: verified, routed, named</h3><p>Live only after end-to-end verification <em>and</em> commercial enablement through KBKx; Bakuun named only with written approval.</p></article></div><!-- gate:end bakuunNameApproved -->
+      <!-- gate:start !bakuunNameApproved --><div class="gallery-slot" data-gate="!bakuunNameApproved"><article class="card future-card"><div class="badge-row"><span class="status" data-status="live">Live</span><span class="method" data-method="other_partner">Via Technology Partner</span></div><h3>Valid: verified and routed</h3><p>Live only after end-to-end verification <em>and</em> commercial enablement through KBKx — not because the partner route exists.</p></article></div><!-- gate:end !bakuunNameApproved -->
+      <article class="card future-card"><div class="badge-row"><span class="status" data-status="in-development">In Development</span><span class="method" data-method="direct">Direct Integration</span></div><h3>Valid: being built directly</h3><p>Engineering is underway on a KBKx-built integration. No dates.</p></article>
+      <article class="card future-card"><div class="badge-row"><span class="status" data-status="pilot">Pilot</span><span class="method" data-method="other_partner">Via Technology Partner</span></div><h3>Valid: partner unnamed</h3><p>Use when the route is a partner whose name is not approved for disclosure.</p></article>
+    </div>
+    <div class="status-dark gallery-dark">
+      <div class="grid grid-3">
+        <article class="card future-card"><div class="badge-row"><span class="status" data-status="live">Live</span><span class="method" data-method="direct">Direct Integration</span></div><h3>Same rules on navy</h3><p>Both families have dark-surface variants.</p></article>
+        <article class="card future-card"><div class="badge-row"><span class="method" data-method="other_partner">Via Technology Partner</span></div><h3>Not allowed: method alone</h3><p>A route without a status reads as availability. Always pair it with a verified status, or omit the listing.</p></article>
+        <article class="card future-card"><div class="badge-row"><span class="status" data-status="coming-soon">Coming Soon</span><span class="method" data-method="other_partner">Via Technology Partner</span></div><h3>Not allowed without evidence</h3><p>“Supported by a connectivity partner” is not “coming soon on KBKx”. Coming Soon needs owner-approved launch readiness.</p></article>
+      </div>
+    </div>
+    <ul class="dont-list" style="margin-top:24px">
+      <li>Don’t treat a connection-method badge as production availability — it describes a route only.</li>
+      <li>Don’t show a status that KBKx has not verified for this provider, even if the provider is live elsewhere.</li>
+      <li>Don’t use more than one status or more than one method badge per listing.</li>
+      <li>Don’t publish a provider or its logo without <code>publicDisclosureApproved</code> and <code>logoUseApproved</code>.</li>
+      <!-- gate:start bakuunNameApproved --><li data-gate="bakuunNameApproved">Don’t name Bakuun on a listing without <code>connectionProviderDisclosureApproved</code> for that provider.</li><!-- gate:end bakuunNameApproved -->
+    </ul>
+  </div>
+</section>
+
+<section class="section-alt" aria-labelledby="g-map">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Publication review</span>
+      <h2 id="g-map">Current site mapping</h2>
+      <p class="lead">From <code>data/product-roadmap.json</code>. Items marked “Pending” are editorial suggestions shown under the current review-gate setting.</p>
+    </div>
+    <div class="gallery-table-wrap">
+      <table class="gallery-table" id="g-map-table">
+        <thead><tr><th scope="col">Product id</th><th scope="col">Status</th><th scope="col">Owner approval</th><th scope="col">Source</th></tr></thead>
+        <tbody><tr><td colspan="4">Loading…</td></tr></tbody>
+      </table>
+    </div>
+    <p class="gallery-gate" id="g-gate"></p>
+  </div>
+</section>
+
+<section aria-labelledby="g-labels">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Localization</span>
+      <h2 id="g-labels">Labels by language</h2>
+      <p class="lead">Draft translations pending native-speaker review.</p>
+    </div>
+    <div class="gallery-table-wrap">
+      <table class="gallery-table" id="g-label-table"><thead><tr><th scope="col">Key</th><th scope="col">English</th><th scope="col">日本語</th><th scope="col">한국어</th><th scope="col">繁體中文</th><th scope="col">العربية</th></tr></thead><tbody></tbody></table>
+    </div>
+  </div>
+</section>
+
+<section class="section-alt" aria-labelledby="g-rules">
+  <div class="container split">
+    <div>
+      <h2 id="g-rules">Do</h2>
+      <ul class="check-list">
+        <li>Use one status badge per item (and at most one connection-method badge), from the catalog keys only.</li>
+        <li>Map products to statuses in <code>data/product-roadmap.json</code>, never in page markup.</li>
+        <li>Record owner approval (<code>approved</code>, <code>approvedBy</code>, <code>approvedOn</code>) before publishing a status.</li>
+        <li>Downgrade to Exploring, or hide the badge, when approval is uncertain.</li>
+        <li>Pair future capabilities with the roadmap disclaimer.</li>
+      </ul>
+    </div>
+    <div>
+      <h2>Don’t</h2>
+      <ul class="dont-list">
+        <li>Don’t use Coming Soon as a generic synonym for Planned.</li>
+        <li>Don’t pair Planned or Exploring with dates or delivery promises.</li>
+        <li>Don’t rely on colour alone, or restyle a badge locally.</li>
+        <li>Don’t mark anything Live without verified general availability.</li>
+        <li>Don’t put confidential roadmap details, commercial terms or secrets on this page.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand"><a class="brand" href="../../" aria-label="KabuK Exchange home"><img class="brand-logo" src="../../assets/brand/kabuk-exchange-logo-480.png" srcset="../../assets/brand/kabuk-exchange-logo-480.png 480w, ../../assets/brand/kabuk-exchange-logo-960.png 960w" sizes="200px" width="480" height="143" loading="lazy" decoding="async" alt="KabuK Exchange — By KabuK Style Inc."></a><p class="footer-about" data-i18n="ftr2.about">KabuK Exchange is building an Asia-first travel distribution network focused on direct accommodation relationships across Asia, complemented by connected global inventory. Powered by KabuK Platform.</p></div>
+    <div class="footer-col"><h3 data-i18n="hdr.solutions">Solutions</h3><ul><li><a href="../../hotels/" data-i18n="hdr.supply.t">Supply Partners</a></li><li><a href="../../partners/#demand-partners" data-i18n="hdr.demand.t">Demand Partners</a></li><li><a href="../../partners/#connectivity-partners" data-i18n="hdr.connectivity.t">Connectivity Partners</a></li><li><a href="../../link-your-property/" data-i18n="cta.linkYourProperty">Link Your Property</a></li></ul></div>
+    <div class="footer-col"><h3 data-i18n="hdr.network">Network</h3><ul><li><a href="../../#network" data-i18n="hdr.network.map.t">The KBKx Network</a></li><li><a href="../../#how-it-works" data-i18n="hdr.network.how.t">How KBKx Works</a></li><!-- gate:start networkStats|networkCoverageMap --><li data-gate="networkStats|networkCoverageMap"><a href="../../network/" data-i18n="net.nav.t">Network Overview</a></li><!-- gate:end networkStats|networkCoverageMap --><!-- gate:start connectivityDirectory --><li data-gate="connectivityDirectory"><a href="../../network/connectivity/" data-i18n="cx.nav.t">Connectivity &amp; Suppliers</a></li><!-- gate:end connectivityDirectory --><!-- gate:start partnerEcosystem --><li data-gate="partnerEcosystem"><a href="../../partners/ecosystem/" data-i18n="hdr.network.eco.t">Partner Ecosystem</a></li><!-- gate:end partnerEcosystem --><!-- gate:start !partnerEcosystem --><li data-gate="!partnerEcosystem"><a href="../../#ecosystem" data-i18n="hdr.network.eco.t">Partner Ecosystem</a></li><!-- gate:end !partnerEcosystem --><li><a href="../../developers/" data-i18n="hdr.network.dev.t">Integration</a></li><li><a href="../../whats-next/" data-i18n="hdr.network.next.t">What’s Next</a></li><li><a data-role="developer-docs-link" href="../../developers/guides/" data-i18n="ftr.devGuides">Developer Guides</a></li></ul></div>
+    <div class="footer-col"><h3 data-i18n="ftr.products">Products</h3><ul><li><a data-role="kabuk-platform-link" href="#">KabuK Platform</a></li><li><a href="../../">KabuK Exchange</a></li><li><a href="https://www.hafh.com" rel="noopener" target="_blank">HafH ↗</a></li><li><a href="https://www.kabuk.co.jp" rel="noopener" target="_blank">KabuK Style Inc. ↗</a></li></ul></div>
+    <div class="footer-col"><h3 data-i18n="ftr.company">Company</h3><ul><li><a href="../../about/" data-i18n="hdr.about">About Us</a></li><li><a href="../../become-a-partner/" data-i18n="ftr.contact">Contact</a></li><li><a href="../../privacy/" data-i18n="form.privacy">Privacy Policy</a></li><li><a href="../../terms/" data-i18n="ftr.terms">Terms of Use</a></li></ul></div>
+  </div><div class="container footer-bottom"><span>© <span data-current-year>2026</span> KabuK Style Inc.</span><span data-i18n="ftr.legal">KabuK Exchange is a product of KabuK Style Inc.</span></div>
+</footer>
+<script src="../../i18n-bundle.js"></script>
+<script src="../../script.js"></script>
+<script src="gallery.js"></script>
+</body>
+</html>

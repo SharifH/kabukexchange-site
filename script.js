@@ -140,6 +140,7 @@
     // Footer: KabuK Style Inc. company links — text or icon variant (A/B)
     renderFooterLinks("[data-footer='company']", cfg.companyLinks, cfg.footerCompanyStyle === "icons");
     applyFeatureFlags(cfg);
+    if (applyGates(cfg)) initLaunchFeatures(cfg);
   }
 
   // Surface obvious config mistakes in the console for whoever is editing
@@ -490,53 +491,48 @@
     fetchJSON(BASE + "partners.json").then(function (data) {
       var categories = data.categories || [];
       var entries = data.entries || [];
+      var active = "all";
+      function L(key, fallback) { return key ? t(key, fallback) : fallback; }
+      function catLabelOf(id) { var c = categories.filter(function (x) { return x.id === id; })[0] || {}; return L(c.i18n, c.label || id); }
 
-      // Build filter buttons
-      if (filterBar) {
+      function drawFilters() {
+        if (!filterBar) return;
         filterBar.innerHTML = "";
-        categories.forEach(function (cat, i) {
+        categories.forEach(function (cat) {
           var btn = document.createElement("button");
-          btn.className = "filter-btn" + (i === 0 ? " active" : "");
+          btn.className = "filter-btn" + (cat.id === active ? " active" : "");
           btn.type = "button";
-          btn.textContent = cat.label;
+          btn.textContent = L(cat.i18n, cat.label);
           btn.setAttribute("data-cat", cat.id);
-          btn.addEventListener("click", function () {
-            $all(".filter-btn", filterBar).forEach(function (b) { b.classList.remove("active"); });
-            btn.classList.add("active");
-            render(cat.id);
-          });
+          btn.setAttribute("aria-pressed", String(cat.id === active));
+          btn.addEventListener("click", function () { active = cat.id; drawFilters(); render(); });
           filterBar.appendChild(btn);
         });
       }
 
-      function render(catId) {
+      function render() {
         grid.innerHTML = "";
         entries
-          .filter(function (e) { return catId === "all" || e.category === catId; })
+          .filter(function (e) { return active === "all" || e.category === active; })
           .forEach(function (e) {
             var card = document.createElement("article");
             card.className = "card eco-card reveal in";
-            var catLabel = (categories.filter(function (c) { return c.id === e.category; })[0] || {}).label || e.category;
-            card.innerHTML =
-              '<span class="eco-tag"></span>' +
-              '<h3></h3>' +
-              '<span class="eco-meta"></span>' +
-              '<p></p>';
-            card.querySelector(".eco-tag").textContent = e.tag || catLabel;
-            card.querySelector("h3").textContent = e.name || "";
-            card.querySelector(".eco-meta").textContent = [catLabel, e.region].filter(Boolean).join(" · ");
-            card.querySelector("p").textContent = e.description || "";
+            card.innerHTML = '<span class="eco-tag"></span><h3></h3><p></p>';
+            card.querySelector(".eco-tag").textContent = L(e.tagI18n, e.tag || catLabelOf(e.category));
+            card.querySelector("h3").textContent = L(e.i18n && e.i18n + ".t", e.name || "");
+            card.querySelector("p").textContent = L(e.i18n && e.i18n + ".d", e.description || "");
             grid.appendChild(card);
           });
-
         if (!grid.children.length) {
-          grid.innerHTML = '<p class="lead">No entries in this category yet.</p>';
+          grid.innerHTML = '<p class="lead"></p>';
+          grid.firstChild.textContent = t("hp.eco.none", "No entries in this category yet.");
         }
       }
 
-      render("all");
+      drawFilters(); render();
+      afterLangHooks.push(function () { drawFilters(); render(); });
     }).catch(function (err) {
-      grid.innerHTML = '<p class="lead">Ecosystem data could not be loaded.</p>';
+      grid.innerHTML = "";
       console.warn("[KabuK Exchange]", err.message);
     });
   }
@@ -591,6 +587,8 @@
       if (!el.name || el.type === "submit") return;
       // Skip internal fields (honeypot, etc.) — names prefixed with "_".
       if (el.name.charAt(0) === "_") return;
+      // Conditional fields that are currently hidden are not sent.
+      if (el.closest("[hidden]")) return;
       var label = labelFor(el, form);
 
       if (el.type === "radio") {
@@ -699,6 +697,7 @@
     bed: '<path d="M3 8v11M3 13h16a2 2 0 0 1 2 2v4M3 19h18"/><path d="M7 13v-2a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v2"/>',
     newspaper: '<rect x="3" y="5" width="15" height="15" rx="1.5"/><path d="M18 8h1.5a1.5 1.5 0 0 1 1.5 1.5V18a2 2 0 0 1-2 2H5"/><path d="M6 9h6M6 13h9M6 17h7"/>',
     mail: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M4 7l8 6 8-6"/>',
+    route: '<circle cx="6" cy="18" r="2.2"/><circle cx="18" cy="6" r="2.2"/><path d="M8.2 18H15a3 3 0 0 0 0-6H9a3 3 0 0 1 0-6h6.8"/>',
     phone: '<rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M10.5 18.5h3"/>',
     member: '<rect x="3" y="5" width="18" height="14" rx="2.5"/><circle cx="9" cy="11" r="2.2"/><path d="M5.8 16c.6-1.6 1.8-2.4 3.2-2.4s2.6.8 3.2 2.4M14.5 10h3.5M14.5 13.5h2.5"/>'
   };
@@ -888,7 +887,7 @@
         }
         var id = uid + "-w" + i;
         var cls = "eco-wire" + (it.style ? " eco-wire--" + it.style : "");
-        var drawable = it.style !== "rail";
+        var drawable = it.style !== "rail" && it.style !== "connected";
         var path = svgEl("path", { id: id, d: d, "class": cls + (animateIn && drawable ? " draw" : "") });
         if (drawable) path.setAttribute("pathLength", "1");
         if (animateIn && drawable) path.style.transitionDelay = (0.35 + i * 0.06).toFixed(2) + "s";
@@ -905,7 +904,9 @@
         } else if (it.style === "found") {
           addPulse(pulses, id, { dur: 2.8, begin: base + 0.4, r: 2.4, glow: 7 });
         } else {
-          addPulse(pulses, id, { dur: 3.4 + (i % 3) * 0.35, begin: base + (it.mode === "out" ? 1.6 : 0) + (i % 5) * 0.55 });
+          var slow = it.style === "connected";
+          addPulse(pulses, id, { dur: (slow ? 4.2 : 3.4) + (i % 3) * 0.35, begin: base + (it.mode === "out" ? 1.6 : 0) + (i % 5) * 0.55,
+            r: slow ? 2.3 : 2.8, glow: slow ? 6 : 8, cls: "eco-pulse" + (slow ? " eco-pulse--connected" : "") });
         }
       });
       svg.appendChild(pulses);
@@ -960,6 +961,749 @@
   }
 
   /* ---------------------------------------------------------------------
+     10. Status badges — one catalog, consistent rendering
+     ---------------------------------------------------------------------
+     data/statuses.json        stable keys → tone, icon, localized labels
+     data/product-roadmap.json product id → status + owner approval
+     Markup:  <span class="status" data-product-status="agency-portal">Planned</span>
+              <span class="status" data-status="beta">Beta</span>
+     The element's text is the no-JS fallback. Guards:
+       • unapproved items are hidden when reviewGate.showUnapprovedStatuses=false
+       • unapproved items can never render live / available-to-partners /
+         coming-soon (the badge is withheld and a console warning names it). */
+  var STATUS_ICONS = {
+    check: '<circle cx="6" cy="6" r="6"/><path d="M3.4 6.2l1.7 1.7 3.5-3.6" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>',
+    key: '<circle cx="6" cy="6" r="6"/><circle cx="6" cy="6" r="2.2" fill="#fff"/>',
+    half: '<circle cx="6" cy="6" r="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M6 1a5 5 0 0 1 0 10z"/>',
+    progress: '<circle cx="6" cy="6" r="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M6 1a5 5 0 0 1 5 5H6z"/>',
+    link: '<path d="M4.5 7.5l3-3M5 3.4l.8-.8a2.2 2.2 0 0 1 3.1 3.1l-.8.8M7 8.6l-.8.8a2.2 2.2 0 0 1-3.1-3.1l.8-.8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>',
+    clock: '<circle cx="6" cy="6" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M6 3.4V6l1.8 1.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>',
+    ring: '<circle cx="6" cy="6" r="4.6" fill="none" stroke="currentColor" stroke-width="1.8"/>',
+    dashed: '<circle cx="6" cy="6" r="4.6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-dasharray="2.2 1.8"/>',
+    alert: '<path d="M6 1.2l5 9.3H1z"/><path d="M6 4.6v2.6M6 8.7v.1" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/>',
+    minus: '<circle cx="6" cy="6" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3.6 6h4.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>',
+    x: '<path d="M3 3l6 6M9 3l-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>'
+  };
+  var STATUS_NEEDS_APPROVAL = { "live": 1, "available-to-partners": 1, "coming-soon": 1 };
+  var statusData = { catalog: null, roadmap: null };
+
+  function statusLabel(key, lang) {
+    var st = statusData.catalog && statusData.catalog.statuses[key];
+    if (!st) return null;
+    return (st.label && (st.label[lang] || st.label.en)) || key;
+  }
+
+  // Fill one element as a chip for a status key. Exposed for the gallery.
+  function paintStatus(el, key, lang) {
+    var st = statusData.catalog && statusData.catalog.statuses[key];
+    if (!st) { el.hidden = true; return; }
+    el.classList.add("status");
+    el.setAttribute("data-status", key);
+    el.setAttribute("data-tone", st.tone);
+    el.innerHTML = '<svg class="status__icon" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true" focusable="false">' +
+      (STATUS_ICONS[st.icon] || STATUS_ICONS.ring) + '</svg><span class="status__text"></span>';
+    el.querySelector(".status__text").textContent = statusLabel(key, lang);
+    el.hidden = false;
+  }
+
+  function renderStatuses() {
+    if (!statusData.catalog) return;
+    var lang = currentLang || DEFAULT_LANG;
+    var gate = (statusData.roadmap && statusData.roadmap.reviewGate) || {};
+    var products = (statusData.roadmap && statusData.roadmap.products) || {};
+    var shownUnapproved = [];
+    $all("[data-status]:not([data-product-status])").forEach(function (el) {
+      paintStatus(el, el.getAttribute("data-status"), lang);
+    });
+    $all("[data-product-status]").forEach(function (el) {
+      var id = el.getAttribute("data-product-status");
+      var p = products[id];
+      if (!p) { el.hidden = true; console.warn("[KabuK Exchange] No roadmap entry for", id); return; }
+      if (!p.approved && STATUS_NEEDS_APPROVAL[p.status]) {
+        el.hidden = true;
+        console.warn("[KabuK Exchange] Withheld unapproved '" + p.status + "' status for " + id + " — approve it in data/product-roadmap.json first.");
+        return;
+      }
+      if (!p.approved && gate.showUnapprovedStatuses === false) { el.hidden = true; return; }
+      paintStatus(el, p.status, lang);
+      el.toggleAttribute("data-unapproved", !p.approved);
+      if (!p.approved) shownUnapproved.push(id);
+    });
+    // Elements that only exist when a status is publicly shown.
+    $all("[data-requires-status]").forEach(function (el) {
+      var p = products[el.getAttribute("data-requires-status")];
+      el.hidden = !p || (!p.approved && gate.showUnapprovedStatuses === false);
+    });
+    if (shownUnapproved.length && !renderStatuses._logged) {
+      renderStatuses._logged = true;
+      console.info("[KabuK Exchange] Showing statuses pending owner approval:", shownUnapproved.join(", "));
+    }
+  }
+
+  function initStatuses() {
+    var ready = Promise.all([
+      fetchJSON(BASE + "data/statuses.json"),
+      fetchJSON(BASE + "data/product-roadmap.json")
+    ]).then(function (r) {
+      statusData.catalog = r[0];
+      statusData.roadmap = r[1];
+      renderStatuses();
+      afterLangHooks.push(renderStatuses);
+      return statusData;
+    }).catch(function (err) {
+      console.warn("[KabuK Exchange] Status catalog unavailable; showing fallback text.", err.message);
+    });
+    window.KBKX = window.KBKX || {};
+    window.KBKX.statuses = ready;
+    window.KBKX.paintStatus = function (el, key) { paintStatus(el, key, currentLang || DEFAULT_LANG); };
+    window.KBKX.onLang = function (fn) { afterLangHooks.push(fn); };
+    window.KBKX.lang = function () { return currentLang || DEFAULT_LANG; };
+    // Connection-method badges: a separate family (data/connection-methods.json).
+    window.KBKX.methods = fetchJSON(BASE + "data/connection-methods.json")
+      .then(function (d) { launchData.methods = d; return d; })
+      .catch(function (err) { console.warn("[KabuK Exchange] Connection-method catalog unavailable.", err.message); return null; });
+    window.KBKX.paintMethod = function (node, key) { paintMethod(node, key); };
+  }
+
+  // Deep links such as /become-a-partner/?interest=future#future-interest
+  // pre-select the optional future-capability field (values stay English
+  // so the email payload is consistent; labels are localized).
+  function initInterestParam() {
+    var interest = null;
+    try { interest = new URLSearchParams(location.search).get("interest"); } catch (e) {}
+    if (!interest) return;
+    // ?interest=… preselects the optional Inquiry topic (routing is unchanged:
+    // the form still sends to its configured leadRouting mailbox).
+    var TOPICS = { "integration_request": "integration_request", "technical-integration": "technical_integration",
+      "technical_integration": "technical_integration", "sandbox": "sandbox", "future": "future_capability" };
+    var topic = $("#p-topic");
+    if (topic && TOPICS[interest]) {
+      topic.value = TOPICS[interest];
+      topic.dispatchEvent(new Event("change"));
+    }
+    var focusMap = { "#future-interest": "#p-future", "#inquiry-topic": interest === "integration_request" ? "#p-system" : "#p-topic" };
+    var target = focusMap[location.hash] && $(focusMap[location.hash]);
+    if (target) setTimeout(function () { target.focus({ preventScroll: true }); }, 300);
+  }
+
+  /* ---------------------------------------------------------------------
+     11. Launch gates — site-config.json -> featureFlags
+     ---------------------------------------------------------------------
+     Markup:  <section data-gate="homepageFeaturedHotels">…</section>
+              data-gate="a|b"  → shown when ANY flag is on
+              data-gate="!a|b" → shown only when ALL are off (the fallback)
+              <body data-gate-page="connectivityDirectory"> on gated routes
+     Off → element removed from the DOM (no empty sections, no dead links).
+     On  → element revealed, then filled from data/*.json.
+     This is presentation only. The real gate is the publish step:
+     `python3 build.py --production` leaves disabled pages, links and data
+     out of dist/. There is deliberately NO query-string override. */
+  var GATE_FLAGS = ["networkStats", "networkCoverageMap", "connectivityDirectory",
+    "partnerEcosystem", "homepageFeaturedConnections", "homepageFeaturedHotels"];
+  var launchFlags = {};
+
+  function gateOn(expr) {
+    expr = String(expr || "");
+    if (expr.charAt(0) === "!") return !gateOn(expr.slice(1));
+    return expr.split("|").some(function (k) { return launchFlags[k] === true; });
+  }
+
+  function applyGates(cfg) {
+    var f = (cfg && cfg.featureFlags) || {};
+    launchFlags = {};
+    GATE_FLAGS.forEach(function (k) { launchFlags[k] = f[k] === true; });
+    launchFlags.bakuunNameApproved = !!(cfg && cfg.disclosure && cfg.disclosure.bakuunNameApproved === true);
+
+    var page = document.body.getAttribute("data-gate-page");
+    if (page && !gateOn(page)) { closeGatedPage(); return false; }
+
+    $all("[data-gate]").forEach(function (el) {
+      var expr = el.getAttribute("data-gate");
+      if (gateOn(expr)) { el.removeAttribute("data-gate"); el.setAttribute("data-gated", expr); }
+      else if (el.parentNode) el.parentNode.removeChild(el);
+    });
+    return true;
+  }
+
+  // A gated route opened while its flag is off (e.g. the un-built source tree
+  // served directly). Production never ships these files; this is a fallback.
+  function closeGatedPage() {
+    var robots = document.createElement("meta");
+    robots.name = "robots"; robots.content = "noindex,nofollow";
+    document.head.appendChild(robots);
+    var main = $("#main");
+    if (main) {
+      main.innerHTML = '<section class="hero hero--compact"><div class="container"><div class="section-head">' +
+        '<span class="eyebrow">404</span><h1 data-i18n="gate.off.t">Page not found</h1>' +
+        '<p class="lead" data-i18n="gate.off.d">This page is not available.</p>' +
+        '<p><a class="btn btn-primary" data-gate-home href="#"><span data-i18n="gate.off.home">Back to the homepage</span></a></p></div></div></section>';
+      var home = $("[data-gate-home]", main);
+      if (home) home.setAttribute("href", BASE);
+      if (currentLang) applyLang(currentLang);
+    }
+    document.title = "Page not found | KabuK Exchange";
+  }
+
+  /* PUBLICATION RULES — keep in sync with publish.py (tests compare them). */
+  var OPERATIONAL = { "live": 1, "available-to-partners": 1, "pilot": 1, "beta": 1 };
+  var INTEGRATION_CATEGORIES = ["channel_manager", "pms", "crs", "global_supplier", "technology"];
+  var CONNECTION_METHODS = ["direct", "bakuun", "other_partner"];
+  var PARTNER_CATEGORIES = ["accommodation", "supply", "distribution", "connectivity", "technology"];
+  var PARTNER_RELATIONSHIPS = { signed: 1, integrated: 1 };            // never 'prospective'
+  var PROPERTY_RELATIONSHIPS = { direct_contract: 1, connected_supplier: 1, other_verified: 1 };
+  var ASIA_REGIONS = { "japan": 1, "asia-pacific": 1 };
+
+  function todayISO() { return new Date().toISOString().slice(0, 10); }
+
+  // Data in dist/ was already filtered by publish.py (approval fields are
+  // stripped there), so built sites only re-check structure; the source tree
+  // applies every rule.
+  function integrationOk(r, statuses) {
+    if (!r || !r.id || !r.displayName) return false;
+    if (!statuses[r.status]) return false;
+    if (INTEGRATION_CATEGORIES.indexOf(r.category) < 0) return false;
+    if (CONNECTION_METHODS.indexOf(r.connectionMethod) < 0) return false;
+    if (!r.lastVerified) return false;
+    if (r.publishedAt && String(r.publishedAt) > todayISO()) return false;
+    if (launchData.sanitized) return true;
+    if (r.publicDisclosureApproved !== true) return false;
+    if (OPERATIONAL[r.status] && !(r.verifiedEndToEnd === true && r.commerciallyEnabled === true)) return false;
+    return true;
+  }
+  // The method badge a record may show: a named route needs both the site-wide
+  // disclosure approval and the per-record approval; otherwise it is generic.
+  function displayMethod(r) {
+    if (r.connectionMethod === "bakuun" && (!launchFlags.bakuunNameApproved ||
+        (!launchData.sanitized && r.connectionProviderDisclosureApproved !== true))) return "other_partner";
+    return r.connectionMethod;
+  }
+  function logoAllowed(r) { return !!r.logo && (r.logoUseApproved === true || launchData.sanitized); }
+  function partnerOk(r) {
+    return !!r && !!r.name && !!r.id && !!PARTNER_RELATIONSHIPS[r.relationship] &&
+      PARTNER_CATEGORIES.indexOf(r.category) >= 0 && (launchData.sanitized || r.publicDisclosureApproved === true);
+  }
+  function propertyOk(r) {
+    if (!r || !r.name || !PROPERTY_RELATIONSHIPS[r.relationship]) return false;
+    if (launchData.sanitized) return true;
+    return r.featured === true && r.publicDisclosureApproved === true && r.relationshipVerified === true;
+  }
+  function metricOk(doc, m) {
+    var v = m && m.value;
+    return doc.approvedForPublication === true && m.approvedForPublication === true &&
+      typeof v === "number" && isFinite(v) && v > 0 && Math.floor(v) === v && !!m.verifiedAt && !!m.source;
+  }
+
+  // Shared state for the launch features.
+  var launchData = { sanitized: false, methods: null, statuses: {} };
+
+  function fmtNumber(n) {
+    try { return new Intl.NumberFormat(currentLang || DEFAULT_LANG).format(n); } catch (e) { return String(n); }
+  }
+  function fmtDate(iso) {
+    if (!iso) return "";
+    try {
+      var d = new Date(iso + "T00:00:00Z");
+      return new Intl.DateTimeFormat(currentLang || DEFAULT_LANG, { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" }).format(d);
+    } catch (e) { return iso; }
+  }
+  function regionName(cc) {
+    try { return new Intl.DisplayNames([currentLang || DEFAULT_LANG], { type: "region" }).of(cc) || cc; } catch (e) { return cc; }
+  }
+  function el(tag, cls, text) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null) n.textContent = text;
+    return n;
+  }
+  function fillTemplate(node, key, fallback, vars) {
+    var s = t(key, fallback);
+    Object.keys(vars).forEach(function (k) { s = s.split("{" + k + "}").join(vars[k]); });
+    node.textContent = s;
+  }
+
+  // Logo when approved and loadable; otherwise a typographic monogram.
+  function logoTile(name, src) {
+    var tile = el("div", "logo-tile");
+    function mono() {
+      tile.innerHTML = "";
+      var words = String(name || "?").replace(/[^\p{L}\p{N} ]/gu, " ").trim().split(/\s+/);
+      var m = el("span", "logo-tile__mono", ((words[0] || "?").charAt(0) + (words[1] ? words[1].charAt(0) : "")).toUpperCase());
+      m.setAttribute("aria-hidden", "true");
+      tile.appendChild(m);
+      tile.setAttribute("data-logo", "fallback");
+    }
+    if (src && !/^([a-z]+:|\/\/)/i.test(src) && src.indexOf("..") < 0) {
+      var img = new Image();
+      img.alt = ""; img.loading = "lazy"; img.decoding = "async";
+      img.onerror = mono;
+      img.src = BASE + src.replace(/^\//, "");
+      tile.appendChild(img);
+      tile.setAttribute("data-logo", "image");
+    } else mono();
+    return tile;
+  }
+
+  var METHOD_ICON = '<path d="M2 6h3.2M6.8 6H10M5.2 3.6v4.8M6.8 3.6v4.8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>';
+  var ROUTE_ICON = '<circle cx="2.4" cy="6" r="1.6" fill="currentColor"/><circle cx="9.6" cy="6" r="1.6" fill="currentColor"/><path d="M4 6h4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-dasharray="1.4 1.2"/>';
+  function methodLabel(key) {
+    var m = launchData.methods && launchData.methods.methods[key];
+    if (!m) return key;
+    return m.label[currentLang] || m.label.en;
+  }
+  function paintMethod(node, key) {
+    var m = launchData.methods && launchData.methods.methods[key];
+    if (!m) { node.hidden = true; return; }
+    node.className = "method";
+    node.setAttribute("data-method", key);
+    node.setAttribute("data-badge", m.badge);
+    node.innerHTML = '<svg class="method__icon" viewBox="0 0 12 12" aria-hidden="true" focusable="false">' +
+      (key === "direct" ? METHOD_ICON : ROUTE_ICON) + '</svg><span class="method__text"></span>';
+    node.querySelector(".method__text").textContent = methodLabel(key);
+    node.hidden = false;
+  }
+  function badgeRow(statusKey, methodKey) {
+    var row = el("div", "badge-row");
+    if (statusKey) { var s = el("span"); paintStatus(s, statusKey, currentLang || DEFAULT_LANG); row.appendChild(s); }
+    if (methodKey) { var m = el("span"); paintMethod(m, methodKey); row.appendChild(m); }
+    return row;
+  }
+  function renderStaticMethods() {
+    $all(".method[data-method]").forEach(function (n) { paintMethod(n, n.getAttribute("data-method")); });
+  }
+
+  function catLabel(cat) { return t("cx.cat." + cat, cat); }
+  function regionLabel(r) { return t("cx.region." + r, r); }
+
+  /* ---- Homepage proof components ------------------------------------- */
+  function renderFeaturedConnections(section, integrations, featured) {
+    var list = $("[data-proof-list]", section);
+    var byId = {};
+    integrations.forEach(function (r) { byId[r.id] = r; });
+    var items = (featured.items || []).filter(function (i) {
+      var r = byId[i.id];
+      return r && (launchData.sanitized || (i.featured === true && i.verifiedLive === true)) && OPERATIONAL[r.status];
+    }).sort(function (a, b) { return (a.order || 9999) - (b.order || 9999); });
+    if (items.length < (featured.minItems || 1)) { section.parentNode.removeChild(section); return null; }
+    function draw() {
+      list.innerHTML = "";
+      items.forEach(function (i) {
+        var r = byId[i.id];
+        var li = el("li"); var card = el("article", "proof-card");
+        card.appendChild(logoTile(r.displayName, logoAllowed(r) ? r.logo : ""));
+        card.appendChild(el("h3", null, r.displayName));
+        card.appendChild(el("p", "proof-card__meta", catLabel(r.category)));
+        card.appendChild(badgeRow(r.status, displayMethod(r)));
+        li.appendChild(card); list.appendChild(li);
+      });
+    }
+    draw(); section.hidden = false;
+    return draw;
+  }
+
+  function renderFeaturedProperties(section, doc) {
+    var list = $("[data-proof-list]", section);
+    var items = (doc.items || []).filter(propertyOk).sort(function (a, b) {
+      return (a.order || 9999) - (b.order || 9999) || String(a.name).localeCompare(String(b.name));
+    });
+    if (items.length < (doc.minItems || 1)) { section.parentNode.removeChild(section); return null; }
+    function draw() {
+      list.innerHTML = "";
+      items.forEach(function (p) {
+        var li = el("li"); var card = el("article", "proof-card");
+        card.appendChild(logoTile(p.name, logoAllowed(p) ? p.logo : ""));
+        card.appendChild(el("h3", null, p.name));
+        var meta = [t("fh.type." + p.type, "")];
+        if (p.location && (launchData.sanitized || p.locationVerified === true)) meta.push(p.location);
+        card.appendChild(el("p", "proof-card__meta", meta.filter(Boolean).join(" · ")));
+        var rel = el("span", "rel-badge", t("fh.rel." + p.relationship, p.relationship));
+        rel.setAttribute("data-rel", p.relationship);
+        card.appendChild(rel);
+        li.appendChild(card); list.appendChild(li);
+      });
+    }
+    draw(); section.hidden = false;
+    return draw;
+  }
+
+  /* ---- /network/ metrics + coverage ---------------------------------- */
+  function countUp(node, value) {
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var final = fmtNumber(value);
+    // Screen readers get the final figure once; the animated digits are hidden.
+    node.innerHTML = '<span class="visually-hidden"></span><span aria-hidden="true"></span>';
+    node.firstChild.textContent = final;
+    var vis = node.lastChild;
+    if (reduce || !("IntersectionObserver" in window) || !window.requestAnimationFrame) { vis.textContent = final; return; }
+    vis.textContent = fmtNumber(0);
+    var io = new IntersectionObserver(function (es) {
+      if (!es.some(function (e) { return e.isIntersecting; })) return;
+      io.disconnect();
+      var t0 = null, dur = 1400;
+      function step(ts) {
+        if (t0 == null) t0 = ts;
+        var p = Math.min(1, (ts - t0) / dur), eased = 1 - Math.pow(1 - p, 3);
+        vis.textContent = p < 1 ? fmtNumber(Math.round(value * eased)) : final;
+        if (p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }, { threshold: 0.3 });
+    io.observe(node);
+  }
+
+  function renderMetrics(section, doc) {
+    var shown = 0, vals = {};
+    (doc.metrics || []).forEach(function (m) { if (metricOk(doc, m)) vals[m.id] = m.value; });
+    // Consistency guards: never show a subset larger than its superset.
+    if (vals.directProperties && vals.availableProperties && vals.directProperties > vals.availableProperties) { delete vals.directProperties; console.warn("[KabuK Exchange] directProperties > availableProperties — hidden"); }
+    if (vals.directCountries && vals.countriesCovered && vals.directCountries > vals.countriesCovered) { delete vals.directCountries; console.warn("[KabuK Exchange] directCountries > countriesCovered — hidden"); }
+    $all("[data-metric]", section).forEach(function (row) {
+      var id = row.getAttribute("data-metric");
+      if (vals[id]) { countUp($("[data-count]", row), vals[id]); row.hidden = false; shown++; }
+      else row.parentNode.removeChild(row);
+    });
+    $all("[data-metric-group]", section).forEach(function (g) {
+      if (!$("[data-metric]", g)) g.parentNode.removeChild(g);
+    });
+    if (!shown) { section.parentNode.removeChild(section); return null; }
+    var note = $("[data-metric-note]", section);
+    function dates() { if (note && doc.verifiedAt) { fillTemplate(note.firstElementChild, "net.metrics.note", note.firstElementChild.textContent, { date: fmtDate(doc.verifiedAt) }); note.hidden = false; } }
+    dates(); section.hidden = false;
+    return function () {
+      dates();
+      $all("[data-metric]", section).forEach(function (row) {
+        var v = vals[row.getAttribute("data-metric")], c = $("[data-count]", row);
+        if (v && c && c.firstChild) { c.firstChild.textContent = fmtNumber(v); c.lastChild.textContent = fmtNumber(v); }
+      });
+    };
+  }
+
+  // Tile cartogram of Asia-Pacific (col,row on an 11×8 grid); everything
+  // else is grouped by world region beneath it. Positions are schematic.
+  var APAC_TILES = {
+    MN: [8, 1], CN: [8, 2], KR: [10, 2], JP: [11, 2],
+    PK: [3, 3], NP: [5, 3], BT: [6, 3], BD: [7, 3], HK: [9, 3], TW: [10, 3],
+    IN: [4, 4], MM: [7, 4], LA: [8, 4], MO: [9, 4],
+    MV: [3, 5], LK: [5, 5], TH: [7, 5], KH: [8, 5], VN: [9, 5], PH: [11, 5],
+    MY: [7, 6], BN: [9, 6],
+    SG: [7, 7], ID: [8, 7], TL: [10, 7], PG: [11, 7],
+    AU: [9, 8], NZ: [11, 8], FJ: [12, 8]
+  };
+  var WORLD_REGIONS = {
+    europe: "AD AL AT BA BE BG BY CH CY CZ DE DK EE ES FI FR GB GR HR HU IE IS IT LI LT LU LV MC MD ME MK MT NL NO PL PT RO RS RU SE SI SK SM TR UA VA XK",
+    americas: "AR BB BO BR BS BZ CA CL CO CR CU DM DO EC GT HN HT JM MX NI PA PE PR PY SV TT US UY VE",
+    "middle-east-africa": "AE BH BW CI CM DZ EG ET GH IL IQ IR JO KE KW LB LY MA MG MU NA NG OM QA RW SA SC SN SY TN TZ UG YE ZA ZM ZW",
+    "central-asia": "KZ KG TJ TM UZ AF AZ AM GE"
+  };
+
+  function renderCoverage(section, doc) {
+    var cov = doc.coverage || {};
+    var ok = cov.approvedForPublication === true && !!cov.verifiedAt;
+    var iso = /^[A-Z]{2}$/;
+    var direct = ok ? (cov.direct || []).filter(function (c) { return iso.test(c); }) : [];
+    var connected = ok ? (cov.connected || []).filter(function (c) { return iso.test(c) && direct.indexOf(c) < 0; }) : [];
+    if (!direct.length && !connected.length) { section.parentNode.removeChild(section); return null; }
+    var kind = {};
+    direct.forEach(function (c) { kind[c] = "direct"; });
+    connected.forEach(function (c) { kind[c] = "connected"; });
+    var wrap = $(".cov", section), grid = $("[data-cov-grid]", section), world = $("[data-cov-world]", section);
+
+    function tile(cc, i) {
+      var n = el("span", "cov-tile", cc);
+      n.style.setProperty("--d", i);
+      if (kind[cc]) n.setAttribute("data-cov", kind[cc]);
+      n.title = regionName(cc);
+      return n;
+    }
+    function draw() {
+      grid.innerHTML = ""; world.innerHTML = "";
+      Object.keys(APAC_TILES).forEach(function (cc, i) {
+        var n = tile(cc, i);
+        n.style.gridColumn = String(APAC_TILES[cc][0] - 1 || 1);
+        n.style.gridRow = String(APAC_TILES[cc][1]);
+        grid.appendChild(n);
+      });
+      var rest = Object.keys(kind).filter(function (c) { return !APAC_TILES[c]; });
+      var groups = {};
+      rest.forEach(function (c) {
+        var g = "other";
+        Object.keys(WORLD_REGIONS).forEach(function (k) { if ((" " + WORLD_REGIONS[k] + " ").indexOf(" " + c + " ") >= 0) g = k; });
+        (groups[g] = groups[g] || []).push(c);
+      });
+      ["europe", "middle-east-africa", "americas", "central-asia", "other"].forEach(function (g) {
+        if (!groups[g]) return;
+        var row = el("div", "cov-region");
+        row.appendChild(el("span", "cov-region__label", t("net.map.region." + g, g)));
+        groups[g].sort().forEach(function (c, i) { row.appendChild(tile(c, i)); });
+        world.appendChild(row);
+      });
+      [["direct", direct], ["connected", connected]].forEach(function (pair) {
+        var ul = $('[data-cov-list="' + pair[0] + '"]', section);
+        ul.innerHTML = "";
+        pair[1].map(regionName).sort(function (a, b) { return a.localeCompare(b, currentLang || DEFAULT_LANG); })
+          .forEach(function (name) { ul.appendChild(el("li", null, name)); });
+        ul.parentNode.hidden = !pair[1].length;
+      });
+      fillTemplate($("[data-cov-summary]", section), "net.map.summary",
+        "Direct supply in {direct} markets; connected inventory in {connected} further markets.",
+        { direct: fmtNumber(direct.length), connected: fmtNumber(connected.length) });
+      var asof = $("[data-cov-asof]", section);
+      fillTemplate(asof.firstElementChild, "net.map.asof", "Coverage verified {date}.", { date: fmtDate(cov.verifiedAt) });
+      asof.hidden = false;
+    }
+    draw();
+    section.hidden = false;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) wrap.classList.add("is-visible");
+    else {
+      var io = new IntersectionObserver(function (es) {
+        if (es.some(function (e) { return e.isIntersecting; })) { wrap.classList.add("is-visible"); io.disconnect(); }
+      }, { threshold: 0.15 });
+      io.observe(wrap);
+    }
+    return draw;
+  }
+
+  /* ---- URL state for directories (filters only — never feature access) */
+  function readParams(allowed) {
+    var out = {};
+    try {
+      var p = new URLSearchParams(location.search);
+      Object.keys(allowed).forEach(function (k) {
+        var v = p.get(k);
+        if (v != null && v !== "" && (allowed[k] === true || allowed[k].indexOf(v) >= 0)) out[k] = v.slice(0, 80);
+      });
+    } catch (e) {}
+    return out;
+  }
+  function writeParams(state, defaults) {
+    try {
+      var p = new URLSearchParams();
+      Object.keys(state).forEach(function (k) { if (state[k] && state[k] !== defaults[k]) p.set(k, state[k]); });
+      var qs = p.toString();
+      history.replaceState(null, "", location.pathname + (qs ? "?" + qs : "") + location.hash);
+    } catch (e) {}
+  }
+  function norm(s) { return String(s || "").normalize("NFKC").toLowerCase(); }
+
+  /* ---- /network/connectivity/ ---------------------------------------- */
+  function initConnectivityDirectory(root, records) {
+    var form = $("[data-dir-form]", root);
+    var q = $("input[type=search]", form);
+    var selects = {};
+    $all("[data-dir-filter]", form).forEach(function (s) { selects[s.getAttribute("data-dir-filter")] = s; });
+    var sortSel = $("[data-dir-sort]", form);
+    var statusOrder = (statusData.catalog && statusData.catalog.order) || Object.keys(statusData.catalog.statuses);
+
+    records = records.map(function (r) { var c = {}; for (var k in r) c[k] = r[k]; c._method = displayMethod(r); return c; });
+    function uniq(fn) { var s = {}; records.forEach(function (r) { [].concat(fn(r)).forEach(function (v) { if (v) s[v] = 1; }); }); return Object.keys(s); }
+    var opts = {
+      category: INTEGRATION_CATEGORIES.filter(function (c) { return uniq(function (r) { return r.category; }).indexOf(c) >= 0; }),
+      status: statusOrder.filter(function (s) { return uniq(function (r) { return r.status; }).indexOf(s) >= 0; }),
+      method: CONNECTION_METHODS.filter(function (m) { return uniq(function (r) { return r._method; }).indexOf(m) >= 0; }),
+      region: uniq(function (r) { return r.regions || []; }).sort()
+    };
+    var regionField = $("[data-dir-region-field]", form);
+    if (opts.region.length >= 2) regionField.hidden = false; else { regionField.parentNode.removeChild(regionField); delete selects.region; }
+    var recentOpt = $("[data-dir-recent]", form);
+    var datesTrusted = records.length > 0 && records.every(function (r) { return /^\d{4}-\d{2}-\d{2}$/.test(r.publishedAt || ""); });
+    if (datesTrusted) recentOpt.hidden = false; else recentOpt.parentNode.removeChild(recentOpt);
+    var sorts = ["recommended", "az", "za"].concat(datesTrusted ? ["recent"] : []);
+
+    var defaults = { q: "", category: "", status: "", method: "", region: "", sort: "recommended" };
+    var state = Object.assign({}, defaults, readParams({ q: true, category: opts.category, status: opts.status, method: opts.method, region: opts.region, sort: sorts }));
+
+    function fillOptions() {
+      Object.keys(selects).forEach(function (k) {
+        var s = selects[k], first = s.options[0];
+        s.innerHTML = ""; s.appendChild(first);
+        opts[k].forEach(function (v) {
+          var o = el("option", null, k === "category" ? catLabel(v) : k === "status" ? statusLabel(v, currentLang || DEFAULT_LANG) : k === "method" ? methodLabel(v) : regionLabel(v));
+          o.value = v; s.appendChild(o);
+        });
+        s.value = state[k] || "";
+      });
+      q.value = state.q; sortSel.value = state.sort;
+    }
+
+    var groups = { operational: $('[data-dir-group="operational"]', root), progress: $('[data-dir-group="progress"]', root) };
+    var countEl = $("[data-dir-count]", root), empty = $("[data-dir-empty]", root);
+    function rank(r) { var i = statusOrder.indexOf(r.status); return i < 0 ? 99 : i; }
+    function asia(r) { return (r.regions || []).some(function (x) { return ASIA_REGIONS[x]; }) ? 0 : 1; }
+    function cmpName(a, b) { return a.displayName.localeCompare(b.displayName, currentLang || DEFAULT_LANG, { sensitivity: "base" }); }
+
+    function render() {
+      var needle = norm(state.q).trim();
+      var list = records.filter(function (r) {
+        if (state.category && r.category !== state.category) return false;
+        if (state.status && r.status !== state.status) return false;
+        if (state.method && r._method !== state.method) return false;
+        if (state.region && (r.regions || []).indexOf(state.region) < 0) return false;
+        if (!needle) return true;
+        var hay = norm([r.displayName, catLabel(r.category), r.category.replace(/_/g, " "), t("cx.cat." + r.category, ""), r._method === "bakuun" ? "bakuun" : ""].join(" "));
+        return needle.split(/\s+/).every(function (w) { return hay.indexOf(w) >= 0; });
+      });
+      list.sort(function (a, b) {
+        if (state.sort === "az") return cmpName(a, b);
+        if (state.sort === "za") return cmpName(b, a);
+        if (state.sort === "recent") return String(b.publishedAt).localeCompare(String(a.publishedAt)) || cmpName(a, b);
+        return rank(a) - rank(b) || asia(a) - asia(b) || cmpName(a, b);
+      });
+      Object.keys(groups).forEach(function (g) {
+        var ul = $("ul", groups[g]); ul.innerHTML = "";
+        var rows = list.filter(function (r) { return (g === "operational") === !!OPERATIONAL[r.status]; });
+        rows.forEach(function (r) {
+          var li = el("li", "dir-item");
+          li.setAttribute("data-id", r.id);
+          li.appendChild(logoTile(r.displayName, logoAllowed(r) ? r.logo : ""));
+          var body = el("div");
+          body.appendChild(el("h4", null, r.displayName));
+          var meta = [catLabel(r.category)];
+          if (r.regions && r.regions.length) meta.push(r.regions.map(regionLabel).join(", "));
+          body.appendChild(el("p", "dir-item__meta", meta.join(" · ")));
+          li.appendChild(body);
+          li.appendChild(badgeRow(r.status, r._method));
+          ul.appendChild(li);
+        });
+        groups[g].hidden = !rows.length;
+      });
+      fillTemplate(countEl, list.length === 1 ? "cx.count1" : "cx.count", "{count} connections found", { count: fmtNumber(list.length) });
+      empty.hidden = list.length > 0;
+      var filtered = Object.keys(defaults).some(function (k) { return k !== "sort" && state[k]; });
+      $all("[data-dir-clear]", root).forEach(function (b) { b.hidden = !filtered; });
+      writeParams(state, defaults);
+    }
+
+    var tmr;
+    q.addEventListener("input", function () { clearTimeout(tmr); tmr = setTimeout(function () { state.q = q.value; render(); }, 120); });
+    Object.keys(selects).forEach(function (k) { selects[k].addEventListener("change", function () { state[k] = selects[k].value; render(); }); });
+    sortSel.addEventListener("change", function () { state.sort = sortSel.value; render(); });
+    $all("[data-dir-clear]", root).forEach(function (b) {
+      b.addEventListener("click", function () { state = Object.assign({}, defaults, { sort: state.sort }); fillOptions(); render(); q.focus(); });
+    });
+
+    var lr = (launchData.integrationsDoc || {}).lastReviewed;
+    var ver = $("[data-dir-verified]", root);
+    function verified() { if (lr && ver) { fillTemplate(ver.firstElementChild, "cx.verified", ver.firstElementChild.textContent, { date: fmtDate(lr) }); ver.hidden = false; } }
+
+    fillOptions(); render(); verified();
+    if (!records.length) form.hidden = true;
+    return function () { fillOptions(); render(); verified(); };
+  }
+
+  /* ---- /partners/ecosystem/ ------------------------------------------ */
+  function initPartnerDirectory(root, records) {
+    var form = $("[data-dir-form]", root), q = $("input[type=search]", form), sortSel = $("[data-dir-sort]", form);
+    var chips = $("[data-dir-chips]", root), grid = $("[data-dir-list]", root);
+    var countEl = $("[data-dir-count]", root), empty = $("[data-dir-empty]", root), emptyText = $("[data-dir-empty-text]", root);
+    var cats = PARTNER_CATEGORIES.filter(function (c) { return records.some(function (r) { return r.category === c; }); });
+    var defaults = { q: "", category: "", sort: "category" };
+    var state = Object.assign({}, defaults, readParams({ q: true, category: cats, sort: ["category", "az"] }));
+
+    function drawChips() {
+      chips.innerHTML = "";
+      [""].concat(cats).forEach(function (c) {
+        var b = el("button", null, c ? t("pe.cat." + c, c) : t("pe.cat.all", "All Partners"));
+        b.type = "button"; b.setAttribute("data-cat", c);
+        b.setAttribute("aria-pressed", String(state.category === c));
+        b.addEventListener("click", function () { state.category = c; drawChips(); render(); });
+        chips.appendChild(b);
+      });
+    }
+    function render() {
+      var needle = norm(state.q).trim();
+      var list = records.filter(function (r) {
+        return (!state.category || r.category === state.category) && (!needle || norm(r.name).indexOf(needle) >= 0);
+      });
+      list.sort(function (a, b) {
+        var n = a.name.localeCompare(b.name, currentLang || DEFAULT_LANG, { sensitivity: "base" });
+        return state.sort === "az" ? n : (PARTNER_CATEGORIES.indexOf(a.category) - PARTNER_CATEGORIES.indexOf(b.category)) || n;
+      });
+      grid.innerHTML = "";
+      list.forEach(function (r) {
+        var li = el("li"); var card = el("article", "partner-card");
+        li.setAttribute("data-id", r.id);
+        card.appendChild(logoTile(r.name, logoAllowed(r) ? r.logo : ""));
+        card.appendChild(el("h3", null, r.name));
+        card.appendChild(el("p", "proof-card__meta", [t("pe.cat." + r.category, r.category), r.region].filter(Boolean).join(" · ")));
+        var rel = el("span", "rel-badge", t("pe.rel." + r.relationship, r.relationship));
+        rel.setAttribute("data-rel", r.relationship);
+        card.appendChild(rel);
+        li.appendChild(card); grid.appendChild(li);
+      });
+      fillTemplate(countEl, list.length === 1 ? "pe.count1" : "pe.count", "{count} partners", { count: fmtNumber(list.length) });
+      empty.hidden = list.length > 0;
+      if (emptyText) emptyText.textContent = records.length ? t("pe.emptyFilter", "No partners match that search.") : t("pe.empty", "Partner profiles will appear here as public listings are approved.");
+      var filtered = !!(state.q || state.category);
+      $all("[data-dir-clear]", root).forEach(function (b) { b.hidden = !filtered; });
+      writeParams(state, defaults);
+    }
+    var tmr;
+    q.value = state.q; sortSel.value = state.sort;
+    q.addEventListener("input", function () { clearTimeout(tmr); tmr = setTimeout(function () { state.q = q.value; render(); }, 120); });
+    sortSel.addEventListener("change", function () { state.sort = sortSel.value; render(); });
+    $all("[data-dir-clear]", root).forEach(function (b) {
+      b.addEventListener("click", function () { state = Object.assign({}, defaults, { sort: state.sort }); q.value = ""; drawChips(); render(); q.focus(); });
+    });
+    drawChips(); render();
+    if (!records.length) form.hidden = true;
+    return function () { drawChips(); render(); };
+  }
+
+  /* ---- Orchestration -------------------------------------------------- */
+  function initLaunchFeatures(cfg) {
+    launchData.sanitized = cfg && (cfg.buildTarget === "production" || cfg.buildTarget === "preview");
+    var need = {
+      fc: $('[data-proof="connections"]'), fh: $('[data-proof="properties"]'),
+      metrics: $("[data-net-metrics]"), map: $("[data-net-map]"),
+      cx: $('[data-directory="integrations"]'), pe: $('[data-directory="partners"]')
+    };
+    var staticMethods = $all(".method[data-method]").length > 0;
+    if (!Object.keys(need).some(function (k) { return need[k]; }) && !staticMethods) return;
+
+    function get(path) { return fetchJSON(BASE + path).catch(function (e) { console.warn("[KabuK Exchange]", e.message); return null; }); }
+    var needsIntegrations = need.fc || need.cx;
+    Promise.all([
+      window.KBKX && window.KBKX.statuses, window.KBKX && window.KBKX.methods,
+      needsIntegrations ? get("data/integrations.json") : null,
+      need.fc ? get("data/featured-connections.json") : null,
+      need.fh ? get("data/featured-properties.json") : null,
+      (need.metrics || need.map) ? get("data/network-stats.json") : null,
+      need.pe ? get("data/partners-ecosystem.json") : null
+    ]).then(function (r) {
+      launchData.methods = r[1];
+      var statuses = (statusData.catalog && statusData.catalog.statuses) || {};
+      if (!r[1] || !statusData.catalog) {
+        // Without both badge catalogs nothing can be labelled honestly.
+        ["fc", "fh", "metrics", "map"].forEach(function (k) { if (need[k] && need[k].parentNode) need[k].parentNode.removeChild(need[k]); });
+      }
+      var redraw = [];
+      renderStaticMethods(); redraw.push(renderStaticMethods);
+      launchData.integrationsDoc = r[2];
+      var integrations = ((r[2] && r[2].records) || []).filter(function (x) { return integrationOk(x, statuses); });
+      function remove(n) { if (n && n.parentNode) n.parentNode.removeChild(n); }
+      if (need.fc && need.fc.parentNode) { if (r[3]) redraw.push(renderFeaturedConnections(need.fc, integrations, r[3])); else remove(need.fc); }
+      if (need.fh && need.fh.parentNode) { if (r[4]) redraw.push(renderFeaturedProperties(need.fh, r[4])); else remove(need.fh); }
+      if (need.metrics && need.metrics.parentNode) { if (r[5]) redraw.push(renderMetrics(need.metrics, r[5])); else remove(need.metrics); }
+      if (need.map && need.map.parentNode) { if (r[5]) redraw.push(renderCoverage(need.map, r[5])); else remove(need.map); }
+      if (need.cx) redraw.push(initConnectivityDirectory(need.cx, integrations));
+      if (need.pe) redraw.push(initPartnerDirectory(need.pe, ((r[6] && r[6].records) || []).filter(partnerOk)));
+      redraw = redraw.filter(Boolean);
+      afterLangHooks.push(function () { redraw.forEach(function (fn) { fn(); }); });
+      document.documentElement.setAttribute("data-launch-ready", "");
+    });
+  }
+
+  // Become-a-Partner: optional "Requested system" appears for integration requests.
+  function initTopicField() {
+    var topic = $("#p-topic");
+    if (!topic) return;
+    function sync() {
+      $all("[data-show-for-topic]").forEach(function (f) { f.hidden = f.getAttribute("data-show-for-topic") !== topic.value; });
+    }
+    topic.addEventListener("change", sync);
+    sync();
+  }
+
+  /* ---------------------------------------------------------------------
      Boot
      --------------------------------------------------------------------- */
   function boot() {
@@ -970,8 +1714,11 @@
     initReveal();
     initIcons();
     initEcoVisuals();
+    initStatuses();
     initEcosystem();
     initForms();
+    initTopicField();
+    initInterestParam();
     initI18n();              // load i18n/ manifest + language files, then apply
     loadConfig().then(applyConfig);
   }

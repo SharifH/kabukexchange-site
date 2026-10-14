@@ -1,0 +1,188 @@
+{
+  "_comment": "Central status catalog for KabuK Exchange. Stable keys; edit labels/definitions here only. Product-to-status mapping lives in data/product-roadmap.json. Non-English labels are draft translations pending native review.",
+  "version": 1,
+  "order": [
+    "live",
+    "available-to-partners",
+    "pilot",
+    "beta",
+    "in-development",
+    "integration-in-progress",
+    "coming-soon",
+    "planned",
+    "exploring",
+    "temporarily-unavailable",
+    "deprecated",
+    "retired"
+  ],
+  "statuses": {
+    "live": {
+      "tone": "success",
+      "icon": "check",
+      "label": {
+        "en": "Live",
+        "ja": "稼働中",
+        "ko": "운영 중",
+        "zh-TW": "已上線",
+        "ar": "متاح الآن"
+      },
+      "definition": "Operational and confirmed available.",
+      "use": "Only for capabilities verified as generally available to partners today.",
+      "avoid": "Never for anything still in pilot, beta or planning."
+    },
+    "available-to-partners": {
+      "tone": "success",
+      "icon": "key",
+      "label": {
+        "en": "Available to Partners",
+        "ja": "パートナー向け提供中",
+        "ko": "파트너 이용 가능",
+        "zh-TW": "合作夥伴可用",
+        "ar": "متاح للشركاء"
+      },
+      "definition": "Available to qualifying partners, with eligibility noted.",
+      "use": "When a capability is in production but limited to qualifying partners; state the eligibility nearby.",
+      "avoid": "Don't use it to soften a pilot or beta."
+    },
+    "pilot": {
+      "tone": "info",
+      "icon": "half",
+      "label": {
+        "en": "Pilot",
+        "ja": "パイロット",
+        "ko": "파일럿",
+        "zh-TW": "試行中",
+        "ar": "تجريبي محدود"
+      },
+      "definition": "Limited, controlled rollout with participating partners.",
+      "use": "Real usage by a small, named group of partners under agreement.",
+      "avoid": "Don't imply open sign-up."
+    },
+    "beta": {
+      "tone": "info",
+      "icon": "half",
+      "label": {
+        "en": "Beta",
+        "ja": "ベータ",
+        "ko": "베타",
+        "zh-TW": "Beta 測試",
+        "ar": "بيتا"
+      },
+      "definition": "Usable pre-general-availability release.",
+      "use": "Usable before general availability; expectations and support may differ.",
+      "avoid": "Don't use for concepts without a usable release."
+    },
+    "in-development": {
+      "tone": "info",
+      "icon": "progress",
+      "label": {
+        "en": "In Development",
+        "ja": "開発中",
+        "ko": "개발 중",
+        "zh-TW": "開發中",
+        "ar": "قيد التطوير"
+      },
+      "definition": "Engineering implementation is actively underway.",
+      "use": "Only when build work is actually in progress.",
+      "avoid": "Don't use for approved-but-unstarted ideas (use Planned)."
+    },
+    "integration-in-progress": {
+      "tone": "info",
+      "icon": "link",
+      "label": {
+        "en": "Integration in Progress",
+        "ja": "連携作業中",
+        "ko": "연동 진행 중",
+        "zh-TW": "整合進行中",
+        "ar": "التكامل قيد التنفيذ"
+      },
+      "definition": "A specific integration is being implemented.",
+      "use": "For a named integration with active implementation work.",
+      "avoid": "Don't use for integrations still under discussion."
+    },
+    "coming-soon": {
+      "tone": "brand",
+      "icon": "clock",
+      "label": {
+        "en": "Coming Soon",
+        "ja": "近日提供予定",
+        "ko": "곧 제공 예정",
+        "zh-TW": "即將推出",
+        "ar": "قريبًا"
+      },
+      "definition": "Near-term availability supported by credible launch readiness.",
+      "use": "Only when launch readiness is substantiated (owner sign-off).",
+      "avoid": "Never as a generic synonym for Planned."
+    },
+    "planned": {
+      "tone": "neutral",
+      "icon": "ring",
+      "label": {
+        "en": "Planned",
+        "ja": "予定",
+        "ko": "예정",
+        "zh-TW": "規劃中",
+        "ar": "مخطط له"
+      },
+      "definition": "Approved future direction, not yet actively in development.",
+      "use": "Only after owner approval of the direction.",
+      "avoid": "Don't imply a date or commitment to deliver."
+    },
+    "exploring": {
+      "tone": "outline",
+      "icon": "dashed",
+      "label": {
+        "en": "Exploring",
+        "ja": "検討中",
+        "ko": "검토 중",
+        "zh-TW": "評估中",
+        "ar": "قيد الاستكشاف"
+      },
+      "definition": "Under consideration; no committed delivery.",
+      "use": "When an idea is being evaluated and nothing is committed.",
+      "avoid": "Don't pair with dates or delivery language."
+    },
+    "temporarily-unavailable": {
+      "tone": "warning",
+      "icon": "alert",
+      "label": {
+        "en": "Temporarily Unavailable",
+        "ja": "一時停止中",
+        "ko": "일시 중단",
+        "zh-TW": "暫時無法使用",
+        "ar": "غير متاح مؤقتًا"
+      },
+      "definition": "Previously available but currently disrupted.",
+      "use": "During a known disruption to a previously available capability.",
+      "avoid": "Don't leave in place after recovery."
+    },
+    "deprecated": {
+      "tone": "muted",
+      "icon": "minus",
+      "label": {
+        "en": "Deprecated",
+        "ja": "廃止予定",
+        "ko": "지원 종료 예정",
+        "zh-TW": "即將停用",
+        "ar": "مُهمَل"
+      },
+      "definition": "Still present but being phased out.",
+      "use": "When partners should migrate away; link to the replacement.",
+      "avoid": "Don't remove the item before partners are informed."
+    },
+    "retired": {
+      "tone": "muted",
+      "icon": "x",
+      "label": {
+        "en": "Retired",
+        "ja": "提供終了",
+        "ko": "종료됨",
+        "zh-TW": "已停用",
+        "ar": "متوقف"
+      },
+      "definition": "No longer available.",
+      "use": "For historical references and changelogs.",
+      "avoid": "Don't show retired items in marketing sections."
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "_comment": "PUBLIC connectivity directory (/network/connectivity/, featureFlags.connectivityDirectory). Only records that pass ALL publication rules render (see README › Launch gates). Internal notes, owners and escalation routes belong in _private/integrations-internal.json, which is never deployed. The production build also strips any field not on the public whitelist. Do not add example or placeholder entries here — use fixtures/data/integrations.json for preview builds.",
+  "lastReviewed": null,
+  "records": []
+}

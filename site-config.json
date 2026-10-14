@@ -76,6 +76,20 @@
       "note": "PLACEHOLDER URL"
     }
   ],
+  "_featureFlagsHelp": "LAUNCH GATES for the new network, directory, ecosystem and homepage showcase features. All six ship false. Set one to true ONLY after its LAUNCH_CHECKLIST.md section is signed off, then run 'python3 build.py --production' and deploy the dist/ folder. Disabled features are left out of dist/ entirely (pages, nav links, sitemap entries and data files). Changing this file on a live server without rebuilding does NOT publish a page.",
+  "featureFlags": {
+    "networkStats": false,
+    "networkCoverageMap": false,
+    "connectivityDirectory": false,
+    "partnerEcosystem": false,
+    "homepageFeaturedConnections": false,
+    "homepageFeaturedHotels": false
+  },
+  "_disclosureHelp": "Site-wide disclosure approvals. bakuunNameApproved: set true only with written authorization to name Bakuun publicly. While false, production output never names Bakuun: every 'bakuun' connection renders as 'Via Technology Partner' and Bakuun examples are left out of the badge gallery. Per-record approvals (connectionProviderDisclosureApproved) are still required.",
+  "disclosure": {
+    "bakuunNameApproved": false
+  },
+  "_featuresHelp": "Legacy module switches. partnerLogos, featuredProperties and networkMetrics are superseded by featureFlags (partnerEcosystem, homepageFeaturedHotels, networkStats) and no longer render anything; they are kept so older tooling does not break.",
   "features": {
     "partnerLogos": false,
     "featuredProperties": false,

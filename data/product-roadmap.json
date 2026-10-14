@@ -1,0 +1,73 @@
+{
+  "_comment": "Product-to-status mapping. EVERY status here is an editorial suggestion until the owner approves it: set approved=true with approvedBy/approvedOn. Never promote an item to live, available-to-partners or coming-soon without approval — the site refuses to render those statuses for unapproved items.",
+  "reviewGate": {
+    "showUnapprovedStatuses": true,
+    "_note": "true = unapproved suggested statuses are shown publicly (current decision, pending owner review). Set to false to hide every unapproved badge site-wide; the roadmap disclaimer still shows."
+  },
+  "products": {
+    "white-label": {
+      "status": "planned",
+      "approved": false,
+      "approvedBy": null,
+      "approvedOn": null,
+      "source": "Copy recommendations (suggested)",
+      "note": "Partner-branded travel storefronts powered by Exchange supply."
+    },
+    "agency-portal": {
+      "status": "planned",
+      "approved": false,
+      "approvedBy": null,
+      "approvedOn": null,
+      "source": "Copy recommendations (suggested)",
+      "note": "Browser-based search, rates/availability and reservation management without an API integration."
+    },
+    "activities": {
+      "status": "planned",
+      "approved": false,
+      "approvedBy": null,
+      "approvedOn": null,
+      "source": "Copy recommendations (suggested)",
+      "note": "Tours, attractions and destination experiences."
+    },
+    "ground-transportation": {
+      "status": "exploring",
+      "approved": false,
+      "approvedBy": null,
+      "approvedOn": null,
+      "source": "Copy recommendations (suggested)",
+      "note": "Transfers, private transport, rail, car rental. Flights are explicitly out of scope."
+    },
+    "property-system-connectivity": {
+      "status": "planned",
+      "approved": false,
+      "approvedBy": null,
+      "approvedOn": null,
+      "source": "Carried over from the previous site build",
+      "note": "PMS / channel-manager connectivity for eligible properties."
+    },
+    "pms-connectivity": {
+      "status": "planned",
+      "approved": false,
+      "approvedBy": null,
+      "approvedOn": null,
+      "source": "Carried over from the previous site build",
+      "note": "PMS provider integrations."
+    },
+    "channel-manager-connectivity": {
+      "status": "planned",
+      "approved": false,
+      "approvedBy": null,
+      "approvedOn": null,
+      "source": "Carried over from the previous site build",
+      "note": "Channel-manager integrations."
+    },
+    "ai-assisted-operations": {
+      "status": "planned",
+      "approved": false,
+      "approvedBy": null,
+      "approvedOn": null,
+      "source": "Carried over from the previous site build ('Roadmap')",
+      "note": "KAOS AI-assisted partner operations."
+    }
+  }
+}

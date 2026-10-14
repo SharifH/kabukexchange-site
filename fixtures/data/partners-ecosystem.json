@@ -1,0 +1,16 @@
+{
+  "_comment": "SYNTHETIC FIXTURE — not real organizations.",
+  "_fixture": true,
+  "lastReviewed": "2026-01-15",
+  "records": [
+    { "id": "fx-p-1", "name": "Test Ryokan Group One", "category": "accommodation", "relationship": "signed", "region": "Japan", "logo": "fixtures/assets/logos/alpha.svg", "publicDisclosureApproved": true, "logoUseApproved": true },
+    { "id": "fx-p-2", "name": "Test Hotel Group Two", "category": "accommodation", "relationship": "signed", "region": "Thailand", "logo": "fixtures/assets/logos/bravo.svg", "publicDisclosureApproved": true, "logoUseApproved": false },
+    { "id": "fx-p-3", "name": "Test Bedbank Three", "category": "supply", "relationship": "integrated", "region": "Global", "logo": "", "publicDisclosureApproved": true, "logoUseApproved": false },
+    { "id": "fx-p-4", "name": "Test OTA Four", "category": "distribution", "relationship": "signed", "region": "Korea", "logo": "fixtures/assets/logos/missing.svg", "publicDisclosureApproved": true, "logoUseApproved": true },
+    { "id": "fx-p-5", "name": "Test Travel App Five", "category": "distribution", "relationship": "integrated", "region": "Asia-Pacific", "logo": "fixtures/assets/logos/echo.svg", "publicDisclosureApproved": true, "logoUseApproved": true },
+    { "id": "fx-p-6", "name": "Test Channel Manager Six", "category": "connectivity", "relationship": "integrated", "region": "Global", "logo": "", "publicDisclosureApproved": true, "logoUseApproved": false },
+    { "id": "fx-p-7", "name": "Test Data Partner Seven", "category": "technology", "relationship": "signed", "region": "Taiwan", "logo": "", "publicDisclosureApproved": true, "logoUseApproved": false },
+    { "id": "fx-p-hidden-1", "name": "MUST NOT RENDER — prospect", "category": "distribution", "relationship": "prospective", "region": "Global", "publicDisclosureApproved": true, "logoUseApproved": true },
+    { "id": "fx-p-hidden-2", "name": "MUST NOT RENDER — not approved", "category": "supply", "relationship": "signed", "region": "Global", "publicDisclosureApproved": false, "logoUseApproved": false }
+  ]
+}

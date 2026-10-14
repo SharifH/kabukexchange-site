@@ -1,0 +1,13 @@
+{
+  "_comment": "SYNTHETIC FIXTURE.",
+  "_fixture": true,
+  "minItems": 3,
+  "items": [
+    { "id": "fx-cm-alpha", "order": 1, "featured": true, "verifiedLive": true },
+    { "id": "fx-cm-bravo", "order": 2, "featured": true, "verifiedLive": true },
+    { "id": "fx-cm-charlie", "order": 3, "featured": true, "verifiedLive": true },
+    { "id": "fx-crs-foxtrot", "order": 4, "featured": true, "verifiedLive": true },
+    { "id": "fx-hidden-unapproved", "order": 0, "featured": true, "verifiedLive": true },
+    { "id": "fx-pms-delta", "order": 5, "featured": true, "verifiedLive": false }
+  ]
+}

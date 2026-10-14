@@ -1,100 +1,20 @@
 {
-  "_comment": "Ecosystem entries shown on the homepage. All entries are PLACEHOLDER sample data for internal review. Edit, add, or remove entries freely. 'category' must match one of the values in 'categories' so filtering works.",
+  "_comment": "Homepage 'Partner Ecosystem' section: the TYPES of businesses the network is designed for. No organization names here — named, approved partners belong in data/partners-ecosystem.json (launch-gated). 'i18n' is the key prefix in i18n/*.json (<prefix>.t / <prefix>.d); name/description are the English fallback. 'category' must match an id in 'categories'.",
 
   "categories": [
-    { "id": "all", "label": "All" },
-    { "id": "hotel-group", "label": "Hotel Groups" },
-    { "id": "ota", "label": "OTAs & Marketplaces" },
-    { "id": "agency", "label": "Travel Agencies" },
-    { "id": "wholesaler", "label": "Wholesalers" },
-    { "id": "connectivity", "label": "Connectivity / PMS" },
-    { "id": "internal", "label": "KabuK Services" }
+    { "id": "all", "label": "All", "i18n": "hp.eco.cat.all" },
+    { "id": "supply", "label": "Supply", "i18n": "hp.eco.cat.supply" },
+    { "id": "distribution", "label": "Distribution", "i18n": "hp.eco.cat.distribution" },
+    { "id": "connectivity", "label": "Connectivity", "i18n": "hp.eco.cat.connectivity" }
   ],
 
   "entries": [
-    {
-      "name": "Sample Ryokan Collection",
-      "category": "hotel-group",
-      "region": "Japan",
-      "description": "PLACEHOLDER — Independent ryokan and boutique group across Kyoto and Kanazawa.",
-      "tag": "Supply"
-    },
-    {
-      "name": "Sample City Hotels KK",
-      "category": "hotel-group",
-      "region": "Japan",
-      "description": "PLACEHOLDER — Mid-scale urban hotel group in Tokyo and Osaka.",
-      "tag": "Supply"
-    },
-    {
-      "name": "Global Marketplace Co.",
-      "category": "ota",
-      "region": "Global",
-      "description": "PLACEHOLDER — International OTA sourcing Japanese inventory.",
-      "tag": "Demand"
-    },
-    {
-      "name": "APAC Travel Marketplace",
-      "category": "ota",
-      "region": "APAC",
-      "description": "PLACEHOLDER — Regional marketplace focused on inbound Japan travel.",
-      "tag": "Demand"
-    },
-    {
-      "name": "Sample DMC & Agency",
-      "category": "agency",
-      "region": "EMEA",
-      "description": "PLACEHOLDER — Destination management company serving EMEA outbound travelers.",
-      "tag": "Demand"
-    },
-    {
-      "name": "Corporate Travel Partners",
-      "category": "agency",
-      "region": "Global",
-      "description": "PLACEHOLDER — Corporate travel agency network.",
-      "tag": "Demand"
-    },
-    {
-      "name": "Sample Bedbank Ltd.",
-      "category": "wholesaler",
-      "region": "Global",
-      "description": "PLACEHOLDER — Wholesaler redistributing supply to downstream agencies.",
-      "tag": "Supply & Demand"
-    },
-    {
-      "name": "Regional Supply Aggregator",
-      "category": "wholesaler",
-      "region": "APAC",
-      "description": "PLACEHOLDER — Aggregates and redistributes regional hotel supply.",
-      "tag": "Supply & Demand"
-    },
-    {
-      "name": "Sample PMS Cloud",
-      "category": "connectivity",
-      "region": "Global",
-      "description": "PLACEHOLDER — Property management system (planned connectivity).",
-      "tag": "Connectivity"
-    },
-    {
-      "name": "Sample Channel Manager",
-      "category": "connectivity",
-      "region": "Global",
-      "description": "PLACEHOLDER — Channel manager integration (roadmap).",
-      "tag": "Connectivity"
-    },
-    {
-      "name": "HafH",
-      "category": "internal",
-      "region": "Japan / Global",
-      "description": "PLACEHOLDER — KabuK Style subscription travel service.",
-      "tag": "KabuK"
-    },
-    {
-      "name": "KabuK Internal Distribution",
-      "category": "internal",
-      "region": "Japan / Global",
-      "description": "PLACEHOLDER — Internal KabuK Style demand channels.",
-      "tag": "KabuK"
-    }
+    { "i18n": "hp.eco.t1", "name": "Independent Hotels & Ryokan", "category": "supply", "tag": "Direct supply", "tagI18n": "hp.eco.tag.direct", "description": "Properties across Asia exploring direct distribution relationships." },
+    { "i18n": "hp.eco.t2", "name": "Hotel Groups", "category": "supply", "tag": "Direct supply", "tagI18n": "hp.eco.tag.direct", "description": "Multi-property groups managing distribution across brands and markets." },
+    { "i18n": "hp.eco.t3", "name": "Wholesalers & Bedbanks", "category": "supply", "tag": "Connected supply", "tagI18n": "hp.eco.tag.connected", "description": "Third-party suppliers that can extend inventory beyond direct supply." },
+    { "i18n": "hp.eco.t4", "name": "OTAs & Marketplaces", "category": "distribution", "tag": "Distribution", "tagI18n": "hp.eco.cat.distribution", "description": "Online travel sellers. Some also provide inventory as supplier OTAs." },
+    { "i18n": "hp.eco.t5", "name": "Travel Agencies & DMCs", "category": "distribution", "tag": "Distribution", "tagI18n": "hp.eco.cat.distribution", "description": "Leisure, corporate and destination specialists sourcing accommodation." },
+    { "i18n": "hp.eco.t6", "name": "Travel Apps & Membership Platforms", "category": "distribution", "tag": "Distribution", "tagI18n": "hp.eco.cat.distribution", "description": "Consumer apps, loyalty and subscription programs offering stays." },
+    { "i18n": "hp.eco.t7", "name": "Channel Managers, PMS & CRS", "category": "connectivity", "tag": "Connectivity", "tagI18n": "hp.eco.cat.connectivity", "description": "Systems that connect properties' rates and availability to the network." }
   ]
 }

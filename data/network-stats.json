@@ -1,0 +1,28 @@
+{
+  "_comment": "Network figures for /network/ (featureFlags.networkStats + networkCoverageMap). A metric renders only when value is a positive integer, the metric AND the file are approvedForPublication, and verifiedAt + source are set. Unknown = null (the metric is hidden, never shown as 0 or a dash). Generate values with tools/compute_network_stats.py from a canonical property export, then have the owner approve. Never hand-type estimates here.",
+  "approvedForPublication": false,
+  "approvedBy": null,
+  "verifiedAt": null,
+  "source": null,
+  "refreshCadence": "Monthly (proposed — confirm with operations)",
+  "definitions": {
+    "directProperties": "Properties with an active direct commercial agreement with KabuK Exchange. A direct contract does not mean a direct technical connection; inventory obtained through a connectivity partner, wholesaler or other supplier is not counted here unless the property also holds a direct agreement.",
+    "directCountries": "Countries or markets with at least one directly contracted property.",
+    "availableProperties": "Unique, currently bookable properties across all enabled supply sources (direct and connected), counted once using canonical property mapping.",
+    "countriesCovered": "Countries or markets with at least one currently bookable property from any enabled supply source."
+  },
+  "metrics": [
+    { "id": "directProperties",    "value": null, "approvedForPublication": false, "verifiedAt": null, "source": null },
+    { "id": "directCountries",     "value": null, "approvedForPublication": false, "verifiedAt": null, "source": null },
+    { "id": "availableProperties", "value": null, "approvedForPublication": false, "verifiedAt": null, "source": null },
+    { "id": "countriesCovered",    "value": null, "approvedForPublication": false, "verifiedAt": null, "source": null }
+  ],
+  "coverage": {
+    "_comment": "ISO 3166-1 alpha-2 codes. 'direct' = markets with directly contracted properties. 'connected' = markets with bookable inventory ONLY through connected suppliers (do not repeat direct markets here). Coverage does not imply a direct commercial relationship.",
+    "approvedForPublication": false,
+    "verifiedAt": null,
+    "source": null,
+    "direct": [],
+    "connected": []
+  }
+}

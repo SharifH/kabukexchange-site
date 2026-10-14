@@ -1,5 +1,7 @@
 # Homepage
 
+> **Superseded (October 2026, Asia-first):** hero is now “Direct Connections in Asia. Broader Inventory Worldwide.”; the network diagram shows two supply streams (Direct Asian Accommodation Supply / Connected Global Inventory); new sections “Local Depth in Asia. Global Breadth Through Connectivity.” and “Building Beyond Accommodation.” (with status badges). Strings: `hp2.*`, `eco2.*`, `fut.*`, `pf.*` in `i18n/en.json`. Source: KABUK_EXCHANGE_COMPLETE_COPY_RECOMMENDATIONS.md. The notes below describe the previous version.
+
 > Implemented October 2026 (see `PRODUCT_POSITIONING.md`). Strings live in `i18n/en.json` under `hp.*` and `eco.*`.
 
 ## Hero
@@ -30,6 +32,6 @@ Start a Conversation → Define the Partnership → Connect and Validate → Ope
 KabuK Exchange is the distribution-facing network. KabuK Platform is the technology foundation behind it…
 
 ## Partner ecosystem (`#ecosystem`) — The Businesses Behind Every Connection
-Rendered from `partners.json` (illustrative sample data, labelled as such).
+Rendered from `partners.json`: partner *types* only (no organization names). Named partners: launch-gated `/partners/ecosystem/`.
 
 ## CTA — Let’s Explore a Partnership

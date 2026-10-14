@@ -1,0 +1,13 @@
+{
+  "_comment": "SYNTHETIC FIXTURE — not real properties.",
+  "_fixture": true,
+  "minItems": 3,
+  "items": [
+    { "id": "fx-h-1", "name": "Test Ryokan Kawa", "type": "ryokan", "location": "Kyoto, Japan", "locationVerified": true, "relationship": "direct_contract", "relationshipVerified": true, "logo": "fixtures/assets/logos/alpha.svg", "logoUseApproved": true, "publicDisclosureApproved": true, "featured": true, "order": 1 },
+    { "id": "fx-h-2", "name": "Test Harbour Hotel Group", "type": "hotel_group", "location": "Busan, Korea", "locationVerified": false, "relationship": "direct_contract", "relationshipVerified": true, "logo": "", "logoUseApproved": false, "publicDisclosureApproved": true, "featured": true, "order": 2 },
+    { "id": "fx-h-3", "name": "Test City Hotel Taipei", "type": "hotel", "location": "Taipei, Taiwan", "locationVerified": true, "relationship": "connected_supplier", "relationshipVerified": true, "logo": "fixtures/assets/logos/echo.svg", "logoUseApproved": true, "publicDisclosureApproved": true, "featured": true, "order": 3 },
+    { "id": "fx-h-4", "name": "Test Resort Collection", "type": "hotel_group", "location": "Bali, Indonesia", "locationVerified": true, "relationship": "other_verified", "relationshipVerified": true, "logo": "fixtures/assets/logos/missing.svg", "logoUseApproved": true, "publicDisclosureApproved": true, "featured": true, "order": 4 },
+    { "id": "fx-h-hidden-1", "name": "MUST NOT RENDER — relationship unverified", "type": "hotel", "location": "Osaka, Japan", "locationVerified": true, "relationship": "direct_contract", "relationshipVerified": false, "publicDisclosureApproved": true, "featured": true, "order": 0 },
+    { "id": "fx-h-hidden-2", "name": "MUST NOT RENDER — not approved", "type": "hotel", "relationship": "direct_contract", "relationshipVerified": true, "publicDisclosureApproved": false, "featured": true, "order": 0 }
+  ]
+}

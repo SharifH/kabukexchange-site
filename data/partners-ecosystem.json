@@ -1,0 +1,5 @@
+{
+  "_comment": "PUBLIC partner ecosystem (/partners/ecosystem/, featureFlags.partnerEcosystem). A record renders only when publicDisclosureApproved is true and relationship is 'signed' or 'integrated'. 'prospective' records are never published. A logo renders only when logoUseApproved is also true (written permission on file). Never add placeholder organizations here — use fixtures/ for previews.",
+  "lastReviewed": null,
+  "records": []
+}

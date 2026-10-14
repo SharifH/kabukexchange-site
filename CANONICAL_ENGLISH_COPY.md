@@ -6,9 +6,10 @@
 
 ## Brand hierarchy
 
-- **Category:** B2B travel distribution network
-- **Headline promise:** Connect Travel Supply. Expand Distribution.
-- **Signature line:** One Exchange. Multiple Paths to Market.
+- **Category:** Asia-first accommodation distribution network
+- **Headline promise:** Direct Connections in Asia. Broader Inventory Worldwide.
+- **Supply strategy line:** Local Depth in Asia. Global Breadth Through Connectivity.
+- **Future line:** Building Beyond Accommodation. (Every future capability carries a catalog status badge and the roadmap disclaimer; flights are out of scope.)
 - **Relationship:** KabuK Exchange is powered by KabuK Platform, the technology foundation. A product of KabuK Style Inc.
 
 ## Primary audiences

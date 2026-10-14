@@ -1,4 +1,13 @@
-# Product positioning decision (authoritative — October 2026)
+# Product positioning decision (authoritative — updated October 2026)
+
+## Asia-first update (supersedes the earlier "network" wording where they differ)
+- **KabuK Exchange is building an Asia-first accommodation distribution network**: priority on developing *direct* accommodation relationships across Asia (hotels, ryokan, hotel groups), complemented by **connected global inventory** sourced through integrated third-party suppliers (wholesalers, bedbanks, supplier OTAs).
+- "Asia-first" describes the **supply strategy**, not a limit on distribution reach. Never imply global inventory is directly contracted.
+- Do not say: "all inventory directly contracted", "the largest Asian network", "global direct inventory", "instant worldwide access", partner counts, countries, or launch dates.
+- Message hierarchy: (1) direct Asia supply + connected global inventory → distribution partners; (2) access models — API where confirmed, future white-label and travel agency portal; (3) future categories — Activities & Experiences and non-flight Ground Transportation. **Flights are out of scope.**
+- Future capabilities always carry a catalog status badge (`data/statuses.json` + `data/product-roadmap.json`) and the roadmap disclaimer. Statuses need owner approval — see `PUBLICATION_CHECKLIST.md`.
+- White-label storefronts powered by Exchange supply are an Exchange offering; reusable white-label technology underneath belongs to KabuK Platform.
+
 
 This decision **supersedes** any older wording in this repository (including
 `WEBSITE_ARCHITECTURE_FREEZE.md`, `website-copy/`, and earlier i18n strings) that

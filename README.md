@@ -1,8 +1,8 @@
 # KabuK Exchange — Marketing Website
 
-A static marketing website for **KabuK Exchange (KBKx)**, the B2B travel distribution network by **KabuK Style Inc.**, powered by **KabuK Platform** (a separate technology-foundation product — see [`PRODUCT_POSITIONING.md`](PRODUCT_POSITIONING.md)). It explains the network, who it serves, and gives hotels and partners a way to get in touch.
+A static marketing website for **KabuK Exchange (KBKx)**, the Asia-first accommodation distribution network by **KabuK Style Inc.** (direct accommodation relationships across Asia, complemented by connected global inventory), powered by **KabuK Platform** (a separate technology-foundation product — see [`PRODUCT_POSITIONING.md`](PRODUCT_POSITIONING.md)). It explains the network, who it serves, and gives hotels and partners a way to get in touch.
 
-Built with **plain HTML, CSS, and vanilla JavaScript** plus a couple of **JSON config files**. No framework, no build step, no npm.
+Built with **plain HTML, CSS, and vanilla JavaScript** plus a couple of **JSON config files**. No framework, no npm. One small Python script (`build.py`, standard library only) assembles pages and produces the deployable `dist/` folder — see **[Launch gates](#launch-gates--activating-the-network-features)**.
 
 > ⚠️ **Internal review build.** URLs, emails, and partner data marked `PLACEHOLDER` are examples. Replace them before any public launch. This site is *inspired by* enterprise travel-tech sites for tone and structure only — it contains no copied text, assets, code, or branding from any third party.
 
@@ -24,15 +24,27 @@ Built with **plain HTML, CSS, and vanilla JavaScript** plus a couple of **JSON c
 | `styles.css` | All styling and animations |
 | `script.js` | Behavior: config loading, i18n, nav, animations, ecosystem filter, forms |
 | `i18n/` | Copy for each language as separate JSON files + `languages.json` manifest (see `i18n/README.md`) |
-| `partners.json` | Editable ecosystem directory shown on the homepage |
+| `partners.json` | Homepage “Partner Ecosystem” section: the *types* of businesses the network serves (no organization names) |
 | `site-config.json` | Editable settings: login URL, form emails, footer/company links |
 | `favicon.ico`, `favicon-16x16.png`, `favicon-32x32.png` | Official KabuK Exchange browser-tab icons (supplied artwork) |
 | `og-image.png` / `og-image.svg` | Social share image (1200×630) + its editable source |
 | `robots.txt` / `sitemap.xml` | Search-engine hints (PLACEHOLDER domain) |
 | `partials/header.html`, `partials/footer.html` | Single source of truth for the shared header & footer |
+| `whats-next/index.html` | Future directions (roadmap with status badges) → `/whats-next/` |
+| `data/statuses.json`, `data/product-roadmap.json` | Status badge catalog and product-to-status mapping (see “Status badges”) |
+| `internal/status-badges/` | Hidden design-system reference for badges (noindex, unlinked) |
+| `tests/` | `check_site.py` (static checks), `test_publish.py` (publish-step unit tests), `browser_smoke.js` and `launch_gates.js` (Playwright) |
 | `partials/ecosystem.html` | Markup for the signature Supply → KabuK Exchange → Distribution visual (synced between `<!-- eco:start -->` / `<!-- eco:end -->` markers) |
 | `i18n-bundle.js` | **Generated** by `build.py` from `i18n/*.json` — the runtime copy of all translations. Do not edit by hand. |
-| `build.py` | Syncs partials into every page, relativizes paths, regenerates `i18n-bundle.js` (see below) |
+| `build.py` | Syncs partials into every page, relativizes paths, regenerates `i18n-bundle.js`; `--production` / `--preview` export the site (see “Launch gates”) |
+| `publish.py` | The launch-gated export used by `build.py --production` / `--preview` (publication rules, route/data exclusion, leak guards) |
+| `network/`, `network/connectivity/`, `partners/ecosystem/` | **Launch-gated** pages: network statistics + coverage map, connectivity directory, partner ecosystem. Not in `dist/` until enabled |
+| `data/network-stats.json`, `data/integrations.json`, `data/partners-ecosystem.json`, `data/featured-connections.json`, `data/featured-properties.json` | Launch-gated data (ship **empty** — no real records yet) |
+| `data/connection-methods.json` | Connection-method badge family (Direct Integration · Via Bakuun · Via Technology Partner) |
+| `fixtures/` | **Synthetic** test data + test logos for preview builds only (never deployed) |
+| `_private/` | Internal notes (owners, escalation, contract notes) — never deployed |
+| `tools/compute_network_stats.py` | Computes the four deduplicated network metrics from a canonical property export |
+| `LAUNCH_CHECKLIST.md` | Per-feature verification, permissions, enable and rollback procedure |
 
 ---
 
@@ -108,22 +120,18 @@ returns the CSS, not a 404), or just use `serve.command`.
 
 ## How to edit content (no coding required)
 
-### Partner / hotel / connection cards (ecosystem section)
+### Partner types (homepage ecosystem section)
 
-Edit **`partners.json`**.
+Edit **`partners.json`**. It describes the *types* of businesses the network serves — no organization names (named, approved partners belong in the launch-gated `data/partners-ecosystem.json`).
 
-- `categories` — the filter buttons. Each has an `id` and a `label`. Keep `all` first.
-- `entries` — one object per card:
+- `categories` — the filter buttons (`id`, English `label`, `i18n` key). Keep `all` first.
+- `entries` — one card each:
   ```json
-  {
-    "name": "Sample City Hotels KK",
-    "category": "hotel-group",     // must match a category id above
-    "region": "Japan",
-    "description": "Short description shown on the card.",
-    "tag": "Supply"                 // small pill label
-  }
+  { "i18n": "hp.eco.t1", "name": "Independent Hotels & Ryokan", "category": "supply",
+    "tag": "Direct supply", "tagI18n": "hp.eco.tag.direct",
+    "description": "Properties across Asia exploring direct distribution relationships." }
   ```
-Add, remove, or reorder entries freely. The homepage rebuilds the directory and filters automatically.
+  `name` / `description` are the English fallback; translations live in `i18n/*.json` under `<i18n>.t` / `<i18n>.d`.
 
 ### Footer links
 
@@ -206,18 +214,142 @@ run `build.py`, as long as they contain a `<header class="site-header">…</head
 
 ## Fonts
 
-The site uses a deliberate **native system-font stack** (see `--font` in `styles.css`)
-with CJK and Arabic fallbacks — no web font is downloaded, so there are zero external
-requests and text paints instantly. To adopt a brand web font later, self-host the
-files (to keep the project asset-free) and prepend the family to `--font`.
+Inter is self-hosted (`assets/fonts/`, SIL OFL). Noto Sans JP loads from Google Fonts per the design system; Korean, Traditional Chinese and Arabic use system fonts. Self-host Noto Sans JP too if third-party font requests must be avoided.
 
-## Brand colors
+## Design system
 
-The site uses one fixed brand system (the old user-selectable color themes were removed — they recoloured the brand). Tokens live at the top of `styles.css`: KabuK blue `--kabuk-blue #38C3E2` (parent-brand connective cue), Exchange navy `--exchange-navy #1E3376` and Exchange red `--exchange-red #C01717` (both sampled from the official logo). The header and hero are light so the navy logo is always legible; navy sections are used for rhythm.
+Styling follows the **KabuK design system** (Design System artifact "KabuK Exchange"), applied as a hybrid for Exchange:
 
-## Lead forms: honest submit labels
+- **Colour:** KabuK Blue `#38C3E2` for identity (KabuK Bar, markers, flows — never text on white); Deep Blue `#176B87` for links, primary buttons and focus rings; Ink `#111827` text; Warm White `#FAFAF8` / white surfaces; borders over shadows. Exchange navy (from the logo) is kept for dark bands and the network stage; Exchange red appears only in the logo and the small “can play both roles” marker.
+- **Type:** Inter (self-hosted variable font in `assets/fonts/`, OFL) + Noto Sans JP (Google Fonts). Weights 400/500/600. Scale: display 48/56 · h1 36/44 · h2 28/36 · h3 22/30.
+- **Shape and motion:** radii 4/6/8/12px (buttons 6px — never pills; pills only for status chips and tags), 120/200ms motion, no bounce.
+- **The KabuK Bar:** the 3px KabuK Blue rule before each section eyebrow — once per section.
 
-In `formMode: "mailto"` the submit button reads **Prepare Email** and the note explains that the visitor's email app will open; in `"api"` mode (with `apiEndpoint`) it reads **Send Inquiry**. This is set at runtime from `site-config.json`.
+Tokens live at the top of `styles.css`.
+
+## Status badges
+
+One catalog drives every maturity badge on the site.
+
+| File | Purpose |
+|---|---|
+| `data/statuses.json` | 12 stable keys (`live`, `available-to-partners`, `pilot`, `beta`, `in-development`, `integration-in-progress`, `coming-soon`, `planned`, `exploring`, `temporarily-unavailable`, `deprecated`, `retired`) with tone, icon, definitions and labels in en/ja/ko/zh-TW/ar |
+| `data/product-roadmap.json` | Product id → status, plus owner approval (`approved`, `approvedBy`, `approvedOn`) and the `reviewGate.showUnapprovedStatuses` switch |
+| `/internal/status-badges/` | Unlinked, `noindex` reference gallery: light/dark examples, definitions, contrast results, card examples, current mapping, labels by language, do/don’t |
+
+Markup: `<span class="status" data-product-status="agency-portal">Planned</span>` (or `data-status="beta"` for a fixed key). The text inside is the no-JS fallback; `renderStatuses()` in `script.js` renders the chip (shape marker + text, never colour alone) and re-renders on language change. Guards: unapproved items are hidden when the review gate is off, and `live` / `available-to-partners` / `coming-soon` are never rendered for unapproved items. **Approvals:** see `PUBLICATION_CHECKLIST.md`. An unlinked URL is not access control — protect `/internal/` at the host if needed.
+
+## Launch gates — activating the network features
+
+Six features are **built, tested and switched off**. They stay out of the public
+site until you turn each one on, independently, in `site-config.json`:
+
+```json
+"featureFlags": {
+  "networkStats": false,
+  "networkCoverageMap": false,
+  "connectivityDirectory": false,
+  "partnerEcosystem": false,
+  "homepageFeaturedConnections": false,
+  "homepageFeaturedHotels": false
+}
+```
+
+| Flag (internal label) | What it publishes | Data it reads | Route / location |
+|---|---|---|---|
+| `networkStats` — *Enable Network Statistics* | Four metrics with count-up: Directly Contracted Properties, Direct Supply Countries, Available Properties (deduplicated), Countries Covered | `data/network-stats.json` → `metrics` | `/network/` (page appears when this **or** the map is on) |
+| `networkCoverageMap` — *Enable Coverage Map* | Asia-Pacific tile map + rest-of-world groups + accessible country lists, direct vs connected | `data/network-stats.json` → `coverage` | `/network/#coverage` |
+| `connectivityDirectory` — *Publish Connectivity Directory* | Searchable directory: keyword search, category / status / connection / region filters, sort, URL state, “Request an Integration” | `data/integrations.json` | `/network/connectivity/` |
+| `partnerEcosystem` — *Publish Partner Ecosystem* | Partner directory with search, category chips, A–Z, logo cards | `data/partners-ecosystem.json` | `/partners/ecosystem/` (replaces the homepage `#ecosystem` link in the nav) |
+| `homepageFeaturedConnections` — *Show Featured Connections* | Homepage grid of verified, operational connections with status + method badges | `data/featured-connections.json` (+ `integrations.json`) | Homepage, before the ecosystem section |
+| `homepageFeaturedHotels` — *Show Featured Properties* | Homepage grid of approved hotels / groups with relationship labels | `data/featured-properties.json` | Homepage, after the supply strategy |
+
+Each flag also controls its **nav links, footer links, CTAs and sitemap entry**.
+While a flag is off, nothing about that feature is published: no empty
+sections, no “coming soon” blocks, no dead links, no data files.
+
+### How it works (and why a publish step)
+
+This is a static site, so a JSON flag read in the browser can hide a component
+but **cannot stop a server from serving `/network/`** if the file is deployed.
+So the flags are enforced when you build the deployable folder:
+
+```bash
+python3 build.py --production    # → dist/          deploy THIS folder
+python3 build.py --preview       # → dist-preview/  staging / internal review only
+```
+
+`--production`:
+- leaves disabled routes **out of `dist/`** (they 404 on any host), strips their nav/footer/CTA/sitemap entries (`<!-- gate:start FLAG -->…<!-- gate:end FLAG -->` blocks), and omits their data files;
+- passes every record through the publication rules below and **drops non-public fields** (approval flags, verification flags, internal notes); copies only approved logos;
+- never reads `fixtures/` or `_private/`, and never ships docs, tests or tooling;
+- **fails** (and deletes `dist/`) if an enabled feature has nothing publishable, if figures are inconsistent (direct > total), if a fixture/test marker leaks, or if Bakuun is named without approval.
+
+`--preview` turns every flag on, uses the **synthetic fixtures** (clearly named “Test …”, with a striped “Preview build” banner on every page), sets `noindex,nofollow` on every page and a `Disallow: /` robots.txt. **Never deploy `dist-preview/` to the production host** — put it behind authentication on a staging host.
+
+There is **no query-string or URL override** in either build. In the un-built source tree the browser also honours the flags (gated elements are removed and gated pages show “Page not found” + `noindex`), but that is only a development convenience — **always deploy `dist/`**, never the repository root.
+
+### Publication rules (enforced in `publish.py` and again in `script.js`)
+
+| Data | Renders only when |
+|---|---|
+| Integration | `publicDisclosureApproved: true`, known `status` / `category` / `connectionMethod`, `lastVerified` set, `publishedAt` not in the future. `live`, `available-to-partners`, `pilot`, `beta` also need `verifiedEndToEnd: true` **and** `commerciallyEnabled: true` (KBKx-specific, not the provider’s status elsewhere). Logo only with `logoUseApproved`. |
+| Bakuun route | Shows **“Via Bakuun”** only with `disclosure.bakuunNameApproved: true` in `site-config.json` **and** the record’s `connectionProviderDisclosureApproved: true`; otherwise **“Via Technology Partner”**, and production output never contains the name. |
+| Partner | `publicDisclosureApproved: true` and `relationship` is `signed` or `integrated`. **`prospective` is never published.** Logo only with `logoUseApproved`. |
+| Featured connection | item `featured` + `verifiedLive`, its integration is publishable **and** operational. Section removed below `minItems` (default 3). |
+| Featured property | `featured`, `publicDisclosureApproved`, `relationshipVerified`; relationship labelled *Directly contracted* / *Available via a connected supplier* / *Verified relationship*; location only with `locationVerified`; image only with `logoUseApproved`. Removed below `minItems`. |
+| Metric | file **and** metric `approvedForPublication`, positive integer `value`, `verifiedAt`, `source`. `null` hides the metric (never shown as 0 or “—”). |
+| Coverage | `coverage.approvedForPublication`, `verifiedAt`, ISO-2 codes; a market is never both direct and connected. |
+
+Status and connection method are **independent badge families** (`data/statuses.json`, `data/connection-methods.json`); see `/internal/status-badges/` for combination rules.
+
+### Activating a feature — example
+
+1. Complete that feature’s section of **`LAUNCH_CHECKLIST.md`** (verified data, written disclosure/logo permissions, translations, accessibility check, named approver).
+2. Add the approved records, e.g. `data/integrations.json`:
+   ```json
+   { "id": "acme-cm", "displayName": "Acme Channel Manager", "category": "channel_manager",
+     "connectionMethod": "direct", "status": "live", "regions": ["japan", "asia-pacific"],
+     "featured": true, "logo": "assets/logos/acme-cm.svg", "logoUseApproved": true,
+     "publicDisclosureApproved": true, "verifiedEndToEnd": true, "commerciallyEnabled": true,
+     "lastVerified": "2026-11-02", "publishedAt": "2026-11-05" }
+   ```
+   (Internal notes go in `_private/integrations-internal.json`, keyed by `id`.)
+3. Flip the flag: `"connectivityDirectory": true`.
+4. Check it: `python3 build.py --preview` is fixtures-only, so review real data with `python3 build.py --production` and serve `dist/` locally (`python3 -m http.server 8080 -d dist`). Run the tests (below).
+5. Deploy `dist/`.
+
+**Network statistics:** generate values from a canonical property export, never by hand:
+```bash
+python3 tools/compute_network_stats.py export.csv --as-of 2026-11-30 \
+  --source "Supply ops canonical export 2026-11-30" --out data/network-stats.json
+```
+Each property is counted once by `canonical_property_id`; inventory via Bakuun or a wholesaler never counts as directly contracted; `--exclude-source` removes sources that are not currently enabled. The output always has `approvedForPublication: false` — the owner sets it to `true` (and `approvedBy`) after review.
+
+**Rollback:** set the flag back to `false`, rebuild with `--production`, redeploy. The route, links, sitemap entry and data disappear from `dist/` (purge the CDN cache if you use one).
+
+### Hosting notes for launch gates
+
+- Point the host at **`dist/`**, with `python3 build.py --production` as the build command (Netlify, Cloudflare Pages and Vercel images include Python 3), or upload `dist/` yourself.
+- GitHub Pages: deploy with a GitHub Actions workflow that runs the build and uploads `dist/` (`actions/upload-pages-artifact` + `actions/deploy-pages`), or push `dist/` to a `gh-pages` branch. `dist/` is in `.gitignore`.
+- Disabled routes are simply absent from `dist/`, so every host returns its normal 404 — no rewrite rules are needed. If a host has an older deploy cached, invalidate it after disabling a feature.
+- The preview build must live on a separate, authenticated staging host (Netlify/Cloudflare/Vercel password protection or basic auth). `noindex` is not security.
+- `/internal/status-badges/` is deployed but unlinked and `noindex` — not private. Protect `/internal/` at the host if it must be private.
+
+## Testing
+
+```bash
+python3 build.py && python3 build.py --production && python3 build.py --preview
+python3 tests/check_site.py      # stdlib: links, JSON, i18n sync, bundle freshness, status rules, gallery, launch-gate markup
+python3 tests/test_publish.py    # stdlib: each flag alone, empty-feature refusal, sanitizing, leaks, Bakuun naming, dedup tool
+
+# Browser tests (Node + Playwright):
+python3 -m http.server 8091 &  python3 -m http.server 8093 -d dist &  python3 -m http.server 8092 -d dist-preview &
+NODE_PATH=$(npm root -g) node tests/browser_smoke.js http://localhost:8091     # every page × 5 languages × 3 widths
+NODE_PATH=$(npm root -g) node tests/browser_smoke.js http://localhost:8093     # same, against the production export
+NODE_PATH=$(npm root -g) node tests/launch_gates.js http://localhost:8093 http://localhost:8092 http://localhost:8091
+```
+`launch_gates.js` checks that production has no gated routes, data, links, showcases or numbers (also with query strings), and exercises the preview components: search, filters (alone and combined), sorts, empty state, clear-all, URL state, keyboard use, missing logos, unapproved and prospective records, unknown and inconsistent metrics, deduplicated figures, reduced motion, RTL and overflow at 375/768/1440px. It also confirms the browser and `publish.py` apply identical publication rules.
 
 ## Cookie / analytics consent
 
@@ -235,7 +367,11 @@ search results. Update the URLs there (and the PLACEHOLDER domain) before launch
 
 | Page | Partial | Story |
 |---|---|---|
-| Homepage `#network` | `partials/ecosystem.html` | Full network: Supply → KabuK Exchange → Distribution, connectivity rail, KabuK Platform foundation, OTAs on both sides |
+| Homepage `#network` | `whats-next/index.html` | Future directions (roadmap with status badges) → `/whats-next/` |
+| `data/statuses.json`, `data/product-roadmap.json` | Status badge catalog and product-to-status mapping (see “Status badges”) |
+| `internal/status-badges/` | Hidden design-system reference for badges (noindex, unlinked) |
+| `tests/` | `check_site.py` (static checks), `test_publish.py` (publish-step unit tests), `browser_smoke.js` and `launch_gates.js` (Playwright) |
+| `partials/ecosystem.html` | Full network: Supply → KabuK Exchange → Distribution, connectivity rail, KabuK Platform foundation, OTAs on both sides |
 | `/hotels/` | `partials/eco-hotels.html` | Fan-out: *your property* → KBKx → the channels you approve (+ planned PMS/channel-manager rail) |
 | `/partners/` hero | `partials/eco-demand.html` | Fan-in: many supply sources → KBKx → *your platform* |
 | `/partners/#connectivity-partners` | `partials/eco-connectivity.html` | Two-way: PMS / channel managers / CRS ⇄ KBKx → channels (marked Planned) |
@@ -316,9 +452,12 @@ Non-English text is **draft quality** and must be reviewed by native speakers.
 
 ## Deploying
 
-All hosts below serve static files. There is no build command — but **run
-`python3 build.py` before you commit/deploy** so the shared header/footer are synced
-and paths are compiled to portable relative URLs (see "Portable paths" below).
+All hosts below serve static files. **Deploy the `dist/` folder produced by
+`python3 build.py --production`** — not the repository root. That step syncs the
+shared header/footer, compiles portable relative paths and applies the launch gates
+(see “Launch gates”). The host-specific notes below predate the launch gates: where
+they say “this folder”, use `dist/`; where they say “build command empty”, use
+`python3 build.py --production` with output directory `dist`.
 
 ### GitHub Pages
 Works out of the box, including **project sites served under a subpath**

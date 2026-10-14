@@ -22,8 +22,26 @@ reason — see BASE in script.js.)
      so the JSON files stay the single source of truth for translations
      (nested or flat JSON is accepted; the bundle is always flat).
 
+  5. PUBLISH (launch gates). Produce a deployable folder whose contents obey
+     site-config.json -> featureFlags:
+
+        python3 build.py --production      -> dist/          (deploy THIS folder)
+        python3 build.py --preview         -> dist-preview/  (staging only)
+
+     --production leaves disabled routes, nav links, sitemap entries, homepage
+     blocks and data files OUT of dist/ entirely, filters every data record
+     through the publication rules (unapproved / prospective / unverified
+     entries and non-public fields are dropped), never reads fixtures/ or
+     _private/, and fails if any fixture marker leaks or an enabled feature
+     has nothing publishable. --preview turns every flag on, swaps in the
+     SYNTHETIC fixtures, adds a visible "Preview build" banner, noindex on
+     every page and a Disallow-all robots.txt. Never deploy dist-preview/ to
+     the production host.
+
 Usage:
-    python3 build.py
+    python3 build.py                 # assemble pages in place (development)
+    python3 build.py --production    # + export dist/
+    python3 build.py --preview       # + export dist-preview/
 
 Safe to run repeatedly (idempotent).
 """
@@ -121,7 +139,11 @@ def main():
         glob.glob(os.path.join(ROOT, "*.html")) +
         glob.glob(os.path.join(ROOT, "**", "index.html"), recursive=True)
     ))
-    pages = [p for p in pages if os.path.basename(os.path.dirname(p)) != "partials"]
+    # Skip the partial sources and anything that is not part of the source site
+    # (export folders, fixtures, tests) — exports are produced by publish.py.
+    skip = {"partials", "dist", "dist-preview", "fixtures", "tests", "node_modules", "_private", ".git"}
+    pages = [p for p in pages
+             if not (set(os.path.relpath(p, ROOT).split(os.sep)[:-1]) & skip)]
     changed = 0
     for path in pages:
         original = open(path, encoding="utf-8").read()
@@ -149,4 +171,8 @@ def main():
 
 
 if __name__ == "__main__":
+    import sys
     main()
+    if "--production" in sys.argv or "--preview" in sys.argv:
+        import publish
+        sys.exit(publish.export("preview" if "--preview" in sys.argv else "production"))

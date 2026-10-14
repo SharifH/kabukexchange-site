@@ -4,8 +4,8 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Supply Partners &amp; Hotels | KabuK Exchange</title>
-<meta content="Make your property easier to discover and distribute. Explore how hotels and hotel groups connect with distribution partners through KabuK Exchange." name="description"/>
+<title>Hotel &amp; Property Partnerships | KabuK Exchange</title>
+<meta content="Explore direct accommodation partnerships with KabuK Exchange. We are developing direct relationships with hotels, ryokan and hotel groups across Asia." name="description"/>
 <link href="https://kabukexchange.com/hotels/" rel="canonical"/>
 <link href="../favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
 <link href="../favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
@@ -13,18 +13,21 @@
 <!-- Open Graph / social share (PLACEHOLDER domain + image) -->
 <meta content="website" property="og:type"/>
 <meta content="KabuK Exchange" property="og:site_name"/>
-<meta content="Supply Partners &amp; Hotels | KabuK Exchange" property="og:title"/>
-<meta content="Make your property easier to discover and distribute. Explore how hotels and hotel groups connect with distribution partners through KabuK Exchange." property="og:description"/>
+<meta content="Hotel &amp; Property Partnerships | KabuK Exchange" property="og:title"/>
+<meta content="Explore direct accommodation partnerships with KabuK Exchange. We are developing direct relationships with hotels, ryokan and hotel groups across Asia." property="og:description"/>
 <meta content="https://kabukexchange.com/hotels/" property="og:url"/>
 <meta content="https://kabukexchange.com/og-image.png" property="og:image"/>
 <meta content="1200" property="og:image:width"/>
 <meta content="630" property="og:image:height"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<meta content="Supply Partners &amp; Hotels | KabuK Exchange" name="twitter:title"/>
-<meta content="Make your property easier to discover and distribute. Explore how hotels and hotel groups connect with distribution partners through KabuK Exchange." name="twitter:description"/>
+<meta content="Hotel &amp; Property Partnerships | KabuK Exchange" name="twitter:title"/>
+<meta content="Explore direct accommodation partnerships with KabuK Exchange. We are developing direct relationships with hotels, ryokan and hotel groups across Asia." name="twitter:description"/>
 <meta content="https://kabukexchange.com/og-image.png" name="twitter:image"/>
 <meta content="#ffffff" name="theme-color"/>
 <script>document.documentElement.classList.add("js");</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
 <link href="../styles.css" rel="stylesheet"/>
 </head>
 <body>
@@ -38,9 +41,9 @@
       <nav aria-label="Primary" class="main-nav"><ul>
         <li class="has-dropdown"><button aria-controls="menu-solutions" aria-expanded="false" class="dropdown-toggle" type="button"><span data-i18n="hdr.solutions">Solutions</span></button>
           <div class="dropdown dropdown-wide" id="menu-solutions"><div class="dd-grid">
-            <a class="dropdown-item" href="../hotels/"><span class="di-title" data-i18n="hdr.supply.t">Supply Partners</span><span class="di-desc" data-i18n="hdr.supply.d">Hotels, hotel groups, wholesalers and other travel suppliers.</span></a>
-            <a class="dropdown-item" href="../partners/#demand-partners"><span class="di-title" data-i18n="hdr.demand.t">Demand Partners</span><span class="di-desc" data-i18n="hdr.demand.d">OTAs, travel agencies, DMCs, bedbanks and travel apps.</span></a>
-            <a class="dropdown-item" href="../partners/#connectivity-partners"><span class="di-title" data-i18n="hdr.connectivity.t">Connectivity Partners</span><span class="di-desc" data-i18n="hdr.connectivity.d">PMS, channel managers and CRS platforms.</span></a>
+            <a class="dropdown-item" href="../hotels/"><span class="di-title" data-i18n="hdr.supply.t">Supply Partners</span><span class="di-desc" data-i18n="hdr2.supply.d">Hotels, ryokan and hotel groups across Asia, plus connected suppliers.</span></a>
+            <a class="dropdown-item" href="../partners/#demand-partners"><span class="di-title" data-i18n="hdr.demand.t">Demand Partners</span><span class="di-desc" data-i18n="hdr2.demand.d">OTAs, travel agencies, travel apps and membership platforms.</span></a>
+            <a class="dropdown-item" href="../partners/#connectivity-partners"><span class="di-title" data-i18n="hdr.connectivity.t">Connectivity Partners</span><span class="di-desc" data-i18n="hdr2.connectivity.d">Channel managers, PMS, CRS and supplier integrations.</span></a>
           </div>
           <p class="dropdown-foot"><span data-i18n="hdr.hotelPrompt">Represent a hotel or hotel group?</span> <a href="../link-your-property/" data-i18n="cta.linkYourProperty">Link Your Property</a></p></div>
         </li>
@@ -48,8 +51,12 @@
           <div class="dropdown" id="menu-network">
             <a class="dropdown-item" href="../#network"><span class="di-title" data-i18n="hdr.network.map.t">The KBKx Network</span><span class="di-desc" data-i18n="hdr.network.map.d">How supply, distribution and connectivity come together.</span></a>
             <a class="dropdown-item" href="../#how-it-works"><span class="di-title" data-i18n="hdr.network.how.t">How KBKx Works</span><span class="di-desc" data-i18n="hdr.network.how.d">From first conversation to ongoing distribution.</span></a>
-            <a class="dropdown-item" href="../#ecosystem"><span class="di-title" data-i18n="hdr.network.eco.t">Partner Ecosystem</span><span class="di-desc" data-i18n="hdr.network.eco.d">The types of travel businesses in the network.</span></a>
+            <!-- gate:start networkStats|networkCoverageMap --><a class="dropdown-item" data-gate="networkStats|networkCoverageMap" href="../network/"><span class="di-title" data-i18n="net.nav.t">Network Overview</span><span class="di-desc" data-i18n="net.nav.d">Direct supply and connected coverage at a glance.</span></a><!-- gate:end networkStats|networkCoverageMap -->
+            <!-- gate:start connectivityDirectory --><a class="dropdown-item" data-gate="connectivityDirectory" href="../network/connectivity/"><span class="di-title" data-i18n="cx.nav.t">Connectivity &amp; Suppliers</span><span class="di-desc" data-i18n="cx.nav.d">Search supported systems and supply connections.</span></a><!-- gate:end connectivityDirectory -->
+            <!-- gate:start partnerEcosystem --><a class="dropdown-item" data-gate="partnerEcosystem" href="../partners/ecosystem/"><span class="di-title" data-i18n="hdr.network.eco.t">Partner Ecosystem</span><span class="di-desc" data-i18n="pe.nav.d">Organizations that have approved public recognition.</span></a><!-- gate:end partnerEcosystem -->
+            <!-- gate:start !partnerEcosystem --><a class="dropdown-item" data-gate="!partnerEcosystem" href="../#ecosystem"><span class="di-title" data-i18n="hdr.network.eco.t">Partner Ecosystem</span><span class="di-desc" data-i18n="hdr.network.eco.d">The types of travel businesses in the network.</span></a><!-- gate:end !partnerEcosystem -->
             <a class="dropdown-item" href="../developers/"><span class="di-title" data-i18n="hdr.network.dev.t">Integration</span><span class="di-desc" data-i18n="hdr.network.dev.d">Technical information for qualified partners.</span></a>
+            <a class="dropdown-item" href="../whats-next/"><span class="di-title" data-i18n="hdr.network.next.t">What’s Next</span><span class="di-desc" data-i18n="hdr.network.next.d">Future directions beyond accommodation, with their current status.</span></a>
           </div>
         </li>
         <li><a href="../#why-kbkx" data-i18n="hdr.why">Why KBKx</a></li>
@@ -66,8 +73,8 @@
 <div class="container hero-grid hero-grid--eco">
 <div class="hero-copy">
 <span class="eyebrow" data-i18n="hdr.supply.t">Supply Partners</span>
-<h1 data-i18n="ht.hero.title">Make Your Property Easier to Discover and Distribute.</h1>
-<p class="lead" data-i18n="ht.hero.subtitle">Whether you operate a single property or a hotel group, KBKx is designed to connect accommodation supply with relevant distribution partners while supporting the workflows behind onboarding and reservations.</p>
+<h1 data-i18n="ht2.hero.title">Connect Your Property to New Distribution Opportunities.</h1>
+<p class="lead" data-i18n="ht2.hero.subtitle">We are developing direct accommodation relationships across Asia, with a focus on making it easier for hotels, ryokan and hotel groups to participate in a connected distribution ecosystem. Speak with our team about property connectivity and partnership opportunities.</p>
 <div class="hero-cta">
 <a class="btn btn-primary btn-lg" href="../link-your-property/"><span data-i18n="cta.linkYourProperty">Link Your Property</span> <span class="arrow" aria-hidden="true">→</span></a>
 <a class="btn btn-ghost btn-lg" data-i18n="ht.hero.secondary" href="#how">How onboarding works</a>
@@ -88,12 +95,12 @@
   <div class="eco__col eco__col--supply">
     <div class="eco__col-head" style="--i:0"><span class="eco__col-label" data-i18n="ecoH.you">You</span></div>
     <ul class="eco__nodes">
-      <li class="eco-node eco-node--you" data-eco-node="in" style="--i:1"><span class="eco-node__icon" data-icon="hotel"></span><span class="eco-node__text"><strong data-i18n="ecoH.node">Your property</strong><small data-i18n="ecoH.node.sub">Single property or hotel group</small></span></li>
+      <li class="eco-node eco-node--you" data-eco-node="in" style="--i:1"><span class="eco-node__icon" data-icon="hotel"></span><span class="eco-node__text"><strong data-i18n="ecoH.node">Your property</strong><small data-i18n="ecoH2.node.sub">Hotels, ryokan and hotel groups across Asia</small></span></li>
     </ul>
   </div>
   <div class="eco__gap eco__gap--l" aria-hidden="true"><span></span></div>
   <div class="eco__rail" data-eco-node="both" data-eco-style="rail" style="--i:3">
-    <span class="eco__rail-label"><span data-i18n="ecoH.rail.label">Your PMS / Channel Manager</span> <span class="badge badge-planned" data-i18n="home.badge.planned">Planned</span></span>
+    <span class="eco__rail-label"><span data-i18n="ecoH.rail.label">Your PMS / Channel Manager</span> <span class="status status--sm" data-product-status="property-system-connectivity">Planned</span></span>
     <span class="eco__rail-items" data-i18n="ecoH.rail.items">Availability · Rates · Reservations</span>
   </div>
   <div class="eco__hub" data-eco-hub style="--i:2">
@@ -162,7 +169,7 @@
 <li><strong>KabuK reach</strong> — access to KabuK internal channels such as HafH.</li>
 </ul>
 <div class="card reveal" data-delay="1">
-<span class="badge badge-planned">Roadmap</span>
+<span class="status" data-product-status="property-system-connectivity">Planned</span>
 <h3 data-i18n="hotels.roadmap.t">Property-system connectivity</h3>
 <p class="prose" data-i18n="hotels.roadmap.d">Planned PMS and channel-manager integrations are intended to reduce manual work for eligible properties while preserving existing operational systems.</p>
 <p class="pill-note" data-i18n="hotels.roadmap.note">Roadmap capability — availability depends on integration and partner readiness.</p>
@@ -227,9 +234,9 @@
 </main>
 <footer class="site-footer">
   <div class="container footer-grid">
-    <div class="footer-brand"><a class="brand" href="../" aria-label="KabuK Exchange home"><img class="brand-logo" src="../assets/brand/kabuk-exchange-logo-480.png" srcset="../assets/brand/kabuk-exchange-logo-480.png 480w, ../assets/brand/kabuk-exchange-logo-960.png 960w" sizes="200px" width="480" height="143" loading="lazy" decoding="async" alt="KabuK Exchange — By KabuK Style Inc."></a><p class="footer-about" data-i18n="ftr.about">KabuK Exchange (KBKx) is a B2B travel distribution network connecting accommodation suppliers, travel sellers and connectivity partners. Powered by KabuK Platform.</p></div>
+    <div class="footer-brand"><a class="brand" href="../" aria-label="KabuK Exchange home"><img class="brand-logo" src="../assets/brand/kabuk-exchange-logo-480.png" srcset="../assets/brand/kabuk-exchange-logo-480.png 480w, ../assets/brand/kabuk-exchange-logo-960.png 960w" sizes="200px" width="480" height="143" loading="lazy" decoding="async" alt="KabuK Exchange — By KabuK Style Inc."></a><p class="footer-about" data-i18n="ftr2.about">KabuK Exchange is building an Asia-first travel distribution network focused on direct accommodation relationships across Asia, complemented by connected global inventory. Powered by KabuK Platform.</p></div>
     <div class="footer-col"><h3 data-i18n="hdr.solutions">Solutions</h3><ul><li><a href="../hotels/" data-i18n="hdr.supply.t">Supply Partners</a></li><li><a href="../partners/#demand-partners" data-i18n="hdr.demand.t">Demand Partners</a></li><li><a href="../partners/#connectivity-partners" data-i18n="hdr.connectivity.t">Connectivity Partners</a></li><li><a href="../link-your-property/" data-i18n="cta.linkYourProperty">Link Your Property</a></li></ul></div>
-    <div class="footer-col"><h3 data-i18n="hdr.network">Network</h3><ul><li><a href="../#network" data-i18n="hdr.network.map.t">The KBKx Network</a></li><li><a href="../#how-it-works" data-i18n="hdr.network.how.t">How KBKx Works</a></li><li><a href="../#ecosystem" data-i18n="hdr.network.eco.t">Partner Ecosystem</a></li><li><a href="../developers/" data-i18n="hdr.network.dev.t">Integration</a></li><li><a data-role="developer-docs-link" href="../developers/guides/" data-i18n="ftr.devGuides">Developer Guides</a></li></ul></div>
+    <div class="footer-col"><h3 data-i18n="hdr.network">Network</h3><ul><li><a href="../#network" data-i18n="hdr.network.map.t">The KBKx Network</a></li><li><a href="../#how-it-works" data-i18n="hdr.network.how.t">How KBKx Works</a></li><!-- gate:start networkStats|networkCoverageMap --><li data-gate="networkStats|networkCoverageMap"><a href="../network/" data-i18n="net.nav.t">Network Overview</a></li><!-- gate:end networkStats|networkCoverageMap --><!-- gate:start connectivityDirectory --><li data-gate="connectivityDirectory"><a href="../network/connectivity/" data-i18n="cx.nav.t">Connectivity &amp; Suppliers</a></li><!-- gate:end connectivityDirectory --><!-- gate:start partnerEcosystem --><li data-gate="partnerEcosystem"><a href="../partners/ecosystem/" data-i18n="hdr.network.eco.t">Partner Ecosystem</a></li><!-- gate:end partnerEcosystem --><!-- gate:start !partnerEcosystem --><li data-gate="!partnerEcosystem"><a href="../#ecosystem" data-i18n="hdr.network.eco.t">Partner Ecosystem</a></li><!-- gate:end !partnerEcosystem --><li><a href="../developers/" data-i18n="hdr.network.dev.t">Integration</a></li><li><a href="../whats-next/" data-i18n="hdr.network.next.t">What’s Next</a></li><li><a data-role="developer-docs-link" href="../developers/guides/" data-i18n="ftr.devGuides">Developer Guides</a></li></ul></div>
     <div class="footer-col"><h3 data-i18n="ftr.products">Products</h3><ul><li><a data-role="kabuk-platform-link" href="#">KabuK Platform</a></li><li><a href="../">KabuK Exchange</a></li><li><a href="https://www.hafh.com" rel="noopener" target="_blank">HafH ↗</a></li><li><a href="https://www.kabuk.co.jp" rel="noopener" target="_blank">KabuK Style Inc. ↗</a></li></ul></div>
     <div class="footer-col"><h3 data-i18n="ftr.company">Company</h3><ul><li><a href="../about/" data-i18n="hdr.about">About Us</a></li><li><a href="../become-a-partner/" data-i18n="ftr.contact">Contact</a></li><li><a href="../privacy/" data-i18n="form.privacy">Privacy Policy</a></li><li><a href="../terms/" data-i18n="ftr.terms">Terms of Use</a></li></ul></div>
   </div><div class="container footer-bottom"><span>© <span data-current-year>2026</span> KabuK Style Inc.</span><span data-i18n="ftr.legal">KabuK Exchange is a product of KabuK Style Inc.</span></div>
