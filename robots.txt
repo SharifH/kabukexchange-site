@@ -1,5 +1,5 @@
 # KBKx robots.txt
-# PLACEHOLDER domain — update the Sitemap URL to your production host before launch.
+# The Sitemap host is set from site-config.json "siteUrl" by python3 build.py --production.
 User-agent: *
 Allow: /
 

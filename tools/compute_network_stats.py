@@ -98,6 +98,8 @@ def main(argv=None):
     doc["approvedForPublication"] = bool(a.approved)
     doc["verifiedAt"], doc["source"] = a.as_of, a.source
     for m in doc["metrics"]:
+        if m["id"] not in result:
+            continue    # e.g. connectedSupplySources / connectedChannelManagers: maintained separately
         m.update(value=result[m["id"]], verifiedAt=a.as_of, source=a.source, approvedForPublication=bool(a.approved))
     doc["coverage"].update(result["coverage"], verifiedAt=a.as_of, source=a.source, approvedForPublication=bool(a.approved))
     text = json.dumps(doc, indent=2, ensure_ascii=False) + "\n"

@@ -16,7 +16,9 @@ The publication rules below mirror script.js (search "PUBLICATION RULES").
 tests/check_site.py verifies the two stay in agreement.
 Standard library only.
 """
+import base64
 import datetime
+import hashlib
 import json
 import os
 import re
@@ -29,8 +31,9 @@ FLAGS = ["networkStats", "networkCoverageMap", "connectivityDirectory",
          "partnerEcosystem", "homepageFeaturedConnections", "homepageFeaturedHotels"]
 
 # Page routes that exist only when their gate expression is on ("a|b" = any).
+# (/network/ is a public page since the Oct-2026 messaging update; only its
+#  statistics, coverage map and directory links are gated inside the page.)
 ROUTE_GATES = {
-    "network/index.html": "networkStats|networkCoverageMap",
     "network/connectivity/index.html": "connectivityDirectory",
     "partners/ecosystem/index.html": "partnerEcosystem",
 }
@@ -60,6 +63,41 @@ LEAK_MARKERS = ["_fixture", "SYNTHETIC", "MUST NOT RENDER", "preview-banner",
 
 GATE_RE = re.compile(r'(?P<ws>[ \t]*)<!-- gate:start (?P<expr>!?[A-Za-z|]+) -->(?P<body>.*?)<!-- gate:end (?P=expr) -->(?P<nl>[ \t]*\n?)', re.S)
 
+# Domains used as placeholders in canonical/OG tags, JSON-LD, sitemap and robots.
+PLACEHOLDER_ORIGINS = ["https://www.kbkx.example.com", "https://kabukexchange.com"]
+INLINE_SCRIPT_RE = re.compile(r"<script(?![^>]*\bsrc=)(?![^>]*application/ld\+json)[^>]*>(.*?)</script>", re.S)
+
+
+def origin_of(url):
+    m = re.match(r"^(https://[^/?#]+)", url or "")
+    return m.group(1) if m else None
+
+
+def build_csp(cfg, inline_hashes):
+    """Content-Security-Policy for a static site on GitHub Pages (sent as a
+    <meta> tag, so frame-ancestors / report-uri are not available there)."""
+    sec = cfg.get("security") or {}
+    def extra(key):
+        return [o for o in (origin_of(u) for u in sec.get(key, [])) if o]
+    connect = ["'self'"] + extra("extraConnectSrc")
+    if (cfg.get("formMode") == "api") and origin_of(cfg.get("apiEndpoint")):
+        connect.append(origin_of(cfg["apiEndpoint"]))
+    directives = [
+        ("default-src", ["'self'"]),
+        ("script-src", ["'self'"] + ["'sha256-%s'" % h for h in sorted(inline_hashes)] + extra("extraScriptSrc")),
+        ("style-src", ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"]),
+        ("font-src", ["'self'", "https://fonts.gstatic.com"]),
+        ("img-src", ["'self'", "data:"] + extra("extraImgSrc")),
+        ("connect-src", connect),
+        ("frame-src", extra("extraFrameSrc") or ["'none'"]),
+        ("object-src", ["'none'"]),
+        ("base-uri", ["'self'"]),
+        ("form-action", ["'self'"]),
+        ("upgrade-insecure-requests", []),
+    ]
+    return "; ".join((k + " " + " ".join(dict.fromkeys(v))).strip() for k, v in directives)
+
+
 # ---- PUBLICATION RULES (keep in sync with script.js) -----------------------
 OPERATIONAL = {"live", "available-to-partners", "pilot", "beta"}
 INTEGRATION_CATEGORIES = {"channel_manager", "pms", "crs", "global_supplier", "technology"}
@@ -67,7 +105,8 @@ CONNECTION_METHODS = {"direct", "bakuun", "other_partner"}
 PARTNER_CATEGORIES = {"accommodation", "supply", "distribution", "connectivity", "technology"}
 PARTNER_RELATIONSHIPS = {"signed", "integrated"}          # 'prospective' is never public
 PROPERTY_RELATIONSHIPS = {"direct_contract", "connected_supplier", "other_verified"}
-METRIC_IDS = ["directProperties", "directCountries", "availableProperties", "countriesCovered"]
+METRIC_IDS = ["directProperties", "directCountries", "availableProperties", "countriesCovered",
+              "connectedSupplySources", "connectedChannelManagers"]
 ISO2 = re.compile(r"^[A-Z]{2}$")
 
 
@@ -344,6 +383,40 @@ def export(target):
         doc.pop("_comment", None)
         write_text(cm, json.dumps(doc, ensure_ascii=False, indent=1) + "\n")
 
+    # 4c. HTTPS hardening: real domain, CNAME, CSP + referrer policy.
+    site_url = (cfg.get("siteUrl") or "").rstrip("/")
+    if not re.match(r"^https://[a-z0-9.-]+\.[a-z]{2,}$", site_url):
+        problems.append("site-config.json siteUrl must be an https:// origin (got %r)" % cfg.get("siteUrl"))
+        site_url = None
+    html_files = []
+    for dirpath, _, filenames in os.walk(out_dir):
+        for fn in filenames:
+            if fn.endswith((".html", ".xml", ".txt")):
+                html_files.append(os.path.join(dirpath, fn))
+    hashes = set()
+    for p in html_files:
+        if p.endswith(".html"):
+            for body in INLINE_SCRIPT_RE.findall(read_text(p)):
+                hashes.add(base64.b64encode(hashlib.sha256(body.encode("utf-8")).digest()).decode())
+    csp = build_csp(cfg, hashes) if (cfg.get("security") or {}).get("contentSecurityPolicy", True) else None
+    for p in html_files:
+        s = read_text(p)
+        if site_url and not preview:
+            for o in PLACEHOLDER_ORIGINS:
+                s = s.replace(o + "/", site_url + "/").replace(o + '"', site_url + '"').replace(o + "<", site_url + "<")
+        if p.endswith(".html"):
+            s = re.sub(r'\s*<meta[^>]*http-equiv="Content-Security-Policy"[^>]*>', "", s)
+            tags = '<meta name="referrer" content="strict-origin-when-cross-origin"/>'
+            if csp:
+                tags = '<meta http-equiv="Content-Security-Policy" content="%s"/>\n' % csp + tags
+            if 'name="referrer"' not in s:
+                s = re.sub(r'(<meta charset="utf-8"/?>)', lambda m: m.group(1) + "\n" + tags, s, count=1)
+            elif csp:
+                s = re.sub(r'(<meta charset="utf-8"/?>)', lambda m: m.group(1) + "\n" + tags.split("\n")[0], s, count=1)
+        write_text(p, s)
+    if site_url and not preview:
+        write_text(os.path.join(out_dir, "CNAME"), site_url.split("://", 1)[1] + "\n")
+
     # 5. Config + robots for the target.
     out_cfg = {k: v for k, v in cfg.items() if not k.startswith("_")}   # editor notes stay out of dist/
     out_cfg["featureFlags"] = {k: flags[k] for k in FLAGS}
@@ -379,6 +452,15 @@ def export(target):
                         if re.search(r"bakuun(?!NameApproved)", read_text(os.path.join(dirpath, fn)), re.I):
                             problems.append("Bakuun named in %s without disclosure.bakuunNameApproved"
                                             % os.path.relpath(os.path.join(dirpath, fn), out_dir))
+        for p in html_files:
+            t = read_text(p)
+            for o in PLACEHOLDER_ORIGINS:
+                if o in t and o != site_url:
+                    problems.append("placeholder domain %s left in %s" % (o, os.path.relpath(p, out_dir)))
+            if re.search(r'(src|href|action)="http://', t):
+                problems.append("insecure http:// reference in %s" % os.path.relpath(p, out_dir))
+            if p.endswith(".html") and re.search(r"\son[a-z]+=\"", t):
+                problems.append("inline event handler (blocked by CSP) in %s" % os.path.relpath(p, out_dir))
         for d in ("fixtures", "_private", "tests", "tools"):
             if os.path.exists(os.path.join(out_dir, d)): problems.append("non-public folder in dist: " + d)
 

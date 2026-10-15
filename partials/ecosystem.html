@@ -1,28 +1,27 @@
 <div class="eco__bar">
-  <h2 class="eco__title" data-i18n="eco2.title">Two Supply Streams. One Distribution Network.</h2>
+  <h2 class="eco__title" data-i18n="eco3.title">One Exchange. Two Sides of Travel.</h2>
   <ul class="eco__legend" aria-hidden="true">
     <li><span class="lg-flow"></span><span data-i18n="eco2.legend.direct">Direct supply in Asia</span></li>
     <li><span class="lg-connected"></span><span data-i18n="eco2.legend.connected">Connected global inventory</span></li>
     <li><span class="lg-dual"></span><span data-i18n="eco.legend.dual">Can play both roles</span></li>
   </ul>
 </div>
-<p class="visually-hidden" data-i18n="eco2.summary">Direct accommodation partners in Asia and connected global inventory providers supply KabuK Exchange. The Exchange connects these sources with travel distributors and runs on KabuK Platform technology.</p>
+<p class="visually-hidden" data-i18n="eco3.summary">Diagram: supply from hotels, hotel groups, wholesalers, OTAs acting as suppliers and other travel suppliers flows into KabuK Exchange, which handles content, mapping, availability, pricing, booking and settlement, and connects it with OTAs, travel agencies, travel apps, wholesalers, membership platforms and travel companies. KabuK Platform sits beneath KabuK Exchange as its technology foundation. OTAs and wholesalers appear on both sides.</p>
 <div class="eco__grid">
   <div class="eco__col eco__col--supply">
     <div class="eco__stream eco__stream--direct">
       <div class="eco__col-head" style="--i:0"><span class="eco__col-label" data-i18n="eco2.streamA">Direct Asian Accommodation Supply</span><span class="eco__col-sub" data-i18n="eco2.streamA.sub">Prioritized direct relationships</span></div>
       <ul class="eco__nodes">
         <li class="eco-node" data-eco-node="in" style="--i:1"><span class="eco-node__icon" data-icon="hotel"></span><span data-i18n="eco.s.hotels">Hotels</span></li>
-        <li class="eco-node" data-eco-node="in" style="--i:2"><span class="eco-node__icon" data-icon="bed"></span><span data-i18n="eco2.s.ryokan">Ryokan</span></li>
-        <li class="eco-node" data-eco-node="in" style="--i:3"><span class="eco-node__icon" data-icon="building"></span><span data-i18n="eco.s.groups">Hotel Groups</span></li>
+        <li class="eco-node" data-eco-node="in" style="--i:2"><span class="eco-node__icon" data-icon="building"></span><span data-i18n="eco.s.groups">Hotel Groups</span></li>
       </ul>
     </div>
     <div class="eco__stream eco__stream--connected">
       <div class="eco__col-head" style="--i:4"><span class="eco__col-label" data-i18n="eco2.streamB">Connected Global Inventory</span><span class="eco__col-sub" data-i18n="eco2.streamB.sub">Integrated third-party suppliers</span></div>
       <ul class="eco__nodes">
-        <li class="eco-node eco-node--connected" data-eco-node="in" data-eco-style="connected" style="--i:5"><span class="eco-node__icon" data-icon="box"></span><span data-i18n="eco.s.wholesalers">Wholesalers</span></li>
-        <li class="eco-node eco-node--connected" data-eco-node="in" data-eco-style="connected" style="--i:6"><span class="eco-node__icon" data-icon="layers"></span><span data-i18n="eco.d.bedbanks">Bedbanks</span></li>
-        <li class="eco-node eco-node--connected eco-node--dual" data-eco-node="in" data-eco-style="connected" style="--i:7"><span class="eco-node__icon" data-icon="globe"></span><span data-i18n="eco2.s.supplierOtas">Supplier OTAs</span></li>
+        <li class="eco-node eco-node--connected eco-node--dual" data-eco-node="in" data-eco-style="connected" style="--i:5"><span class="eco-node__icon" data-icon="box"></span><span data-i18n="eco.s.wholesalers">Wholesalers</span></li>
+        <li class="eco-node eco-node--connected eco-node--dual" data-eco-node="in" data-eco-style="connected" style="--i:6"><span class="eco-node__icon" data-icon="globe"></span><span data-i18n="eco3.s.otaSuppliers">OTAs Acting as Suppliers</span></li>
+        <li class="eco-node eco-node--connected" data-eco-node="in" data-eco-style="connected" style="--i:7"><span class="eco-node__icon" data-icon="layers"></span><span data-i18n="eco3.s.other">Other Travel Suppliers</span></li>
       </ul>
     </div>
   </div>
@@ -46,7 +45,9 @@
       <li class="eco-node eco-node--dual" data-eco-node="out" style="--i:10"><span class="eco-node__icon" data-icon="globe"></span><span data-i18n="eco.d.otas">OTAs</span></li>
       <li class="eco-node" data-eco-node="out" style="--i:11"><span class="eco-node__icon" data-icon="briefcase"></span><span data-i18n="eco.d.agencies">Travel Agencies</span></li>
       <li class="eco-node" data-eco-node="out" style="--i:12"><span class="eco-node__icon" data-icon="phone"></span><span data-i18n="eco.d.apps">Travel Apps</span></li>
-      <li class="eco-node" data-eco-node="out" style="--i:13"><span class="eco-node__icon" data-icon="member"></span><span data-i18n="eco.d.membership">Membership Platforms</span></li>
+      <li class="eco-node eco-node--dual" data-eco-node="out" style="--i:13"><span class="eco-node__icon" data-icon="box"></span><span data-i18n="eco.s.wholesalers">Wholesalers</span></li>
+      <li class="eco-node" data-eco-node="out" style="--i:14"><span class="eco-node__icon" data-icon="member"></span><span data-i18n="eco.d.membership">Membership Platforms</span></li>
+      <li class="eco-node" data-eco-node="out" style="--i:15"><span class="eco-node__icon" data-icon="building"></span><span data-i18n="eco3.d.companies">Travel Companies</span></li>
     </ul>
   </div>
   <div class="eco__foundation" data-eco-node="in" data-eco-style="found" style="--i:11">
@@ -55,4 +56,4 @@
     <span class="eco__foundation-desc" data-i18n="eco2.found.desc">Shared Travel Technology Foundation</span>
   </div>
 </div>
-<p class="eco__caption" data-i18n="eco2.caption">OTAs can appear on either side: as supplier OTAs providing connected inventory, or as distribution partners selling to travelers.</p>
+<p class="eco__caption" data-i18n="eco3.caption">OTAs and wholesalers intentionally appear on both sides, because they can provide supply or distribute it.</p>

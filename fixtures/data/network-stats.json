@@ -9,7 +9,9 @@
     "directProperties": "Properties with an active direct commercial agreement with KabuK Exchange. A direct contract does not mean a direct technical connection; inventory obtained through a connectivity partner, wholesaler or other supplier is not counted here unless the property also holds a direct agreement.",
     "directCountries": "Countries or markets with at least one directly contracted property.",
     "availableProperties": "Unique, currently bookable properties across all enabled supply sources (direct and connected), counted once using canonical property mapping.",
-    "countriesCovered": "Countries or markets with at least one currently bookable property from any enabled supply source."
+    "countriesCovered": "Countries or markets with at least one currently bookable property from any enabled supply source.",
+    "connectedSupplySources": "Third-party accommodation suppliers currently integrated and enabled for KabuK Exchange distribution.",
+    "connectedChannelManagers": "Channel management systems with a verified, live connection to KabuK Exchange (direct or through a disclosed upstream partner)."
   },
   "metrics": [
     {
@@ -36,6 +38,20 @@
     {
       "id": "countriesCovered",
       "value": 17,
+      "approvedForPublication": true,
+      "verifiedAt": "2026-01-31",
+      "source": "SYNTHETIC fixture export (fixtures/properties-export.csv)"
+    },
+    {
+      "id": "connectedSupplySources",
+      "value": 6,
+      "approvedForPublication": true,
+      "verifiedAt": "2026-01-31",
+      "source": "SYNTHETIC fixture export (fixtures/properties-export.csv)"
+    },
+    {
+      "id": "connectedChannelManagers",
+      "value": 4,
       "approvedForPublication": true,
       "verifiedAt": "2026-01-31",
       "source": "SYNTHETIC fixture export (fixtures/properties-export.csv)"

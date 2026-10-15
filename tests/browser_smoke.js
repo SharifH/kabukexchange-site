@@ -9,7 +9,7 @@ const BASE = process.argv[2] || "http://localhost:8080";
 const PAGES = ["/", "/hotels/", "/partners/", "/about/", "/whats-next/", "/become-a-partner/", "/link-your-property/",
   "/platform/", "/platform/how-it-works/", "/platform/architecture/", "/platform/security/", "/platform/intelligence/",
   "/developers/", "/developers/api/", "/developers/guides/", "/resources/", "/privacy/", "/terms/", "/404.html",
-  "/internal/status-badges/"];
+  "/internal/status-badges/", "/network/", "/connectivity/"];
 const IGNORE = /site-config\.json review needed|fonts\.(googleapis|gstatic)|TUNNEL_CONNECTION|Showing statuses pending owner approval/;
 (async () => {
   const b = await chromium.launch(); const issues = []; let loads = 0;

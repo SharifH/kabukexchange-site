@@ -1,0 +1,56 @@
+# Build the launch-gated production site and publish ONLY dist/ to GitHub Pages.
+#
+# One-time setup (repository Settings → Pages):
+#   • Build and deployment → Source: "GitHub Actions"
+#   • Custom domain: www.kabukexchange.com  → then tick "Enforce HTTPS"
+# The workflow refuses to deploy if the static checks or publish tests fail,
+# or if the production export reports any ERROR (empty gated feature,
+# placeholder domain, insecure http:// link, inline handler, data leak …).
+name: Deploy site to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Assemble pages
+        run: python3 build.py
+      - name: Fail if committed pages were not rebuilt
+        run: git diff --exit-code -- '*.html' i18n-bundle.js || (echo "Run 'python3 build.py' locally and commit the result." && exit 1)
+      - name: Static checks
+        run: python3 tests/check_site.py
+      - name: Publish-step tests
+        run: python3 tests/test_publish.py
+      - name: Production export (launch gates + HTTPS hardening)
+        run: python3 build.py --production
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

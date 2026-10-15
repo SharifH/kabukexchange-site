@@ -1,5 +1,15 @@
 {
   "_comment": "KabuK Exchange site configuration. Non-engineers can safely edit the values below. Placeholder values are marked with PLACEHOLDER — replace before going live.",
+  "_siteUrlHelp": "The site's public HTTPS address (no trailing slash). The production build uses it for canonical and Open Graph tags, sitemap.xml, robots.txt and the GitHub Pages CNAME file, and refuses anything that is not https://.",
+  "siteUrl": "https://www.kabukexchange.com",
+  "_securityHelp": "The production build adds a Content-Security-Policy and a referrer policy to every page as meta tags (GitHub Pages cannot send custom headers). If you add analytics, a CRM form endpoint or another third-party service, list its origin in the matching extra* list (for example https://www.googletagmanager.com) or browsers will block it. formMode 'api' adds the apiEndpoint origin to connect-src automatically.",
+  "security": {
+    "contentSecurityPolicy": true,
+    "extraScriptSrc": [],
+    "extraConnectSrc": [],
+    "extraImgSrc": [],
+    "extraFrameSrc": []
+  },
   "adminConsoleUrl": "https://console.kbkx.example.com/login",
   "leadRouting": {
     "partnerEmail": "partnerships@kbkx.example.com",

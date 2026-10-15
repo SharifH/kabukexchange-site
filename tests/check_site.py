@@ -184,6 +184,19 @@ for f in PUB.DATA_GATES:
 for f in glob.glob(os.path.join(ROOT, "fixtures", "data", "*.json")):
     if json.load(open(f, encoding="utf-8")).get("_fixture") is not True: err("%s must set \"_fixture\": true" % rel(f))
 
+# 8. Commercial wording (Oct-2026 positioning): exact approved sentence, no success-based pricing.
+REQUIRED_TERMS = {"cm.terms.t": "Transparent Commercial Terms",
+                  "cm.terms.d": "No setup or recurring integration fees. Straightforward, transaction-based commercial arrangements designed around your business."}
+for k, v in REQUIRED_TERMS.items():
+    if en.get(k) != v: err("i18n/en.json %s must be exactly: %s" % (k, v))
+    for lang in LANGS:
+        if not json.load(open(os.path.join(ROOT, "i18n", lang + ".json"), encoding="utf-8")).get(k):
+            err("i18n/%s.json is missing %s" % (lang, k))
+FORBIDDEN = re.compile(r"success[- ]based|success fee|pay only for successful|only (?:pay|charged) for (?:successful|confirmed) bookings|free cancellation", re.I)
+for f in pages + glob.glob(os.path.join(ROOT, "i18n", "*.json")) + glob.glob(os.path.join(ROOT, "partials", "*.html")):
+    if FORBIDDEN.search(open(f, encoding="utf-8").read()):
+        err("%s: forbidden commercial wording (success-based pricing / fee or cancellation promise)" % rel(f))
+
 for w in warns: print("WARN ", w)
 for e in errors: print("ERROR", e)
 print("\n%d page(s), %d i18n key(s) checked — %d error(s), %d warning(s)" % (len(pages), len(used), len(errors), len(warns)))
