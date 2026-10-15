@@ -250,8 +250,9 @@ const text = (pg, sel) => pg.$eval(sel, e => e.textContent.trim()).catch(() => n
     const za = await ids(pg, '[data-dir-group="progress"] .dir-item');
     const zaOrder = await pg.$$eval('[data-dir-group="progress"] .dir-item h4', e => e.map(x => x.textContent));
     ok(JSON.stringify(zaOrder) === JSON.stringify([...zaOrder].sort().reverse()), `Z–A order wrong ${zaOrder}`);
-    // keyboard select change
-    await pg.focus('[data-dir-filter="category"]'); await pg.keyboard.press("ArrowDown"); await pg.waitForTimeout(150);
+    // keyboard select change — type-ahead, because ArrowDown on a closed <select> opens the popup on macOS instead of changing the value
+    const firstOpt = await pg.$eval('[data-dir-filter="category"]', s => [...s.options].find(o => o.value).textContent.trim());
+    await pg.focus('[data-dir-filter="category"]'); await pg.keyboard.press(firstOpt[0].toLowerCase()); await pg.waitForTimeout(150);
     ok(await count() !== `${expected.integrations.length} connections found`, "keyboard change on category select had no effect");
     await pg.context().close();
     // URL state restore + invalid values ignored
