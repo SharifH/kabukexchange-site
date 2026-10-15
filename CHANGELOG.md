@@ -1,5 +1,25 @@
 # Changelog
 
+## 2026-10-15 (b) — Messaging update: Asia-first hotel supply and commercial differentiation (not deployed)
+Source: `KabuK_Exchange_Website_Copy_Updated.md` + `Claude_Prompt_KabuK_Exchange_Website_Update.md`.
+- **Homepage:** hero "Asia-First Hotel Supply. Global Connectivity." / "One Connection. More Opportunities."; CTAs Explore Our Solutions + Become a Partner; new "Introducing KabuK Exchange"; "Why KabuK Exchange?" (Direct Hotel Rates · Transparent Commercial Terms · Your Brand. Your Relationships. · One Integration. Multiple Supply Sources. · Asia-First. Globally Connected.); Solutions reduced to For Distributors / For Hotels; "Network & Connectivity" replaces "Supply strategy"; new closing CTA. Kept: launch-gated showcases, journey, Platform foundation, What's Next, partner types.
+- **Diagram** "One Exchange. Two Sides of Travel.": supply = hotels, hotel groups, wholesalers, OTAs acting as suppliers, other travel suppliers; distribution = OTAs, travel agencies, travel apps, wholesalers, membership platforms, travel companies; KabuK Platform beneath as foundation; OTAs/wholesalers marked on both sides. Same supply lists in the For Distributors fan-in diagram.
+- **For Distributors** (`/partners/`, URL and anchors unchanged): new hero, "A Wholesaler with Benefits." benefits, traditional-vs-KBKx comparison, "Built for Your Business", Connect → Search → Price → Book → Manage → Settle flow (replaces an English-only list), new CTA. Kept: access models, connectivity/supply partner sections, KAOS roadmap card, journey.
+- **For Hotels:** new hero, "Your Inventory. More Opportunities." benefits, Connect → Configure → Distribute → Manage → Grow flow, "Who We Work With"; removed an English-only list containing an unverified HafH-channel claim. Kept: planned property-system card, onboarding steps, use cases, hidden photography module.
+- **Our Network** (`/network/`) is now a public page (supply network + connection labels: direct / via technology partner / planned). Statistics, coverage map and directory links remain behind their flags; two new hidden metrics (connected supply sources, connected channel managers).
+- **New `/connectivity/`:** six core capabilities, KabuK Platform foundation, connection labels, "Discuss an Integration" (configured integration-support destination).
+- **Navigation:** Solutions (For Distributors / For Hotels / Connectivity Partners) · Our Network · Connectivity · About Us; header actions Partner Login · Connect Your Property (≥1520px; also in Solutions menu, hero and footer) · Become a Partner. "Link Your Property" renamed "Connect Your Property" (URL unchanged). Footer tagline and company line updated.
+- **Commercial wording:** shared `cm.terms.*` keys carry the exact approved sentence; no success-based pricing existed — a static check now blocks it.
+- SEO titles/descriptions for home, For Distributors, For Hotels, Our Network, Connectivity; sitemap adds `/network/` and `/connectivity/`.
+- i18n: 177 new keys in en/ja/ko/zh-TW/ar (drafts flagged). Tests: check_site commercial-wording rules; publish/gate tests updated for the public network page; smoke test covers 22 pages.
+
+## 2026-10-15 — HTTPS hardening for GitHub Pages (www.kabukexchange.com)
+- `site-config.json`: `siteUrl` (`https://www.kabukexchange.com`) and `security` (CSP on/off + extra allowed origins).
+- Production build: rewrites placeholder domains in canonical/OG/JSON-LD/sitemap/robots; writes `CNAME`; adds a Content-Security-Policy meta tag (self-only scripts with a SHA-256 hash for the one inline script, Google Fonts, no objects/frames, `form-action 'self'`, `upgrade-insecure-requests`) and `strict-origin-when-cross-origin` referrer policy to every page; fails on non-HTTPS `siteUrl`, leftover placeholder domains, `http://` references or inline event handlers.
+- Removed the two inline `onsubmit` handlers (handled in `script.js`).
+- `.github/workflows/deploy-pages.yml`: checks + tests + production export, publishes only `dist/`.
+- README: HTTPS/DNS setup for GitHub Pages with Squarespace DNS, limits of GitHub Pages (no custom headers → no HSTS/frame-ancestors without a CDN), verification commands. 3 new publish tests (15 total); 0 CSP violations across production and preview pages.
+
 ## 2026-10-14 (b) — Interactive coverage map
 - `/network/#coverage` (still behind `networkCoverageMap`, off): approved markets are now buttons. Filter chips (All / Direct supply / Connected inventory) double as the legend; hover or focus shows a tooltip; click, tap, Enter or Space opens a details panel (market, direct vs connected explanation, verified date, Clear selection); country lists are buttons linked two-way with the tiles.
 - Keyboard: one tab stop for the whole map (roving tabindex), arrow keys move geographically (also in RTL), Home/End, Escape clears. Details announced via a polite live region; decorative tiles hidden from assistive tech; reduced motion respected.

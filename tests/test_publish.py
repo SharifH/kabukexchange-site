@@ -14,8 +14,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SKIP = shutil.ignore_patterns(".git", "dist", "dist-preview", "node_modules", "__pycache__")
 FLAGS = ["networkStats", "networkCoverageMap", "connectivityDirectory",
          "partnerEcosystem", "homepageFeaturedConnections", "homepageFeaturedHotels"]
-ROUTES = {"network/index.html": ("networkStats", "networkCoverageMap"),
-          "network/connectivity/index.html": ("connectivityDirectory",),
+ROUTES = {"network/connectivity/index.html": ("connectivityDirectory",),
           "partners/ecosystem/index.html": ("partnerEcosystem",)}
 
 # Neutral, clearly-not-fixture sample data used only inside the temp copy.
@@ -110,6 +109,10 @@ class PublishTests(unittest.TestCase):
     def test_default_all_off(self):
         self.assertEqual(self.export(), 0, self.log)
         for r in ROUTES: self.assertFalse(os.path.exists(self.dist(r)), r)
+        net = self.read("network/index.html")                                  # public since Oct 2026
+        for gated in ('data-net-metrics', 'data-net-map', 'network/connectivity/', 'partners/ecosystem/'):
+            self.assertNotIn(gated, net)
+        self.assertTrue(os.path.exists(self.dist("connectivity/index.html")))
         for f in DATA: self.assertFalse(os.path.exists(self.dist("data/" + f)), f)
         self.assertFalse(os.path.exists(self.dist("data/network-stats.json")))
         for d in ("fixtures", "_private", "tests", "tools", "partials"): self.assertFalse(os.path.exists(self.dist(d)), d)
@@ -181,7 +184,7 @@ class PublishTests(unittest.TestCase):
         self.put_data(); self.set_flags(networkStats=True)
         self.assertEqual(self.export(), 0, self.log)
         s = json.load(open(self.dist("data/network-stats.json")))
-        self.assertEqual([m["value"] for m in s["metrics"]], [12, 3, 340, 9])
+        self.assertEqual([m["value"] for m in s["metrics"]][:4], [12, 3, 340, 9])
         self.assertEqual(s["coverage"]["direct"], [])                          # map flag off → no coverage data
 
     def test_empty_feature_refused(self):
@@ -224,6 +227,43 @@ class PublishTests(unittest.TestCase):
         recs = {r["id"]: r for r in json.load(open(self.dist("data/integrations.json")))["records"]}
         self.assertEqual((recs["c2"]["connectionMethod"], recs["c2"].get("connectionProvider")), ("bakuun", "Bakuun"))
         self.assertIn("Via Bakuun", self.read("internal/status-badges/index.html"))
+
+    def test_https_hardening(self):
+        self.assertEqual(self.export(), 0, self.log)
+        self.assertEqual(self.read("CNAME").strip(), "www.kabukexchange.com")
+        home = self.read("index.html")
+        self.assertIn('http-equiv="Content-Security-Policy"', home)
+        self.assertIn("upgrade-insecure-requests", home)
+        self.assertIn("object-src 'none'", home)
+        self.assertIn('name="referrer" content="strict-origin-when-cross-origin"', home)
+        self.assertIn('href="https://www.kabukexchange.com/" rel="canonical"', home)
+        self.assertIn("<loc>https://www.kabukexchange.com/</loc>", self.read("sitemap.xml"))
+        self.assertIn("Sitemap: https://www.kabukexchange.com/sitemap.xml", self.read("robots.txt"))
+        text = self.all_text()
+        for o in ("https://www.kbkx.example.com", "https://kabukexchange.com/"):
+            self.assertNotIn(o, text)
+        self.assertNotRegex(text, r'(src|href|action)="http://')
+
+    def test_csp_hashes_inline_script_and_allows_configured_origins(self):
+        import base64, hashlib, re
+        p = os.path.join(self.site, "site-config.json"); cfg = json.load(open(p))
+        cfg["security"]["extraScriptSrc"] = ["https://analytics.example.org/js/x.js"]
+        cfg["formMode"] = "api"; cfg["apiEndpoint"] = "https://api.example.net/v1/leads"
+        json.dump(cfg, open(p, "w"))
+        self.assertEqual(self.export(), 0, self.log)
+        home = self.read("index.html")
+        csp = re.search(r'http-equiv="Content-Security-Policy" content="([^"]+)"', home).group(1)
+        body = 'document.documentElement.classList.add("js");'
+        h = base64.b64encode(hashlib.sha256(body.encode()).digest()).decode()
+        self.assertIn("'sha256-%s'" % h, csp)
+        self.assertIn("https://analytics.example.org", csp)
+        self.assertIn("connect-src 'self' https://api.example.net", csp)
+
+    def test_site_url_must_be_https(self):
+        p = os.path.join(self.site, "site-config.json"); cfg = json.load(open(p))
+        cfg["siteUrl"] = "http://www.kabukexchange.com"; json.dump(cfg, open(p, "w"))
+        self.assertEqual(self.export(), 1)
+        self.assertIn("siteUrl must be an https://", self.log)
 
     def test_dedup_tool(self):
         sys.path.insert(0, os.path.join(self.site, "tools"))

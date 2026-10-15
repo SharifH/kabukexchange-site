@@ -14,7 +14,9 @@ Built with **plain HTML, CSS, and vanilla JavaScript** plus a couple of **JSON c
 |------|---------|
 | `index.html` | Homepage → served at `/` |
 | `hotels/index.html` | For Hotels → `/hotels/` |
-| `partners/index.html` | For Partners → `/partners/` (anchored: `#demand-partners`, `#connectivity-partners`, `#supply-partners`) |
+| `partners/index.html` | For Distributors → `/partners/` (anchored: `#demand-partners`, `#connectivity-partners`, `#supply-partners`, `#how-it-works`) |
+| `network/index.html` | Our Network → `/network/` (public; statistics, map and directory links inside are launch-gated) |
+| `connectivity/index.html` | Connectivity capabilities → `/connectivity/` |
 | `platform/index.html` | Platform → `/platform/` (anchored sections for each capability) |
 | `about/index.html` | About Us → `/about/` |
 | `become-a-partner/index.html` | Lead form for OTAs, agencies, wholesalers, suppliers, tech partners → `/become-a-partner/` |
@@ -186,7 +188,8 @@ The form-handling code already supports both paths, so this is a config-only cha
 
 Defined in `partials/header.html` (run `python3 build.py` after editing):
 
-- **Solutions** (dropdown: Supply / Demand / Connectivity Partners, plus a "Link Your Property" prompt for hotels)
+- **Solutions** (dropdown: For Distributors / For Hotels / Connectivity Partners, plus a "Connect Your Property" prompt for hotels)
+- **Our Network** (Network Overview, gated directory/ecosystem links, How KBKx Works, What's Next) · **Connectivity** (How Connectivity Works, Integration) · **About Us**
 - **Network** (dropdown: The KBKx Network `/#network`, How KBKx Works `/#how-it-works`, Partner Ecosystem `/#ecosystem`, Integration `/developers/`)
 - **Why KBKx** (`/#why-kbkx`) and **About Us** (`/about/`)
 - Right side: **Partner Login** (→ `adminConsoleUrl`) and **Become a Partner**; language selector.
@@ -257,7 +260,7 @@ site until you turn each one on, independently, in `site-config.json`:
 
 | Flag (internal label) | What it publishes | Data it reads | Route / location |
 |---|---|---|---|
-| `networkStats` — *Enable Network Statistics* | Four metrics with count-up: Directly Contracted Properties, Direct Supply Countries, Available Properties (deduplicated), Countries Covered | `data/network-stats.json` → `metrics` | `/network/` (page appears when this **or** the map is on) |
+| `networkStats` — *Enable Network Statistics* | Up to six metrics with count-up: Directly Contracted Properties, Direct Supply Countries, Available Properties (deduplicated), Countries Covered, Connected Supply Sources, Connected Channel Managers | `data/network-stats.json` → `metrics` | `/network/#metrics` (the page itself is public) |
 | `networkCoverageMap` — *Enable Coverage Map* | Interactive Asia-Pacific tile map + rest-of-world groups: filter (all / direct / connected), hover or focus tooltips, click/tap/Enter for market details, arrow-key navigation, country lists linked to the map | `data/network-stats.json` → `coverage` | `/network/#coverage` |
 | `connectivityDirectory` — *Publish Connectivity Directory* | Searchable directory: keyword search, category / status / connection / region filters, sort, URL state, “Request an Integration” | `data/integrations.json` | `/network/connectivity/` |
 | `partnerEcosystem` — *Publish Partner Ecosystem* | Partner directory with search, category chips, A–Z, logo cards | `data/partners-ecosystem.json` | `/partners/ecosystem/` (replaces the homepage `#ecosystem` link in the nav) |
@@ -331,10 +334,52 @@ Each property is counted once by `canonical_property_id`; inventory via Bakuun o
 ### Hosting notes for launch gates
 
 - Point the host at **`dist/`**, with `python3 build.py --production` as the build command (Netlify, Cloudflare Pages and Vercel images include Python 3), or upload `dist/` yourself.
-- GitHub Pages: deploy with a GitHub Actions workflow that runs the build and uploads `dist/` (`actions/upload-pages-artifact` + `actions/deploy-pages`), or push `dist/` to a `gh-pages` branch. `dist/` is in `.gitignore`.
+- GitHub Pages: use the included `.github/workflows/deploy-pages.yml` (Settings → Pages → Source: GitHub Actions). It runs the tests, builds and publishes only `dist/`. `dist/` is in `.gitignore`. See “HTTPS, domain and GitHub Pages”.
 - Disabled routes are simply absent from `dist/`, so every host returns its normal 404 — no rewrite rules are needed. If a host has an older deploy cached, invalidate it after disabling a feature.
 - The preview build must live on a separate, authenticated staging host (Netlify/Cloudflare/Vercel password protection or basic auth). `noindex` is not security.
 - `/internal/status-badges/` is deployed but unlinked and `noindex` — not private. Protect `/internal/` at the host if it must be private.
+
+## HTTPS, domain and GitHub Pages (www.kabukexchange.com, DNS at Squarespace)
+
+**What the site itself does (built in, tested):**
+- No `http://` references anywhere — links, scripts, fonts, images and form targets are HTTPS or relative. The production build fails if an `http://` `src`/`href`/`action` appears.
+- Every page gets a **Content-Security-Policy** (`<meta>` tag): only this site’s own scripts (the one tiny inline script is allowed by its SHA-256 hash), Google Fonts, no plugins/objects, no frames, forms post only to this site, and **`upgrade-insecure-requests`**. Inline event handlers are not used (the build rejects them). Third-party origins you add later go in `site-config.json → security` (`extraScriptSrc`, `extraConnectSrc`, `extraImgSrc`, `extraFrameSrc`).
+- Every page gets `Referrer-Policy: strict-origin-when-cross-origin` (meta).
+- `siteUrl` (`https://www.kabukexchange.com`) is written into canonical/Open Graph tags, JSON-LD, `sitemap.xml`, `robots.txt` and a `CNAME` file; placeholder domains cannot reach `dist/`.
+
+**What GitHub Pages controls (not configurable from the repo):**
+- **HTTP → HTTPS redirect:** tick *Enforce HTTPS* in Settings → Pages (available once the certificate has been issued for the custom domain).
+- **Certificate:** issued and renewed automatically by GitHub (Let’s Encrypt) after DNS is correct.
+- **Response headers:** GitHub Pages does not let you set custom headers, so `Strict-Transport-Security` (HSTS), `frame-ancestors`/`X-Frame-Options` and other header-only protections **cannot be added** on plain GitHub Pages. The `<meta>` CSP covers script/content restrictions, but not framing or HSTS. If you need those, put a CDN that can add headers (e.g. Cloudflare in proxy mode) in front of Pages — that requires moving DNS management from Squarespace to that CDN.
+
+> The GitHub/Squarespace values below are from my knowledge as of mid-2026, not fetched live — confirm them against GitHub’s “Managing a custom domain for your GitHub Pages site” docs before changing DNS.
+
+**One-time setup**
+1. **Deploy from Actions:** Settings → Pages → *Build and deployment* → Source: **GitHub Actions**. The included `.github/workflows/deploy-pages.yml` runs the checks, builds `dist/` with `python3 build.py --production` and publishes only `dist/` on every push to `main`.
+2. **Verify the domain** (recommended, prevents takeover): GitHub → your profile Settings → Pages → *Add a domain* → `kabukexchange.com`; add the TXT record GitHub shows (host like `_github-pages-challenge-SharifH`) in Squarespace.
+3. **Squarespace DNS** (Domains → kabukexchange.com → DNS → Custom records). Remove conflicting Squarespace default records for `@` and `www` first, then add:
+
+   | Host | Type | Value |
+   |---|---|---|
+   | `www` | CNAME | `sharifh.github.io` |
+   | `@` | A | `185.199.108.153` |
+   | `@` | A | `185.199.109.153` |
+   | `@` | A | `185.199.110.153` |
+   | `@` | A | `185.199.111.153` |
+   | `@` | AAAA (optional) | `2606:50c0:8000::153`, `2606:50c0:8001::153`, `2606:50c0:8002::153`, `2606:50c0:8003::153` |
+
+   With `www.kabukexchange.com` as the custom domain and the apex records in place, GitHub redirects `kabukexchange.com` → `https://www.kabukexchange.com`.
+4. **Custom domain:** Settings → Pages → Custom domain → `www.kabukexchange.com` → Save (with Actions deployment this setting, not the `CNAME` file, is what counts; the file is kept for branch-based setups).
+5. Wait for the DNS check and certificate (minutes to ~24 h), then tick **Enforce HTTPS**.
+
+**Verify after launch**
+```bash
+curl -sI http://www.kabukexchange.com/ | head -3     # expect 301 → https://www.kabukexchange.com/
+curl -sI http://kabukexchange.com/ | head -3         # expect redirect to the www HTTPS address
+curl -sI https://www.kabukexchange.com/ | grep -i strict-transport   # empty on plain GitHub Pages (see above)
+curl -s https://www.kabukexchange.com/ | grep -o 'Content-Security-Policy'
+```
+Then check the site in a browser console for CSP warnings (there should be none) and run an external scan (e.g. securityheaders.com, SSL Labs).
 
 ## Testing
 

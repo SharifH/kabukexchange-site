@@ -34,6 +34,8 @@ Record every sign-off (name, role, date, evidence link) in the “Sign-off” ro
 | **Directly Contracted** counts only active direct commercial agreements (not inventory via Bakuun / wholesalers) — confirmed by Commercial | Commercial | ☐ |
 | **Available Properties** deduplicated across sources; spot-check 20 properties offered by >1 source | Data | ☐ |
 | Each metric: `approvedForPublication: true`, `verifiedAt`, `source`; file-level `approvedForPublication`, `approvedBy` | Owner | ☐ |
+| *Connected Supply Sources* and *Connected Channel Managers* are maintained separately (not computed by the tool); count only live, verified connections and keep direct vs. upstream-partner routes consistent with `data/integrations.json` | Integrations | ☐ |
+| Note: `/network/` is a public page since the Oct-2026 update; this flag controls only the statistics block | Web | ☐ |
 | Refresh cadence agreed (default proposed: monthly) and owner named; stale figures (> 1 cycle) trigger rollback | Data | ☐ |
 | Sign-off: | | |
 

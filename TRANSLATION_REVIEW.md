@@ -33,3 +33,9 @@ Check especially: partner taxonomy consistency (Supply/Demand/Connectivity Partn
 ## 2026-10-14 additions (launch-gated features — review before each feature is enabled)
 Keys: `net.*` (network page, metrics definitions, map), `cx.*` (connectivity directory, categories, regions, filters, counts), `pe.*` (partner ecosystem), `fc.*` / `fh.*` (homepage showcases, property types and relationship labels), `fm.topic.*`, `fm.system.label`, `gate.off.*`, `hp.eco.*` (partner types). Connection-method labels: `data/connection-methods.json`.
 Points to check: “directly contracted” vs “connected” must stay legally distinct in every language; count strings (`cx.count`, `pe.count`) for plural forms (Arabic uses a separate singular); metric definitions must not imply direct contracts for connected inventory.
+
+
+## 2026-10-15 — messaging update (all draft, machine-assisted; review before launch)
+New keys: `cm.*` (commercial wording — **legal-sensitive**: "no setup or recurring integration fees", "transaction-based"), `hm.*` (homepage), `ds.*` (For Distributors), `hl.*` (For Hotels), `nw.*` (Our Network), `cn.*` (Connectivity), `nav.*`, `ftr3.*`, `eco3.*`, `ecoD3.*`, `cta.explore*`, `cta.discussIntegration`, `net.m.connected*`, `net.m.groupTech`.
+Changed: `cta.linkYourProperty` now means "Connect Your Property" in all languages; `nav.hotels` is now "For Hotels".
+Check especially: the exact meaning of "eligible" and "participating" (must stay restrictive), "direct contract" vs "connected/third-party" supply, "A KabuK Style Inc. company" (ftr3.company — ja/ko/zh-TW renderings are approximate), and that no translation implies uniform fees or free cancellation.

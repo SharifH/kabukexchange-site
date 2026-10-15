@@ -1819,6 +1819,13 @@
   }
 
   /* ---- Orchestration -------------------------------------------------- */
+  // Directory toolbars are search UIs, not real forms: Enter must not reload.
+  // (Done here instead of an inline onsubmit so the Content-Security-Policy
+  // can forbid inline handlers.)
+  document.addEventListener("submit", function (e) {
+    if (e.target && e.target.matches && e.target.matches("[data-dir-form]")) e.preventDefault();
+  });
+
   function initLaunchFeatures(cfg) {
     launchData.sanitized = cfg && (cfg.buildTarget === "production" || cfg.buildTarget === "preview");
     var need = {

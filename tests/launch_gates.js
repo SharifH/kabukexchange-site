@@ -21,7 +21,7 @@ const path = require("path");
 const [PROD, PREV, SRC] = [process.argv[2] || "http://localhost:8093", process.argv[3] || "http://localhost:8092", process.argv[4] || "http://localhost:8091"];
 const ROOT = path.resolve(__dirname, "..");
 const IGNORE = /fonts\.(googleapis|gstatic)|TUNNEL_CONNECTION|Showing statuses pending|review needed/;
-const GATED = ["/network/", "/network/connectivity/", "/partners/ecosystem/"];
+const GATED = ["/network/connectivity/", "/partners/ecosystem/"];   // /network/ is public; its stats/map are gated in-page
 const fails = []; let passes = 0;
 function ok(cond, msg) { if (cond) passes++; else fails.push(msg); }
 
@@ -80,7 +80,7 @@ const text = (pg, sel) => pg.$eval(sel, e => e.textContent.trim()).catch(() => n
     const r = await pg.evaluate(() => ({
       showcase: !!document.querySelector("#featured-hotels, #featured-connections, [data-proof]"),
       gateAttrs: document.querySelectorAll("[data-gate]").length,
-      gatedLinks: [...document.querySelectorAll("a[href]")].map(a => a.getAttribute("href")).filter(h => /(^|\/)(network\/|network\/connectivity\/|partners\/ecosystem\/)$/.test(h.split("#")[0]) && !/^#/.test(h)),
+      gatedLinks: [...document.querySelectorAll("a[href]")].map(a => a.getAttribute("href")).filter(h => /(^|\/)(network\/connectivity\/|partners\/ecosystem\/)$/.test(h.split("#")[0]) && !/^#/.test(h)),
       heroCta: [...document.querySelectorAll(".hero-cta a, .home-hero a")].map(a => a.getAttribute("href")),
       metrics: document.querySelectorAll("[data-metric], .metric__value").length,
       banner: !!document.querySelector(".preview-banner")
@@ -90,22 +90,38 @@ const text = (pg, sel) => pg.$eval(sel, e => e.textContent.trim()).catch(() => n
     ok(r.gatedLinks.length === 0, `prod home${q}: links to gated routes ${r.gatedLinks}`);
     ok(r.metrics === 0, `prod home${q}: metric elements present`);
     ok(!r.banner, `prod home${q}: preview banner leaked`);
-    ok(r.heroCta.includes("#network"), `prod home${q}: Explore Our Network should point at #network (${r.heroCta})`);
+    ok(r.heroCta.includes("#solutions"), `prod home${q}: hero should lead to #solutions (${r.heroCta})`);
     ok(pg._errors.length === 0, `prod home${q}: errors ${pg._errors}`);
     await pg.context().close();
   }
   {
     const pg = await page(b, PROD + "/sitemap.xml", { ready: false });
     const xml = await pg.content();
-    ok(!/network\/|partners\/ecosystem/.test(xml), "prod sitemap lists a gated route");
+    ok(!/network\/connectivity\/|partners\/ecosystem/.test(xml), "prod sitemap lists a gated route");
+    ok(/\/network\/<\/loc>/.test(xml) && /\/connectivity\/<\/loc>/.test(xml), "prod sitemap should list /network/ and /connectivity/");
     await pg.context().close();
   }
   {
     const pg = await page(b, PROD + "/partners/", { ready: false });
     const nav = await pg.$$eval(".dropdown-item, .site-footer a", as => as.map(a => a.getAttribute("href")));
     ok(nav.some(h => /#ecosystem$/.test(h)), "prod nav keeps the homepage Partner Ecosystem link");
-    ok(!nav.some(h => /network\/$|ecosystem\/$/.test(h)), "prod nav links a gated route");
+    ok(!nav.some(h => /network\/connectivity\/$|ecosystem\/$/.test(h)), "prod nav links a gated route");
     await pg.context().close();
+  }
+
+  {
+    const pg = await page(b, PROD + "/network/", { ready: false, wait: 600 });
+    ok(pg._status === 200, `prod /network/ should be public (got ${pg._status})`);
+    const r = await pg.evaluate(() => ({ metrics: !!document.querySelector("[data-net-metrics], [data-metric]"), map: !!document.querySelector("[data-net-map]"),
+      h1: document.querySelector("h1").textContent,
+      num: (() => { const m = document.querySelector("main").cloneNode(true); m.querySelectorAll("[aria-hidden=true]").forEach(n => n.remove()); return /\b\d{2,}\b/.test(m.textContent); })() }));
+    ok(!r.metrics && !r.map, "prod /network/ must not ship statistics or map while flags are off");
+    ok(/Asia-First Supply/.test(r.h1), "prod /network/ hero missing");
+    ok(!r.num, "prod /network/ shows a number although statistics are off");
+    await pg.context().close();
+    const c = await page(b, PROD + "/connectivity/", { ready: false, wait: 400 });
+    ok(c._status === 200 && (await text(c, "h1")) === "One Integration. Multiple Supply Sources.", "prod /connectivity/ missing");
+    await c.context().close();
   }
 
   /* ---------------- PREVIEW (synthetic fixtures) ---------------- */
@@ -135,7 +151,7 @@ const text = (pg, sel) => pg.$eval(sel, e => e.textContent.trim()).catch(() => n
     await pg.waitForTimeout(reduce ? 100 : 1800);
     const vals = await pg.$$eval("[data-metric]", rows => rows.map(r => [r.getAttribute("data-metric"), r.querySelector(".visually-hidden").textContent, r.querySelector("[aria-hidden]").textContent]));
     const m = Object.fromEntries(vals.map(v => [v[0], v[1]]));
-    ok(m.directProperties === "48" && m.directCountries === "5" && m.availableProperties === "188" && m.countriesCovered === "17",
+    ok(m.directProperties === "48" && m.directCountries === "5" && m.availableProperties === "188" && m.countriesCovered === "17" && m.connectedSupplySources === "6" && m.connectedChannelManagers === "4",
       `preview metrics (dedup) wrong: ${JSON.stringify(m)}`);
     ok(vals.every(v => v[1] === v[2]), `preview count-up did not settle on final values (reduce=${reduce}): ${JSON.stringify(vals)}`);
     const cov = await pg.evaluate(() => ({ d: document.querySelectorAll('[data-cov-list="direct"] li').length, c: document.querySelectorAll('[data-cov-list="connected"] li').length,
@@ -177,7 +193,7 @@ const text = (pg, sel) => pg.$eval(sel, e => e.textContent.trim()).catch(() => n
   {
     const pg = await page(b, PREV + "/network/", { setup: p => p.route("**/data/network-stats.json", async route => {
       const res = await route.fetch(); const j = await res.json();
-      j.metrics[0].value = null; j.metrics[1].value = 0; j.metrics[2].approvedForPublication = false; j.metrics[3].value = 9; j.coverage.direct = []; j.coverage.connected = [];
+      j.metrics[0].value = null; j.metrics[1].value = 0; j.metrics[2].approvedForPublication = false; j.metrics[3].value = 9; j.metrics[4].value = null; j.metrics[5].approvedForPublication = false; j.coverage.direct = []; j.coverage.connected = [];
       await route.fulfill({ response: res, body: JSON.stringify(j) });
     }) });
     const r = await pg.evaluate(() => ({ metrics: [...document.querySelectorAll("[data-metric]")].map(e => e.getAttribute("data-metric")), dash: /—/.test((document.querySelector("#metrics") || {}).innerText || ""), map: !!document.querySelector("#coverage") }));
@@ -290,6 +306,12 @@ const text = (pg, sel) => pg.$eval(sel, e => e.textContent.trim()).catch(() => n
   }
 
   /* ---------------- SOURCE TREE ---------------- */
+  {
+    const pg = await page(b, SRC + "/network/", { ready: false, wait: 700 });
+    ok((await pg.$$("[data-gate], [data-net-metrics], [data-net-map]")).length === 0, "source /network/: gated blocks not removed with flags off");
+    ok((await text(pg, "h1")) === "Asia-First Supply. Global Reach.", "source /network/ should be public");
+    await pg.context().close();
+  }
   for (const r of GATED) {
     const pg = await page(b, SRC + r, { ready: false, wait: 700 });
     const s = await pg.evaluate(() => ({ h1: document.querySelector("h1").textContent, robots: (document.querySelector('meta[name="robots"]') || {}).content }));

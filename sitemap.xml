@@ -18,7 +18,8 @@
   <url><loc>https://www.kbkx.example.com/developers/guides/</loc></url>
   <url><loc>https://www.kbkx.example.com/developers/api/</loc></url>
   <url><loc>https://www.kbkx.example.com/whats-next/</loc></url>
-  <!-- gate:start networkStats|networkCoverageMap --><url><loc>https://www.kbkx.example.com/network/</loc></url><!-- gate:end networkStats|networkCoverageMap -->
+  <url><loc>https://www.kbkx.example.com/network/</loc></url>
+  <url><loc>https://www.kbkx.example.com/connectivity/</loc></url>
   <!-- gate:start connectivityDirectory --><url><loc>https://www.kbkx.example.com/network/connectivity/</loc></url><!-- gate:end connectivityDirectory -->
   <!-- gate:start partnerEcosystem --><url><loc>https://www.kbkx.example.com/partners/ecosystem/</loc></url><!-- gate:end partnerEcosystem -->
 </urlset>
