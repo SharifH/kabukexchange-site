@@ -10,7 +10,7 @@
     "extraImgSrc": [],
     "extraFrameSrc": []
   },
-  "adminConsoleUrl": "https://console.kbkx.example.com/login",
+  "adminConsoleUrl": "https://backoffice.kabukplatform.com",
   "leadRouting": {
     "partnerEmail": "hello@kabukexchange.com",
     "hotelEmail": "hello@kabukexchange.com",

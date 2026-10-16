@@ -78,4 +78,4 @@ Coming Soon as a synonym for Planned; no dates next to Planned/Exploring.
 - ☐ Deploy the **`dist/`** folder from `python3 build.py --production`, never the repository root (the root contains the gated pages’ source files, fixtures and tooling).
 - ☐ `dist-preview/` only on an authenticated staging host.
 - ☐ `/internal/status-badges/` is `noindex,nofollow`, unlinked and not in the sitemap — **this is not access control**. Protect `/internal/` with authentication at the host if it must be private.
-- ☐ `siteUrl` is `https://www.kabukexchange.com` (the build rewrites canonical/OG/sitemap/robots and writes CNAME). Still set `kabukPlatformUrl`, `adminConsoleUrl` (example.com placeholders).
+- ☐ `siteUrl` is `https://www.kabukexchange.com` (the build rewrites canonical/OG/sitemap/robots and writes CNAME). Still set `kabukPlatformUrl` (example.com placeholder). `adminConsoleUrl` (Partner Login) is https://backoffice.kabukplatform.com.
