@@ -12,9 +12,9 @@
   },
   "adminConsoleUrl": "https://console.kbkx.example.com/login",
   "leadRouting": {
-    "partnerEmail": "partnerships@kbkx.example.com",
-    "hotelEmail": "supply@kbkx.example.com",
-    "generalEmail": "hello@kbkx.example.com"
+    "partnerEmail": "hello@kabukexchange.com",
+    "hotelEmail": "hello@kabukexchange.com",
+    "generalEmail": "hello@kabukexchange.com"
   },
   "formMode": "mailto",
   "_footerCompanyStyleHelp": "How the KabuK Style Inc. footer column renders: 'text' (default) or 'icons' (A/B candidate — shows the service icons below).",
@@ -75,9 +75,8 @@
     },
     {
       "label": "Contact",
-      "href": "mailto:hello@kbkx.example.com",
-      "icon": "mail",
-      "note": "PLACEHOLDER EMAIL"
+      "href": "mailto:hello@kabukexchange.com",
+      "icon": "mail"
     },
     {
       "label": "Careers",

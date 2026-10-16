@@ -564,7 +564,7 @@
         var routing = (siteConfig && siteConfig.leadRouting) || {};
         // Which mailbox? Driven by the form's data attribute -> config key.
         var routeKey = form.getAttribute("data-route") || "generalEmail";
-        var target = routing[routeKey] || routing.generalEmail || "hello@example.com";
+        var target = routing[routeKey] || routing.generalEmail || "hello@kabukexchange.com";
 
         var payload = serializeForm(form);
 

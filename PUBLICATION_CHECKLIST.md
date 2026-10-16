@@ -65,7 +65,7 @@ Coming Soon as a synonym for Planned; no dates next to Planned/Exploring.
 ## 4. Privacy, forms and analytics
 
 - ☐ Legal review of `/privacy/` and `/terms/` (placeholders).
-- ☐ Confirm form routing addresses in `site-config.json` (`leadRouting`, still example.com).
+- ☐ Confirm form routing addresses in `site-config.json` (`leadRouting`): all three routes and the footer Contact link now go to hello@kabukexchange.com — confirm the mailbox exists and is monitored, or split partner/hotel routes later.
 - ☐ Forms use `mailto:` — the button says “Prepare Email” and the site never claims server-side delivery. For production, connect an API/CRM (`formMode: "api"`, `apiEndpoint`) with server-side validation, consent logging and spam protection (the honeypot is client-side only).
 - ☐ Analytics: none is wired; `loadAnalytics()` only runs after cookie consent. Any provider added must respect that gate.
 - ☐ Google Fonts (Noto Sans JP) is requested from fonts.googleapis.com; confirm this is acceptable under the privacy policy, or self-host it.
@@ -78,4 +78,4 @@ Coming Soon as a synonym for Planned; no dates next to Planned/Exploring.
 - ☐ Deploy the **`dist/`** folder from `python3 build.py --production`, never the repository root (the root contains the gated pages’ source files, fixtures and tooling).
 - ☐ `dist-preview/` only on an authenticated staging host.
 - ☐ `/internal/status-badges/` is `noindex,nofollow`, unlinked and not in the sitemap — **this is not access control**. Protect `/internal/` with authentication at the host if it must be private.
-- ☐ `siteUrl` is `https://www.kabukexchange.com` (the build rewrites canonical/OG/sitemap/robots and writes CNAME). Still set `kabukPlatformUrl`, `adminConsoleUrl`, `leadRouting` (example.com placeholders).
+- ☐ `siteUrl` is `https://www.kabukexchange.com` (the build rewrites canonical/OG/sitemap/robots and writes CNAME). Still set `kabukPlatformUrl`, `adminConsoleUrl` (example.com placeholders).
