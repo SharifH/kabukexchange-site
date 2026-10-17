@@ -13,7 +13,7 @@ Copy from `KabuK_Exchange_Website_Copy_Updated.md` is implemented. The items bel
 | 2 | "Direct hotel rates without traditional wholesale markups on eligible direct-contract inventory" (For Distributors) | Pricing practice for direct-contract inventory; definition of "eligible" | Commercial / Legal | ☐ |
 | 3 | "Your Brand. Your Relationships." — distributor brand visibility, hotel relationships, exclusive rates for eligible bookings at participating hotels (home, For Distributors) | Operational support for brand visibility; which hotels participate | Commercial / Ops | ☐ |
 | 4 | **Transparent Commercial Terms** — exact approved sentence (home, For Distributors) | Wording is verbatim from the copy file; added fine print "Specific commercial terms are agreed individually with each partner." and the eligibility footnote under the benefit lists — approve or remove | Commercial / Legal | ☐ |
-| 5 | "Technology Connectivity: Supplier APIs, channel managers, and other supported connectivity methods" (home) and "established travel technology connections" (home) | **Conflicts with the roadmap**: channel-manager and PMS connectivity are mapped as *Planned* in `data/product-roadmap.json`. The Our Network page shows the Planned badge next to Channel Managers; the homepage line does not. Approve as-is, reword, or update the roadmap status | Product | ☐ |
+| 5 | "Technology Connectivity: Supplier APIs, channel managers, and other supported connectivity methods" (home) and "established travel technology connections" (home) | **Conflicts with the roadmap**: channel-manager and PMS connectivity are mapped as *Planned* in `data/product-roadmap.json`. The Our Network page shows the Planned badge next to Channel Managers; the homepage line does not. Approve as-is, reword, or update the roadmap status | Product | ☑ Resolved 2026-10-17: owner set channel-manager connectivity to **Live** (some direct, some via a technology partner); PMS connectivity stays Planned |
 | 6 | "Global accommodation inventory through integrated third-party sources / global supply integrations" | At least one third-party supplier integration is live | Product / Supply | ☐ |
 | 7 | For Hotels: "reach participating travel agencies, OTAs, membership platforms, and travel businesses" | Participating distribution partners exist at launch | Commercial | ☐ |
 | 8 | Connectivity page capabilities (content & mapping, search & availability, pricing & commercial rules, booking & reservations incl. cancellation workflows, billing/settlement/reconciliation, monitoring) | Each capability is available today, or mark it with a status badge | Product | ☐ |
@@ -34,14 +34,14 @@ unapproved badge at once. The site refuses to render `live`,
 
 | Product id | Shown as | Where | Source | Owner approval |
 |---|---|---|---|---|
-| `white-label` | Planned | Home, What’s Next, Partners | Copy recommendations (suggested) | ☐ |
-| `agency-portal` | Planned | Home, What’s Next, Partners | Copy recommendations (suggested) | ☐ |
-| `activities` | Planned | Home, What’s Next | Copy recommendations (suggested) | ☐ |
-| `ground-transportation` | Exploring (flights excluded) | Home, What’s Next | Copy recommendations (suggested) | ☐ |
-| `property-system-connectivity` | Planned | Hotels, Partners diagram, About | Carried over from previous build | ☐ |
-| `pms-connectivity` | Planned | Partners | Carried over from previous build | ☐ |
-| `channel-manager-connectivity` | Planned | Partners | Carried over from previous build | ☐ |
-| `ai-assisted-operations` | Planned (was “Roadmap”) | Partners | Carried over from previous build | ☐ |
+| `white-label` | Planned | Home, What’s Next, Partners | Owner review | ☑ Sharif Hadidi, 2026-10-17 |
+| `agency-portal` | Planned | Home, What’s Next, Partners | Owner review | ☑ Sharif Hadidi, 2026-10-17 |
+| `activities` | Pilot | Home, What’s Next | Owner review | ☑ Sharif Hadidi, 2026-10-17 |
+| `ground-transportation` | Coming Soon (flights excluded) | Home, What’s Next | Owner review | ☑ Sharif Hadidi, 2026-10-17 |
+| `property-system-connectivity` | Planned | Hotels, Partners diagram, About | Owner review | ☑ Sharif Hadidi, 2026-10-17 |
+| `pms-connectivity` | Planned | Partners | Owner review | ☑ Sharif Hadidi, 2026-10-17 |
+| `channel-manager-connectivity` | Live | Partners, Our Network | Owner review | ☑ Sharif Hadidi, 2026-10-17 |
+| `ai-assisted-operations` | Planned | Partners | Owner review | ☑ Sharif Hadidi, 2026-10-17 |
 
 Rules: use **Exploring** or no badge when approval is uncertain; never use
 Coming Soon as a synonym for Planned; no dates next to Planned/Exploring.
