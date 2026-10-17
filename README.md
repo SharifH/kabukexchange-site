@@ -160,9 +160,9 @@ Edit **`site-config.json`** → `leadRouting`:
 
 ```json
 "leadRouting": {
-  "partnerEmail": "partnerships@kbkx.example.com",  // Become a Partner form
-  "hotelEmail":   "supply@kbkx.example.com",        // Link Your Property form
-  "generalEmail": "hello@kbkx.example.com"          // fallback
+  "partnerEmail": "hello@kabukexchange.com",  // Become a Partner form
+  "hotelEmail":   "hello@kabukexchange.com",  // Connect Your Property form
+  "generalEmail": "hello@kabukexchange.com"   // fallback + footer Contact link
 }
 ```
 
