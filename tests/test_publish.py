@@ -286,5 +286,151 @@ class PublishTests(unittest.TestCase):
         self.assertEqual(r3["availableProperties"], 1)
 
 
+class LanguageUrlTests(unittest.TestCase):
+    """site-config.json -> languageUrls: static /<lang>/ pages + hreflang."""
+    LANGS = ["en", "ja", "ko", "zh-TW", "ar"]
+    setUp, tearDown, export, dist, read, all_text, set_flags, put_data = (
+        PublishTests.setUp, PublishTests.tearDown, PublishTests.export, PublishTests.dist,
+        PublishTests.read, PublishTests.all_text, PublishTests.set_flags, PublishTests.put_data)
+
+    def enable(self, **over):
+        p = os.path.join(self.site, "site-config.json"); cfg = json.load(open(p))
+        cfg["languageUrls"] = dict(cfg["languageUrls"], enabled=True, **over)
+        json.dump(cfg, open(p, "w"))
+        return cfg["languageUrls"]
+
+    def i18n(self, code):
+        sys.path.insert(0, self.site)
+        import language_pages
+        return language_pages.flatten(json.load(open(os.path.join(self.site, "i18n", code + ".json"), encoding="utf-8")))
+
+    @staticmethod
+    def url(code, route):
+        return "https://www.kabukexchange.com" + ("" if code == "en" else "/" + code) + route
+
+    def head_links(self, doc):
+        import re
+        canon = re.findall(r'<link href="([^"]+)" rel="canonical"/>', doc)
+        alts = dict((h, u) for u, h in re.findall(r'<link href="([^"]+)" hreflang="([^"]+)" rel="alternate"/>', doc))
+        return canon, alts
+
+    def page_file(self, code, route):
+        return ("" if code == "en" else code + "/") + (route.strip("/") + "/index.html").lstrip("/")
+
+    def test_off_by_default_and_english_unchanged(self):
+        cfg = json.load(open(os.path.join(ROOT, "site-config.json")))
+        self.assertIs(cfg["languageUrls"]["enabled"], False, "languageUrls must ship disabled")
+        self.assertEqual(self.export(), 0, self.log)
+        for code in self.LANGS[1:]: self.assertFalse(os.path.exists(self.dist(code)), code)
+        text = self.all_text()
+        self.assertNotIn("hreflang", text); self.assertNotIn("data-lang-urls", text)
+        self.assertEqual(json.load(open(self.dist("site-config.json")))["languageUrls"], {"enabled": False, "languages": [], "pages": []})
+
+    def test_language_pages_canonical_and_hreflang(self):
+        import re
+        lu = self.enable()
+        self.assertEqual(self.export(), 0, self.log)
+        routes = [r for r in lu["pages"] if r not in ("/network/connectivity/", "/partners/ecosystem/")]
+        dicts = {c: self.i18n(c) for c in self.LANGS}
+        for route in routes:
+            want = {c: self.url(c, route) for c in self.LANGS}
+            want["x-default"] = self.url("en", route)
+            for code in self.LANGS:
+                doc = self.read(self.page_file(code, route))
+                canon, alts = self.head_links(doc)
+                self.assertEqual(canon, [self.url(code, route)], "%s %s: self-referencing canonical" % (code, route))
+                self.assertEqual(alts, want, "%s %s: full, reciprocal hreflang set" % (code, route))
+                if 'property="og:url"' in doc:
+                    self.assertIn('<meta content="%s" property="og:url"/>' % self.url(code, route), doc)
+                html_tag = re.search(r"<html[^>]*>", doc).group(0)
+                self.assertIn('lang="%s"' % code, html_tag)
+                self.assertIn('dir="%s"' % ("rtl" if code == "ar" else "ltr"), html_tag)
+                self.assertIn("data-lang-urls", html_tag)
+                h1 = re.search(r'<h1[^>]*data-i18n="([^"]+)"[^>]*>(.*?)</h1>', doc, re.S)
+                import html as H
+                self.assertEqual(H.unescape(h1.group(2)), dicts[code].get(h1.group(1)) or dicts["en"][h1.group(1)], "%s %s h1" % (code, route))
+                if code != "en":
+                    self.assertIn("<title>%s | KabuK Exchange</title>" % h1.group(2), doc)
+                self.assertIn('http-equiv="Content-Security-Policy"', doc)
+                self.assertNotRegex(doc, r'\son[a-z]+="')
+        # titles and descriptions stay unique across the whole export
+        titles, descs = {}, {}
+        for d, _, fs in os.walk(self.dist("")):
+            for f in fs:
+                if not f.endswith(".html") or "internal" in d or f == "404.html": continue
+                doc = open(os.path.join(d, f), encoding="utf-8").read()
+                if 'name="robots"' in doc and "noindex" in doc: continue
+                rel = os.path.relpath(os.path.join(d, f), self.dist(""))
+                titles.setdefault(re.search(r"<title>(.*?)</title>", doc, re.S).group(1), []).append(rel)
+                descs.setdefault(re.search(r'<meta content="([^"]*)" name="description"', doc).group(1), []).append(rel)
+        self.assertEqual({t: v for t, v in titles.items() if len(v) > 1}, {}, "duplicate <title>")
+        self.assertEqual({t: v for t, v in descs.items() if len(v) > 1}, {}, "duplicate description")
+        # English-only pages keep a single URL and no hreflang
+        dev = self.read("developers/index.html")
+        self.assertNotIn("hreflang", dev); self.assertFalse(os.path.exists(self.dist("ja/developers")))
+
+    def test_links_and_assets_resolve(self):
+        import re
+        self.enable()
+        self.assertEqual(self.export(), 0, self.log)
+        out = self.dist("")
+        for code in self.LANGS[1:]:
+            for d, _, fs in os.walk(os.path.join(out, code)):
+                for f in fs:
+                    p = os.path.join(d, f); doc = open(p, encoding="utf-8").read()
+                    urls = re.findall(r'\s(?:href|src)="([^"]*)"', doc)
+                    urls += [c.strip().split(" ")[0] for ss in re.findall(r'srcset="([^"]*)"', doc) for c in ss.split(",")]
+                    for u in urls:
+                        if not u or re.match(r"(https?:|mailto:|tel:|data:|#|//)", u): continue
+                        t = os.path.normpath(os.path.join(d, u.split("#")[0].split("?")[0]))
+                        if os.path.isdir(t): t = os.path.join(t, "index.html")
+                        self.assertTrue(os.path.exists(t), "%s: broken %s" % (os.path.relpath(p, out), u))
+        ja_home = self.read("ja/index.html")
+        self.assertIn('href="hotels/"', ja_home)                 # stays in /ja/
+        self.assertIn('href="../developers/"', ja_home)          # English-only page
+        self.assertIn('href="../styles.css"', ja_home)
+        self.assertIn('src="../script.js"', ja_home)
+        ja_hotels = self.read("ja/hotels/index.html")
+        self.assertIn('href="../"', ja_hotels)                   # /ja/ home
+        self.assertIn('href="../../styles.css"', ja_hotels)
+
+    def test_sitemap_lists_every_language_url(self):
+        import re
+        lu = self.enable()
+        self.assertEqual(self.export(), 0, self.log)
+        sm = self.read("sitemap.xml")
+        self.assertIn('xmlns:xhtml="http://www.w3.org/1999/xhtml"', sm)
+        locs = re.findall(r"<loc>([^<]+)</loc>", sm)
+        self.assertEqual(len(locs), len(set(locs)), "duplicate sitemap entries")
+        for route in lu["pages"]:
+            gated = route in ("/network/connectivity/", "/partners/ecosystem/")
+            for code in self.LANGS:
+                self.assertEqual(self.url(code, route) in locs, not gated, "%s %s in sitemap" % (code, route))
+            if gated: continue
+            entry = re.search(r"<url><loc>%s</loc>(.*?)</url>" % re.escape(self.url("ja", route)), sm).group(1)
+            alts = dict(re.findall(r'hreflang="([^"]+)" href="([^"]+)"', entry))
+            self.assertEqual(alts, dict({c: self.url(c, route) for c in self.LANGS}, **{"x-default": self.url("en", route)}))
+        self.assertIn("<loc>https://www.kabukexchange.com/developers/</loc>", sm)
+        self.assertNotIn("/ja/developers/", sm)
+        cfg = json.load(open(self.dist("site-config.json")))["languageUrls"]
+        self.assertEqual(cfg["languages"], ["ja", "ko", "zh-TW", "ar"])
+        self.assertNotIn("/partners/ecosystem/", cfg["pages"])
+
+    def test_gated_routes_follow_their_flag(self):
+        self.put_data(); self.set_flags(partnerEcosystem=True); self.enable()
+        self.assertEqual(self.export(), 0, self.log)
+        self.assertTrue(os.path.exists(self.dist("ja/partners/ecosystem/index.html")))
+        self.assertFalse(os.path.exists(self.dist("ja/network/connectivity")))
+        self.assertNotIn("network/connectivity/", self.read("ja/index.html"))
+
+    def test_bad_language_config_refused(self):
+        self.enable(languages=["ja", "fr"])
+        self.assertEqual(self.export(), 1); self.assertIn("'fr' is not a non-English language", self.log)
+        self.enable(languages=["ja"], pages=["/", "/privacy/"])
+        self.assertEqual(self.export(), 1); self.assertIn("/privacy/ is noindex", self.log)
+        self.enable(languages=["ja"], pages=["/nope/"])
+        self.assertEqual(self.export(), 1); self.assertIn("/nope/ is not a page", self.log)
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=1)

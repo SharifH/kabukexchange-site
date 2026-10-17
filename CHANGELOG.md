@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-17 — Indexable language URLs (built, `languageUrls` OFF)
+- New `site-config.json → languageUrls` (ships `enabled: false`). When on, the production export adds static `/ja/`, `/ko/`, `/zh-TW/`, `/ar/` copies of 10 pages (+ the two launch-gated pages while their flags are on) with the i18n copy rendered into the HTML, correct `lang`/`dir`, translated title/description, self-referencing canonicals, a full hreflang set with `x-default`, and per-language sitemap entries with `xhtml:link` alternates (`language_pages.py`).
+- `script.js`: on those pages the URL decides the language; the selector navigates to the matching language URL and config links stay in-language. Unchanged when the flag is off.
+- English URLs, files and canonicals unchanged. Tests: `test_publish.py` LanguageUrlTests, `check_site.py` config check, new `tests/language_urls.js` + `tests/make_language_export.py`.
+
 ## 2026-10-15 (b) — Messaging update: Asia-first hotel supply and commercial differentiation (not deployed)
 Source: `KabuK_Exchange_Website_Copy_Updated.md` + `Claude_Prompt_KabuK_Exchange_Website_Update.md`.
 - **Homepage:** hero "Asia-First Hotel Supply. Global Connectivity." / "One Connection. More Opportunities."; CTAs Explore Our Solutions + Become a Partner; new "Introducing KabuK Exchange"; "Why KabuK Exchange?" (Direct Hotel Rates · Transparent Commercial Terms · Your Brand. Your Relationships. · One Integration. Multiple Supply Sources. · Asia-First. Globally Connected.); Solutions reduced to For Distributors / For Hotels; "Network & Connectivity" replaces "Supply strategy"; new closing CTA. Kept: launch-gated showcases, journey, Platform foundation, What's Next, partner types.

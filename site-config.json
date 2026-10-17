@@ -94,6 +94,14 @@
     "homepageFeaturedConnections": false,
     "homepageFeaturedHotels": false
   },
+  "_languageUrlsHelp": "SEO LANGUAGE URLS. Ships false. When enabled is true, 'python3 build.py --production' also writes static, indexable copies of the listed pages for each listed language (/ja/hotels/, /ar/about/ …) with the copy from i18n/<code>.json rendered into the HTML, the right lang/dir, self-referencing canonicals, a full hreflang set (+ x-default = English) and sitemap entries; the language selector then links to those URLs. English URLs do not change. The non-English copy is machine-assisted draft (TRANSLATION_REVIEW.md): set enabled to true ONLY after it has been reviewed and the owner approves publication. Pages listed here that are launch-gated are skipped while their feature flag is off.",
+  "languageUrls": {
+    "enabled": false,
+    "languages": ["ja", "ko", "zh-TW", "ar"],
+    "pages": ["/", "/hotels/", "/partners/", "/network/", "/connectivity/", "/platform/", "/about/",
+              "/whats-next/", "/become-a-partner/", "/link-your-property/",
+              "/network/connectivity/", "/partners/ecosystem/"]
+  },
   "_disclosureHelp": "Site-wide disclosure approvals. bakuunNameApproved: set true only with written authorization to name Bakuun publicly. While false, production output never names Bakuun: every 'bakuun' connection renders as 'Via Technology Partner' and Bakuun examples are left out of the badge gallery. Per-record approvals (connectionProviderDisclosureApproved) are still required.",
   "disclosure": {
     "bakuunNameApproved": false

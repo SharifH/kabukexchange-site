@@ -34,12 +34,26 @@
     return src ? src.replace(/[^/]*$/, "") : "";
   })();
 
+  // Language URLs (site-config.json -> languageUrls, production export only):
+  // pages under /ja/, /ko/ … are static copies with the copy already in the
+  // HTML. On those pages the URL decides the language, and the publish step
+  // marks them (and their English originals) with <html data-lang-urls>.
+  var PAGE_LANG = document.documentElement.hasAttribute("data-lang-urls")
+    ? (document.documentElement.getAttribute("lang") || DEFAULT_LANG) : null;
+
   // Resolve a config href that may be root-absolute ("/hotels/") against BASE,
-  // while leaving external (http, mailto, #…) links untouched.
+  // while leaving external (http, mailto, #…) links untouched. On a language
+  // URL page, links to pages that also have language URLs stay in that language.
   function resolveHref(href) {
     if (!href) return "#";
     if (/^(https?:|mailto:|tel:|#|\/\/)/i.test(href)) return href;
-    if (href.charAt(0) === "/") return BASE + href.slice(1);
+    if (href.charAt(0) === "/") {
+      var lu = (siteConfig && siteConfig.languageUrls) || {};
+      var route = href.split(/[?#]/)[0];
+      if (PAGE_LANG && PAGE_LANG !== DEFAULT_LANG && lu.enabled && (lu.pages || []).indexOf(route) !== -1)
+        return BASE + PAGE_LANG + href;
+      return BASE + href.slice(1);
+    }
     return href;
   }
 
@@ -261,6 +275,7 @@
   }
 
   function getLang() {
+    if (PAGE_LANG && LANGUAGES.some(function (l) { return l.code === PAGE_LANG; })) return PAGE_LANG;
     var stored = null;
     try { stored = localStorage.getItem(LANG_KEY); } catch (e) {}
     if (stored && LANGUAGES.some(function (l) { return l.code === stored; })) return stored;
@@ -313,6 +328,14 @@
     afterLangHooks.forEach(function (fn) { try { fn(); } catch (e) {} });
   }
 
+  // The language URL of this page for `code`, from its hreflang alternates
+  // (absolute production URLs, re-based on BASE so previews and subpaths work).
+  function languageUrl(code) {
+    var link = $all('link[rel="alternate"][hreflang]').filter(function (l) { return l.getAttribute("hreflang") === code; })[0];
+    if (!link) return null;
+    return BASE + link.getAttribute("href").replace(/^https?:\/\/[^/]+\//, "") + location.hash;
+  }
+
   // Public: switch language. Ensures English (fallback) + target are loaded.
   function setLang(code) {
     if (!LANGUAGES.some(function (l) { return l.code === code; })) code = DEFAULT_LANG;
@@ -330,7 +353,15 @@
       opt.textContent = l.label;
       sel.appendChild(opt);
     });
-    sel.addEventListener("change", function () { setLang(sel.value); });
+    sel.addEventListener("change", function () {
+      var url = PAGE_LANG && sel.value !== PAGE_LANG && languageUrl(sel.value);
+      if (url) {
+        try { localStorage.setItem(LANG_KEY, sel.value); } catch (e) {}
+        window.location.href = url;
+        return;
+      }
+      setLang(sel.value);
+    });
   }
 
   // Load the language manifest, build the selector, apply the active language.
