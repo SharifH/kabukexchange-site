@@ -7,7 +7,8 @@ Static checks for the KabuK Exchange site (Python 3 standard library only).
 Checks: JSON validity · internal links, anchors and srcsets · duplicate ids ·
 i18n coverage and HTML/en.json sync · i18n-bundle.js freshness · status
 catalog + roadmap rules (approval guard) · hidden gallery is noindex,
-unlinked and absent from the sitemap · every page loads the bundle + script.
+unlinked and absent from the sitemap · every page loads the bundle + script ·
+sitemap pages are indexable with canonical + og:image · JSON-LD parses.
 Launch gates: featureFlags shape · every data-gate element sits inside a
 matching gate block · with all flags off no gated link/attribute survives ·
 gated routes carry data-gate-page · public data files hold no fixture or
@@ -138,6 +139,20 @@ else:
     if "internal/status-badges" in open(os.path.join(ROOT, "sitemap.xml"), encoding="utf-8").read(): err("gallery listed in sitemap.xml")
     for p in pages:
         if p != gal and "status-badges" in open(p, encoding="utf-8").read(): err("%s links to the hidden gallery" % rel(p))
+
+# 6b. SEO: sitemap pages are indexable and shareable; structured data parses
+sm_text = open(os.path.join(ROOT, "sitemap.xml"), encoding="utf-8").read()
+for loc in re.findall(r"<loc>https?://[^/]+/([^<]*)</loc>", sm_text):
+    sp = os.path.join(ROOT, loc, "index.html") if (loc == "" or loc.endswith("/")) else os.path.join(ROOT, loc)
+    if not os.path.exists(sp): err("sitemap.xml lists missing page /%s" % loc); continue
+    t = open(sp, encoding="utf-8").read()
+    if re.search(r'<meta[^>]*noindex[^>]*>', t): err("sitemap.xml lists noindex page /%s" % loc)
+    if 'rel="canonical"' not in t: err("/%s: missing canonical link" % loc)
+    if 'property="og:image"' not in t: err("/%s: missing og:image (social share preview)" % loc)
+for p in pages:
+    for body in re.findall(r'<script type="application/ld\+json">(.*?)</script>', open(p, encoding="utf-8").read(), re.S):
+        try: json.loads(body)
+        except ValueError as e: err("%s: invalid JSON-LD (%s)" % (rel(p), e))
 
 # 7. Launch gates
 sys.path.insert(0, ROOT)

@@ -29,23 +29,37 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
 <link href="styles.css" rel="stylesheet"/>
 <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
   {
-    "@context": "https://schema.org",
+   "@type": "Organization",
+   "@id": "https://kabukexchange.com/#organization",
+   "name": "KabuK Exchange",
+   "alternateName": "KBKx",
+   "url": "https://kabukexchange.com/",
+   "logo": "https://kabukexchange.com/assets/brand/kabuk-exchange-logo.png",
+   "description": "KabuK Exchange is building an Asia-first travel distribution network focused on direct accommodation relationships across Asia, complemented by connected global inventory, and powered by KabuK Platform.",
+   "email": "hello@kabukexchange.com",
+   "parentOrganization": {
     "@type": "Organization",
     "name": "KabuK Style Inc.",
-    "url": "https://www.kabuk.co.jp",
-    "brand": {
-      "@type": "Brand",
-      "name": "KabuK Exchange",
-      "description": "KabuK Exchange is building an Asia-first travel distribution network focused on direct accommodation relationships across Asia, complemented by connected global inventory, and powered by KabuK Platform.",
-      "url": "https://kabukexchange.com/",
-      "logo": "https://kabukexchange.com/assets/brand/kabuk-exchange-logo.png"
-    }
+    "url": "https://www.kabuk.co.jp"
+   }
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://kabukexchange.com/#website",
+   "name": "KabuK Exchange",
+   "url": "https://kabukexchange.com/",
+   "inLanguage": "en",
+   "publisher": {
+    "@id": "https://kabukexchange.com/#organization"
+   }
   }
-  </script>
-<script type="application/ld+json">
-  { "@context": "https://schema.org", "@type": "WebSite", "name": "KabuK Exchange", "url": "https://kabukexchange.com/" }
-  </script>
+ ]
+}
+</script>
 </head>
 <body>
 <a class="skip-link" href="#main" data-i18n="hdr.skip">Skip to content</a>
