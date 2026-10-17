@@ -244,6 +244,33 @@ class PublishTests(unittest.TestCase):
             self.assertNotIn(o, text)
         self.assertNotRegex(text, r'(src|href|action)="http://')
 
+    def test_sitemap_lastmod_and_noindex_pages_dropped(self):
+        import re
+        sm = os.path.join(self.site, "sitemap.xml")
+        src = open(sm).read()
+        open(sm, "w").write(src.replace("</urlset>", "  <url><loc>https://www.kbkx.example.com/privacy/</loc></url>\n</urlset>"))
+        self.P.page_lastmod = lambda rel: "2026-01-02" if rel == "hotels/index.html" else None
+        self.assertEqual(self.export(), 0, self.log)
+        out = self.read("sitemap.xml")
+        self.assertNotIn("/privacy/", out)          # noindex page removed even if listed
+        self.assertIn("<loc>https://www.kabukexchange.com/hotels/</loc><lastmod>2026-01-02</lastmod>", out)
+        self.assertIn("<loc>https://www.kabukexchange.com/about/</loc></url>", out)   # unknown date -> no lastmod
+        public = [u for u in re.findall(r"<loc>[^<]+</loc>", src) if not any(r.replace("index.html", "") in u for r in ROUTES)]
+        self.assertEqual(len(re.findall(r"<url>", out)), len(public))     # nothing else dropped
+
+    def test_structured_data_uses_production_domain(self):
+        import re
+        self.assertEqual(self.export(), 0, self.log)
+        for rel in ("index.html", "about/index.html", "platform/security/index.html"):
+            for body in re.findall(r'<script type="application/ld\+json">(.*?)</script>', self.read(rel), re.S):
+                doc = json.loads(body)
+                self.assertIn("https://www.kabukexchange.com/", json.dumps(doc))
+        crumbs = re.search(r'<script type="application/ld\+json">(.*?BreadcrumbList.*?)</script>',
+                           self.read("platform/security/index.html"), re.S)
+        items = json.loads(crumbs.group(1))["itemListElement"]
+        self.assertEqual([i["item"] for i in items], ["https://www.kabukexchange.com/",
+            "https://www.kabukexchange.com/platform/", "https://www.kabukexchange.com/platform/security/"])
+
     def test_csp_hashes_inline_script_and_allows_configured_origins(self):
         import base64, hashlib, re
         p = os.path.join(self.site, "site-config.json"); cfg = json.load(open(p))

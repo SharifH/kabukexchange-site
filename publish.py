@@ -23,6 +23,7 @@ import json
 import os
 import re
 import shutil
+import subprocess
 import sys
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -260,6 +261,34 @@ def sanitize(rel, doc, flags, today, statuses, problems):
 
 
 # ---- export ----------------------------------------------------------------
+def page_lastmod(rel):
+    """YYYY-MM-DD of the last commit touching a source page, or None (no git / untracked)."""
+    try:
+        out = subprocess.run(["git", "log", "-1", "--format=%cs", "--", rel], cwd=ROOT,
+                             capture_output=True, text=True, timeout=10).stdout.strip()
+    except (OSError, subprocess.SubprocessError):
+        return None
+    return out if re.match(r"^\d{4}-\d{2}-\d{2}$", out) else None
+
+
+def finalize_sitemap(out_dir, site_url):
+    """Production sitemap: drop pages marked noindex (Search Console flags them as
+    'submitted URL marked noindex') and add <lastmod> from git history."""
+    sm = os.path.join(out_dir, "sitemap.xml")
+    if not os.path.exists(sm): return
+    def entry(m):
+        loc = m.group(1)
+        if not loc.startswith(site_url + "/"): return m.group(0)
+        rel = loc[len(site_url) + 1:] + "index.html" if loc.endswith("/") else loc[len(site_url) + 1:]
+        page = os.path.join(out_dir, rel)
+        if os.path.exists(page) and re.search(r'<meta[^>]*name="robots"[^>]*noindex|<meta[^>]*noindex[^>]*name="robots"', read_text(page)):
+            print("  sitemap: dropped noindex page", loc)
+            return ""
+        mod = page_lastmod(rel)
+        return "  <url><loc>%s</loc>%s</url>\n" % (loc, "<lastmod>%s</lastmod>" % mod if mod else "")
+    write_text(sm, re.sub(r"[ \t]*<url><loc>([^<]+)</loc>(?:<lastmod>[^<]*</lastmod>)?</url>\n?", entry, read_text(sm)))
+
+
 def export(target):
     preview = target == "preview"
     out_dir = os.path.join(ROOT, "dist-preview" if preview else "dist")
@@ -416,6 +445,7 @@ def export(target):
         write_text(p, s)
     if site_url and not preview:
         write_text(os.path.join(out_dir, "CNAME"), site_url.split("://", 1)[1] + "\n")
+        finalize_sitemap(out_dir, site_url)
 
     # 5. Config + robots for the target.
     out_cfg = {k: v for k, v in cfg.items() if not k.startswith("_")}   # editor notes stay out of dist/
