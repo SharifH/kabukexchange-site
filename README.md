@@ -35,11 +35,12 @@ Built with **plain HTML, CSS, and vanilla JavaScript** plus a couple of **JSON c
 | `whats-next/index.html` | Future directions (roadmap with status badges) → `/whats-next/` |
 | `data/statuses.json`, `data/product-roadmap.json` | Status badge catalog and product-to-status mapping (see “Status badges”) |
 | `internal/status-badges/` | Hidden design-system reference for badges (noindex, unlinked) |
-| `tests/` | `check_site.py` (static checks), `test_publish.py` (publish-step unit tests), `browser_smoke.js` and `launch_gates.js` (Playwright) |
+| `tests/` | `check_site.py` (static checks), `test_publish.py` (publish-step unit tests), `browser_smoke.js`, `launch_gates.js` and `language_urls.js` (Playwright), `make_language_export.py` (flag-on export for review/tests) |
 | `partials/ecosystem.html` | Markup for the signature Supply → KabuK Exchange → Distribution visual (synced between `<!-- eco:start -->` / `<!-- eco:end -->` markers) |
 | `i18n-bundle.js` | **Generated** by `build.py` from `i18n/*.json` — the runtime copy of all translations. Do not edit by hand. |
 | `build.py` | Syncs partials into every page, relativizes paths, regenerates `i18n-bundle.js`; `--production` / `--preview` export the site (see “Launch gates”) |
 | `publish.py` | The launch-gated export used by `build.py --production` / `--preview` (publication rules, route/data exclusion, leak guards) |
+| `language_pages.py` | Called by `publish.py`: static `/ja/…`, `/ko/…`, `/zh-TW/…`, `/ar/…` pages + hreflang + sitemap entries, only with `languageUrls.enabled` (see “Indexable language URLs”) |
 | `network/`, `network/connectivity/`, `partners/ecosystem/` | **Launch-gated** pages: network statistics + coverage map, connectivity directory, partner ecosystem. Not in `dist/` until enabled |
 | `data/network-stats.json`, `data/integrations.json`, `data/partners-ecosystem.json`, `data/featured-connections.json`, `data/featured-properties.json` | Launch-gated data (ship **empty** — no real records yet) |
 | `data/connection-methods.json` | Connection-method badge family (Direct Integration · Via Bakuun · Via Technology Partner) |
@@ -394,6 +395,11 @@ NODE_PATH=$(npm root -g) node tests/browser_smoke.js http://localhost:8091     #
 NODE_PATH=$(npm root -g) node tests/browser_smoke.js http://localhost:8093     # same, against the production export
 NODE_PATH=$(npm root -g) node tests/launch_gates.js http://localhost:8093 http://localhost:8092 http://localhost:8091
 ```
+Language URLs (`site-config.json → languageUrls`, off by default): `test_publish.py` covers canonicals, hreflang, `lang`/`dir`, sitemap entries and links of a flag-on export; for the browser check build one in a temporary copy:
+```bash
+python3 tests/make_language_export.py /tmp/kbkx-lang && python3 -m http.server 8094 -d /tmp/kbkx-lang &
+NODE_PATH=$(npm root -g) node tests/language_urls.js http://localhost:8094
+```
 `launch_gates.js` checks that production has no gated routes, data, links, showcases or numbers (also with query strings), and exercises the preview components: search, filters (alone and combined), sorts, empty state, clear-all, URL state, keyboard use, missing logos, unapproved and prospective records, unknown and inconsistent metrics, deduplicated figures, reduced motion, RTL and overflow at 375/768/1440px. It also confirms the browser and `publish.py` apply identical publication rules.
 
 ## Cookie / analytics consent
@@ -415,7 +421,7 @@ search results. Update the URLs there (and the PLACEHOLDER domain) before launch
 | Homepage `#network` | `whats-next/index.html` | Future directions (roadmap with status badges) → `/whats-next/` |
 | `data/statuses.json`, `data/product-roadmap.json` | Status badge catalog and product-to-status mapping (see “Status badges”) |
 | `internal/status-badges/` | Hidden design-system reference for badges (noindex, unlinked) |
-| `tests/` | `check_site.py` (static checks), `test_publish.py` (publish-step unit tests), `browser_smoke.js` and `launch_gates.js` (Playwright) |
+| `tests/` | `check_site.py` (static checks), `test_publish.py` (publish-step unit tests), `browser_smoke.js`, `launch_gates.js` and `language_urls.js` (Playwright), `make_language_export.py` (flag-on export for review/tests) |
 | `partials/ecosystem.html` | Full network: Supply → KabuK Exchange → Distribution, connectivity rail, KabuK Platform foundation, OTAs on both sides |
 | `/hotels/` | `partials/eco-hotels.html` | Fan-out: *your property* → KBKx → the channels you approve (+ planned PMS/channel-manager rail) |
 | `/partners/` hero | `partials/eco-demand.html` | Fan-in: many supply sources → KBKx → *your platform* |
@@ -461,6 +467,39 @@ How it works:
   - `data-i18n-aria-label="key"` → replaces an aria-label
 - **Missing/blank keys fall back to English**, so a partially translated language never breaks the page — it just shows English for the gaps.
 - **Arabic** switches the whole page to right-to-left via `dir="rtl"` on `<html>`; the CSS uses logical properties so the layout mirrors correctly.
+
+### Indexable language URLs (SEO) — off until the translations are approved
+
+By default the four non-English languages exist **only in the browser**: every page has one
+URL, served in English, and search engines index only English. The production build can
+also publish static, indexable language versions — switched **off** in `site-config.json`:
+
+```json
+"languageUrls": {
+  "enabled": false,
+  "languages": ["ja", "ko", "zh-TW", "ar"],
+  "pages": ["/", "/hotels/", "/partners/", "/network/", "/connectivity/", "/platform/", "/about/",
+            "/whats-next/", "/become-a-partner/", "/link-your-property/",
+            "/network/connectivity/", "/partners/ecosystem/"]
+}
+```
+
+With `"enabled": true`, `python3 build.py --production` (implemented in `language_pages.py`, called by `publish.py`):
+
+- writes `/ja/hotels/`, `/ko/hotels/`, `/zh-TW/hotels/`, `/ar/hotels/` … for every listed page, with the copy from `i18n/<code>.json` **rendered into the HTML** (English fallback, exactly like `script.js`), and the right `<html lang>` / `dir` (`rtl` for Arabic);
+- gives each language page a translated `<title>` (`<h1> | KabuK Exchange`) and description (first full paragraph after the `<h1>`), plus matching Open Graph/Twitter tags;
+- sets a **self-referencing canonical** on every page and the **same full hreflang set** (`en`, `ja`, `ko`, `zh-TW`, `ar`, `x-default` = English) on every page of a cluster, English included;
+- lists every language URL in `sitemap.xml`, each with `xhtml:link` alternates;
+- marks those pages with `<html data-lang-urls>`, so the **language selector links to the language URLs** (the URL decides the language; a stored preference never overrides it) and config-driven links stay inside the language.
+
+What does not change: the English URLs, files and canonicals; pages not listed (developer, platform sub-pages, resources, legal — still English-only bodies) keep one URL and the in-page switch; launch-gated pages only get language URLs while their feature flag is on; the CSP and all launch-gate guards apply to the language pages too. The build refuses unknown languages, missing pages and `noindex` pages in the list.
+
+**Before enabling:** the non-English copy is machine-assisted draft — complete `TRANSLATION_REVIEW.md` and get the owner’s approval first. To review the result without enabling it:
+
+```bash
+python3 tests/make_language_export.py /tmp/kbkx-lang     # temp copy with the flag on → /tmp/kbkx-lang
+python3 -m http.server 8094 -d /tmp/kbkx-lang             # open http://localhost:8094/ja/
+```
 
 ### Editing copy
 

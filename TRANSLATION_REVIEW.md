@@ -1,5 +1,11 @@
 # Translation review inventory
 
+> **Publication gate:** these translations are client-side only until `site-config.json →
+> languageUrls.enabled` is set to `true`. That publishes indexable `/ja/`, `/ko/`, `/zh-TW/`
+> and `/ar/` URLs (see README “Indexable language URLs”), so sign off this inventory —
+> including page titles, which are built from each page’s translated `<h1>` — and get the
+> owner’s approval first.
+
 All non-English strings are **machine/draft quality** and need native-speaker review
 before publication (ja, ko, zh-TW, ar). Brand names (KabuK Exchange, KBKx, KabuK Platform,
 KabuK Style Inc., HafH) are intentionally untranslated.

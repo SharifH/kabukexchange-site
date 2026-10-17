@@ -12,7 +12,7 @@ sitemap pages are indexable with canonical + og:image · JSON-LD parses.
 Launch gates: featureFlags shape · every data-gate element sits inside a
 matching gate block · with all flags off no gated link/attribute survives ·
 gated routes carry data-gate-page · public data files hold no fixture or
-internal fields · fixtures are marked synthetic.
+internal fields · fixtures are marked synthetic · languageUrls config shape.
 Exit code 1 if any ERROR is reported; WARN lines are informational.
 """
 import glob, html, json, os, re, sys
@@ -165,6 +165,19 @@ else:
         if not isinstance(ff.get(k), bool): err("featureFlags.%s must be true/false" % k)
     on = [k for k in PUB.FLAGS if ff.get(k) is True]
     print("INFO  featureFlags on: %s" % (", ".join(on) or "none (all launch-gated features withheld)"))
+lu = cfg.get("languageUrls")
+if not isinstance(lu, dict) or not isinstance(lu.get("enabled"), bool):
+    err("site-config.json: languageUrls.enabled must be true or false")
+else:
+    langs_known = [l["code"] for l in json.load(open(os.path.join(ROOT, "i18n", "languages.json"), encoding="utf-8"))]
+    for c in lu.get("languages") or []:
+        if c == "en" or c not in langs_known: err("site-config.json: languageUrls.languages has unknown language %r" % c)
+    for r_ in lu.get("pages") or []:
+        f_ = os.path.join(ROOT, (r_.strip("/") + "/index.html").lstrip("/"))
+        if not os.path.exists(f_): err("site-config.json: languageUrls.pages lists %s, which is not a page" % r_)
+        elif "noindex" in open(f_, encoding="utf-8").read(): err("site-config.json: languageUrls.pages lists noindex page %s" % r_)
+    print("INFO  languageUrls: %s" % ("ON — /<lang>/ pages + hreflang are published" if lu["enabled"]
+                                     else "off (language versions are client-side only; needs owner approval)"))
 if cfg.get("buildTarget"): err("site-config.json must not set buildTarget (the publish step writes it)")
 gated_hrefs = [r.replace("index.html", "") for r in PUB.ROUTE_GATES]
 off = {k: False for k in PUB.FLAGS}

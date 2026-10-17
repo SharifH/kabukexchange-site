@@ -26,6 +26,8 @@ import shutil
 import subprocess
 import sys
 
+import language_pages
+
 ROOT = os.path.dirname(os.path.abspath(__file__))
 
 FLAGS = ["networkStats", "networkCoverageMap", "connectivityDirectory",
@@ -412,6 +414,13 @@ def export(target):
         doc.pop("_comment", None)
         write_text(cm, json.dumps(doc, ensure_ascii=False, indent=1) + "\n")
 
+    # 4b2. Indexable language URLs (/ja/hotels/ …) + hreflang — only with
+    #      site-config.json -> languageUrls.enabled (off until the draft
+    #      translations are approved). Runs after the gates so withheld
+    #      routes and links never get language copies.
+    gated_out = {rel for rel, expr in ROUTE_GATES.items() if not gate_on(expr, flags)}
+    localized, localized_langs = language_pages.generate(ROOT, out_dir, cfg, gated_out, problems)
+
     # 4c. HTTPS hardening: real domain, CNAME, CSP + referrer policy.
     site_url = (cfg.get("siteUrl") or "").rstrip("/")
     if not re.match(r"^https://[a-z0-9.-]+\.[a-z]{2,}$", site_url):
@@ -451,6 +460,7 @@ def export(target):
     out_cfg = {k: v for k, v in cfg.items() if not k.startswith("_")}   # editor notes stay out of dist/
     out_cfg["featureFlags"] = {k: flags[k] for k in FLAGS}
     out_cfg["disclosure"] = dict(cfg.get("disclosure") or {}, bakuunNameApproved=flags["bakuunNameApproved"])
+    out_cfg["languageUrls"] = {"enabled": bool(localized), "languages": localized_langs, "pages": localized}
     out_cfg["buildTarget"] = target
     with open(os.path.join(out_dir, "site-config.json"), "w", encoding="utf-8") as f:
         json.dump(out_cfg, f, ensure_ascii=False, indent=2); f.write("\n")
@@ -497,6 +507,7 @@ def export(target):
     on = [k for k in FLAGS if flags[k]]
     print("  %s export -> %s" % (target, os.path.relpath(out_dir, ROOT)))
     print("  features on: %s" % (", ".join(on) or "none"))
+    if localized: print("  language URLs: %s × %d page(s)" % (", ".join(localized_langs), len(localized)))
     if skipped_routes: print("  routes withheld: %s" % ", ".join(r.replace("index.html", "") for r in skipped_routes))
     if problems:
         for p in problems: print("  ERROR", p)
