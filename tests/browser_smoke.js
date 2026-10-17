@@ -48,9 +48,18 @@ const IGNORE = /site-config\.json review needed|fonts\.(googleapis|gstatic)|TUNN
     const out = await pg.evaluate(() => [...document.querySelectorAll("[data-product-status]")].map(e => [e.getAttribute("data-product-status"), e.hidden, e.textContent.trim()]));
     await ctx.close(); return out;
   }
-  const gated = await roadmapVariant(j => { j.reviewGate.showUnapprovedStatuses = false; });
+  const gated = await roadmapVariant(j => {
+    j.reviewGate.showUnapprovedStatuses = false;
+    for (const p of Object.values(j.products)) p.approved = false;
+  });
   if (gated.some(x => !x[1])) issues.push("review gate: unapproved badges still visible with showUnapprovedStatuses=false");
-  const guarded = await roadmapVariant(j => { j.products["white-label"].status = "live"; });
+  const approvedOnly = await roadmapVariant(j => {
+    j.reviewGate.showUnapprovedStatuses = false;
+    j.products["white-label"].approved = true; j.products["agency-portal"].approved = false;
+  });
+  if (approvedOnly.filter(x => x[0] === "white-label").some(x => x[1])) issues.push("review gate: approved badge hidden with showUnapprovedStatuses=false");
+  if (approvedOnly.filter(x => x[0] === "agency-portal").some(x => !x[1])) issues.push("review gate: unapproved badge shown next to approved ones");
+  const guarded = await roadmapVariant(j => { j.products["white-label"].status = "live"; j.products["white-label"].approved = false; });
   if (guarded.filter(x => x[0] === "white-label").some(x => !x[1])) issues.push("approval guard: unapproved 'live' badge was rendered");
   console.log(`checked ${loads} page loads + gate/guard tests; issues: ${issues.length}`);
   console.log([...new Set(issues)].slice(0, 60).join("\n"));

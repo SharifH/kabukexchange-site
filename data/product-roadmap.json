@@ -7,66 +7,66 @@
   "products": {
     "white-label": {
       "status": "planned",
-      "approved": false,
-      "approvedBy": null,
-      "approvedOn": null,
-      "source": "Copy recommendations (suggested)",
+      "approved": true,
+      "approvedBy": "Sharif Hadidi",
+      "approvedOn": "2026-10-17",
+      "source": "Owner review 2026-10-17",
       "note": "Partner-branded travel storefronts powered by Exchange supply."
     },
     "agency-portal": {
       "status": "planned",
-      "approved": false,
-      "approvedBy": null,
-      "approvedOn": null,
-      "source": "Copy recommendations (suggested)",
+      "approved": true,
+      "approvedBy": "Sharif Hadidi",
+      "approvedOn": "2026-10-17",
+      "source": "Owner review 2026-10-17",
       "note": "Browser-based search, rates/availability and reservation management without an API integration."
     },
     "activities": {
-      "status": "planned",
-      "approved": false,
-      "approvedBy": null,
-      "approvedOn": null,
-      "source": "Copy recommendations (suggested)",
+      "status": "pilot",
+      "approved": true,
+      "approvedBy": "Sharif Hadidi",
+      "approvedOn": "2026-10-17",
+      "source": "Owner review 2026-10-17",
       "note": "Tours, attractions and destination experiences."
     },
     "ground-transportation": {
-      "status": "exploring",
-      "approved": false,
-      "approvedBy": null,
-      "approvedOn": null,
-      "source": "Copy recommendations (suggested)",
+      "status": "coming-soon",
+      "approved": true,
+      "approvedBy": "Sharif Hadidi",
+      "approvedOn": "2026-10-17",
+      "source": "Owner review 2026-10-17",
       "note": "Transfers, private transport, rail, car rental. Flights are explicitly out of scope."
     },
     "property-system-connectivity": {
       "status": "planned",
-      "approved": false,
-      "approvedBy": null,
-      "approvedOn": null,
-      "source": "Carried over from the previous site build",
+      "approved": true,
+      "approvedBy": "Sharif Hadidi",
+      "approvedOn": "2026-10-17",
+      "source": "Owner review 2026-10-17",
       "note": "PMS / channel-manager connectivity for eligible properties."
     },
     "pms-connectivity": {
       "status": "planned",
-      "approved": false,
-      "approvedBy": null,
-      "approvedOn": null,
-      "source": "Carried over from the previous site build",
+      "approved": true,
+      "approvedBy": "Sharif Hadidi",
+      "approvedOn": "2026-10-17",
+      "source": "Owner review 2026-10-17",
       "note": "PMS provider integrations."
     },
     "channel-manager-connectivity": {
-      "status": "planned",
-      "approved": false,
-      "approvedBy": null,
-      "approvedOn": null,
-      "source": "Carried over from the previous site build",
-      "note": "Channel-manager integrations."
+      "status": "live",
+      "approved": true,
+      "approvedBy": "Sharif Hadidi",
+      "approvedOn": "2026-10-17",
+      "source": "Owner review 2026-10-17",
+      "note": "Channel-manager integrations. Live: some connected directly, some through a technology partner (provider not named publicly)."
     },
     "ai-assisted-operations": {
       "status": "planned",
-      "approved": false,
-      "approvedBy": null,
-      "approvedOn": null,
-      "source": "Carried over from the previous site build ('Roadmap')",
+      "approved": true,
+      "approvedBy": "Sharif Hadidi",
+      "approvedOn": "2026-10-17",
+      "source": "Owner review 2026-10-17",
       "note": "KAOS AI-assisted partner operations."
     }
   }
