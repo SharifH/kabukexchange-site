@@ -10,6 +10,11 @@ All non-English strings are **machine/draft quality** and need native-speaker re
 before publication (ja, ko, zh-TW, ar). Brand names (KabuK Exchange, KBKx, KabuK Platform,
 KabuK Style Inc., HafH) are intentionally untranslated.
 
+## Priority 0a — status copy update, 2026-10-17 (all 4 languages)
+Rewritten after the owner set Activities → Pilot, Ground Transportation → Coming Soon and Channel managers → Live:
+`fut.ae.d`, `fut.gt.d`, `fut.gt.noflights`, `fut.disclaimer`, `wn.intro`, `wn.cta.body`, `hotels.roadmap.d`, `hotels.roadmap.note`, `ecoH.summary`.
+Check especially that “pilot” and “coming soon” match the status labels in `data/statuses.json`, that no date is implied, that the technology partner stays unnamed, and that flights stay explicitly excluded.
+
 ## Priority 0 — Asia-first and roadmap pass (all 4 languages)
 Key prefixes: `hp2.*`, `eco2.*`, `ecoD2.*`, `ecoH2.*`, `fut.*`, `wn.*`, `acc.*`, `pf.*`, `pt2.*`, `ht2.*`, `ab2.*`, `hdr2.*`, `ftr2.*`, `fm.future.*`, `cta.exploreOurNetwork`, `hdr.network.next.*`; plus the 12 status labels in `data/statuses.json`.
 Check especially: “Asia-first” and “direct vs. connected inventory” (must not imply direct contracts for global inventory), ryokan terminology, “Supplier OTAs”, and the explicit flight exclusion in Ground Transportation.
