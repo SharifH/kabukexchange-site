@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-17 (b) — Copy aligned with approved statuses (not deployed)
+- Activities (Pilot), Ground Transportation (Coming Soon) and the roadmap disclaimer/intro on Home and What's Next reworded to match the approved statuses; flights still explicitly excluded.
+- For Hotels roadmap card, For Hotels diagram rail and About list: the combined "PMS / channel managers — Planned" badge is split into **Channel managers: Live** and **PMS providers: Planned**; card text and diagram summary updated. New `.status-row` / `.status-pair` styles.
+- Draft ja/ko/zh-TW/ar for the 9 changed keys (TRANSLATION_REVIEW.md Priority 0a).
+
 ## 2026-10-17 — Indexable language URLs (built, `languageUrls` OFF)
 - New `site-config.json → languageUrls` (ships `enabled: false`). When on, the production export adds static `/ja/`, `/ko/`, `/zh-TW/`, `/ar/` copies of 10 pages (+ the two launch-gated pages while their flags are on) with the i18n copy rendered into the HTML, correct `lang`/`dir`, translated title/description, self-referencing canonicals, a full hreflang set with `x-default`, and per-language sitemap entries with `xhtml:link` alternates (`language_pages.py`).
 - `script.js`: on those pages the URL decides the language; the selector navigates to the matching language URL and config links stay in-language. Unchanged when the flag is off.
