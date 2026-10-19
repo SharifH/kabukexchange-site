@@ -1,0 +1,4 @@
+openai>=2.0.0
+openpyxl>=3.1.0
+# Optional: only needed when provider is set to "anthropic" (Claude).
+anthropic>=0.39.0

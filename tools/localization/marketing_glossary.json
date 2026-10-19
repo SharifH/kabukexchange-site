@@ -1,0 +1,87 @@
+{
+  "Global Travel Distribution Infrastructure": {
+    "ja": "グローバル旅行流通インフラ",
+    "tw": "全球旅遊配銷基礎設施",
+    "kr": "글로벌 여행 유통 인프라"
+  },
+  "Enterprise-grade APIs": {
+    "ja": "エンタープライズ向けAPI",
+    "tw": "企業級 API",
+    "kr": "엔터프라이즈급 API"
+  },
+  "Connectivity": {
+    "ja": "接続性",
+    "tw": "串接能力",
+    "kr": "연결성"
+  },
+  "Distribution Partner": {
+    "ja": "配信パートナー",
+    "tw": "配銷合作夥伴",
+    "kr": "유통 파트너"
+  },
+  "Supply Partner": {
+    "ja": "供給パートナー",
+    "tw": "供應合作夥伴",
+    "kr": "공급 파트너"
+  },
+  "Technology Partner": {
+    "ja": "テクノロジーパートナー",
+    "tw": "技術合作夥伴",
+    "kr": "기술 파트너"
+  },
+  "Hotel": {
+    "ja": "ホテル",
+    "tw": "飯店",
+    "kr": "호텔"
+  },
+  "Property": {
+    "ja": "施設",
+    "tw": "住宿設施",
+    "kr": "숙박 시설"
+  },
+  "Supplier": {
+    "ja": "サプライヤー",
+    "tw": "供應商",
+    "kr": "공급사"
+  },
+  "OTA": {
+    "ja": "OTA",
+    "tw": "OTA",
+    "kr": "OTA"
+  },
+  "Channel Manager": {
+    "ja": "チャネルマネージャー",
+    "tw": "通路管理系統",
+    "kr": "채널 매니저"
+  },
+  "PMS": {
+    "ja": "PMS",
+    "tw": "PMS",
+    "kr": "PMS"
+  },
+  "CRS": {
+    "ja": "CRS",
+    "tw": "CRS",
+    "kr": "CRS"
+  },
+  "Rate Plan": {
+    "ja": "料金プラン",
+    "tw": "房價方案",
+    "kr": "요금 플랜"
+  },
+  "Inventory": {
+    "ja": "在庫",
+    "tw": "庫存",
+    "kr": "재고"
+  },
+  "Reservation": {
+    "ja": "予約",
+    "tw": "預訂",
+    "kr": "예약"
+  },
+  "Distribution Channel": {
+    "ja": "配信チャネル",
+    "tw": "配銷通路",
+    "kr": "유통 채널"
+  }
+}
