@@ -1,0 +1,123 @@
+name: Localization
+
+# Localization CI for the KBKx marketing site.
+#
+# The engine lives in tools/localization/ and translates the i18n locale files
+# (i18n/en.json -> i18n/ja.json, i18n/zh-TW.json, i18n/ko.json). Arabic
+# (i18n/ar.json) is intentionally NOT handled here.
+#
+# Two jobs:
+#   validate  - fast, deterministic, no API key, no network, no cost. Runs on
+#               every PR that touches the locale files or glossaries.
+#   translate - translates new/changed English and opens a PR with the updated
+#               locale files. Runs on manual dispatch or push to main that
+#               changes i18n/en.json. Requires the OPENAI_API_KEY secret.
+#
+# Secrets (set under Settings -> Secrets and variables -> Actions):
+#   OPENAI_API_KEY      - required for the translate job (default provider)
+#   ANTHROPIC_API_KEY   - optional; only if you switch provider to "anthropic"
+
+on:
+  pull_request:
+    paths:
+      - "i18n/**.json"
+      - "tools/localization/kbkx_glossary.json"
+      - "tools/localization/marketing_glossary.json"
+  push:
+    branches: [main]
+    paths:
+      - "i18n/en.json"
+  workflow_dispatch:
+    inputs:
+      languages:
+        description: "Languages to (re)translate, space separated (engine codes: ja tw kr)"
+        default: "ja tw kr"
+
+concurrency:
+  group: localization-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # ---------------------------------------------------------------------------
+  # Fast, deterministic gate. No API key, no network, no cost.
+  # Fails the PR if any translation's placeholders don't match the source.
+  # ---------------------------------------------------------------------------
+  validate:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: tools/localization
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - name: Unit tests (core logic)
+        run: python3 test_core.py
+      - name: Unit tests (batch / provider)
+        run: python3 test_batch.py
+      - name: Validate marketing locales
+        run: python3 loc_validate.py --marketing marketing_config.json --report loc_report.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: localization-report
+          path: tools/localization/loc_report.json
+
+  # ---------------------------------------------------------------------------
+  # Translate changed/blank keys and open a PR with the updated locale files.
+  # The engine is incremental: fingerprints + translation memory mean only new
+  # or edited English strings hit the API, so this stays cheap on every run.
+  # Runs on push to main (en.json changes) or manual dispatch.
+  # ---------------------------------------------------------------------------
+  translate:
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+        working-directory: tools/localization
+      - name: Translate marketing site
+        working-directory: tools/localization
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          # To use Claude instead, set "provider": "anthropic" in
+          # marketing_config.json and provide the key below:
+          # ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          python3 localize_marketing_site.py \
+            --config marketing_config.json \
+            --languages ${{ github.event.inputs.languages || 'ja tw kr' }}
+      - name: Re-validate before proposing changes
+        working-directory: tools/localization
+        run: python3 loc_validate.py --marketing marketing_config.json
+      - name: Rebuild i18n bundle
+        run: python3 build.py
+      - name: Open PR with updated translations
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "chore(i18n): update translations for changed copy"
+          title: "i18n: update translations"
+          body: |
+            Automated translation of new/changed copy by the KBKx localization engine.
+
+            Placeholder validation passed. Review `i18n/marketing_localization_qa.json`
+            (advisories) before merging. Arabic (`i18n/ar.json`) is not touched by this
+            workflow.
+          branch: i18n/auto-translations
+          add-paths: |
+            i18n/ja.json
+            i18n/zh-TW.json
+            i18n/ko.json
+            i18n/en.corrected.json
+            i18n/marketing_copy_map.json
+            i18n/marketing_localization_qa.json
+            i18n-bundle.js
+            tools/localization/localization_cache.json

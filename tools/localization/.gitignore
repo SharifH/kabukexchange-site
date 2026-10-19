@@ -1,0 +1,16 @@
+# Secrets — never commit real keys
+.env
+*.env
+!.env.example
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Local run artifacts
+smoke/localized/
+smoke/smoke_cache.json
+smoke/last_run.log
+*.tmp
+~$*.xlsx

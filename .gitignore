@@ -2,3 +2,9 @@ dist/
 dist-preview/
 __pycache__/
 .DS_Store
+
+# Localization engine secrets & local run artifacts (tools/localization/)
+# Keep this explicit so .env.example is never ignored.
+tools/localization/.env
+tools/localization/.venv/
+tools/localization/loc_report.json
