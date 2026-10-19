@@ -1408,3 +1408,7 @@ button.cov-tile:disabled, button.cov-tile.is-dimmed { cursor: default; }
 @media (min-width: 1101px) and (max-width: 1519px) { .header-cta .header-property { display: none; } }
 @media (min-width: 1520px) { .site-header .header-inner { max-width: 1480px; } }
 .card > .status, .card > .status--sm { align-self: flex-start; }
+.status-row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; margin: 0 0 8px; }
+.status-pair { display: inline-flex; align-items: center; gap: 6px; font-size: .8125rem; font-weight: 600; }
+.eco__rail .status-row { margin: 6px 0 2px; }
+.eco__rail .status-pair { font-size: .68rem; color: var(--on-navy-muted); }
