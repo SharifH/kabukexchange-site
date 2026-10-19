@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-19 — Single, safe deploy workflow
+- Removed `.github/workflows/deploy.yml` ("Deploy GitHub Pages with Staging Gate"). It uploaded the repository root (including `_private/`, `fixtures/`, docs and launch-gated sources) instead of `dist/`, and its approval wait held the shared `pages` concurrency group, so later deploys were queued and cancelled.
+- `.github/workflows/deploy-pages.yml` remains the only deploy: checks + tests + `python3 build.py --production`, publishes `dist/` only.
+- `check_site.py`: fails if any workflow uploads a Pages artifact other than `dist/` or skips the production build.
+
 ## 2026-10-17 (b) — Copy aligned with approved statuses (not deployed)
 - Activities (Pilot), Ground Transportation (Coming Soon) and the roadmap disclaimer/intro on Home and What's Next reworded to match the approved statuses; flights still explicitly excluded.
 - For Hotels roadmap card, For Hotels diagram rail and About list: the combined "PMS / channel managers — Planned" badge is split into **Channel managers: Live** and **PMS providers: Planned**; card text and diagram summary updated. New `.status-row` / `.status-pair` styles.

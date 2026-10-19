@@ -154,6 +154,16 @@ for p in pages:
         try: json.loads(body)
         except ValueError as e: err("%s: invalid JSON-LD (%s)" % (rel(p), e))
 
+# 6c. Deploy workflows publish only the production export
+for wf in glob.glob(os.path.join(ROOT, ".github", "workflows", "*.y*ml")):
+    w = open(wf, encoding="utf-8").read()
+    if "upload-pages-artifact" in w:
+        paths = re.findall(r"upload-pages-artifact@[^\n]*\n(?:\s+with:\s*\n)?(?:\s+[a-z_-]+:.*\n)*?\s+path:\s*['\"]?([^'\"\s#]+)", w)
+        if not paths or any(p.strip("./") != "dist" for p in paths):
+            err("%s: Pages artifact must be dist/ (python3 build.py --production), got %s" % (rel(wf), paths or "no path"))
+        if "build.py --production" not in w:
+            err("%s: uploads a Pages artifact without running python3 build.py --production" % rel(wf))
+
 # 7. Launch gates
 sys.path.insert(0, ROOT)
 import publish as PUB
